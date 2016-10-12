@@ -1,0 +1,25 @@
+.csgNews img{
+	width: 40px;
+	height: 40px;
+}
+.csgNews .table>thead>tr>th, .csgNews .table>tbody>tr>td{
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+.csgNews .table>tbody>tr>td:first-child{
+	font-size: 24px;
+}
+.csgNews .table>tbody>tr>td a {
+    line-height: 32px;
+}
+/*财神谷新闻新增*/
+.csgNewsAdd{
+	border-top: 1px solid #000;
+	padding-top: 20px
+}
+.csgNewsAdd input{
+	width: 45%;
+}
+.csgNewsAdd .row{
+	margin: 20px 0;
+}
