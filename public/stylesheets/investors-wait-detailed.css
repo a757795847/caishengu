@@ -1,0 +1,33 @@
+
+/*基本信息*/
+.basicNews,.investorsNews{
+	
+}
+.basicNews ul{
+	border: 1px solid #000;
+}
+.basicNews p,.investorsNews p{
+	margin: 16px 0 10px -16px;
+    font-size: 24px;
+}
+.basicNews li,.investorsNews li{
+	border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+}
+.basicNews li{
+	float: left;
+}
+.basicNews li img{
+	height: 30px;
+	margin: 5px;
+	width: 30px;
+	float: right;
+}
+button.btn.btn-default{
+	padding: 10px 64px;
+    margin: 28px -17px 0px 30px;
+}
+/*投资人信息*/
