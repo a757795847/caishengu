@@ -3,12 +3,41 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/welcome.css")">
     </head>
     <body>
-        21354545
+        <div class="panel-body">
+            <div>
+                <img src="@routes.Assets.at("images/logo.jpg")" class="img-responsive" alt="Responsive image">
+
+            </div>
+            <form action="#" id="login-form">
+                <div class="form-group">
+                    <input class="form-control" type="text" size="15" name="userId"
+                    placeholder="请输入用户名"/>
+                    <p error-message id=UserId></p>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" size="15" name="password"
+                    placeholder="请输入密码"/>
+                    <p error-message id=UserPwd></p>
+                </div>
+                <span class="hint">用户名有误</span>
+                <button type="submit" class="btn btn-primary block full-width m-b" id="btn" onclick="return check(this.form)">登录</button>
+
+            </form>
+        </div>
 
 
 
 
+
+        <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+            <!-- jQuery UI 1.11.4 -->
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+
+        <script src="@routes.Assets.at("javascripts/welcome.js")"></script>
     </body>
 </html>
