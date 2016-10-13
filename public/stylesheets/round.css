@@ -1,0 +1,28 @@
+
+.round .table>thead>tr>th, .round .table>tbody>tr>td{
+    border-right: 1px solid #000;
+}
+/*round-wait-detailed*/
+.roundLogo{
+	font-size: 24px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+}
+.roundNews {
+    border-bottom: 1px solid #000;
+    margin-bottom: 15px;
+    padding: 20px 0;
+    font-size: 16px;
+    line-height: 26px;
+}
+.roundSub{
+	margin-top: 20px;
+	margin-right: 0;
+}
+.roundSub button.btn.btn-primary.col-md-2.col-lg-2.pull-right {
+    margin-left: 20px;
+}
+/*round-manage-add*/
+.roundAdd{
+	font-size: 20px;
+}

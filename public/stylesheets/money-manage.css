@@ -1,0 +1,8 @@
+
+/*form*/
+.form-inline .form-group input{ 
+	width: 100%;
+}
+.manageBtn{
+	padding-left: 0
+}

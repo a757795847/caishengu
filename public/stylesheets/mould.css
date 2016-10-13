@@ -1,0 +1,64 @@
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#welcome{
+    margin-right: 15px;
+    height: 100%;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #222d32;
+    text-decoration: none;
+}
+.content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .newsTop{
+    margin: 20px -15px;
+}
+.content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .newsTop button{
+    padding: 9px 15px;
+    margin: 0px 12px 0px 0;
+}
+img{
+    width: 130px;
+    height: 130px;
+}
+/*表格*/
+.table>thead>tr>th {
+    border-bottom: 2px solid #333;
+    text-align: center;
+    font-size: 18px;
+    padding: 12px 0;
+}
+.table>tbody>tr>td{
+    border-top: 1px solid #0e0e0e;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 0;
+}
+.table>tbody>tr>td a{
+	padding: 0 10px;
+}
+.form-inline .form-group input{ 
+    width: 100%;
+}
+table.table {
+    border: 2px solid #000;
+    margin-top: 20px;
+}
+.content-wrapper .col-xs-12 {
+    padding: 0 36px;
+}
+button.btn.btn-default.btnSearch{
+    margin: 0;
+    padding: 0;
+    height: 34px;
+    width: 100%;
+}
+/*财务审批界面*/
+.content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .moneyRun{
+    margin: 20px -15px;
+}
+.content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .moneyRun button.btn.btn-default{
+    margin-left: 20px;
+}
+

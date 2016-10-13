@@ -1,0 +1,10 @@
+
+/*弹出框*/
+.modal-footer button.btn.btn-default {
+    padding: 8px 40px;
+    margin: -34px 3px 0px 30px;
+}
+.modal-footer button.btn.btn-default.btnList{
+	padding: 8px 9px;
+    margin: -34px 3px 0px 12px;
+}
