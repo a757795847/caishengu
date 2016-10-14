@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Dashboard</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/Administrator.css")">
+
+
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+
+                    <!-- Logo -->
+                <a href="/List" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>A</b>LT</span>
+                        <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                </a>
+
+                    <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <div class="dropdown pull-right" >
+                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    老哥!有空三五瓶!
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">退出</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            //菜单列表
+            <aside class="main-sidebar">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="/List">
+                                <i class="fa fa-share"></i> <span>商户管理</span>
+                                <span class="pull-right-container">
+
+            </span>
+                            </a>
+
+                            <ul class="sidebar-menu">
+
+                                <li class="active treeview">
+                                    <a href="/Administrator">
+                                        <i class="fa fa-dashboard"></i> <span>管理员账号</span>
+                                        <span class="pull-right-container">
+            </span>
+                                    </a>
+                                </li>
+                </section>
+            </aside>
+
+
+            <div class="content-wrapper">
+                <section class="content">
+
+
+                        <!-- TABLE: LATEST ORDERS -->
+                    <div class="box box-info">
+                        <div class="father">
+                            <input class="form-control" type="text" placeholder="管理员ID/管理员姓名"/>
+                            <input type="btn" class="btn btn-default" value="新建" id="btnRight">
+                        </div>
+                        <div class="box-header with-border">
+
+
+
+                                <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table no-margin">
+                                        <thead>
+                                            <tr>
+                                                <th>商户 ID</th>
+                                                <th>管理员</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR9842</a></td>
+                                                <td><span class="label label-success">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR1848</a></td>
+                                                <td><span class="label label-warning">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR7429</a></td>
+                                                <td><span class="label label-danger">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR7429</a></td>
+                                                <td><span class="label label-info">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR1848</a></td>
+                                                <td><span class="label label-warning">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="../pages/examples/invoice.html">OR7429</a></td>
+                                                <td><span class="label label-danger">张三</span></td>
+                                                <td><a href="/Compile">编辑</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    <!-- /.table-responsive -->
+                            </div>
+                                <!-- /.box-body -->
+                                <!-- /.box-footer -->
+                        </div>
+                        <div class="dropdown pull-right" >
+                            <nav>
+                                <ul class="pagination">
+                                    <li class="disabled"><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><a href="#">7</a></li>
+                                    <li><a href="#">8</a></li>
+                                    <li><a href="#">9</a></li>
+                                    <li class="disabled"><a href="#">&raquo;</a></li>
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                            <!-- /.box -->
+                    </div>
+                        <!-- /.col -->
+                </section>
+            </div>
+            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
+    </body>
+</html>

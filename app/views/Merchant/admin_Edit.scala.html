@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>编辑商户/新建</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/EditTwo.css")">
+
+
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+
+                    <!-- Logo -->
+                <a href="index2.html" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>A</b>LT</span>
+                        <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                </a>
+
+                    <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <div class="dropdown pull-right" >
+                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    老哥!有空三五瓶!
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">退出</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            //菜单列表
+            <aside class="main-sidebar">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="/List">
+                                <i class="fa fa-share"></i> <span>商户管理</span>
+                                <span class="pull-right-container">
+
+            </span>
+                            </a>
+
+                            <ul class="sidebar-menu">
+
+                                <li class="active treeview">
+                                    <a href="/Administrator">
+                                        <i class="fa fa-dashboard"></i> <span>管理员账号</span>
+                                        <span class="pull-right-container">
+            </span>
+                                    </a>
+                                </li>
+                </section>
+            </aside>
+
+
+            <div class="content-wrapper">
+                <section class="content">
+
+
+                        <!-- TABLE: LATEST ORDERS -->
+                    <div class="box box-info" style="width:65%;">
+                        <div class="box-header with-border">
+
+
+
+                                <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <a href="/List" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2"id="shanghu">商户信息</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>商户ID:<span>12545454</span></td>
+                                                <td>联系人:<span>张三</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>联系方式:<span>215465456</span></td>
+                                                <td>商店名称:<span>水果店</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>商户地址:<span>第一大道</span></td>
+                                                <td>收款账号:<span>1214354564</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-bordered" id="two">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">收银信息</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>待结算:<span>124元</span></td>
+                                                <td><a href="/History">查看历史记录</a></td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                    <!-- /.table-responsive -->
+                            </div>
+                                <!-- /.box-body -->
+                                <!-- /.box-footer -->
+                        </div>
+
+                            <!-- /.box -->
+                    </div>
+                        <!-- /.col -->
+                </section>
+            </div>
+            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
+    </body>
+</html>
+

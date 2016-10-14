@@ -51,7 +51,7 @@ body{
     text-align:center;
     margin-top:5px;
     height:25px;
-    line-height:18px;
+    line-height:13px;
     width:100%;
     border-radius:5px;
     margin-left:5px;
@@ -65,7 +65,7 @@ body{
     position: absolute;
     right: 10px;
     top: 50%;
-    margin-top: -65px;
+    margin-top: -60px;
 
 
 }
@@ -76,6 +76,6 @@ body{
     position: absolute;
     right: 10px;
     top: 50%;
-    margin-top: -8px;
+    margin-top: -20px;
 
 }

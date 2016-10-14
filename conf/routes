@@ -12,4 +12,14 @@ GET        /admin               controllers.AdminController.admin
 
 GET        /                    controllers.LoginController.login
 
+GET        /List               controllers.AdminLTEController.adminLTE
+
+GET        /Edit               controllers.AdminEditController.adminEdit
+
+GET        /History               controllers.AdminHistoryController.adminHistory
+
+GET        /Administrator              controllers.AdministratorController.administrator
+
+GET        /Compile              controllers.AdminCompileController.adminCompile
+
     
