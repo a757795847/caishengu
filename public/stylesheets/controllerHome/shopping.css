@@ -60,6 +60,22 @@
 #shopping form .col-md-2.col-lg-2 {
     padding-left: 0;
 }
+/*shopping-frame-detailed*/
+#shopping{
+    margin-top: 20px;
+}
+#shopping .frameImg img{
+    margin-right: 10px;
+}
+#shopping .frameImg div{
+    border: 1px solid #000;
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    text-align: center;
+    line-height: 110px;
+    font-size: 32px;
+}
 
 /*弹出框*/
 .modal-footer button.btn.btn-default {

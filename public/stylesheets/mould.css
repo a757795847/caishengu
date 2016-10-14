@@ -19,8 +19,9 @@ ul,li{
     margin: 0px 12px 0px 0;
 }
 img{
-    width: 130px;
-    height: 130px;
+    width: 110px;
+    height: 110px;
+    margin-right: 10px;
 }
 /*表格*/
 .table>thead>tr>th {
@@ -53,6 +54,16 @@ button.btn.btn-default.btnSearch{
     padding: 0;
     height: 34px;
     width: 100%;
+}
+.addImg{
+    display: inline-block;
+    border: 1px solid #000;
+    font-size: 37px;
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    line-height: 90px;
+    margin-right: 10px;
 }
 /*财务审批界面*/
 .content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .moneyRun{

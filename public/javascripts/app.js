@@ -17,24 +17,13 @@ if (typeof jQuery === "undefined") {
 }
 // //localStorage.setItem('caishengu_token','f6048123952cf034551240a8afdbf09d');
 // console.log("localStorage.getItem('caishengu_token')=",localStorage.getItem('caishengu_token'));
-// if(localStorage.getItem('caishengu_token') == null){
-//        //todo redirect login page
-// }
+//  if(localStorage.getItem('caishengu_token') == null){
+//         //todo redirect login page
+//     location.href = '/';
+//  }
 // var token = localStorage.getItem('caishengu_token');
 //localStorage.removeItem('caishengu_token');
 
-$('#submit').on('click', function (e) {
-    var text = $('#text').val();
-    var password = $('#password').val();
-    $.post("http://" + backend_host + '/auth/oauth/access_token',
-        {
-            "username": text,
-            "password": password,
-            "grant_type": "password"
-        }, function (data) {
-            console.log(data);
-        })
-})
 
 
 /* AdminLTE

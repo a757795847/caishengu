@@ -1,13 +1,15 @@
-
-/*基本信息*/
-.basicNews,.investorsNews{
-	
+img{
+	height: 30px;
+	margin: 5px;
+	width: 30px;
+	float: right;
 }
+/*基本信息*/
 .basicNews ul{
 	border: 1px solid #000;
 }
 .basicNews p,.investorsNews p{
-	margin: 16px 0 10px -16px;
+	margin: 0 0 10px -16px;
     font-size: 24px;
 }
 .basicNews li,.investorsNews li{
@@ -17,17 +19,25 @@
     height: 44px;
     line-height: 44px;
 }
+.basicNews li:nth-of-type(even){
+	border-right: none;
+}
+.basicNews li:last-child{
+	border-bottom: none;
+}
 .basicNews li{
 	float: left;
 }
-.basicNews li img{
-	height: 30px;
-	margin: 5px;
-	width: 30px;
-	float: right;
+.investorsNews li{
+	border: 1px solid #000;
+	display: block;
 }
 button.btn.btn-default{
 	padding: 10px 64px;
     margin: 28px -17px 0px 30px;
+}
+.investorsNews .example{
+    border: none;
+    background-color: #ecf0f5;
 }
 /*投资人信息*/
