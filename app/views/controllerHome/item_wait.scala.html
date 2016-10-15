@@ -21,6 +21,7 @@ folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
 
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/event.css")">
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -76,36 +77,14 @@ folder instead of downloading all of them to reduce the load. -->
                             </a>
                         </li>
                         <li class="treeview">
-                            <a href="#">
+                            <a href="/controllerHome/investors">
                                 <span>投资人管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/controllerHome/investors/wait">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                    </a>
-                                </li>
-                                <li><a href="/controllerHome/investors/list"><i class="fa fa-circle-o"></i>排序</a></li>
-                            </ul>
                         </li>
                         <li class="treeview">
-                            <a href="#">
+                            <a href="/controllerHome/shareholder">
                                 <span>股东管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/controllerHome/shareholder/wait">
-                                        <i class="fa fa-circle-o"></i>待审批列表
-                                    </a>
-                                </li>
-                                <li><a href="/controllerHome/shareholder/list"><i class="fa fa-circle-o"></i>股东列表</a></li>
-                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
@@ -116,44 +95,14 @@ folder instead of downloading all of them to reduce the load. -->
                             </a>
                             <ul class="treeview-menu">
                                 <li>
-                                    <a href="/controllerHome/shopping/wait">
-                                        <i class="fa fa-circle-o"></i>待发货
+                                    <a href="/controllerHome/shopping">
+                                        <i class="fa fa-circle-o"></i>订单
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/controllerHome/shopping/out">
-                                        <i class="fa fa-circle-o"></i>已发货
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/shopping/receive">
-                                        <i class="fa fa-circle-o"></i>已收货
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/shopping/close">
-                                        <i class="fa fa-circle-o"></i>关闭订单
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages/tables/simple.html">
+                                    <a href="/controllerHome/shopping/frame">
                                         <i class="fa fa-circle-o"></i>商城货架
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
                                     </a>
-                                    <ul class="treeview-menu">
-                                        <li class="active">
-                                            <a href="/controllerHome/shopping/frame">
-                                                <i class="fa fa-circle-o"></i>商品
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/controllerHome/shopping/ticket">
-                                                <i class="fa fa-circle-o"></i>门票
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -174,71 +123,21 @@ folder instead of downloading all of them to reduce the load. -->
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="#">
+                            <a href="/controllerHome/event">
                                 <span>活动审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li class="active">
-                                    <a href="/controllerHome/event/wait">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/event/out">
-                                        <i class="fa fa-circle-o"></i>已通过
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>项目审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/controllerHome/item/wait">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/item/out">
-                                        <i class="fa fa-circle-o"></i>已通过
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>圈子审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/controllerHome/round/wait">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/round/out">
-                                        <i class="fa fa-circle-o"></i>审批通过
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/round/manage">
-                                        <i class="fa fa-circle-o"></i>圈子类目管理
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="treeview active">
+                            <a href="/controllerHome/item">
+                                <span>项目审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controllerHome/round">
+                                <span>圈子审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
                             <a href="/controllerHome/csgNews">
                                 <span>财神谷新闻</span>
                             </a>
@@ -254,32 +153,9 @@ folder instead of downloading all of them to reduce the load. -->
                             </a>
                         </li>
                         <li class="treeview">
-                            <a href="#">
+                            <a href="/controllerHome/ticket">
                                 <span>优惠券</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="/controllerHome/ticket"><i class="fa fa-circle-o">
-                </i>
-                                        规则
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/ticket/detailed"><i class="fa fa-circle-o">
-                </i>
-                                        优惠券
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/controllerHome/ticket/into"><i class="fa fa-circle-o">
-                </i>
-                                        投放记录
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="/controllerHome/love">
@@ -294,58 +170,42 @@ folder instead of downloading all of them to reduce the load. -->
                 <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper row">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                    <div class="row newsTop">
-                        <button type="button" class="btn btn-default col-md-2 col-lg-2">待审批列表</button>
-                        <button type="button" class="btn btn-default col-md-2 col-lg-2">已通过</button>
-                    </div>
-                    <div class="row">
-                        <form class="form-inline row" role="form">
-                            <div class="form-group col-md-6 col-lg-6 col-md-offset-4 col-lg-offset-4">
-                                <input type="text" class="form-control" placeholder="手机号/姓名">
-                            </div>
-                            <div class="col-md-2 col-lg-2">
-                                <button type="submit" class="btn btn-default btnSearch">搜索</button>
-                            </div>
-                        </form>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>项目名称</th>
-                                    <th>联系人</th>
-                                    <th>联系方式</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>我是项目名称</td>
-                                    <td>张三</td>
-                                    <td>12345678933</td>
-                                    <td>
-                                        <a href="#">查看详情</a>
-                                        <a href="#">通过</a>
-                                        <a href="#" data-toggle="modal" data-target="#myModal">拒绝</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <nav class="pull-right">
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&raquo;</a></li>
+                    <div class="row event">
+                        <div class="eventImg">
+                            <p>Logo</p>
+                            <img src="../dist/img/avatar.png">
+                        </div>
+                        <div class="eventNews">
+                            <ul>
+                                <li>标题：<span>Touchjet</span></li>
+                                <li>名称一句话简介：<span>新型的课触摸式投影仪</span></li>
+                                <li>地区：<span>杭州</span></li>
+                                <li>类型：<span>专业工具</span></li>
+                                <li>项目详情：<span>通过无线连接到同Android平台的移动设备，并投射屏幕内容</span></li>
+                                <li>
+                                    <p>项目介绍图</p>
+                                    <img src="../dist/img/avatar.png">
+                                    <img src="../dist/img/avatar.png">
+                                    <img src="../dist/img/avatar.png">
+                                </li>
+                                <li>述求：<span>目前项目需要融资三千万</span></li>
+                                <li>联系人：<span>张三</span></li>
+                                <li>联系电话：<span>23456789</span></li>
+                                <li>述求：<span>目前项目需要融资三千万</span></li>
+                                <li>述求：<span>目前项目需要融资三千万</span></li>
                             </ul>
-                        </nav>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-primary pull-right col-md-2 col-lg-2" >通过</button>
+                            <button type="button" class="btn btn-default pull-right col-md-2 col-lg-2" data-toggle="modal" data-target="#myModal">拒绝</button>
+                        </div>
                     </div>
                 </div>
                     <!-- /.content -->
             </div>
         </div>
             <!-- ./wrapper -->
+            <!-- /.modal-content -->
             <!-- 弹窗 -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -370,9 +230,6 @@ folder instead of downloading all of them to reduce the load. -->
                 </div>
             </div>
         </div>
-
-
-
 
 
         <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>

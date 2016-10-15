@@ -9,3 +9,4 @@ class EventWaitController extends Controller {
         Ok(views.html.controllerHome.event_wait())
     }
 }
+

@@ -1,3 +1,8 @@
+body{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+}
 ul,li{
 	margin: 0;
 	padding: 0;
@@ -12,7 +17,7 @@ ul,li{
     text-decoration: none;
 }
 .content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .newsTop{
-    margin: 20px -15px;
+    margin: 30px -15px 40px -15px;
 }
 .content-wrapper .col-md-10.col-lg-10.col-md-offset-1.col-lg-offset-1 .newsTop button{
     padding: 9px 15px;
@@ -22,6 +27,13 @@ img{
     width: 110px;
     height: 110px;
     margin-right: 10px;
+}
+/*tab切换*/
+.hideDiv{
+    display: none;
+}
+.btn-info:hover, .btn-info:active, .btn-info.hover {
+    background-color: #00c0ef;
 }
 /*表格*/
 .table>thead>tr>th {

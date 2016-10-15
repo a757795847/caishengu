@@ -85,7 +85,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 <span>股东管理</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview active">
                             <a href="#">
                                 <span>商城订单管理</span>
                                 <span class="pull-right-container">
@@ -93,7 +93,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li>
+                                <li class="active">
                                     <a href="/controllerHome/shopping">
                                         <i class="fa fa-circle-o"></i>订单
                                     </a>
@@ -151,7 +151,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 <span>融资事件管理</span>
                             </a>
                         </li>
-                        <li class="treeview active">
+                        <li class="treeview">
                             <a href="/controllerHome/ticket">
                                 <span>优惠券</span>
                             </a>
@@ -170,100 +170,15 @@ folder instead of downloading all of them to reduce the load. -->
             <div class="content-wrapper row">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
                     <div class="row newsTop">
-                        <button type="button" class="btn btn-info col-md-2 col-lg-2">规则</button>
-                        <button type="button" class="btn btn-default col-md-2 col-lg-2">优惠券</button>
-                        <button type="button" class="btn btn-default col-md-2 col-lg-2">投放记录</button>
-                        <button type="button" class="btn btn-default col-md-2 col-lg-2">使用记录</button>
+                        <button type="button" class="btn btn-info col-md-2 col-lg-2">待发货</button>
+                        <button type="button" class="btn btn-default col-md-2 col-lg-2">已发货</button>
+                        <button type="button" class="btn btn-default col-md-2 col-lg-2">已收货</button>
+                        <button type="button" class="btn btn-default col-md-2 col-lg-2">关闭订单</button>
                     </div>
                     <div class="showDiv">
                         <div class="row">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>时间范围</th>
-                                        <th>充值金额</th>
-                                        <th>赠送优惠券</th>
-                                        <th>备注</th>
-                                        <th>操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2013-5-6 —— 2014-6-7</td>
-                                        <td>100</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                                                券名
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">券名1</a></li>
-                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">券名2</a></li>
-                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">券名3</a></li>
-                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">券名4</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td>仅限XX门店使用</td>
-                                        <td>
-                                            <a href="#">删除</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">新增</button>
-                        </div>
-                    </div>
-                    <div class="showDiv hideDiv">
-                        <div class="row preferentialContnet">
-                            <table class="table">
-                                <colgroup>
-                                    <col class="col-xs-2">
-                                    <col class="col-xs-2">
-                                    <col class="col-xs-6">
-                                    <col class="col-xs-2">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>图片</th>
-                                        <th>券名</th>
-                                        <th>备注</th>
-                                        <th>操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="#">上传</a>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control inputLeft" placeholder="酒店券（20">
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control inputLeft" placeholder="仅限XX门店使用（256字）">
-                                        </td>
-                                        <td>
-                                            <a href="#">删除</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">新增</button>
-                        </div>
-                    </div>
-                    <div class="showDiv hideDiv">
-                        <div class="row preferentialContnet">
                             <form class="form-inline row" role="form">
-                                <div class="col-md-4 col-lg-4">
-                                    <button type="submit" class="btn btn-default ">所有已核销</button>
-                                    <button type="submit" class="btn btn-default ">所有未核销</button>
-                                </div>
-                                <div class="form-group col-md-6 col-lg-6 ">
+                                <div class="form-group col-md-6 col-lg-6 col-md-offset-4 col-lg-offset-4">
                                     <input type="text" class="form-control" placeholder="手机号/姓名">
                                 </div>
                                 <div class="col-md-2 col-lg-2">
@@ -273,59 +188,209 @@ folder instead of downloading all of them to reduce the load. -->
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>投放时间</th>
-                                        <th>券名</th>
-                                        <th>投放人</th>
+                                        <th>订单编号</th>
+                                        <th>内容</th>
+                                        <th>购买人</th>
                                         <th>联系方式</th>
-                                        <th>状态</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2013-5-6</td>
-                                        <td>酒店券</td>
-                                        <td>张三</td>
-                                        <td>12345678933</td>
-                                        <td>已核销/未核销</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">新增</button>
-                        </div>
-                    </div>
-                    <div class="showDiv hideDiv">
-                        <div class="row preferentialContnet">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>优惠券</th>
-                                        <th>备注</th>
                                         <th>操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>100</td>
-                                        <td></td>
+                                        <td>10001</td>
+                                        <td>财神饼等3件商品</td>
+                                        <td>张三</td>
+                                        <td>12345678933</td>
                                         <td>
-                                            <a href="#">删除</a>
+                                            <a href="shopping-wait-detailed.html">查看详情</a>
+                                            <a href="#" data-toggle="modal" data-target="#myModal">关闭</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary col-md-2 col-lg-2 col-md-offset-10 col-lg-offset-10">新增</button>
+                            <nav class="pull-right">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
+                    <div class="showDiv hideDiv">
+                        <div class="row">
+                            <form class="form-inline row" role="form">
+                                <div class="form-group col-md-6 col-lg-6 col-md-offset-4 col-lg-offset-4">
+                                    <input type="text" class="form-control" placeholder="手机号/姓名">
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <button type="submit" class="btn btn-default btnSearch">搜索</button>
+                                </div>
+                            </form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>内容</th>
+                                        <th>购买人</th>
+                                        <th>联系方式</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10001</td>
+                                        <td>财神饼等3件商品</td>
+                                        <td>张三</td>
+                                        <td>12345678933</td>
+                                        <td>
+                                            <a href="shopping-out-detailed.html">查看详情</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="pull-right">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="showDiv hideDiv">
+                        <div class="row">
+                            <form class="form-inline row" role="form">
+                                <div class="form-group col-md-6 col-lg-6 col-md-offset-4 col-lg-offset-4">
+                                    <input type="text" class="form-control" placeholder="手机号/姓名">
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <button type="submit" class="btn btn-default btnSearch">搜索</button>
+                                </div>
+                            </form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>内容</th>
+                                        <th>购买人</th>
+                                        <th>联系方式</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10001</td>
+                                        <td>财神饼等3件商品</td>
+                                        <td>张三</td>
+                                        <td>12345678933sddddaa</td>
+                                        <td>
+                                            <a href="shopping-receive-detailed.html">查看详情</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="pull-right">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="showDiv hideDiv">
+                        <div class="row">
+                            <form class="form-inline row" role="form">
+                                <div class="form-group col-md-6 col-lg-6 col-md-offset-4 col-lg-offset-4">
+                                    <input type="text" class="form-control" placeholder="手机号/姓名">
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <button type="submit" class="btn btn-default btnSearch">搜索</button>
+                                </div>
+                            </form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>内容</th>
+                                        <th>购买人</th>
+                                        <th>联系方式</th>
+                                        <th>操作</th>
+                                        <th>关闭人</th>
+                                        <th>关闭时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10001</td>
+                                        <td>财神饼等3件商品</td>
+                                        <td>张三</td>
+                                        <td>12345678933</td>
+                                        <td>
+                                            <a href="shopping-close-detailed.html">查看详情</a>
+                                        </td>
+                                        <td>张三</td>
+                                        <td>2015-3-3 12：34：35</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="pull-right">
+                                <ul class="pagination">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
                 </div>
                     <!-- /.content -->
             </div>
         </div>
             <!-- ./wrapper -->
             <!-- 弹窗 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">请填写关闭理由</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-default">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
