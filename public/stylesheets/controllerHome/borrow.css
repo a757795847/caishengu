@@ -1,4 +1,9 @@
-/*create_news_add*/
+.borrowNews .table>thead>tr>th, .borrowNews .table>tbody>tr>td{
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-weight: bold;
+}
+/*borrow_add*/
 input,select,button,textarea{
     margin-top: 10px;
 }
@@ -23,11 +28,11 @@ select.selectpicker{
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
 }
-.row.logo button,.cnaCenter button{
+.row.logo button,.borrowCenter button{
     margin-top: 20px;
     padding: 10px;
 }
-.cnaCenter{
+.borrowCenter{
     padding-bottom: 30px;
     padding-top: 10px;
     border-bottom: 1px solid #000;

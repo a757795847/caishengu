@@ -20,9 +20,8 @@ folder instead of downloading all of them to reduce the load. -->
             <!-- iCheck -->
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
 
-
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/csg-news.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/borrow.css")">
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -143,12 +142,12 @@ folder instead of downloading all of them to reduce the load. -->
                                 <span>财神谷新闻</span>
                             </a>
                         </li>
-                        <li class="treeview active">
+                        <li class="treeview">
                             <a href="/controllerHome/createNews">
                                 <span>创业头条管理</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview active">
                             <a href="/controllerHome/borrowNews">
                                 <span>融资事件管理</span>
                             </a>
@@ -167,55 +166,44 @@ folder instead of downloading all of them to reduce the load. -->
                 </section>
                     <!-- /.sidebar -->
             </aside>
+
                 <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper row">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
                     <div class="row newsTop">
                         <button type="button" class="btn btn-default pull-right col-md-2 col-lg-1"><a href="#">新增</a></button>
                     </div>
-                    <div class="row csgNews">
+                    <div class="row borrowNews">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>序号</th>
-                                    <th>图片</th>
-                                    <th>链接</th>
+                                    <th>名称</th>
+                                    <th>轮次</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>10</td>
-                                    <td>
-                                        <img src="../dist/img/avatar.png">
-                                    </td>
-                                    <td>
-                                        <a href="#">https://www.baidu.com</a>
-                                    </td>
+                                    <td>360</td>
+                                    <td>B轮</td>
                                     <td>
                                         <a href="#">删除</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td>
-                                        <img src="../dist/img/avatar.png">
-                                    </td>
-                                    <td>
-                                        <a href="#">https://www.baidu.com</a>
-                                    </td>
+                                    <td>360</td>
+                                    <td>B轮</td>
                                     <td>
                                         <a href="#">删除</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td>
-                                        <img src="../dist/img/avatar.png">
-                                    </td>
-                                    <td>
-                                        <a href="#">https://www.baidu.com</a>
-                                    </td>
+                                    <td>360</td>
+                                    <td>B轮</td>
                                     <td>
                                         <a href="#">删除</a>
                                     </td>
@@ -243,5 +231,6 @@ folder instead of downloading all of them to reduce the load. -->
         <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/demo.js")"></script>
         @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
+
     </body>
 </html>

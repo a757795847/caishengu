@@ -1,0 +1,10 @@
+.csgNewsAdd{
+    border-top: 1px solid #000;
+    padding-top: 20px
+}
+.csgNewsAdd input{
+    width: 45%;
+}
+.csgNewsAdd .row{
+    margin: 20px 0;
+}

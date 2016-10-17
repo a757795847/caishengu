@@ -22,10 +22,10 @@ folder instead of downloading all of them to reduce the load. -->
 
 
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/csg-news.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/create.css")">
 
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini ">
         <div class="wrapper">
 
             <header class="main-header">
@@ -138,12 +138,12 @@ folder instead of downloading all of them to reduce the load. -->
                                 <span>圈子审批</span>
                             </a>
                         </li>
-                        <li class="treeview active">
+                        <li class="treeview">
                             <a href="/controllerHome/csgNews">
                                 <span>财神谷新闻</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview active">
                             <a href="/controllerHome/createNews">
                                 <span>创业头条管理</span>
                             </a>
@@ -167,6 +167,7 @@ folder instead of downloading all of them to reduce the load. -->
                 </section>
                     <!-- /.sidebar -->
             </aside>
+
                 <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper row">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
@@ -175,10 +176,13 @@ folder instead of downloading all of them to reduce the load. -->
                         <button type="button" class="btn btn-default col-md-2 col-lg-1"><a href="#">返回</a></button>
                     </div>
                     <div class="row csgNewsAdd">
-                        <input type="text" class="form-control" placeholder="请输入链接">
-                        <div class="row">
-                            <button type="button" class="btn btn-primary col-md-2 col-lg-2">上传图片</button>
-                        </div>
+                        <from action="" method="post" enctype="multipart/form-data">
+                            <input type="text" class="form-control" placeholder="请输入链接">
+                            <div class="row">
+                                <input class="btn btn-primary col-md-2 col-lg-2" name="imgfile" type="file" accept="image/gif, image/jpeg" />
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入一句简介">
+                        </from>
                     </div>
                 </div>
                     <!-- /.content -->

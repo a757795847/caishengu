@@ -20,11 +20,12 @@ folder instead of downloading all of them to reduce the load. -->
             <!-- iCheck -->
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
 
+
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/borrow-news.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controllerHome/borrow.css")">
 
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini ">
         <div class="wrapper">
 
             <header class="main-header">
@@ -142,12 +143,12 @@ folder instead of downloading all of them to reduce the load. -->
                                 <span>财神谷新闻</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                        <li class="treeview active">
                             <a href="/controllerHome/createNews">
                                 <span>创业头条管理</span>
                             </a>
                         </li>
-                        <li class="treeview active">
+                        <li class="treeview">
                             <a href="/controllerHome/borrowNews">
                                 <span>融资事件管理</span>
                             </a>
@@ -171,45 +172,69 @@ folder instead of downloading all of them to reduce the load. -->
             <div class="content-wrapper row">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
                     <div class="row newsTop">
-                        <button type="button" class="btn btn-default pull-right col-md-2 col-lg-1"><a href="#">新增</a></button>
+                        <button type="button" class="btn btn-default pull-right col-md-2 col-lg-1"><a href="#">保存</a></button>
+                        <button type="button" class="btn btn-default col-md-2 col-lg-1"><a href="#">返回</a></button>
                     </div>
-                    <div class="row borrowNews">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>序号</th>
-                                    <th>名称</th>
-                                    <th>轮次</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>10</td>
-                                    <td>360</td>
-                                    <td>B轮</td>
-                                    <td>
-                                        <a href="#">删除</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>360</td>
-                                    <td>B轮</td>
-                                    <td>
-                                        <a href="#">删除</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>360</td>
-                                    <td>B轮</td>
-                                    <td>
-                                        <a href="#">删除</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="row logo">
+                        <p>Logo</p>
+                        <button type="button" class="btn btn-default col-md-3 col-lg-2"><a href="#">上传Logo</a></button>
+                    </div>
+                    <div class="row borrowCenter">
+                        <div class=" col-md-8 col-lg-8 pLeft">
+                            <input type="text" class="form-control" placeholder="Text input">
+                        </div>
+                        <div class="col-md-6 col-lg-6 pLeft">
+                            <select class="selectpicker ">
+                                <option>请选择所属大类</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-lg-6 pLeft">
+                            <select class="selectpicker ">
+                                <option>请选择所属大类</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-lg-6 pLeft">
+                            <select class="selectpicker ">
+                                <option>请选择所属大类</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                                <option>Relish</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pLeft">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-default col-md-3 col-lg-2"><a href="#">上传介绍图</a></button>
+                    </div>
+                    <div class="row">
+                        <p>融资历史</p>
+                        <div class="col-md-4 col-lg-4">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <select class="form-control">
+                                <option>请选择轮次</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <input type="number" class="form-control" placeholder="请输入金额">
+                        </div>
+                    </div>
+                    <div class="row newsTop">
+                        <button type="button" class="btn btn-default pull-right col-md-3 col-lg-2"><a href="#">添加历史</a></button>
                     </div>
                 </div>
                     <!-- /.content -->
@@ -231,6 +256,5 @@ folder instead of downloading all of them to reduce the load. -->
         <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/demo.js")"></script>
         @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
-
     </body>
 </html>

@@ -22,16 +22,17 @@ GET        /Administrator                                 controllers.Administra
 
 GET        /Compile                                       controllers.AdminCompileController.adminCompile
 
+GET        /controllerHome/borrow                         controllers.controllerHome.BorrowController.borrow
 
-GET        /controllerHome/borrowNews                     controllers.controllerHome.BorrowNewsController.borrowNews
+GET        /controllerHome/borrow/add                     controllers.controllerHome.BorrowAddController.borrowAdd
 
-GET        /controllerHome/createNews                     controllers.controllerHome.CreateNewsController.createNews
+GET        /controllerHome/create                         controllers.controllerHome.CreateController.create
 
-GET        /controllerHome/createNews/add                 controllers.controllerHome.CreateNewsAddController.createNewsAdd
+GET        /controllerHome/create/add                     controllers.controllerHome.CreateAddController.createNews
 
-GET        /controllerHome/csgNews                        controllers.controllerHome.CsgNewsController.csgNews
+GET        /controllerHome/csg                            controllers.controllerHome.CsgController.csg
 
-GET        /controllerHome/csgNews/add                    controllers.controllerHome.CsgNewsAddController.csgNewsAdd
+GET        /controllerHome/csg/add                        controllers.controllerHome.CsgAddController.csgAdd
 
 GET        /controllerHome/event                          controllers.controllerHome.EventController.event
 
@@ -80,6 +81,10 @@ GET        /controllerHome/shopping/receive               controllers.controller
 GET        /controllerHome/shopping/wait                  controllers.controllerHome.ShoppingWaitController.shoppingWait
 
 GET        /controllerHome/stat                           controllers.controllerHome.StatController.stat
+
+GET        /controllerHome/stat/action                    controllers.controllerHome.StatActionController.statAction
+
+GET        /controllerHome/stat/data                      controllers.controllerHome.StatDataController.statData
 
 GET        /controllerHome/tribute                        controllers.controllerHome.TributeController.tribute
 

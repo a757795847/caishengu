@@ -172,42 +172,35 @@ folder instead of downloading all of them to reduce the load. -->
                 <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                    <div class="row newsTop">
-                        <h1>用户信息</h1>
-                        <div class="col-lg-3 col-md-3">
-                            <div>
-                                <h4>注册用户</h4>
-                                <p>60，600，600</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <div>
-                                <h4>男性</h4>
-                                <p>30，600，600</p>
-                                <p>50%</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3">
-                            <div>
-                                <h4>女性</h4>
-                                <p>30，600，600</p>
-                                <p>50%</p>
-                            </div>
-                        </div>
+                    <div class="row actionTop">
+                        <h1>消费行为</h1>
+                        <button type="button" class="btn btn-default col-md-offset-10 col-lg-offset-10 col-md-2 col-lg-2">导出</button>
                     </div>
-                    <div class="row center">
-                        <div class="col-lg-6 col-md-6">
-                            <p>性别比例</p>
-                            <div id="sex"></div>
+                    <div class="row centent">
+                        <div class="btn-group col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-default actionBtn">2016年</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu col-md-11 col-lg-11" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <p>性别比例</p>
-                            <div id="age"></div>
+                        <div class="btn-group col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-default actionBtn">3月</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu col-md-11 col-lg-11" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <p>地区</p>
-                        <div id="sex"></div>
                     </div>
                 </div>
 
@@ -224,8 +217,7 @@ folder instead of downloading all of them to reduce the load. -->
 
             <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
             <script src="@routes.Assets.at("javascripts/demo.js")"></script>
-        @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
+            @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
             <script src="@routes.Assets.at("javascripts/echarts.js")"></script>
-            <script src="@routes.Assets.at("javascripts/controllerHome/stat.js")"></script>
     </body>
 </html>
