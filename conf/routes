@@ -13,87 +13,87 @@ GET        /admin                                           controllers.AdminCon
 GET        /                                                controllers.LoginController.login
 
 
-GET        /controllerHome/borrowNews                       controllers.controllerHome.BorrowNewsController.borrowNews
+GET        /controller/borrow                         controllers.controller.BorrowController.borrow
 
-GET        /controllerHome/createNews                       controllers.controllerHome.CreateNewsController.createNews
+GET        /controller/borrow/add                     controllers.controller.BorrowAddController.borrowAdd
 
-GET        /controllerHome/createNews/add                   controllers.controllerHome.CreateNewsAddController.createNewsAdd
+GET        /controller/create                         controllers.controller.CreateController.create
 
-GET        /controllerHome/csgNews                          controllers.controllerHome.CsgNewsController.csgNews
+GET        /controller/create/add                     controllers.controller.CreateAddController.createNews
 
-GET        /controllerHome/csgNews/add                      controllers.controllerHome.CsgNewsAddController.csgNewsAdd
+GET        /controller/csg                            controllers.controller.CsgController.csg
 
-GET        /controllerHome/event/out                        controllers.controllerHome.EventOutController.eventOut
+GET        /controller/csg/add                        controllers.controller.CsgAddController.csgAdd
 
-GET        /controllerHome/event/out/detailed               controllers.controllerHome.EventOutDetailedController.eventOutDetailed
+GET        /controller/event                          controllers.controller.EventController.event
 
-GET        /controllerHome/event/wait                       controllers.controllerHome.EventWaitController.eventWait
+GET        /controller/event/out                      controllers.controller.EventOutController.eventOut
 
-GET        /controllerHome/event/wait/detailed              controllers.controllerHome.EventWaitDetailedController.eventWaitDetailed
+GET        /controller/event/wait                     controllers.controller.EventWaitController.eventWait
 
-GET        /controllerHome/investors/list                   controllers.controllerHome.InvestorsListController.investorsList
+GET        /controller/investors                      controllers.controller.InvestorsController.investors
 
-GET        /controllerHome/investors/wait                   controllers.controllerHome.InvestorsWaitController.investorsWait
+GET        /controller/investors/wait                 controllers.controller.InvestorsWaitController.investorsWait
 
-GET        /controllerHome/investors/wait/detailed          controllers.controllerHome.InvestorsWaitDetailedController.investorsWaitDetailed
+GET        /controller/item                           controllers.controller.ItemController.item
 
-GET        /controllerHome/item/out                         controllers.controllerHome.ItemOutController.itemOut
+GET        /controller/item/out                       controllers.controller.ItemOutController.itemOut
 
-GET        /controllerHome/item/out/detailed                controllers.controllerHome.ItemOutDetailedController.itemOutDetailed
+GET        /controller/item/wait                      controllers.controller.ItemWaitController.itemWait
 
-GET        /controllerHome/item/wait                        controllers.controllerHome.ItemWaitController.itemWait
+GET        /controller/money/run                      controllers.controller.MoneyRunController.moneyRun
 
-GET        /controllerHome/item/wait/detailed               controllers.controllerHome.ItemWaitDetailedController.itemWaitDetailed
+GET        /controller/money/manage                   controllers.controller.MoneyManageController.moneyManage
 
-GET        /controllerHome/money/run                        controllers.controllerHome.MoneyRunController.moneyRun
+GET        /controller/ticket                         controllers.controller.TicketController.ticket
 
-GET        /controllerHome/money/manage                     controllers.controllerHome.MoneyManageController.moneyManage
+GET        /controller/round                          controllers.controller.RoundController.round
 
-GET        /controllerHome/ticket                           controllers.controllerHome.TicketController.ticket
+GET        /controller/round/manage                   controllers.controller.RoundManageController.roundManage
 
-GET        /controllerHome/ticket/add                       controllers.controllerHome.TicketAddController.ticketAdd
+GET        /controller/round/out                      controllers.controller.RoundOutController.roundOut
 
-GET        /controllerHome/ticket/into                      controllers.controllerHome.TicketIntoController.ticketInto
+GET        /controller/round/wait                     controllers.controller.RoundWaitController.roundWait
 
-GET        /controllerHome/ticket/detailed                  controllers.controllerHome.TicketDetailedController.ticketDetailed
+GET        /controller/shareholder                    controllers.controller.ShareholderController.shareholder
 
-GET        /controllerHome/round/manage/add                 controllers.controllerHome.RoundManageAddController.roundManageAdd
+GET        /controller/shopping                       controllers.controller.ShoppingController.shopping
 
-GET        /controllerHome/round/manage                     controllers.controllerHome.RoundManageController.roundManage
+GET        /controller/shopping/close                 controllers.controller.ShoppingCloseController.shoppingClose
 
-GET        /controllerHome/round/out                        controllers.controllerHome.RoundOutController.roundOut
+GET        /controller/shopping/frame                 controllers.controller.ShoppingFrameController.shoppingFrame
 
-GET        /controllerHome/round/out/detailed               controllers.controllerHome.RoundOutDetailedController.roundOutDetailed
+GET        /controller/shopping/frame/detailed        controllers.controller.ShoppingFrameDetailedController.shoppingFrameDetailed
 
-GET        /controllerHome/round/wait                       controllers.controllerHome.RoundWaitController.roundWait
+GET        /controller/shopping/out                   controllers.controller.ShoppingOutController.shoppingOut
 
-GET        /controllerHome/round/wait/detailed              controllers.controllerHome.RoundWaitDetailedController.roundWaitDetailed
+GET        /controller/shopping/receive               controllers.controller.ShoppingReceiveController.shoppingReceive
 
-GET        /controllerHome/shareholder/list                 controllers.controllerHome.ShareholderListController.shareholderList
+GET        /controller/shopping/wait                  controllers.controller.ShoppingWaitController.shoppingWait
 
-GET        /controllerHome/shareholder/wait                 controllers.controllerHome.ShareholderWaitController.shareholderWait
+GET        /controller/stat                           controllers.controller.StatController.stat
 
-GET        /controllerHome/shopping/close                   controllers.controllerHome.ShoppingCloseController.shoppingClose
+GET        /controller/stat/action                    controllers.controller.StatActionController.statAction
 
-GET        /controllerHome/shopping/close/detailed          controllers.controllerHome.ShoppingCloseDetailedController.shoppingCloseDetailed
+GET        /controller/stat/data                      controllers.controller.StatDataController.statData
 
-GET        /controllerHome/shopping/frame                   controllers.controllerHome.ShoppingFrameController.shoppingFrame
+GET        /controller/tribute                        controllers.controller.TributeController.tribute
 
-GET        /controllerHome/shopping/frame/detailed          controllers.controllerHome.ShoppingFrameDetailedController.shoppingFrameDetailed
+GET        /controller/tribute/detailed               controllers.controller.TributeDetailedController.tributeDetailed
 
-GET        /controllerHome/shopping/out                     controllers.controllerHome.ShoppingOutController.shoppingOut
+GET        /controller/tribute/frame                  controllers.controller.TributeFrameController.tributeFrame
 
-GET        /controllerHome/shopping/out/detailed            controllers.controllerHome.ShoppingOutDetailedController.shoppingOutDetailed
+GET        /controller/tribute/frame/detailed         controllers.controller.TributeFrameDetailedController.tributeFrameDetailed
 
-GET        /controllerHome/shopping/receive                 controllers.controllerHome.ShoppingReceiveController.shoppingReceive
+GET        /controller/user                           controllers.controller.UserController.user
 
-GET        /controllerHome/shopping/receive/detailed        controllers.controllerHome.ShoppingReceiveDetailedController.shoppingReceiveDetailed
+GET        /controller/user/detailed                  controllers.controller.UserDetailedController.userDetailed
 
-GET        /controllerHome/shopping/ticket                  controllers.controllerHome.ShoppingTicketController.shoppingTicket
+GET        /controller/love                           controllers.controller.LoveController.love
 
-GET        /controllerHome/shopping/wait                    controllers.controllerHome.ShoppingWaitController.shoppingWait
+GET        /controller/love/detailed                  controllers.controller.LoveDetailedController.loveDetailed
 
-GET        /controllerHome/shopping/wait/detailed           controllers.controllerHome.ShoppingWaitDetailedController.shoppingWaitDetailed
+GET        /controller/love/detailed/add              controllers.controller.LoveDetailedAddController.loveDetailedAdd
 
 GET        /controllerHome/stat                             controllers.controllerHome.StatController.stat
 
@@ -131,4 +131,5 @@ GET        /controllers/item                                controllers.ItemCont
 
 GET        /controllers/shelf                               controllers.ShelfController.shelf
 
+GET        /controller/love/feedback                  controllers.controller.LoveFeedbackController.loveFeedback
 

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Dashboard</title>
+            <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+            <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+            <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+            <!-- Theme style -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
+            <!-- AdminLTE Skins. Choose a skin from the css/skins
+folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+            <!-- iCheck -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
+
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/stat.css")">
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+                    <!-- Logo -->
+                <a href="index2.html" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>A</b>LT</span>
+                        <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                </a>
+                    <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <div class="dropdown pull-right ">
+                        <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+		    欢迎你，张三
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+                <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                    <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+
+                        <!-- /.search form -->
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="treeview active">
+                            <a href="/controller/stat">
+                                <span>统计</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/money/run">
+                                <span>财务审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/money/manage">
+                                <span>财务管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/user">
+                                <span>用户相关</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/investors">
+                                <span>投资人管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/shareholder">
+                                <span>股东管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <span>商城订单管理</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="/controller/shopping">
+                                        <i class="fa fa-circle-o"></i>订单
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/controller/shopping/frame">
+                                        <i class="fa fa-circle-o"></i>商城货架
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <span>贡品订单管理</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/controller/tribute"><i class="fa fa-circle-o"></i>贡品</a></li>
+                                <li>
+                                    <a href="/controller/tribute/frame">
+                                        <i class="fa fa-circle-o"></i>虚拟商城货架
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/event">
+                                <span>活动审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/item">
+                                <span>项目审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/round">
+                                <span>圈子审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/csg">
+                                <span>财神谷新闻</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/create">
+                                <span>创业头条管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/borrow">
+                                <span>融资事件管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/ticket">
+                                <span>优惠券</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/love">
+                                <span>爱心捐赠</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                    <!-- /.sidebar -->
+            </aside>
+
+                <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                    <div class="row newsTop">
+                        <h1>用户信息</h1>
+                        <div class="col-lg-3 col-md-3">
+                            <div>
+                                <h4>注册用户</h4>
+                                <p>60，600，600</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div>
+                                <h4>男性</h4>
+                                <p>30，600，600</p>
+                                <p>50%</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div>
+                                <h4>女性</h4>
+                                <p>30，600，600</p>
+                                <p>50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col-lg-6 col-md-6">
+                            <p>性别比例</p>
+                            <div id="sex"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <p>性别比例</p>
+                            <div id="age"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <p>地区</p>
+                        <div id="sex"></div>
+                    </div>
+                </div>
+
+            </div>
+                <!-- ./wrapper -->
+
+            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/jquery-ui.min.js")"></script>
+            <script>
+                $.widget.bridge('uibutton', $.ui.button);
+              </script>
+            <script src="@routes.Assets.at("javascripts/config/global_config.js")"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+
+            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
+        @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
+            <script src="@routes.Assets.at("javascripts/echarts.js")"></script>
+            <script src="@routes.Assets.at("javascripts/controller/stat.js")"></script>
+    </body>
+</html>
