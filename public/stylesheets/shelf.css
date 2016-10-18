@@ -1,0 +1,43 @@
+#kict img{
+    float: left;
+    max-height: 135px;
+    height: 135px;
+    width: 8%;
+    margin-left: 1%;
+
+
+
+}
+.box-body h4{
+
+    margin-left:1%;
+}
+#kict .blank{
+    float: left;
+    margin-left: 1%;
+    font-size: 9rem;
+    padding: 2px 30px;
+
+}
+#BtnCilck{
+    margin-left: 2%;
+    font-size: 0.75rem;
+    border-radius: 18%;
+}
+#comeGo{
+    width:22%;
+    margin-left:1%;
+
+}
+#kict:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+
+}
+.form-control input-sm{
+    width:18%;
+
+}

@@ -69,19 +69,15 @@
 }
 .rg{
     float:right;
-
 }
 #eacl{
     width:29%;
     background-color:#fff;
-    margin-top:8%;
+    margin-top:2%;
     min-height:50%;
     padding:12px 20px;
     margin-left:21%;
     display:none;
-
-
-
 
 }
 
@@ -92,14 +88,13 @@
     height:0;
     clear:both;
     visibility:hidden;
-
 }
+
 #eacl [type="btn"]{
-    width: 28%;
-    float: right;
-    margin-right: 15px;
+    width: 24%;
+    float: left;
+    margin-left: 49px;
     border-radius: 8px;
-    font-size:12px;
-    margin-top:10px;
+    font-size: 12px;
 
 }

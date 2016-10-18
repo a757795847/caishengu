@@ -6,21 +6,12 @@
 #GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET        /assets/*file                                    controllers.Assets.at(path="/public", file)
 
-GET        /admin               controllers.AdminController.admin
+GET        /admin                                           controllers.AdminController.admin
 
-GET        /                    controllers.LoginController.login
+GET        /                                                controllers.LoginController.login
 
-GET        /List               controllers.AdminLTEController.adminLTE
-
-GET        /Edit               controllers.AdminEditController.adminEdit
-
-GET        /History               controllers.AdminHistoryController.adminHistory
-
-GET        /Administrator              controllers.AdministratorController.administrator
-
-GET        /Compile              controllers.AdminCompileController.adminCompile
 
 GET        /controllerHome/borrowNews                       controllers.controllerHome.BorrowNewsController.borrowNews
 
@@ -125,13 +116,19 @@ GET        /controllerHome/love/detailed                    controllers.controll
 GET        /controllerHome/love/detailed/add                controllers.controllerHome.LoveDetailedAddController.loveDetailedAdd
 
 GET        /controllerHome/love/feedback                    controllers.controllerHome.LoveFeedbackController.loveFeedback
-GET        /List               controllers.AdminLTEController.adminLTE
 
-GET        /Edit               controllers.AdminEditController.adminEdit
+GET        /controllers/list                                controllers.AdminLTEController.adminLTE
 
-GET        /History               controllers.AdminHistoryController.adminHistory
+GET        /controllers/edit                                controllers.AdminEditController.adminEdit
 
-GET        /Administrator              controllers.AdministratorController.administrator
+GET        /controllers/history                             controllers.AdminHistoryController.adminHistory
 
-GET        /Compile              controllers.AdminCompileController.adminCompile
+GET        /controllers/administrator                       controllers.AdministratorController.administrator
+
+GET        /controllers/compile                             controllers.AdminCompileController.adminCompile
+
+GET        /controllers/item                                controllers.ItemController.item
+
+GET        /controllers/shelf                               controllers.ShelfController.shelf
+
 

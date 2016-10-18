@@ -6,7 +6,7 @@ if( location.href != "http://localhost:9000/" ){
 }
 
 $('#btn').on('click', function (e) {
-    var  username = $('#username').val();
+    var username = $('#username').val();
     var password = $('#password').val();
     $.post("http://" + backend_host + '/auth/oauth/access_token',
         {
@@ -14,7 +14,10 @@ $('#btn').on('click', function (e) {
             "password": password,
             "grant_type": "password"
         }, function (data) {
-            location.href= '/admin';
-            localStorage.setItem('caishengu-access_token', data.access_token);
-        })
+            console.log(data);
+            // location.href= '/admin';
+            // localStorage.setItem('caishengu-access_token', data.access_token);
+        },error:function(err){
+        console.log(err)
+    })
 })

@@ -8,7 +8,12 @@
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+            <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/datepicker3.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/History.css")">
@@ -66,12 +71,13 @@
             </aside>
 
 
-            <div class="content-wrapper">
+            <div class="content-wrapper row">
                 <section class="content">
 
 
                         <!-- TABLE: LATEST ORDERS -->
-                    <div class="box box-info" style="width:50%;">
+                    <div class="col-md-10 col-lg-7">
+                    <div class="box box-info">
                         <div class="table-responsive">
                             <div class="father">
                                 <a href="/Edit" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
@@ -123,36 +129,65 @@
                             <!-- /.col -->
                 </section>
                 <div id="eacl">
-                    <div class="container">
-                        <form action="" class="form-horizontal">
-                            <fieldset>
-                                <div class="control-group">
-                                    <label class="control-label">起始时间</label>
-                                    <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                        <input size="16" type="text" value="" class="form-control"style="width:20%;">
-                                        <span class="add-on"><i class="icon-remove"></i></span>
-                                        <span class="add-on"><i class="icon-th"></i></span>
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">日期</h3>
+                        </div>
+                        <div class="box-body">
+                                <!-- Date -->
+                            <div class="form-group">
+                                <label>起始时间</label>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="control-label">结束时间</label>
-                                        <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                            <input size="16" type="text" value="" class="form-control" style="width:20%;">
-                                            <span class="add-on"><i class="icon-remove"></i></span>
-                                            <span class="add-on"><i class="icon-th"></i></span>
-                                        </div>
+                                    <input type="text" class="form-control pull-right" id="datepicker">
+                                </div>
+                                    <!-- /.input group -->
+                            </div>
+                                <!-- /.form group -->
+
+                                <!-- Date range -->
+                            <div class="form-group">
+                                <label>结束时间</label>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
                                     </div>
-                            </fieldset>
-                        </form>
+                                    <input type="text" class="form-control pull-right" id="Kobe">
+                                </div>
+                                    <!-- /.input group -->
+                            </div>
+                                <!-- /.form group -->
+
+                                <!-- Date and time range -->
+
+                        </div>
+                            <!-- Date and time range -->
+
+                            <!-- /.form group -->
+
+
+
                     </div>
-                    <input type="btn"class="btn btn-default" value="确定">
-                    <input type="btn"class="btn btn-default" value="清除">
-                </div>
+                    <button type="btn"class="btn btn-default">确定</button>
+                    <button type="btn"class="btn btn-default" id="clear">清除</button>
+                        <!-- /.box -->
+            </div>
             </div>
         </div>
         <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
-        <script src="@routes.Assets.at("javascripts/bootstrap-datetimepicker.js")"></script>
-        <script src="@routes.Assets.at("javascripts/bootstrap-datetimepicker.zh-CN.js")"></script>
+        <script src="@routes.Assets.at("javascripts/select2.full.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.inputmask.date.extensions.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.inputmask.extensions.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jquery.inputmask.js")"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
+        <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
         <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/demo.js")"></script>
         <script src="@routes.Assets.at("javascripts/History.js")"></script>
