@@ -10,18 +10,6 @@ GET        /assets/*file                 controllers.Assets.at(path="/public", f
 
 GET        /                             controllers.LoginController.login
 
-GET        /List                         controllers.AdminLTEController.adminLTE
-
-GET        /Edit                         controllers.AdminEditController.adminEdit
-
-GET        /History                      controllers.AdminHistoryController.adminHistory
-
-GET        /Administrator                controllers.AdministratorController.administrator
-
-GET        /Compile                      controllers.AdminCompileController.adminCompile
-#borrow page
-GET        /borrow                       controllers.BorrowController.index
-GET        /borrow/add                   controllers.BorrowController.add
 
 #create page
 GET        /create                       controllers.CreateController.index
@@ -93,4 +81,20 @@ GET        /love                         controllers.LoveController.index
 GET        /love/detailed                controllers.LoveController.detailed
 GET        /love/detailed/add            controllers.LoveController.detailedAdd
 GET        /love/feedback                controllers.LoveController.feedback
+
+
+# administrator 管理员账号
+
+GET        /administrator/index                       controllers.AdministratorController.administrator_index
+
+GET        /administrator/details                     controllers.AdministratorController.administrator_details
+
+# merchant 商务管理
+
+GET        /merchart/index                            controllers.MerchantController.merchart_index
+
+GET        /merchart/details                          controllers.MerchantController.merchart_details
+
+GET        /merchart/history                          controllers.MerchantController.merchart_history
+
 
