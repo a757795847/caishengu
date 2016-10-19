@@ -1427,6 +1427,7 @@
       today:       'Today',
       clear:       'Clear'
     }
+
   };
 
   var DPGlobal = {
