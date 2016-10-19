@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>编辑商户/新建</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+            <!-- Ionicons -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/datepicker3.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/EditTwo.css")">
+
+
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+
+                    <!-- Logo -->
+                <a href="index2.html" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>A</b>LT</span>
+                        <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                </a>
+
+                    <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <div class="dropdown pull-right" >
+                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    老哥!有空三五瓶!
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">退出</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            //菜单列表
+            <aside class="main-sidebar">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="/List">
+                                <i class="fa fa-share"></i> <span>商户管理</span>
+                                <span class="pull-right-container">
+
+            </span>
+                            </a>
+
+                            <ul class="sidebar-menu">
+
+                                <li class="active treeview">
+                                    <a href="/Administrator">
+                                        <i class="fa fa-dashboard"></i> <span>管理员账号</span>
+                                        <span class="pull-right-container">
+            </span>
+                                    </a>
+                                </li>
+                </section>
+            </aside>
+
+
+            <div class="content-wrapper row">
+                <section class="content">
+
+
+                        <!-- TABLE: LATEST ORDERS -->
+                    <div class="col-md-10 col-lg-7">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+
+
+
+                                    <!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="table-responsive">
+                                        <a href="/List" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2"id="shanghu">商户信息</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>商户ID:<span>12545454</span></td>
+                                                    <td>联系人:<span>张三</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>联系方式:<span>215465456</span></td>
+                                                    <td>商店名称:<span>水果店</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>商户地址:<span>第一大道</span></td>
+                                                    <td>收款账号:<span>1214354564</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table table-bordered" id="two">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">收银信息</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-size:0.75rem;">上次结算日期:<span>2014-12-5</span> <button type="button" class="btn btn-block btn-default"id="Btnfifa">
+                                                        申请结算
+                                                    </button><span style="display:none;">本次结算21412元</span></td>
+                                                    <td><a href="/History">查看历史记录</a></td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                        <!-- /.table-responsive -->
+                                </div>
+                                    <!-- /.box-body -->
+                                    <!-- /.box-footer -->
+                            </div>
+                        </div>
+                        <div id="echo">
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">日期</h3>
+                            </div>
+                            <div class="box-body">
+                                    <!-- Date -->
+                                <div class="form-group">
+                                    <label>起始时间</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                    </div>
+                                        <!-- /.input group -->
+                                </div>
+                                    <!-- /.form group -->
+
+                                    <!-- Date range -->
+                                <div class="form-group">
+                                    <label>结束时间</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="Kobe">
+                                    </div>
+                                        <!-- /.input group -->
+                                </div>
+                                    <!-- /.form group -->
+
+                                    <!-- Date and time range -->
+                                <button type="btn"class="btn btn-default add col-md-8 col-lg-8" data-toggle="modal" data-target=".bs-example-modal-sm">确定</button>
+                                <button type="btn"class="btn btn-default" id="clear">清除</button>
+                            </div>
+                                <!-- Date and time range -->
+                                <!-- /.form group -->
+                        </div>
+
+
+                        </div>
+
+                            <!-- /.box -->
+                    </div>
+                        <!-- /.col -->
+                </section>
+                <div class="example-modal">
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">请填写拒绝原因!</h4>
+                            </div>
+                            <div class="modal-body" id="modal_body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <textarea name="Inname" cols="30" rows="6" maxlength="170"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-default btnList">确定</button>
+                            </div>
+                        </div> <!-- /.modal-content -->
+                    </div>
+
+                </div>
+
+
+                </div>
+            </div>
+            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/select2.full.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/jquery.inputmask.date.extensions.js")"></script>
+            <script src="@routes.Assets.at("javascripts/jquery.inputmask.extensions.js")"></script>
+            <script src="@routes.Assets.at("javascripts/jquery.inputmask.js")"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
+            <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
+            <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
+            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
+            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
+            <script src="@routes.Assets.at("javascripts/EditTwo.js")"></script>
+    </body>
+</html>

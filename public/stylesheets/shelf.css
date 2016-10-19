@@ -1,13 +1,14 @@
 #kict img{
-    float: left;
-    max-height: 135px;
-    height: 135px;
-    width: 8%;
-    margin-left: 1%;
+     float: left;
+     max-height: 135px;
+
+    height:135px;
+
+     margin-left: 1%;
 
 
 
-}
+ }
 .box-body h4{
 
     margin-left:1%;
@@ -38,6 +39,21 @@
 
 }
 .form-control input-sm{
+    width:18%;
+
+}
+.RMB{
+    float:left;
+    margin-left:1%;
+
+}
+.Thecoin{
+    float:left;
+    margin-left:28%;
+
+}
+#TestOne input{
+    float:left;
     width:18%;
 
 }

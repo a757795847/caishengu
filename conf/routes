@@ -6,11 +6,11 @@
 #GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                                    controllers.Assets.at(path="/public", file)
+GET        /assets/*file                              controllers.Assets.at(path="/public", file)
 
-GET        /admin                                           controllers.AdminController.admin
+GET        /admin                                     controllers.AdminController.admin
 
-GET        /                                                controllers.LoginController.login
+GET        /                                          controllers.LoginController.login
 
 
 GET        /controller/borrow                         controllers.controller.BorrowController.borrow
@@ -95,41 +95,20 @@ GET        /controller/love/detailed                  controllers.controller.Lov
 
 GET        /controller/love/detailed/add              controllers.controller.LoveDetailedAddController.loveDetailedAdd
 
-GET        /controllerHome/stat                             controllers.controllerHome.StatController.stat
+GET        /controllers/list                          controllers.AdminLTEController.adminLTE
 
-GET        /controllerHome/tribute                          controllers.controllerHome.TributeController.tribute
+GET        /controllers/edit                          controllers.AdminEditController.adminEdit
 
-GET        /controllerHome/tribute/detailed                 controllers.controllerHome.TributeDetailedController.tributeDetailed
+GET        /controllers/history                       controllers.AdminHistoryController.adminHistory
 
-GET        /controllerHome/tribute/frame                    controllers.controllerHome.TributeFrameController.tributeFrame
+GET        /controllers/administrator                 controllers.AdministratorController.administrator
 
-GET        /controllerHome/tribute/frame/detailed           controllers.controllerHome.TributeFrameDetailedController.tributeFrameDetailed
+GET        /controllers/compile                       controllers.AdminCompileController.adminCompile
 
-GET        /controllerHome/user                             controllers.controllerHome.UserController.user
+GET        /controllers/item                          controllers.ItemController.item
 
-GET        /controllerHome/user/detailed                    controllers.controllerHome.UserDetailedController.userDetailed
-
-GET        /controllerHome/love                             controllers.controllerHome.LoveController.love
-
-GET        /controllerHome/love/detailed                    controllers.controllerHome.LoveDetailedController.loveDetailed
-
-GET        /controllerHome/love/detailed/add                controllers.controllerHome.LoveDetailedAddController.loveDetailedAdd
-
-GET        /controllerHome/love/feedback                    controllers.controllerHome.LoveFeedbackController.loveFeedback
-
-GET        /controllers/list                                controllers.AdminLTEController.adminLTE
-
-GET        /controllers/edit                                controllers.AdminEditController.adminEdit
-
-GET        /controllers/history                             controllers.AdminHistoryController.adminHistory
-
-GET        /controllers/administrator                       controllers.AdministratorController.administrator
-
-GET        /controllers/compile                             controllers.AdminCompileController.adminCompile
-
-GET        /controllers/item                                controllers.ItemController.item
-
-GET        /controllers/shelf                               controllers.ShelfController.shelf
+GET        /controllers/shelf                         controllers.ShelfController.shelf
 
 GET        /controller/love/feedback                  controllers.controller.LoveFeedbackController.loveFeedback
 
+GET        /controllers/edittwo                         controllers.EditTwoController.edittwo

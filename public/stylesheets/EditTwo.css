@@ -59,3 +59,31 @@
     padding-left:27px;
 
 }
+#two button{
+    display: inline-block;
+    width: 35%;
+    margin-left: 9%;
+    height: 23px;
+    font-size: 0.75rem;
+    line-height: 7px;
+
+}
+#echo{
+    width:66%;
+    background-color:#fff;
+    margin-top:2%;
+    min-height:50%;
+    padding:12px 20px;
+    padding-bottom:3px;
+    margin-left:21%;
+    display:none;
+
+}
+#echo [type="btn"]{
+    width: 24%;
+    float: left;
+    margin-left: 49px;
+    border-radius: 8px;
+    font-size: 12px;
+
+}
