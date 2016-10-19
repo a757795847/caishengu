@@ -1,10 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 .label.label-info a{
     color: #ffffff;
 }
 .nav-tabs-custom>.nav-tabs>li.active {
     border-top-color: #00c0ef;
 }
-.box.box-info{
+.box{
     position: relative;
     border-radius: 3px;
     background: #ffffff;
@@ -12,4 +21,38 @@
     margin-bottom: 20px;
     width: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.label.label-info{
+    margin-right: 10px;
+}
+.box-header {
+    margin-bottom: 15px;
+}
+.btn.btn-info a{
+    color: #ffffff;
+}
+.input-group.input-group-sm{
+    width: 250px;
+}
+.content-header>h1 {
+    margin: 0;
+    font-size: 24px;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+}
+.navbar-custom-menu {
+    margin-right: 10px;
+}
+/*面包导航*/
+.content-header>.breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    padding: 7px 5px;
+    position: static;
+    border-radius: 2px;
 }

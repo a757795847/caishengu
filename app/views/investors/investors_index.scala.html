@@ -1,14 +1,13 @@
-@(message: String)
 
-@main("Welcome to Play123") {
+
+@main("投资人管理") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
 } {
     <div class="content-wrapper ">
         <section class="content-header">
-            <h1>
-                投资人
-                <small>投资人管理</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="/investors">投资人</a></li>
+            </ol>
         </section>
         <section class="content">
             <div class="row">
@@ -54,7 +53,19 @@
                                                         <td>投资经理</td>
                                                         <td>12345678933</td>
                                                         <td>
-                                                            <span class="label label-info"><a href="/controller/investors/wait">查看</a></span>
+                                                            <span class="label label-info"><a href="/investors/detail">查看</a></span>
+                                                            <span class="label label-info"><a href="#">通过</a></span>
+                                                            <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">
+                                                                拒绝</a></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>张三</td>
+                                                        <td>红杉资本</td>
+                                                        <td>投资经理</td>
+                                                        <td>12345678933</td>
+                                                        <td>
+                                                            <span class="label label-info"><a href="/investors/detail">查看</a></span>
                                                             <span class="label label-info"><a href="#">通过</a></span>
                                                             <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span>
                                                         </td>
@@ -65,18 +76,7 @@
                                                         <td>投资经理</td>
                                                         <td>12345678933</td>
                                                         <td>
-                                                            <span class="label label-info"><a href="/controller/investors/wait">查看</a></span>
-                                                            <span class="label label-info"><a href="#">通过</a></span>
-                                                            <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>张三</td>
-                                                        <td>红杉资本</td>
-                                                        <td>投资经理</td>
-                                                        <td>12345678933</td>
-                                                        <td>
-                                                            <span class="label label-info"><a href="/controller/investors/wait">查看</a></span>
+                                                            <span class="label label-info"><a href="/investors/detail">查看</a></span>
                                                             <span class="label label-info"><a href="#">通过</a></span>
                                                             <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span>
                                                         </td>

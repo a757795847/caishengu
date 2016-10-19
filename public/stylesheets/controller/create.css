@@ -1,10 +1,8 @@
-.csgNewsAdd{
-    border-top: 1px solid #000;
-    padding-top: 20px
+.box.box-info{
+    border-top: 3px solid #00c0ef;
+    padding: 12px;
 }
-.csgNewsAdd input{
-    width: 45%;
-}
-.csgNewsAdd .row{
-    margin: 20px 0;
+img{
+    width: 40px;
+    height: 20px;
 }

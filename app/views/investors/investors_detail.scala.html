@@ -1,0 +1,93 @@
+
+@main("投资人详情") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+} {
+
+    <div class="content-wrapper row">
+        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <div class="row newsTop">
+                <button type="button" class="btn btn-default col-md-2 col-lg-1"><a href="/controller/investors">返回</a></button>
+            </div>
+            <div class="row">
+                <div class="basicNews">
+                    <p>基本信息</p>
+                    <ul class="row">
+                        <li class="col-md-6 col-lg-6">ID：<span>10001</span></li>
+                        <li class="col-md-6 col-lg-6">姓名：<span>张三</span></li>
+                        <li class="col-md-6 col-lg-6">手机号：<span>12345678933</span></li>
+                        <li class="col-md-6 col-lg-6">职位：<span>投资经理</span></li>
+                        <li class="col-md-6 col-lg-6">公司：<span>红杉资本</span></li>
+                        <li class="col-md-6 col-lg-6">股东：<span>否</span></li>
+                        <li class="col-md-6 col-lg-6">投资人：<span>是</span></li>
+                        <li class="col-md-6 col-lg-6">生日：<span>1980-08-08</span></li>
+                        <li class="col-md-6 col-lg-6">生辰：<span>甲子年甲月甲日子时</span></li>
+                        <li class="col-md-6 col-lg-6">地区：<span>宁波</span></li>
+                        <li class="col-md-6 col-lg-6">头像：
+                            <img src="../dist/img/avatar.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="row investorsNews">
+                    <table class="table">
+                        <caption>投资人信息</caption>
+                        <tbody>
+                            <tr>
+                                <td>排名：</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>证明资料：</td>
+                                <td>
+                                    <img class="smallImg" src="../dist/img/avatar.png">
+                                    <img class="smallImg" src="../dist/img/avatar.png">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>投资阶段：</td>
+                                <td>A轮之前</td>
+                            </tr>
+                            <tr>
+                                <td>个人简介：</td>
+                                <td>按时打算发发发发发</td>
+                            </tr>
+                            <tr>
+                                <td>案例</td>
+                                <td>
+
+                                    <table class="table example">
+                                        <tbody>
+                                            <tr>
+                                                <td>排名：</td>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>证明资料：<span class="glyphicon glyphicon-search"></span></td>
+                                                <td>证明资料：</td>
+                                            </tr>
+                                            <tr>
+                                                <td>投资阶段：</td>
+                                                <td>A轮之前</td>
+                                            </tr>
+                                            <tr>
+                                                <td>个人简介：</td>
+                                                <td>按时打算发发发发发</td>
+                                            </tr>
+                                            <tr>
+                                                <td>案例</td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+} {
+    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+}

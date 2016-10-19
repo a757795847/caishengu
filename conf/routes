@@ -3,106 +3,96 @@
 # ~~~~
 
 # Home page
-#GET     /                           controllers.Application.index
+GET        /test                         controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                                  controllers.Assets.at(path="/public", file)
+GET        /assets/*file                 controllers.Assets.at(path="/public", file)
 
-GET        /admin                                         controllers.AdminController.admin
+GET        /admin                        controllers.AdminController.admin
 
-GET        /                                              controllers.LoginController.login
+GET        /                             controllers.LoginController.login
 
-GET        /List                                          controllers.AdminLTEController.adminLTE
+GET        /List                         controllers.AdminLTEController.adminLTE
 
-GET        /Edit                                          controllers.AdminEditController.adminEdit
+GET        /Edit                         controllers.AdminEditController.adminEdit
 
-GET        /History                                       controllers.AdminHistoryController.adminHistory
+GET        /History                      controllers.AdminHistoryController.adminHistory
 
-GET        /Administrator                                 controllers.AdministratorController.administrator
+GET        /Administrator                controllers.AdministratorController.administrator
 
-GET        /Compile                                       controllers.AdminCompileController.adminCompile
+GET        /Compile                      controllers.AdminCompileController.adminCompile
+#borrow page
+GET        /borrow                       controllers.BorrowController.index
+GET        /borrow/add                   controllers.BorrowController.add
 
-GET        /controller/borrow                         controllers.controller.BorrowController.borrow
+#create page
+GET        /create                       controllers.CreateController.index
+GET        /create/add                   controllers.CreateController.add
 
-GET        /controller/borrow/add                     controllers.controller.BorrowAddController.borrowAdd
+#csg page
+GET        /csg                          controllers.CsgController.index
+GET        /csg/add                      controllers.CsgController.add
 
-GET        /controller/create                         controllers.controller.CreateController.create
+#event page
+GET        /event                        controllers.EventController.index
+GET        /event/out                    controllers.EventController.out
+GET        /event/wait                   controllers.EventController.waits
 
-GET        /controller/create/add                     controllers.controller.CreateAddController.createNews
+#investors page
+GET        /investors                    controllers.InvestorsController.index
+GET        /investors/detail             controllers.InvestorsController.detail
 
-GET        /controller/csg                            controllers.controller.CsgController.csg
+#item page
+GET        /item                         controllers.ItemController.index
+GET        /item/out                     controllers.ItemController.out
+GET        /item/wait                    controllers.ItemController.waits
 
-GET        /controller/csg/add                        controllers.controller.CsgAddController.csgAdd
+#MoneyRun page
+GET        /run                          controllers.MoneyRunController.index
 
-GET        /controller/event                          controllers.controller.EventController.event
+#MoneyManage page
+GET        /manage                       controllers.MoneyManageController.index
 
-GET        /controller/event/out                      controllers.controller.EventOutController.eventOut
+#ticket page
+GET        /ticket                       controllers.TicketController.index
 
-GET        /controller/event/wait                     controllers.controller.EventWaitController.eventWait
+#round page
+GET        /round                        controllers.RoundController.index
+GET        /round/manage                 controllers.RoundController.manage
+GET        /round/out                    controllers.RoundController.out
+GET        /round/wait                   controllers.RoundController.waits
 
-GET        /controller/investors                      controllers.controller.InvestorsController.investors
+#shareholder page
+GET        /shareholder                  controllers.ShareholderController.index
 
-GET        /controller/investors/wait                 controllers.controller.InvestorsWaitController.investorsWait
+#shopping page
+GET        /shopping                     controllers.ShoppingController.index
+GET        /shopping/close               controllers.ShoppingController.close
+GET        /shopping/out                 controllers.ShoppingController.out
+GET        /shopping/receive             controllers.ShoppingController.receive
+GET        /shopping/wait                controllers.ShoppingController.waits
+GET        /shopping/frame               controllers.ShoppingController.frame
+GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 
-GET        /controller/item                           controllers.controller.ItemController.item
+#stat page
+GET        /stat                         controllers.StatController.index
+GET        /stat/action                  controllers.StatController.action
+GET        /stat/data                    controllers.StatController.data
 
-GET        /controller/item/out                       controllers.controller.ItemOutController.itemOut
+#tribute page
+GET        /tribute/order                controllers.TributeController.order
+GET        /tribute/order/detail         controllers.TributeController.orderDetail
+GET        /tribute/frame                controllers.TributeController.frame
+GET        /tribute/frame/detail         controllers.TributeController.frameDetail
 
-GET        /controller/item/wait                      controllers.controller.ItemWaitController.itemWait
+#user page
+GET        /user                         controllers.UserController.index
+GET        /user/app                     controllers.UserController.app
+GET        /user/detailed                controllers.UserController.detail
 
-GET        /controller/money/run                      controllers.controller.MoneyRunController.moneyRun
-
-GET        /controller/money/manage                   controllers.controller.MoneyManageController.moneyManage
-
-GET        /controller/ticket                         controllers.controller.TicketController.ticket
-
-GET        /controller/round                          controllers.controller.RoundController.round
-
-GET        /controller/round/manage                   controllers.controller.RoundManageController.roundManage
-
-GET        /controller/round/out                      controllers.controller.RoundOutController.roundOut
-
-GET        /controller/round/wait                     controllers.controller.RoundWaitController.roundWait
-
-GET        /controller/shareholder                    controllers.controller.ShareholderController.shareholder
-
-GET        /controller/shopping                       controllers.controller.ShoppingController.shopping
-
-GET        /controller/shopping/close                 controllers.controller.ShoppingCloseController.shoppingClose
-
-GET        /controller/shopping/frame                 controllers.controller.ShoppingFrameController.shoppingFrame
-
-GET        /controller/shopping/frame/detailed        controllers.controller.ShoppingFrameDetailedController.shoppingFrameDetailed
-
-GET        /controller/shopping/out                   controllers.controller.ShoppingOutController.shoppingOut
-
-GET        /controller/shopping/receive               controllers.controller.ShoppingReceiveController.shoppingReceive
-
-GET        /controller/shopping/wait                  controllers.controller.ShoppingWaitController.shoppingWait
-
-GET        /controller/stat                           controllers.controller.StatController.stat
-
-GET        /controller/stat/action                    controllers.controller.StatActionController.statAction
-
-GET        /controller/stat/data                      controllers.controller.StatDataController.statData
-
-GET        /controller/tribute                        controllers.controller.TributeController.tribute
-
-GET        /controller/tribute/detailed               controllers.controller.TributeDetailedController.tributeDetailed
-
-GET        /controller/tribute/frame                  controllers.controller.TributeFrameController.tributeFrame
-
-GET        /controller/tribute/frame/detailed         controllers.controller.TributeFrameDetailedController.tributeFrameDetailed
-
-GET        /controller/user                           controllers.controller.UserController.user
-
-GET        /controller/user/detailed                  controllers.controller.UserDetailedController.userDetailed
-
-GET        /controller/love                           controllers.controller.LoveController.love
-
-GET        /controller/love/detailed                  controllers.controller.LoveDetailedController.loveDetailed
-
-GET        /controller/love/detailed/add              controllers.controller.LoveDetailedAddController.loveDetailedAdd
-
-GET        /controller/love/feedback                  controllers.controller.LoveFeedbackController.loveFeedback
+#love page
+GET        /love                         controllers.LoveController.index
+GET        /love/detailed                controllers.LoveController.detailed
+GET        /love/detailed/add            controllers.LoveController.detailedAdd
+GET        /love/feedback                controllers.LoveController.feedback
 

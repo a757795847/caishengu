@@ -1,0 +1,34 @@
+.file {
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #d2d6de;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #333333;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    margin-top: -4px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #ffffff;
+    border-color: #d2d6de;
+    color: #004974;
+    text-decoration: none;
+}
+.outBtn{
+    margin-top: -5px;
+    margin-right: 5px;
+}
+.form-control.formCenter {
+    margin-top: -6px;
+}

@@ -1,0 +1,124 @@
+
+@*usertype: 0:系统管理员 1:操作员*@
+@(userType: Int)
+
+<aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="/stat">
+                    <span>统计</span>
+                </a>
+            </li>
+            @if(userType == 0) {
+                <li class="treeview">
+                    <a href="/run">
+                        <span>财务审批</span>
+                    </a>
+                </li>
+            }
+
+            <li class="treeview">
+                <a href="/manage">
+                    <span>财务管理</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/user">
+                    <span>用户相关</span>
+                </a>
+            </li>
+            <li class="treeview active">
+                <a href="/investors">
+                    <span>投资人管理</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/shareholder">
+                    <span>股东管理</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <span>商城订单管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/shopping">
+                            <i class="fa fa-circle-o"></i>订单
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shopping/frame">
+                            <i class="fa fa-circle-o"></i>商城货架
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <span>贡品订单管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/tribute"><i class="fa fa-circle-o"></i>贡品</a></li>
+                    <li>
+                        <a href="/tribute/frame">
+                            <i class="fa fa-circle-o"></i>虚拟商城货架
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="/event">
+                    <span>活动审批</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/item">
+                    <span>项目审批</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/round">
+                    <span>圈子审批</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/csg">
+                    <span>财神谷新闻</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/create">
+                    <span>创业头条管理</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/borrow">
+                    <span>融资事件管理</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/ticket">
+                    <span>优惠券</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/love">
+                    <span>爱心捐赠</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+        <!-- /.sidebar -->
+</aside>

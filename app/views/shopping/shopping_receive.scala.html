@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Dashboard</title>
+            <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+            <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+            <!-- Font Awesome -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+            <!-- Theme style -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
+            <!-- AdminLTE Skins. Choose a skin from the css/skins
+folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+            <!-- iCheck -->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
+
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/mould.css")">
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/shopping.css")">
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+
+            <header class="main-header">
+                    <!-- Logo -->
+                <a href="index2.html" class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>A</b>LT</span>
+                        <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                </a>
+                    <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                                <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="@routes.Assets.at("images/user2-160x160.jpg")" class="user-image" alt="User Image">
+                                    <span class="hidden-xs">欢迎你张三</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                        <!-- User image -->
+                                    <li class="user-header">
+                                        <img src="@routes.Assets.at("images/user2-160x160.jpg")" class="img-circle" alt="User Image">
+
+                                        <p>
+                                          Alexander Pierce - Web Developer
+                                            <small>Member since Nov. 2012</small>
+                                        </p>
+                                    </li>
+                                        <!-- Menu Body -->
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Followers</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Sales</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Friends</a>
+                                            </div>
+                                        </div>
+                                            <!-- /.row -->
+                                    </li>
+                                        <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-right">
+                                            <span class="label label-info"><a href="#" >退出</a></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </header>
+                <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                    <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+
+                        <!-- /.search form -->
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="/controller/stat">
+                                <span>统计</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/money/run">
+                                <span>财务审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/money/manage">
+                                <span>财务管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/user">
+                                <span>用户相关</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/investors">
+                                <span>投资人管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/shareholder">
+                                <span>股东管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview active">
+                            <a href="#">
+                                <span>商城订单管理</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active">
+                                    <a href="/controller/shopping">
+                                        <i class="fa fa-circle-o"></i>订单
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/controller/shopping/frame">
+                                        <i class="fa fa-circle-o"></i>商城货架
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <span>贡品订单管理</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/controller/tribute"><i class="fa fa-circle-o"></i>贡品</a></li>
+                                <li>
+                                    <a href="/controller/tribute/frame">
+                                        <i class="fa fa-circle-o"></i>虚拟商城货架
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/event">
+                                <span>活动审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/item">
+                                <span>项目审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/round">
+                                <span>圈子审批</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/csg">
+                                <span>财神谷新闻</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/create">
+                                <span>创业头条管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/borrow">
+                                <span>融资事件管理</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/ticket">
+                                <span>优惠券</span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="/controller/love">
+                                <span>爱心捐赠</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                    <!-- /.sidebar -->
+            </aside>
+
+                <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" id="shopping">
+                    <div class="row newsTop">
+                        <button type="button" class="btn btn-default "><a href="/controller/shopping">返回</a></button>
+                    </div>
+                    <div class="row">
+                        <p>订单信息</p>
+                        <div class="order">
+                            <ul>
+                                <li>
+              下单时间：<span>2013-03-01 12:12:12</span>
+            </li>
+                                <li>
+              商品
+                                </li>
+                                <li class="commodity">
+                                    <span>财神饼</span>
+                                    <span>X1</span>
+                                </li>
+                                <li class="commodity">
+                                    <span>财神水</span>
+                                    <span>X2</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>收货人信息</p>
+                        <div class="client">
+                            <ul>
+                                <li>
+              姓名：<span>张三</span>
+            </li>
+                                <li>
+              联系方式：<span>12345678933</span>       
+            </li>
+                                <li>
+              地址：
+                                    <span>浙江省杭州市滨江区天恒大厦</span>
+                                </li>
+                                <li>
+              邮编：
+                                    <span>31000</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>物流信息</p>
+                        <div class="transport">
+                            <ul>
+                                <li>
+              物流公司：<span>顺丰</span>
+            </li>
+                                <li>
+              单号：<span>234567890</span>       
+            </li>
+                            </ul>
+                        </div>
+                        <p>物流信息</p>
+                        <div class="receive">
+                            <ul>
+                                <li>
+              收货时间：<span>2013-12-31 12:33:33</span>
+            </li>
+                                <li>
+              收货方式：<span>超时默认收货/主动收货</span>       
+            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    <!-- /.content -->
+            </div>
+        </div>
+            <!-- ./wrapper -->
+
+
+
+
+        <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jquery-ui.min.js")"></script>
+        <script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+        <script src="@routes.Assets.at("javascripts/config/global_config.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+
+        <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/demo.js")"></script>
+        @*<script src="@routes.Assets.at("javascripts/login.js")"></script>*@
+    </body>
+</html>
