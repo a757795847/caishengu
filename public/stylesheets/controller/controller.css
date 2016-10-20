@@ -53,6 +53,15 @@ ul,li{
     margin-bottom: 0;
     font-size: 12px;
     padding: 7px 5px;
-    position: static;
+    position: initial;
     border-radius: 2px;
+}
+section.content-header {
+    padding-bottom: 20px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: none;
+}
+table>tbody>tr>td{
+    border-bottom: 1px solid #d2d6de;
 }

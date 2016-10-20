@@ -2,14 +2,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET        /test                         controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                 controllers.Assets.at(path="/public", file)
 
 GET        /                             controllers.LoginController.login
 
+#borrow page
+GET        /borrow                       controllers.BorrowController.index
+GET        /borrow/add                   controllers.BorrowController.add
 
 #create page
 GET        /create                       controllers.CreateController.index
@@ -61,9 +62,9 @@ GET        /shopping/frame               controllers.ShoppingController.frame
 GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 
 #stat page
-GET        /stat                         controllers.StatController.index
-GET        /stat/action                  controllers.StatController.action
-GET        /stat/data                    controllers.StatController.data
+GET        /statistics                         controllers.StatisticsController.index
+GET        /statistics/action                  controllers.StatisticsController.action
+GET        /statistics/data                    controllers.StatisticsController.data
 
 #tribute page
 GET        /tribute/order                controllers.TributeController.order
@@ -73,7 +74,6 @@ GET        /tribute/frame/detail         controllers.TributeController.frameDeta
 
 #user page
 GET        /user                         controllers.UserController.index
-GET        /user/app                     controllers.UserController.app
 GET        /user/detailed                controllers.UserController.detail
 
 #love page

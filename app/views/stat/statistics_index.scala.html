@@ -1,0 +1,54 @@
+@main("统计", "statistics.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/stat.css")">
+} {
+
+    <div class="content-wrapper">
+        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <div class="row newsTop">
+                <h1>用户信息</h1>
+                <div class="col-lg-3 col-md-3">
+                    <div>
+                        <h4>注册用户</h4>
+                        <p>60，600，600</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div>
+                        <h4>男性</h4>
+                        <p>30，600，600</p>
+                        <p>50%</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div>
+                        <h4>女性</h4>
+                        <p>30，600，600</p>
+                        <p>50%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col-lg-6 col-md-6">
+                    <p>性别比例</p>
+                    <div id="sex"></div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <p>性别比例</p>
+                    <div id="age"></div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <p>地区</p>
+                <div id="sex"></div>
+            </div>
+        </div>
+
+    </div>
+
+} {
+    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+}
+
+

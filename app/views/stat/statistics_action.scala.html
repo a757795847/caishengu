@@ -1,0 +1,46 @@
+@main("统计", "statistics.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/stat.css")">
+} {
+
+    <div class="content-wrapper">
+        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <div class="row actionTop">
+                <h1>消费行为</h1>
+                <button type="button" class="btn btn-default col-md-offset-10 col-lg-offset-10 col-md-2 col-lg-2">导出</button>
+            </div>
+            <div class="row centent">
+                <div class="btn-group col-md-6 col-lg-6">
+                    <button type="button" class="btn btn-default actionBtn">2016年</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu col-md-11 col-lg-11" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <div class="btn-group col-md-6 col-lg-6">
+                    <button type="button" class="btn btn-default actionBtn">3月</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu col-md-11 col-lg-11" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+} {
+    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+}

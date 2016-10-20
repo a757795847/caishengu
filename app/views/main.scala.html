@@ -1,4 +1,4 @@
-@(title: String)(before: Html)(content: Html)(after: Html)(in:Int)
+@(title: String, selectedTab: String = "")(before: Html)(content: Html)(after: Html)
 
 <!DOCTYPE html>
 <html>
@@ -84,7 +84,7 @@ folder instead of downloading all of them to reduce the load. -->
                 </nav>
             </header>
                 <!-- Left side column. contains the logo and sidebar -->
-            @sidebar(1)(in)
+            @sidebar(1, selectedTab)
                 <!-- Content Wrapper. Contains page content -->
             @content
 

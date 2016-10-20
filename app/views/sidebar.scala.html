@@ -1,6 +1,10 @@
 
 @*usertype: 0:系统管理员 1:操作员*@
-@(userType: Int)(in: Int)
+@(userType: Int, selected: String)
+
+@active(_selected: String) = {
+    @if(_selected == selected) {active}
+}
 
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -9,40 +13,39 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="treeview">
+            <li class="treeview @active("stat.index")">
                 <a href="/stat">
                     <span>统计</span>
                 </a>
             </li>
             @if(userType == 0) {
-                <li class="treeview">
+                <li class="treeview @active("run.index")">
                     <a href="/run">
                         <span>财务审批</span>
                     </a>
                 </li>
             }
-
-            <li class="treeview">
+            <li class="treeview @active("manage.index")">
                 <a href="/manage">
                     <span>财务管理</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("user.index")">
                 <a href="/user">
                     <span>用户相关</span>
                 </a>
             </li>
-            <li class="treeview active">
+            <li class="treeview @active("investors.index")">
                 <a href="/investors">
                     <span>投资人管理</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("shareholder.index")">
                 <a href="/shareholder">
                     <span>股东管理</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("shopping.index")">
                 <a href="#">
                     <span>商城订单管理</span>
                     <span class="pull-right-container">
@@ -50,19 +53,19 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li>
+                    <li class="@active("shopping.index")">
                         <a href="/shopping">
                             <i class="fa fa-circle-o"></i>订单
                         </a>
                     </li>
-                    <li>
+                    <li class="@active("shopping.frame")">
                         <a href="/shopping/frame">
                             <i class="fa fa-circle-o"></i>商城货架
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("manage.index")">
                 <a href="#">
                     <span>贡品订单管理</span>
                     <span class="pull-right-container">
@@ -70,50 +73,50 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/tribute"><i class="fa fa-circle-o"></i>贡品</a></li>
-                    <li>
+                    <li class="@active("tribute.index")"><a href="/tribute"><i class="fa fa-circle-o"></i>贡品</a></li>
+                    <li class="@active("tribute.frame")">
                         <a href="/tribute/frame">
                             <i class="fa fa-circle-o"></i>虚拟商城货架
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("event.index")">
                 <a href="/event">
                     <span>活动审批</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("item.index")">
                 <a href="/item">
                     <span>项目审批</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("round.index")">
                 <a href="/round">
                     <span>圈子审批</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("csg.index")">
                 <a href="/csg">
                     <span>财神谷新闻</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("create.index")">
                 <a href="/create">
                     <span>创业头条管理</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("borrow.index")">
                 <a href="/borrow">
                     <span>融资事件管理</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("ticket.index")">
                 <a href="/ticket">
                     <span>优惠券</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @active("love.index")">
                 <a href="/love">
                     <span>爱心捐赠</span>
                 </a>
