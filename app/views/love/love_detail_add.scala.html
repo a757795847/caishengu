@@ -1,30 +1,55 @@
 
 @main("爱心捐赠", "love.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/love.css")">
 } {
-    <div class="content-wrapper ">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default col-md-2 col-lg-2"><a href="/controller/love">返回</a></button>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/love"><i class="fa fa-heart"></i>爱心捐赠</a></li>
+                <li><a href="#">新增爱心捐赠</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="box-tools">
+                        <div class="input-group pull-right input-group-sm">
+                            <button type="submit" class="btn btn-default pull-right"><a href="/love">返回</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="add">
+                        <p>图片</p>
+                        <div class="addImg">
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                <a href="#">
+                                    +
+                                    <input type="file" name="" >
+                                </a>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="addNews">
+                        <p>项目名称</p>
+                        <input type="text" class=" form-control" placeholder="项目名称">
+                        <p>募集金额</p>
+                        <input type="number" class="form-control" placeholder="金额">
+                        <p>简介</p>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1"><a href="#">保存</a></button>
+                    </div>
+                </div>
             </div>
-            <div class="row add">
-                <p>图片</p>
-                <div class="addImg">+</div>
-            </div>
-            <div class="row col-md-8 col-lg-8 addNews">
-                <p>项目名称</p>
-                <input type="text" class=" form-control" placeholder="项目名称">
-                <p>募集金额</p>
-                <input type="number" class="form-control" placeholder="金额">
-                <p>简介</p>
-                <textarea class="form-control" rows="3"></textarea>
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-default col-md-offset-10 col-lg-offset-10 col-md-2 col-lg-2"><a href="#">保存</a></button>
-            </div>
-        </div>
+        </section>
+
             <!-- /.content -->
     </div>
+
 
 } {
     <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>

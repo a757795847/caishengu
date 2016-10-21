@@ -3,6 +3,110 @@
 
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/tribute.css")">
 } {
+    <div class="content-wrapper ">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-road"></i>贡品</a></li>
+                <li><a href="#">虚拟商城货架</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="input-group pull-right input-group-sm">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default">搜索</button>
+                            <button type="submit" class="btn btn-default">新建</button>
+                        </div>
+                    </div>
+                </div>
+                    <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="box-body">
+                            <!-- the events -->
+                        <div id="external-events">
+                            <div class="external-event bg-green pull-left">
+                                <button type="button" class="close">×</button>
+                                推荐
+                            </div>
+                            <div class=" external-event bg-yellow pull-left">
+                                <button type="button" class="close">×</button>
+                                新品
+                            </div>
+                            <div class="external-event bg-aqua pull-left">
+                                <button type="button" class="close">×</button>
+                                热销
+                            </div>
+                            <div class="external-event bg-red pull-left">
+                                <button type="button" class="close">×</button>
+                                爆款
+                            </div>
+                            <div class="external-event bg-light-blue pull-left"> + </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="box-body">
+                                <div class="table-responsive">
+                                    <table class="table no-margin">
+                                        <colgroup>
+                                            <col class="col-xs-7">
+                                            <col class="col-xs-3">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>简介</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="@routes.Assets.at("images/user2-160x160.jpg")" />
+                                                    <span>门票</span>
+                                                    <span>￥50</span>
+                                                    <span>50积分</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info"><a href="#">下架</a></span>
+                                                    <span class="label label-info"><a href="#">编辑</a></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="../dist/img/avatar.png" />
+                                                    <span>门票</span>
+                                                    <span>￥50</span>
+                                                    <span>50积分</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info"><a href="#">下架</a></span>
+                                                    <span class="label label-info"><a href="#">编辑</a></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="../dist/img/avatar.png" />
+                                                    <span>门票</span>
+                                                    <span>￥50</span>
+                                                    <span>50积分</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-info"><a href="#">下架</a></span>
+                                                    <span class="label label-info"><a href="#">编辑</a></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                        <!-- /.table-responsive -->
+                </div>
+            </div>
+        </section>
+    </div>
 
     <div class="content-wrapper row">
         <div id="tribute" class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">

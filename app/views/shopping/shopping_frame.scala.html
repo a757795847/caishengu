@@ -1,13 +1,14 @@
 
 @main("商城订单管理", "shopping.frame") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/shopping.css")">
 } {
     <div class="content-wrapper ">
         <section class="content-header">
-            <h1>
-                货架
-                <small>商城货架</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-cart-plus"></i>商城订单管理</a></li>
+                <li><a href="#">商城货架</a></li>
+            </ol>
         </section>
         <section class="content">
             <div class="row">
@@ -20,97 +21,119 @@
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
                             <div class="tab-pane active" id="goods">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3" >
-                                        <div class="alert  alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h5>推荐</h5>
-                                        </div>
-                                        <div class="alert  alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h5>热销</h5>
-                                        </div>
-                                        <div class="alert  alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <h5>新品</h5>
-                                        </div>
-                                        <div class="alert  alert-dismissible">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                            <p>+</p>
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="input-group pull-right input-group-sm">
+                                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                            <div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default">搜索</button>
+                                                <button type="submit" class="btn btn-default">新建</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-lg-offset-1 col-md-offset-1">
-                                        <div class="box">
-                                            <div class="box-header">
-                                                <div class="input-group pull-right input-group-sm">
-                                                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                                                    <div class="input-group-btn">
-                                                        <button type="submit" class="btn btn-default">搜索</button>
-                                                        <button type="submit" class="btn btn-default">新建</button>
+                                        <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-4 col-lg-4" >
+                                                <div class="box-body">
+                                                        <!-- the events -->
+                                                    <div id="external-events">
+                                                        <div class="external-event bg-green">
+                                                            <button type="button" class="close">×</button>
+                                                            推荐
+                                                        </div>
+                                                        <div class=" external-event bg-yellow">
+                                                            <button type="button" class="close">×</button>
+                                                            新品
+                                                        </div>
+                                                        <div class="external-event bg-aqua">
+                                                            <button type="button" class="close">×</button>
+                                                            热销
+                                                        </div>
+                                                        <div class="external-event bg-red">
+                                                            <button type="button" class="close">×</button>
+                                                            爆款
+                                                        </div>
+                                                        <div class="external-event bg-light-blue"> + </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="box-body">
-                                                <div class="table-responsive">
-                                                    <table class="table no-margin">
-                                                        <colgroup>
-                                                            <col class="col-xs-7">
-                                                            <col class="col-xs-3">
-                                                        </colgroup>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>简介</th>
-                                                                <th>操作</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <img src="../dist/img/avatar.png" />
-                                                                    <span>门票</span>
-                                                                    <span>￥50</span>
-                                                                    <span>50积分</span>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-info"><a href="#">下架</a></span>
-                                                                    <span class="label label-info"><a href="#">编辑</a></span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <img src="../dist/img/avatar.png" />
-                                                                    <span>门票</span>
-                                                                    <span>￥50</span>
-                                                                    <span>50积分</span>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-info"><a href="#">下架</a></span>
-                                                                    <span class="label label-info"><a href="#">编辑</a></span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <img src="../dist/img/avatar.png" />
-                                                                    <span>门票</span>
-                                                                    <span>￥50</span>
-                                                                    <span>50积分</span>
-                                                                </td>
-                                                                <td>
-                                                                    <span class="label label-info"><a href="#">下架</a></span>
-                                                                    <span class="label label-info"><a href="#">编辑</a></span>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                            <div class="col-md-8">
+                                                <div class="box-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table no-margin">
+                                                            <colgroup>
+                                                                <col class="col-xs-7">
+                                                                <col class="col-xs-3">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>简介</th>
+                                                                    <th>操作</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="@routes.Assets.at("images/user2-160x160.jpg")" />
+                                                                        <span>门票</span>
+                                                                        <span>￥50</span>
+                                                                        <span>50积分</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-info"><a href="#">下架</a></span>
+                                                                        <span class="label label-info"><a href="#">编辑</a></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="../dist/img/avatar.png" />
+                                                                        <span>门票</span>
+                                                                        <span>￥50</span>
+                                                                        <span>50积分</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-info"><a href="#">下架</a></span>
+                                                                        <span class="label label-info"><a href="#">编辑</a></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img src="../dist/img/avatar.png" />
+                                                                        <span>门票</span>
+                                                                        <span>￥50</span>
+                                                                        <span>50积分</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-info"><a href="#">下架</a></span>
+                                                                        <span class="label label-info"><a href="#">编辑</a></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <!-- /.table-responsive -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="ticket">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                                <div class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="ticket">
-                                <div class="box box-info">
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -138,18 +161,6 @@
                                             </table>
                                         </div>
                                             <!-- /.table-responsive -->
-                                    </div>
-                                    <div class="box-footer clearfix">
-                                        <ul class="pagination pagination-sm no-margin pull-right">
-                                            <li><a href="#">«</a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">6</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

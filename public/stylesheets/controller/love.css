@@ -1,13 +1,44 @@
-.box.box-info{
+.nav-tabs-custom > .tab-content {
+    padding-top: 0;
+}
+
+.box.box-info {
     border-top: 3px solid #00c0ef;
     padding: 12px;
 }
-.box.box-info img{
+
+.box.box-info img {
     width: 130px;
     height: 130px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
-.box.box-info .detailedImg{
-    
+/*add*/
+.addNews {
+    width: 400px;
+    line-height: 25px;
+}
+
+.addImg {
+    border: 1px solid #000;
+    display: inline-block;
+    width: 100px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.addImg input{
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;
+}
+.add p , .addNews p {
+    font-size: 14px;
+}
+.addNews input {
+    margin-bottom: 10px;
 }

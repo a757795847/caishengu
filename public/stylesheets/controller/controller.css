@@ -7,9 +7,7 @@ ul,li{
     padding: 0;
     list-style: none;
 }
-.label.label-info a{
-    color: #ffffff;
-}
+
 .nav-tabs-custom>.nav-tabs>li.active {
     border-top-color: #00c0ef;
 }
@@ -22,15 +20,23 @@ ul,li{
     width: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
-.label.label-info{
-    margin-right: 10px;
-}
 .box-header {
     margin-bottom: 15px;
+}
+.box.box-info{
+    border-top: 3px solid #00c0ef;
+    padding: 12px;
 }
 .btn.btn-info a{
     color: #ffffff;
 }
+.label.label-info{
+    margin-right: 10px;
+}
+.label.label-info a{
+    color: #ffffff;
+}
+
 .input-group.input-group-sm{
     width: 250px;
 }

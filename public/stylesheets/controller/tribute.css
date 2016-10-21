@@ -1,81 +1,107 @@
-button{
-    margin-top: 20px;
-}
-p{
-    font-size: 16px;
-}
-/*add*/
-.addNews{
-    margin: 10px 0 0 -30px;
-}
-.money{
-    margin: 3px 0 0;
-}
-.addNews p{
-    margin-top: 10px;
-}
-/*detailed*/
-#tributeD p{
-    font-size: 18px;
-    margin-top: 20px;
-}
-#tributeD .order,#tributeD .client{
-    border: 2px solid #000;
-    padding: 15px;
-    margin-top: 16px;
-    font-size: 16px;
-    line-height: 24px;
-}
-/*frame*/
-#tribute form button.btn.btn-default {
-    width: 100%;
-}
-#tribute .alert.alert-dismissible.fade.in {
-    border: 1px solid #000;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-    letter-spacing:2px;
-}
-#tribute .add{
-    border: 1px solid #000;
-    font-size: 32px;
-    text-align: center;
-    float: left;
-    border-radius: 3px;
-}
-#tribute table img{
+img{
     width: 30px;
-    height: 30px;
-}
-#tribute table span{
+    height:30px;
     margin-right: 12px;
 }
-#tribute .newsTop{
-    margin: 20px 0px 30px 0;
+td span {
+    margin-right: 12px;
 }
-#tribute .newsTop button{
-    padding: 9px 15px;
-    margin: 0px 12px 0px 0;
-    font-size: 20px;
-    border-radius: 25px;
+/*frame*/
+.box-body {
+    padding-top: 0;
 }
-#tribute form .col-md-2.col-lg-2 {
-    padding-left: 0;
-}
-/*tribute-frame-detailed*/
-#tribute{
-    margin-top: 20px;
-}
-#tribute .frameImg img{
+.external-event.pull-left {
     margin-right: 10px;
 }
-#tribute .frameImg div{
-    border: 1px solid #000;
-    display: inline-block;
-    width: 128px;
-    height: 128px;
-    text-align: center;
-    line-height: 110px;
-    font-size: 32px;
+button.close {
+    margin-left: 10px;
 }
+.box-body div#external-events {
+    margin-top: -10px;
+}
+.external-event.bg-light-blue.pull-left {
+    height: 32px;
+    width: 28px;
+}
+
+/*button{*/
+    /*margin-top: 20px;*/
+/*}*/
+/*p{*/
+    /*font-size: 16px;*/
+/*}*/
+/*!*add*!*/
+/*.addNews{*/
+    /*margin: 10px 0 0 -30px;*/
+/*}*/
+/*.money{*/
+    /*margin: 3px 0 0;*/
+/*}*/
+/*.addNews p{*/
+    /*margin-top: 10px;*/
+/*}*/
+/*!*detailed*!*/
+/*#tributeD p{*/
+    /*font-size: 18px;*/
+    /*margin-top: 20px;*/
+/*}*/
+/*#tributeD .order,#tributeD .client{*/
+    /*border: 2px solid #000;*/
+    /*padding: 15px;*/
+    /*margin-top: 16px;*/
+    /*font-size: 16px;*/
+    /*line-height: 24px;*/
+/*}*/
+/*!*frame*!*/
+/*#tribute form button.btn.btn-default {*/
+    /*width: 100%;*/
+/*}*/
+/*#tribute .alert.alert-dismissible.fade.in {*/
+    /*border: 1px solid #000;*/
+    /*font-size: 20px;*/
+    /*text-align: center;*/
+    /*margin-bottom: 10px;*/
+    /*letter-spacing:2px;*/
+/*}*/
+/*#tribute .add{*/
+    /*border: 1px solid #000;*/
+    /*font-size: 32px;*/
+    /*text-align: center;*/
+    /*float: left;*/
+    /*border-radius: 3px;*/
+/*}*/
+/*#tribute table img{*/
+    /*width: 30px;*/
+    /*height: 30px;*/
+/*}*/
+/*#tribute table span{*/
+    /*margin-right: 12px;*/
+/*}*/
+/*#tribute .newsTop{*/
+    /*margin: 20px 0px 30px 0;*/
+/*}*/
+/*#tribute .newsTop button{*/
+    /*padding: 9px 15px;*/
+    /*margin: 0px 12px 0px 0;*/
+    /*font-size: 20px;*/
+    /*border-radius: 25px;*/
+/*}*/
+/*#tribute form .col-md-2.col-lg-2 {*/
+    /*padding-left: 0;*/
+/*}*/
+/*!*tribute-frame-detailed*!*/
+/*#tribute{*/
+    /*margin-top: 20px;*/
+/*}*/
+/*#tribute .frameImg img{*/
+    /*margin-right: 10px;*/
+/*}*/
+/*#tribute .frameImg div{*/
+    /*border: 1px solid #000;*/
+    /*display: inline-block;*/
+    /*width: 128px;*/
+    /*height: 128px;*/
+    /*text-align: center;*/
+    /*line-height: 110px;*/
+    /*font-size: 32px;*/
+/*}*/
