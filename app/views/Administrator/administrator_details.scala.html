@@ -1,179 +1,114 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>编辑商户/新建</title>
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+@merchart_main("新增/编辑管理员"){
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Compile.css")">
+} {
+    <div class="content-wrapper row">
+        <section class="content" >
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>管理员账号</a></li>
+                <li class="active">新增/编辑管理员</li>
+            </ol>
 
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/Compile.css")">
-
-
-    </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
-
-            <header class="main-header">
-
-                    <!-- Logo -->
-                <a href="/List" class="logo">
-                        <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
-                        <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
-                </a>
-
-                    <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top">
-                    <div class="dropdown pull-right" >
-                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                    老哥!有空三五瓶!
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">退出</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            //菜单列表
-            <aside class="main-sidebar">
-                <section class="sidebar">
-                    <ul class="sidebar-menu">
-                        <li class="treeview">
-                            <a href="/List">
-                                <i class="fa fa-share"></i> <span>商户管理</span>
-                                <span class="pull-right-container">
-
-            </span>
-                            </a>
-
-                            <ul class="sidebar-menu">
-
-                                <li class="active treeview">
-                                    <a href="/Administrator">
-                                        <i class="fa fa-dashboard"></i> <span>管理员账号</span>
-                                        <span class="pull-right-container">
-            </span>
-                                    </a>
-                                </li>
-                </section>
-            </aside>
-
-
-            <div class="content-wrapper row">
-                <section class="content" >
-
-
-                        <!-- TABLE: LATEST ORDERS -->
-                    <div class="col-md-12 col-lg-7">
-                    <div class="box box-info" >
-                        <div class="box-header with-border">
+                <!-- TABLE: LATEST ORDERS -->
+            <div class="col-md-12 col-lg-7">
+                <div class="box box-info" >
+                    <div class="box-header with-border">
 
 
 
-                                <!-- /.box-header -->
-                            <div class="box-body">
-                                <div class="table-responsive">
-                                    <a href="/Administrator" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
-                                    <h4>管理员信息</h4>
-                                    <table class="table table-bordered" id="TableAll">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2"id="shanghu">管理员ID:<span>1354431</span></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>管理员密码:<input type="password" size="6"class="ps">
-                                                    <button type="button" class="btn btn-default" id="resetting">重置</button>
-                                    </td>
-                                                <td>管理员姓名:<span>张三</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>管理员联系方式:<span>215465456</span></td>
-                                            </tr>
+                            <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <a href="/Administrator" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
+                                <h4>管理员信息</h4>
+                                <table class="table table-bordered" id="TableAll">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2"id="shanghu">管理员ID:<span>1354431</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>管理员密码:<input type="password" size="6"class="ps">
+                                                <button type="button" class="btn btn-default" id="resetting">重置</button>
+                                            </td>
+                                            <td>管理员姓名:<span>张三</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>管理员联系方式:<span>215465456</span></td>
+                                        </tr>
 
-                                        </tbody>
-                                    </table>
-                                    <h3>权限控制</h3>
-                                    <div class="panel-group">
-                                        <div class="panel panel-primary">
-                                            <table class="table no-margin"id="TableTwo">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>统计</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>用户相关</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>投资人管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>股东管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>商城订单管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>贡品订单管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>财务管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>活动审批</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>项目审批</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>圈子审批</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>财神谷新闻</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>融资事件管理</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>创业头条管理</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    </tbody>
+                                </table>
+                                <h3>权限控制</h3>
+                                <div class="panel-group">
+                                    <div class="panel panel-primary">
+                                        <table class="table no-margin"id="TableTwo">
+                                            <tbody>
+                                                <tr>
+                                                    <td>统计</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>用户相关</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>投资人管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>股东管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>商城订单管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>贡品订单管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>财务管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>活动审批</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>项目审批</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>圈子审批</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>财神谷新闻</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>融资事件管理</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>创业头条管理</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                        </div>
-                                        <input class="btn btn-default" type="button" value="删除" id="notclick">
                                     </div>
-
-
-
+                                    <input class="btn btn-default" type="button" value="删除" id="notclick">
                                 </div>
 
-                                    <!-- /.table-responsive -->
+
+
                             </div>
-                                <!-- /.box-body -->
-                                <!-- /.box-footer -->
+
+                                <!-- /.table-responsive -->
                         </div>
+                            <!-- /.box-body -->
+                            <!-- /.box-footer -->
                     </div>
+                </div>
 
-                            <!-- /.box -->
-                    </div>
-                        <!-- /.col -->
-                </section>
+                    <!-- /.box -->
             </div>
-            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
-            <script src="@routes.Assets.at("javascripts/Compile.js")"></script>
-    </body>
-</html>
+                <!-- /.col -->
+        </section>
+    </div>
 
+
+} {
+    <script src="@routes.Assets.at("javascripts/Compile.js")"></script>
+
+}

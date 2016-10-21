@@ -38,6 +38,20 @@
     font-size:12px;
 
 }
+#btnLeft{
+    margin-top: -3px;
+    margin-left: 20px;
+    color: black;
+    line-height: 21px;
+    border-radius: 8px;
+    width: 74px;
+    color: black;
+    font-size: 12px;
+
+}
+.label.label-info a{
+    color: #ffffff;
+}
 #welcome{
     margin-right:15px;
     height:100%;

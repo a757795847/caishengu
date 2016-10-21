@@ -1,0 +1,103 @@
+@project_main("我的项目"){
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap-colorpicker.min.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/myproject_details.css")">
+
+} {
+
+    <div class="content-wrapper row">
+        <section class="content">
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>我的项目</a></li>
+                <li class="active">项目详情</li>
+            </ol>
+            <div class="col-md-12 col-lg-12">
+            <div class="box box-info">
+                <div class="table-responsive">
+                    <a href="/List" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
+                    <table id="Table">
+                        <tr>
+                            <td class="lf">基本信息</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="lf">项目名称</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td class="lf">一句话介绍</td>
+                            <td><input type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td class="lf">Logo</td>
+                            <td> <img src="@routes.Assets.at("images/lvcheng.jpg")"></td>
+                        </tr>
+                        <tr>
+                            <td class="lf">城市</td>
+                            <td class="light">
+                                <div class="form-group">
+                                    <select class="form-control select2">
+                                        <option selected="selected">Alabama</option>
+                                        <option>Alaska</option>
+                                        <option disabled="disabled">California (disabled)</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lf">项目领域</td>
+                            <td class="fight">
+                                <select class="form-control select2">
+                                    <option selected="selected">Alabama</option>
+                                    <option>Alaska</option>
+                                    <option disabled="disabled">California (disabled)</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                </select>
+                                <select class="form-control select2">
+                                    <option selected="selected">Alabama</option>
+                                    <option>Alaska</option>
+                                    <option disabled="disabled">California (disabled)</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                </select>
+                           </td>
+                        </tr>
+                        <tr>
+                            <td class="lf">项目描述</td>
+                            <td>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="6" ></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lf">BP</td>
+                            <td class="aight">财神谷.PDF <button type="button" class="btn btn-default">上传BP</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="button" class="btn btn-primary btn-lg active" id="Upload">提交</button></td>
+
+                        </tr>
+                    </table>
+
+                        <!-- /.box -->
+                </div>
+
+                    <!-- /.col -->
+        </section>
+            </div>
+    </div>
+    </div>
+
+} {
+
+
+}

@@ -1,661 +1,134 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Dashboard</title>
-            <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-            <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/Item.css")">
+@main("投资人详情","investors.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Item.css")">
+} {
+
+    <div class="content-wrapper">
+        <section class="content row">
 
 
-    </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
-
-            <header class="main-header">
-                    <!-- Logo -->
-                <a href="index2.html" class="logo">
-                        <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
-                        <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
-                </a>
-                    <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top">
-                    <div class="dropdown pull-right" >
-                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
-        欢迎你，张三
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">退出</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-                <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-                    <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-
-                        <!-- /.search form -->
-                        <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li class="treeview">
-                            <a href="stat.html">
-                                <span>统计</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="money-run.html">
-                                <span>财务审批</span>
-                            </a>
-                        </li>
-                        <li class="treeview active">
-                            <a href="money-manage.html">
-                                <span>财务管理</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>用户相关</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>用户信息</a></li>
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>消费行为</a></li>
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>数据分析</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>投资人管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                      </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i>详情</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>股东管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>待审批列表
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i>股东列表</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>商城订单管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>待发货
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>已发货
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>已收货
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>关闭订单
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/tables/simple.html">
-                                        <i class="fa fa-circle-o"></i>商城货架
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/tables/simple.html">
-                                                <i class="fa fa-circle-o"></i>商品
-                                                <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="treeview-menu">
-                                                <li>
-                                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                        </i>
-                                                        详情
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="pages/tables/simple.html">
-                                                        <i class="fa fa-circle-o"></i>门票
-                                                        <span class="pull-right-container">
-                                                            <i class="fa fa-angle-left pull-right"></i>
-                                                        </span>
-                                                    </a>
-                                                    <ul class="treeview-menu">
-                                                        <li>
-                                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                            </i>
-                                                                详情
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                    <li class="treeview">
-                        <a href="#">
-                            <span>投资人管理</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i>详情</a></li>
-                            <li>
-                                <a href="pages/forms/general.html">
-                                    <i class="fa fa-circle-o"></i>虚拟商城货架
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                            详情
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>活动审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                活动详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>已通过
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                活动详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>项目审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                项目详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>已通过
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                项目详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>圈子审批</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>待审批
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                圈子详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>审批通过
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                圈子详情
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="pages/forms/general.html">
-                                        <i class="fa fa-circle-o"></i>圈子类目管理
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                    </i>
-                                                新增圈子类目
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>财神谷新闻</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        新增
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>创业头条管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        新增
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>融资事件管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        新增/编辑融资事件详情
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>融资事件管理</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        规则
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        优惠券
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        投放记录
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <span>爱心捐赠</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        新建详情
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        查看详情
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o">
-                </i>
-                                        填写反馈
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                    <!-- /.sidebar -->
-            </aside>
-
-                <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <section class="content row">
-
-
-                        <!-- TABLE: LATEST ORDERS -->
-                    <div class="col-md-12 col-lg-12">
-                    <div class="box box-info" >
-                        <div class="box-header with-border">
-                            <button type="button" class="btn btn-default" id="BtnCilck">返回</button>
-                            <div class="box-body">
-                                <div class="table-responsive">
-                                    <h4>基本信息</h4>
-                                    <table class="table table-bordered" id="length">
-                                        <tr>
-                                            <td>ID: <span>10011</span></td>
-                                            <td>姓名: <span>张三</span></td>
-                                        </tr>
-                                        <tr>
+                <!-- TABLE: LATEST ORDERS -->
+            <div class="col-md-12 col-lg-12">
+                <div class="box box-info" >
+                    <div class="box-header with-border">
+                        <button type="button" class="btn btn-default" id="BtnCilck">返回</button>
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <h4>基本信息</h4>
+                                <table class="table table-bordered" id="length">
+                                    <tr>
+                                        <td>ID: <span>10011</span></td>
+                                        <td>姓名: <span>张三</span></td>
+                                    </tr>
+                                    <tr>
                                         <td>手机号: <span>123468545</span></td>
                                         <td>职位: <span>业务经理</span></td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td>公司: <span>软银</span></td>
                                         <td>股东: <span>否</span></td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td>投资人: <span>是</span></td>
                                         <td>生日: <span>1975-12-3</span></td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td>生辰: <span>甲子年blablabla.....</span></td>
                                         <td>地区: <span>宁波</span></td>
                                     </tr>
-                                        <tr>
+                                    <tr>
                                         <td>头像: <img src="@routes.Assets.at("images/logo.jpg")">
                                         </td>
                                     </tr>
 
-                                    </table>
-                                    <h4>投资人信息</h4>
-                                    <table class="table"id="firstTable">
-                                        <tr>
-                                            <td>排名: <span>10</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")"class="Img">
-                                                <img src="@routes.Assets.at("images/logo.jpg")" class="Img"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>投资阶段: <span>A轮之前</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>个人简介: <span>blablablabla....</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4 class="Hfour">案例</h4>
-                                                <table class="lastTable">
-                                                    <tr>
-                                                        <td>时间</td>
-                                                        <td>轮次</td>
-                                                        <td>金额</td></td>
-                                                        <td>领投机构</td>
-                                                    </tr> <tr>
-                                                    <td>2016-7-5</td>
-                                                    <td>A轮</td>
-                                                    <td>三千万</td>
-                                                    <td>软银</td>
-                                                </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
+                                </table>
+                                <h4>投资人信息</h4>
+                                <table class="table"id="firstTable">
+                                    <tr>
+                                        <td>排名: <span>10</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")"class="Img">
+                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>投资阶段: <span>A轮之前</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>个人简介: <span>blablablabla....</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4 class="Hfour">案例</h4>
+                                            <table class="lastTable">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>轮次</td>
+                                                    <td>金额</td></td>
+                                                    <td>领投机构</td>
+                                                </tr> <tr>
+                                                <td>2016-7-5</td>
+                                                <td>A轮</td>
+                                                <td>三千万</td>
+                                                <td>软银</td>
+                                            </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
 
 
-                                    </table>
-                                    <h4>股东信息</h4>
-                                    <table>
-                                        <tr>
-                                            <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
-                                                <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
-                                            </td>
-                                        </tr>
+                                </table>
+                                <h4>股东信息</h4>
+                                <table>
+                                    <tr>
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
+                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
+                                        </td>
+                                    </tr>
 
-                                    </table>
-                                    <button type="btn" class="add col-md-8 col-lg-8" data-toggle="modal" data-target=".bs-example-modal-sm" id="reject">拒绝</button>
-                                    <button type="btn" id="Itok">同意</button>
-                                </div>
-                                    <!-- /.table-responsive -->
+                                </table>
+                                <button type="btn" class="add col-md-8 col-lg-8" data-toggle="modal" data-target=".bs-example-modal-sm" id="reject">拒绝</button>
+                                <button type="btn" id="Itok">同意</button>
                             </div>
-                                <!-- /.box-body -->
-                                <!-- /.box-footer -->
+                                <!-- /.table-responsive -->
                         </div>
+                            <!-- /.box-body -->
+                            <!-- /.box-footer -->
+                    </div>
 
-                    </div>     <!-- /.box -->
+                </div>     <!-- /.box -->
+            </div>
+                <!-- /.col -->
+        </section>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">请填写拒绝原因!</h4>
                     </div>
-                        <!-- /.col -->
-                </section>
-                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="myModalLabel">请填写拒绝原因!</h4>
+                    <div class="modal-body" id="modal_body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <textarea name="Inname" cols="30" rows="6" maxlength="170"></textarea>
+                                </div>
                             </div>
-                            <div class="modal-body" id="modal_body">
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <textarea name="Inname" cols="30" rows="6" maxlength="170"></textarea>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
-                                <button type="button" class="btn btn-default btnList">确定</button>
-                            </div>
-                        </div> <!-- /.modal-content -->
+                        </form>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-default btnList">确定</button>
+                    </div>
+                </div> <!-- /.modal-content -->
+            </div>
 
 
 
 
         </div>
-            <!-- ./wrapper -->
 
-            <!-- jQuery 2.2.3 -->
-            <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
-            <script src="@routes.Assets.at("javascripts/demo.js")"></script>
-            <script src="@routes.Assets.at("javascripts/Item.js")"></script>
-    </body>
-</html>
+        } {
+    <script src="@routes.Assets.at("javascripts/Item.js")"></script>
+}
+
+

@@ -1,0 +1,71 @@
+#Table{
+    width:100%;
+    padding:4%;
+
+}
+#Table td{
+    padding:10px 10px;
+}
+#Table input{
+    width:90%;
+    height:25px;
+
+}
+#Table img {
+    height:50px;
+    width:50px;
+
+}
+#Table .lf{
+    width:12%;
+    text-align:center;
+
+}
+.light select{
+    width:90%;
+    height:25px;
+    margin-top: 14px;
+
+}
+.fight select{
+    width:41%;
+    height:25px;
+    float:left;
+    margin-right:8%;
+
+}
+#Table textarea{
+    width:90%;
+    margin-top:3%;
+
+}
+.aight{
+    padding-left:6%;
+
+}
+.aight button{
+    margin-left: 6%;
+    border-radius: 13%;
+    width: 86px;
+    font-size: 0.75rem;
+
+}
+#Upload{
+    text-align: center;
+    margin-left: 44%;
+    border-radius: 5%;
+    font-size: 1.5rem;
+    width: 13%;
+
+}
+#turn{
+    width: 83px;
+    border-radius: 13px;
+    margin-left: 2%;
+    margin-top: 10px;
+    height: 38px;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom:13px;
+
+}

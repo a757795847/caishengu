@@ -1,0 +1,21 @@
+#Table td{
+    padding: 2% 6%;
+    font-size: 1.75rem;
+
+}
+.lf{
+    float:left;
+    line-height:66px;
+
+}
+#Table .rt{
+    font-size: 5rem;
+    color: rgb(0, 200, 239);
+    float: right;
+
+}
+#posi{
+    margin-top:-26px;
+    margin-right:20px;
+
+}

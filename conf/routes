@@ -30,15 +30,15 @@ GET        /investors                    controllers.InvestorsController.index
 GET        /investors/detail             controllers.InvestorsController.detail
 
 #item page
-GET        /item                         controllers.ItemController.index
-GET        /item/out                     controllers.ItemController.out
-GET        /item/wait                    controllers.ItemController.waits
+
 
 #MoneyRun page
 GET        /run                          controllers.MoneyRunController.index
 
 #MoneyManage page
-GET        /manage                       controllers.MoneyManageController.index
+GET        /manage_index                 controllers.MoneyManageController.index
+GET        /manage_details               controllers.MoneyManageController.details
+GET        /manage_history               controllers.MoneyManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -97,4 +97,9 @@ GET        /merchart/details             controllers.MerchantController.merchart
 
 GET        /merchart/history             controllers.MerchantController.merchart_history
 
+#我的项目
+GET        /myproject/index              controllers.MyprojectController.myproject
+GET        /myproject/details            controllers.MyprojectController.details
 
+#我的活动
+GET        /myactivities                 controllers.MyactivitiesController.myactivities
