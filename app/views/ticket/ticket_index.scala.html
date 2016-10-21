@@ -1,17 +1,14 @@
 @main("优惠券", "ticket.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
 
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/stat.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/ticket.css")">
 } {
-
-    <div class="content-wrapper">
+    <div class="content-wrapper ">
         <section class="content-header">
-            <h1>
-                优惠券
-                <small>优惠券管理</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-cc-diners-club"></i>优惠券</a></li>
+            </ol>
         </section>
-            <!-- /.content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
@@ -25,7 +22,7 @@
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
                             <div class="tab-pane active" id="rule">
-                                <div class="box box-info">
+                                <div class="box">
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -72,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="ticket">
-                                <div class="box box-info">
+                                <div class="box">
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -121,7 +118,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="out">
-                                <div class="box box-info">
+                                <div class="box">
                                     <div class="box-header">
                                         <button type="button" class="btn btn-default outBtn">所有已核销</button>
                                         <button type="button" class="btn btn-default outBtn">所有未核销</button>
@@ -167,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="use">
-                                <div class="box box-info">
+                                <div class="box">
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm" style="width: 250px;">
@@ -217,7 +214,6 @@
             </div>
                 <!-- /.row -->
         </section>
-
     </div>
 
 

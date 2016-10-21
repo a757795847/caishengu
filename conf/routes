@@ -62,9 +62,9 @@ GET        /shopping/frame               controllers.ShoppingController.frame
 GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 
 #stat page
-GET        /statistics                         controllers.StatisticsController.index
-GET        /statistics/action                  controllers.StatisticsController.action
-GET        /statistics/data                    controllers.StatisticsController.data
+GET        /statistics                   controllers.StatisticsController.index
+GET        /statistics/action            controllers.StatisticsController.action
+GET        /statistics/data              controllers.StatisticsController.data
 
 #tribute page
 GET        /tribute/order                controllers.TributeController.order
@@ -78,23 +78,23 @@ GET        /user/detailed                controllers.UserController.detail
 
 #love page
 GET        /love                         controllers.LoveController.index
-GET        /love/detailed                controllers.LoveController.detailed
-GET        /love/detailed/add            controllers.LoveController.detailedAdd
+GET        /love/detail                  controllers.LoveController.detailed
+GET        /love/detail/add              controllers.LoveController.detailedAdd
 GET        /love/feedback                controllers.LoveController.feedback
 
 
 # administrator 管理员账号
 
-GET        /administrator/index                       controllers.AdministratorController.administrator_index
+GET        /administrator/index          controllers.AdministratorController.administrator_index
 
-GET        /administrator/details                     controllers.AdministratorController.administrator_details
+GET        /administrator/details        controllers.AdministratorController.administrator_details
 
 # merchant 商务管理
 
-GET        /merchart/index                            controllers.MerchantController.merchart_index
+GET        /merchart/index               controllers.MerchantController.merchart_index
 
-GET        /merchart/details                          controllers.MerchantController.merchart_details
+GET        /merchart/details             controllers.MerchantController.merchart_details
 
-GET        /merchart/history                          controllers.MerchantController.merchart_history
+GET        /merchart/history             controllers.MerchantController.merchart_history
 
 

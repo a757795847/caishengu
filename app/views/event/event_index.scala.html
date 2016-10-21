@@ -3,13 +3,11 @@
 
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
 } {
-
     <div class="content-wrapper ">
         <section class="content-header">
-            <h1>
-                活动
-                <small>活动管理</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-support"></i>活动审批</a></li>
+            </ol>
         </section>
         <section class="content">
             <div class="row">
@@ -22,7 +20,7 @@
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
                             <div class="tab-pane active" id="wait">
-                                <div class="box box-info">
+                                <div class="box">
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm" style="width: 250px;">
@@ -53,7 +51,7 @@
                                                         <td>张三</td>
                                                         <td>12345678933</td>
                                                         <td>
-                                                            <span class="label label-info"><a href="/controller/event/wait">查看详情</a></span>
+                                                            <span class="label label-info"><a href="/event/wait">查看详情</a></span>
                                                             <span class="label label-info"><a href="#">通过</a></span>
                                                             <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span>
                                                         </td>
@@ -79,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="out">
-                                <div class="box box-info">
+                                <div class="box">
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm" style="width: 250px;">
@@ -111,7 +109,7 @@
                                                         <td>张三</td>
                                                         <td>12345678933</td>
                                                         <td>
-                                                            <span class="label label-info"><a href="/controller/event/out">查看详情</a></span>
+                                                            <span class="label label-info"><a href="/event/out">查看详情</a></span>
                                                         </td>
                                                         <td>张三</td>
                                                         <td>2014-04-04 12:32:32</td>
@@ -145,6 +143,7 @@
                 <!-- /.row -->
         </section>
     </div>
+
 
 } {
     <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>

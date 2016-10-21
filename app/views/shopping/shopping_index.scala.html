@@ -2,6 +2,260 @@
 @main("商城订单管理", "shopping.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
 } {
+    <div class="content-wrapper ">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-cart-plus"></i>商城订单管理</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#wait" data-toggle="tab" aria-expanded="true">待发货</a></li>
+                            <li class=""><a href="#out" data-toggle="tab" aria-expanded="false">已发货</a></li>
+                            <li class=""><a href="#receive" data-toggle="tab" aria-expanded="false">已收货</a></li>
+                            <li class=""><a href="#close" data-toggle="tab" aria-expanded="false">关闭订单</a></li>
+                        </ul>
+                        <div class="tab-content">
+                                <!-- Font Awesome Icons -->
+                            <div class="tab-pane active" id="wait">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                                <div class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>订单编号</th>
+                                                        <th>内容</th>
+                                                        <th>购买人</th>
+                                                        <th>联系方式</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>10001</td>
+                                                        <td>财神饼等3件商品</td>
+                                                        <td>张三</td>
+                                                        <td>12345678933</td>
+                                                        <td>
+                                                            <span class="label label-info"><a href="/controller/shopping/wait">详情</a></span>
+                                                            <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">关闭</a></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                            <!-- /.table-responsive -->
+                                    </div>
+                                    <div class="box-footer clearfix">
+                                        <ul class="pagination pagination-sm no-margin pull-right">
+                                            <li><a href="#">«</a></li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li class="active"><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="out">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm" >
+                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                                <div class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>订单编号</th>
+                                                        <th>内容</th>
+                                                        <th>购买人</th>
+                                                        <th>联系方式</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>10001</td>
+                                                        <td>财神饼等3件商品</td>
+                                                        <td>张三</td>
+                                                        <td>12345678933</td>
+                                                        <td>
+                                                            <span class="label label-info"><a href="/controller/shopping/out">详情</a></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                            <!-- /.table-responsive -->
+                                    </div>
+                                    <div class="box-footer clearfix">
+                                        <ul class="pagination pagination-sm no-margin pull-right">
+                                            <li><a href="#">«</a></li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li class="active"><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="receive">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm" >
+                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                                <div class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>订单编号</th>
+                                                        <th>内容</th>
+                                                        <th>购买人</th>
+                                                        <th>联系方式</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>10001</td>
+                                                        <td>财神饼等3件商品</td>
+                                                        <td>张三</td>
+                                                        <td>12345678933</td>
+                                                        <td>
+                                                            <span class="label label-info"><a href="/controller/shopping/receive">详情</a></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                            <!-- /.table-responsive -->
+                                    </div>
+                                    <div class="box-footer clearfix">
+                                        <ul class="pagination pagination-sm no-margin pull-right">
+                                            <li><a href="#">«</a></li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li class="active"><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="close">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                                <div class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                                <thead>
+                                                    <tr>
+                                                        <th>订单编号</th>
+                                                        <th>内容</th>
+                                                        <th>购买人</th>
+                                                        <th>联系方式</th>
+                                                        <th>操作</th>
+                                                        <th>关闭人</th>
+                                                        <th>关闭时间</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>10001</td>
+                                                        <td>财神饼等3件商品</td>
+                                                        <td>张三</td>
+                                                        <td>12345678933</td>
+                                                        <td>
+                                                            <span class="label label-info"><a href="/controller/shopping/close">查看详情</a></span>
+                                                        </td>
+                                                        <td>张三</td>
+                                                        <td>2015-3-3 12：34：35</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                            <!-- /.table-responsive -->
+                                    </div>
+                                    <div class="box-footer clearfix">
+                                        <ul class="pagination pagination-sm no-margin pull-right">
+                                            <li><a href="#">«</a></li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li class="active"><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">6</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- /.tab-content -->
+                    </div>
+                        <!-- /.nav-tabs-custom -->
+                </div>
+                    <!-- /.col -->
+            </div>
+                <!-- /.row -->
+        </section>
+    </div>
+
     <div class="content-wrapper">
         <section class="content-header">
             <h1>

@@ -18,8 +18,7 @@
 folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
             <!-- iCheck -->
-        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/blue.css")">
-
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
         @before
 
     </head>
@@ -36,7 +35,12 @@ folder instead of downloading all of them to reduce the load. -->
                 </a>
                     <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
-
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                                 <!-- User Account: style can be found in dropdown.less -->
@@ -84,7 +88,7 @@ folder instead of downloading all of them to reduce the load. -->
                 </nav>
             </header>
                 <!-- Left side column. contains the logo and sidebar -->
-            @sidebar(1, selectedTab)
+            @sidebar(0, selectedTab)
                 <!-- Content Wrapper. Contains page content -->
             @content
 

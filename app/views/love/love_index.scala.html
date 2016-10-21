@@ -3,14 +3,12 @@
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/love.css")">
 } {
-    <div class="content-wrapper">
+    <div class="content-wrapper ">
         <section class="content-header">
-            <h1>
-                爱心捐赠
-                <small>爱心捐赠管理</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-heart"></i>爱心捐赠管理</a></li>
+            </ol>
         </section>
-            <!-- /.content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
@@ -23,8 +21,14 @@
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
                             <div class="tab-pane active" id="wait">
-                                <div class="box box-info">
-
+                                <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <button type="submit" class="btn btn-default pull-right"><a href="/love/detail/add">新增</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -57,14 +61,10 @@
                                         </div>
                                             <!-- /.table-responsive -->
                                     </div>
-                                        <!-- /.box-footer -->
-                                    <div class="box-footer clearfix">
-                                        <a href="/controller/love/detailed" class="btn btn-md btn-default  pull-right">新增</a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="end">
-                                <div class="box box-info">
+                                <div class="box">
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="out">
-                                <div class="box box-info">
+                                <div class="box">
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -144,8 +144,8 @@
             </div>
                 <!-- /.row -->
         </section>
-
     </div>
+
 
 } {
     <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>

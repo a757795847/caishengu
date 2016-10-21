@@ -1,0 +1,19 @@
+.skin-blue .main-sidebar{
+    background-color: #ddf0ff;
+}
+.skin-blue .sidebar a {
+    color: #444;
+}
+.skin-blue .sidebar-menu>li>.treeview-menu {
+    background: #c5e6ff;
+}
+.skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover {
+    color: #337ab7;
+}
+.skin-blue .treeview-menu>li>a {
+    color: #666;
+}
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    background: #54a5c5;
+    border-left-color: #00c0ef;
+}
