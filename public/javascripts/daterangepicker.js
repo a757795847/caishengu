@@ -1009,9 +1009,9 @@
             }
 
             if (this.drops == 'up')
-                containerTop = this.element.offset().top - this.container.outerHeight() - parentOffset.top;
-            else
                 containerTop = this.element.offset().top + this.element.outerHeight() - parentOffset.top;
+            else
+                containerTop = this.element.offset().top - this.container.outerHeight() - parentOffset.top - 3;
             this.container[this.drops == 'up' ? 'addClass' : 'removeClass']('dropup');
 
             if (this.opens == 'left') {

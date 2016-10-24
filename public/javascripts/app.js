@@ -15,15 +15,6 @@
 if (typeof jQuery === "undefined") {
     throw new Error("AdminLTE requires jQuery");
 }
-// //localStorage.setItem('caishengu_token','f6048123952cf034551240a8afdbf09d');
-// console.log("localStorage.getItem('caishengu_token')=",localStorage.getItem('caishengu_token'));
-//  if(localStorage.getItem('caishengu_token') == null){
-//         //todo redirect login page
-//     location.href = '/';
-//  }
-// var token = localStorage.getItem('caishengu_token');
-//localStorage.removeItem('caishengu_token');
-
 
 
 /* AdminLTE

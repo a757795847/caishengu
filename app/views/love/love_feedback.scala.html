@@ -3,45 +3,70 @@
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/love.css")">
 } {
-    <div class="content-wrapper row">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default col-md-2 col-lg-2"><a href="/controller/love">返回</a></button>
-            </div>
-            <div class="row">
-                <div class="detailedImg">
-                    <p>图片</p>
-                    <img src="../dist/img/avatar.png">
-                    <img src="../dist/img/avatar.png">
-                    <img src="../dist/img/avatar.png">
+    <div class="content-wrapper" id="feedback">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/love"><i class="fa fa-heart"></i>爱心捐赠</a></li>
+                <li><a href="#">爱心反馈</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <button type="submit" class="btn turn"><a href="/love">返回</a></button>
+                <div class="box-body">
+                    <div class="add">
+                        <div class="detailedImg">
+                            <p>图片</p>
+                            <img src="../dist/img/avatar.png">
+                            <img src="../dist/img/avatar.png">
+                            <img src="../dist/img/avatar.png">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>项目名称</p>
+                        <div class="order">
+                            <ul>
+                                <li>爱心午餐项目</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>募集金额</p>
+                        <div class="order">
+                            <ul>
+                                <li>3000/4000</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>简介</p>
+                        <div class="order">
+                            <ul>
+                                <li>
+                                    贵州大凉山区的孩子们经常吃不到温暖的午餐，我们发起一个爱心午餐项目，希望给
+                                    孩子们带去温暖的午餐。
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>反馈</p>
+                        <img src="#" />
+                        <div class="addImg">
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                <a href="#">
+                                    +
+                                    <input type="file" name="" >
+                                </a>
+
+                            </form>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary pull-right col-md-1 col-lg-1"><a href="#">保存</a></button>
                 </div>
-                <div class="detailedNews">
-                    <ul>
-                        <li>项目名称</li>
-                        <li>爱心午餐项目</li>
-                    </ul>
-                    <ul>
-                        <li>募集金额</li>
-                        <li>3000/4000</li>
-                    </ul>
-                    <ul>
-                        <li>简介</li>
-                        <li>
-                            贵州大凉山区的孩子们经常吃不到温暖的午餐，我们发起一个爱心午餐项目，希望给
-                            孩子们带去温暖的午餐。
-                        </li>
-                    </ul>
-                </div>
             </div>
-            <div class="row feedback">
-                <p>反馈</p>
-                <img src="#" />
-                <div class="addImg">+</div>
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-default pull-right col-md-2 col-lg-2"><a href="#">保存</a></button>
-            </div>
-        </div>
+        </section>
+
             <!-- /.content -->
     </div>
 

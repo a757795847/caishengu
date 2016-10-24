@@ -1,3 +1,21 @@
 #out{
     display: none;
 }
+/*wait*/
+.add {
+    margin-left: 15px;
+}
+.box .order{
+    margin-top: 10px;
+    border-top: 1px solid #c0c0c0;
+    padding: 15px;
+}
+.box p {
+    font-weight: bold;
+}
+.order ul li {
+    line-height: 26px;
+}
+button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
+    margin-left: 20px;
+}

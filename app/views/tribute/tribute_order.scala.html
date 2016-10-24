@@ -1,6 +1,5 @@
 @main("贡品订单管理", "tribute.order") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
-
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/tribute.css")">
 } {
     <div class="content-wrapper">
@@ -16,7 +15,6 @@
                     <div class="box-tools">
                         <div class="input-group pull-right input-group-sm">
                             <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                             </div>
@@ -43,7 +41,7 @@
                                     <td>张三</td>
                                     <td>12345678933</td>
                                     <td>
-                                        <a href="/controller/tribute/detailed">查看详情</a>
+                                        <span class="label label-info"><a href="/tribute/order/detail">查看详情</a></span>
                                     </td>
                                 </tr><tr>
                                 <td>10001</td>
@@ -51,7 +49,7 @@
                                 <td>张三</td>
                                 <td>12345678933</td>
                                 <td>
-                                    <a href="/controller/tribute/detailed">查看详情</a>
+                                    <span class="label label-info"><a href="/tribute/order/detail">查看详情</a></span>
                                 </td>
                             </tr>
                             </tbody>
