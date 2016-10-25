@@ -36,9 +36,9 @@ GET        /investors/detail             controllers.InvestorsController.detail
 GET        /run                          controllers.MoneyRunController.index
 
 #MoneyManage page
-GET        /manage_index                 controllers.MoneyManageController.index
-GET        /manage_details               controllers.MoneyManageController.details
-GET        /manage_history               controllers.MoneyManageController.history
+GET        /manage/index                 controllers.MoneyManageController.index
+GET        /manage/details               controllers.MoneyManageController.details
+GET        /manage/history               controllers.MoneyManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -103,3 +103,6 @@ GET        /myproject/details            controllers.MyprojectController.details
 
 #我的活动
 GET        /myactivities                 controllers.MyactivitiesController.myactivities
+
+#主页
+GET        /homepage                     controllers.HomepageController.homepage

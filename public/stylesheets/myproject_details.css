@@ -12,8 +12,8 @@
 
 }
 #Table img {
-    height:50px;
-    width:50px;
+    height:120px;
+    width:100px;
 
 }
 #Table .lf{
@@ -51,21 +51,23 @@
 
 }
 #Upload{
-    text-align: center;
-    margin-left: 44%;
-    border-radius: 5%;
-    font-size: 1.5rem;
-    width: 13%;
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
+    margin: 1% auto;
 
 }
 #turn{
-    width: 83px;
+    padding: 6px 24px;
     border-radius: 13px;
-    margin-left: 2%;
-    margin-top: 10px;
-    height: 38px;
-    font-size: 15px;
+    margin-left: 10px;
+    font-size: 0.75rem;
     line-height: 18px;
-    margin-bottom:13px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
+    margin-top: 8px;
+    margin-left: 28px;
 
 }

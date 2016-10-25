@@ -1,12 +1,13 @@
 #turn{
-    width: 83px;
+    width: 9%;
+    color: #fff;
     border-radius: 13px;
-    margin-left: 2px;
-    margin-top: 10px;
-    height: 38px;
-    font-size: 15px;
-    line-height: 18px;
-    margin-bottom:13px;
+    margin-left: 6px;
+    font-size: 0.75rem;
+    line-height: 19px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
 
 }
 #TableAll tr th,td{
@@ -36,14 +37,18 @@
 
 }
 .panel-group #notclick{
-    width: 59px;
-    height: 30px;
-    border-radius: 11px;
-    font-size: 12px;
-    line-height: 17px;
-    float: right;
-    margin-right: 30px;
-    margin-top: 6px;
+    margin-top:10px;
+    float:right;
+    width: 9%;
+    color: #fff;
+    border-radius: 13px;
+    margin-right: 20px;
+    font-size: 0.75rem;
+    line-height: 19px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
+
 
 }
 #welcome{

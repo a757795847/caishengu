@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/AdminLTE.min.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/_all-skins.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
         @before
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -30,15 +31,56 @@
 
                     <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
-                    <div class="dropdown pull-right" >
-                        <button class="btn btn-link dropdown-toggle" id="welcome" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                            老哥!有空三五瓶!
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/">退出</a></li>
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                                <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="@routes.Assets.at("images/user2-160x160.jpg")" class="user-image" alt="User Image">
+                                    <span class="hidden-xs">欢迎你张三</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                        <!-- User image -->
+                                    <li class="user-header">
+                                        <img src="@routes.Assets.at("images/user2-160x160.jpg")" class="img-circle" alt="User Image">
+
+                                        <p>
+                                            Alexander Pierce - Web Developer
+                                            <small>Member since Nov. 2012</small>
+                                        </p>
+                                    </li>
+                                        <!-- Menu Body -->
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Followers</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Sales</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Friends</a>
+                                            </div>
+                                        </div>
+                                            <!-- /.row -->
+                                    </li>
+                                        <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-right">
+                                            <span class="label label-info"><a href="#" >退出</a></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
+
                 </nav>
             </header>
             @myproject_sidebar(1)
