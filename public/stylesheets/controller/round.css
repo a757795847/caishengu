@@ -1,31 +1,24 @@
-
-.round .table>thead>tr>th, .round .table>tbody>tr>td{
-    border-right: 1px solid #000;
-}
-.round button{
-    margin-bottom: 15px;
-}
-/*round-wait-detailed*/
-.roundLogo{
-	font-size: 24px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 20px;
-}
-.roundNews {
-    border-bottom: 1px solid #000;
-    margin-bottom: 15px;
-    padding: 20px 0;
-    font-size: 16px;
-    line-height: 26px;
-}
-.roundSub{
-	margin-top: 20px;
-	margin-right: 0;
-}
-.roundSub button.btn.btn-primary.col-md-2.col-lg-2.pull-right {
+/*round-wait*/
+button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
     margin-left: 20px;
 }
-/*round-manage-add*/
+.order{
+    margin-top: 10px;
+}
+.order ul li {
+    line-height: 36px;
+    margin-left: 10px;
+}
+.order .form-group {
+    display: inline-block;
+    height: 28px;
+    margin-bottom: 0;
+    width: 200px;
+}
+.order select.form-control.select2 {
+    height: 26px;
+}
+/*round-manage*/
 .roundAdd{
 	font-size: 20px;
 }

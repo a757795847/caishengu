@@ -17,7 +17,7 @@ $('#btn').on('click', function (e) {
             console.log(data);
             // location.href= '/admin';
             // localStorage.setItem('caishengu-access_token', data.access_token);
-        },error:function(err){
-        console.log(err)
+        }, function(err){
+        console.log(err);
     })
 })

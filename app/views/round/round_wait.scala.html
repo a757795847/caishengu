@@ -3,37 +3,49 @@
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/round.css")">
 } {
-    <div class="content-wrapper row">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default col-md-2 col-lg-2"><a href="#">返回</a></button>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/round"><i class="fa fa-heart"></i>圈子审批</a></li>
+                <li><a href="#">待审批圈子详情</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <button type="submit" class="btn turn"><a href="/round">返回</a></button>
+                <div class="box-body">
+                    <div class="add">
+                        <div class="detailedImg">
+                            <p>圈子Logo</p>
+                            <img src="../dist/img/avatar.png">
+                        </div>
+                    </div>
+                    <div class="box order">
+                        <p class="spot">圈子信息</p>
+                        <ul>
+                            <li>圈子标题：<span>Touchjet</span></li>
+                            <li>圈子类型：
+                                <div class="form-group">
+                                    <select class="form-control select2" >
+                                        <option selected="selected">类目1</option>
+                                        <option>类目2</option>
+                                        <option>类目3</option>
+                                        <option>类目4</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>圈主：<span>张三</span></li>
+                            <li>圈子简介：<span>哇哇哇哇哇哇</span></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >同意</button>
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" data-toggle="modal" data-target="#myModal">拒绝</button>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="roundLogo">
-                    <p>Logo</p>
-                    <img src="../dist/img/avatar.png">
-                </div>
-                <div class="roundNews">
-                    <p>圈子信息</p>
-                    <ul>
-                        <li>圈子标题：<span>Touchjet</span></li>
-                        <li>圈子类型：
-                            <select class="selectpicker col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3">
-                                <option>类目1</option>
-                                <option>类目2</option>
-                                <option>类目3</option>
-                            </select>
-                        </li>
-                        <li>圈主：<span>张三</span></li>
-                        <li>圈子简介：<span>哇哇哇哇哇哇</span></li>
-                    </ul>
-                </div>
-                <div class="row roundSub">
-                    <button type="button" class="btn btn-primary col-md-2 col-lg-2 pull-right ">同意</button>
-                    <button type="button" class="btn btn-default col-md-2 col-lg-2 pull-right " data-toggle="modal" data-target="#myModal">拒绝</button>
-                </div>
-            </div>
-        </div>
+        </section>
             <!-- /.content -->
     </div>
 

@@ -8,17 +8,18 @@
 }
 
 .box.box-info img {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 120px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
 /*add*/
 .addNews {
-    width: 400px;
+    width: 300px;
     line-height: 25px;
 }
-
+/*picture*/
 .addImg {
     border: 1px solid #000;
     display: inline-block;
@@ -30,15 +31,45 @@
     margin-bottom: 10px;
     position: relative;
 }
-.addImg input{
+
+.addImg input {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     opacity: 0;
 }
-.add p , .addNews p {
+
+.add p, .addNews p {
     font-size: 14px;
 }
+
 .addNews input {
     margin-bottom: 10px;
+}
+
+textarea.form-control {
+    width: 140%;
+    margin-bottom: 10px;
+}
+.order ul li {
+    line-height: 26px;
+    margin-left: 10px;
+}
+
+/*feedback*/
+#feedback .box .order {
+    padding-bottom: 12px;
+}
+
+#feedback .order ul li {
+    line-height: 26px;
+    margin-left: 10px;
+}
+
+#feedback .addImg {
+    line-height: 105px;
+}
+
+#feedback .btn.btn-primary.pull-right a{
+    color: #ffffff;
 }

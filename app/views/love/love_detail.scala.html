@@ -1,49 +1,60 @@
 
 @main("爱心捐赠", "love.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/love.css")">
 } {
+
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>
-                爱心捐赠
-                <small>新增爱心捐赠</small>
-            </h1>
+            <ol class="breadcrumb pull-left">
+                <li><a href="/love"><i class="fa fa-heart"></i>爱心捐赠</a></li>
+                <li><a href="#">爱心反馈</a></li>
+            </ol>
         </section>
         <section class="content">
             <div class="box box-info">
-                <div class="box-header">
-                    <button type="button" class="btn btn-default pull-right col-md-2 col-lg-2"><a href="/controller/love">返回</a></button>
+                <button type="submit" class="btn turn"><a href="/love">返回</a></button>
+                <div class="box-body">
+                    <div class="add">
+                        <div class="detailedImg">
+                            <p>图片</p>
+                            <img src="../dist/img/avatar.png">
+                            <img src="../dist/img/avatar.png">
+                            <img src="../dist/img/avatar.png">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>项目名称</p>
+                        <div class="order">
+                            <ul>
+                                <li>爱心午餐项目</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>募集金额</p>
+                        <div class="order">
+                            <ul>
+                                <li>3000/4000</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <p>简介</p>
+                        <div class="order">
+                            <ul>
+                                <li>
+                                    贵州大凉山区的孩子们经常吃不到温暖的午餐，我们发起一个爱心午餐项目，希望给
+                                    孩子们带去温暖的午餐。
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="detailedImg">
-                    <p>图片</p>
-                    <img src="../dist/img/avatar.png">
-                    <img src="../dist/img/avatar.png">
-                    <img src="../dist/img/avatar.png">
-                </div>
-                <div class="detailedNews">
-                    <ul>
-                        <li>项目名称</li>
-                        <li>爱心午餐项目</li>
-                    </ul>
-                    <ul>
-                        <li>募集金额</li>
-                        <li>3000/4000</li>
-                    </ul>
-                    <ul>
-                        <li>简介</li>
-                        <li>
-                            贵州大凉山区的孩子们经常吃不到温暖的午餐，我们发起一个爱心午餐项目，希望给
-                            孩子们带去温暖的午餐。
-                        </li>
-                    </ul>
-                </div>
-
             </div>
-                <!-- /.row -->
-
         </section>
 
+            <!-- /.content -->
     </div>
 
 } {
