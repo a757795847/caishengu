@@ -12,14 +12,7 @@
         </section>
         <section class="content">
             <div class="box box-info">
-                @*<div class="box-header">*@
-                @*<div class="box-tools">*@
-                @*<div class="input-group pull-right input-group-sm">*@
-                @*<button type="submit" class="btn btn-default pull-right"><a href="/shopping">返回</a></button>*@
-                @*</div>*@
-                @*</div>*@
-                @*</div>*@
-                <button type="submit" class="btn turn"><a href="/shopping">返回</a></button>
+                <a class="btn turn" href="/shopping">返回</a>
                     <!-- /.box-header -->
                 <div class="box-body">
                     <div class="box">
@@ -27,18 +20,13 @@
                         <div class="order">
                             <ul>
                                 <li>
-                                    下单时间：<span>2013-03-01 12:12:12</span>
+                                    下单时间：<span id="downTime"></span>
                                 </li>
                                 <li>
                                     商品
-                                </li>
-                                <li class="commodity">
-                                    <span>财神饼</span>
-                                    <span>X1</span>
-                                </li>
-                                <li class="commodity">
-                                    <span>财神水</span>
-                                    <span>X2</span>
+                                    <ul id="downGoods">
+
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -48,18 +36,18 @@
                         <div class="order">
                             <ul>
                                 <li>
-                                    姓名：<span>张三</span>
+                                    姓名：<span id="userName"></span>
                                 </li>
                                 <li>
-                                    联系方式：<span>12345678933</span>
+                                    联系方式：<span id="userPhone"></span>
                                 </li>
                                 <li>
                                     地址：
-                                    <span>浙江省杭州市滨江区天恒大厦</span>
+                                    <span id="address"></span>
                                 </li>
                                 <li>
                                     邮编：
-                                    <span>31000</span>
+                                    <span id="zipcode"></span>
                                 </li>
                             </ul>
                         </div>
@@ -69,16 +57,16 @@
                         <div class="order">
                             <ul>
                                 <li>
-                                    物流公司：<span>顺丰</span>
+                                    物流公司：<span id="company"></span>
                                 </li>
                                 <li>
-                                    单号：<span>234567890</span>
+                                    单号：<span id="orderNo"></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="box">
-                        <p class="spot">物流信息</p>
+                        <p class="spot">收货信息</p>
                         <div class="order">
                             <ul>
                                 <li>
@@ -97,7 +85,7 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shopping/shopping_receive.js")"></script>
 }
 
 

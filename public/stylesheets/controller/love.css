@@ -73,3 +73,6 @@ textarea.form-control {
 #feedback .btn.btn-primary.pull-right a{
     color: #ffffff;
 }
+#preview div{
+    float: left;
+}

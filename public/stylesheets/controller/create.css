@@ -6,3 +6,29 @@ img{
     width: 40px;
     height: 20px;
 }
+/*add*/
+.addImg {
+    margin-top: 12px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.addImg input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.form-group {
+    margin-bottom: 10px;
+    width: 30%;
+}
+.box-header {
+    margin-bottom: 0;
+}
+#add .box-body{
+    border-top: 1px solid #f4f4f4;
+}

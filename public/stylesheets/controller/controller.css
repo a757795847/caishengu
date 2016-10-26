@@ -27,7 +27,7 @@ img{
     position: relative;
     border-radius: 3px;
     background: #ffffff;
-    border-top: 3px solid #ffffff;
+    border-top: none;
     margin-bottom: 20px;
     width: 100%;
 }
@@ -85,8 +85,6 @@ table>tbody>tr>td{
     margin-bottom: 8px;
     background-color: #55acee;
     border: none;
-}
-.turn a{
     color: #ffffff;
 }
 /*点*/

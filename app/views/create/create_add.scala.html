@@ -1,26 +1,55 @@
 
 @main("创业者头条","create.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/create.css")">
 } {
 
     <div class="content-wrapper">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default pull-right col-md-2 col-lg-1"><a href="#">保存</a></button>
-                <button type="button" class="btn btn-default col-md-2 col-lg-1"><a href="/controller/create">返回</a></button>
-            </div>
-            <div class="row csgNewsAdd">
-                <from action="" method="post" enctype="multipart/form-data">
-                    <input type="text" class="form-control" placeholder="请输入链接">
-                    <div class="row">
-                        <input class="btn btn-primary col-md-2 col-lg-2" name="imgfile" type="file" accept="image/gif, image/jpeg" />
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/create"><i class="fa fa-newspaper-o"></i>创业者头条</a></li>
+                <li><a href="javascript:;">新增头条</a></li>
+            </ol>
+        </section>
+        <section class="content" id="add">
+            <div class="box box-info">
+                <div class="box-header">
+                    <a  class="btn btn-default" href="/create">返回</a>
+                    <a class="btn btn-default pull-right" href="#">保存</a>
+                </div>
+                    <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="spot">链接地址</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
                     </div>
-                    <input type="text" class="form-control" placeholder="请输入一句简介">
-                </from>
+                    <div class="form-group">
+                        <label class="spot">简介</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-file-text-o"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div>
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <a class="btn btn-default col-md-2 col-lg-2 addImg" href="javascript:;">
+                                上传图片
+                                <input type="file" name="picture" />
+                            </a>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-            <!-- /.content -->
+        </section>
     </div>
+
 
 } {
     <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>

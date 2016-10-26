@@ -5,19 +5,26 @@ if( location.href != "http://localhost:9000/" ){
     }
 }
 
-$('#btn').on('click', function (e) {
+$('#btn').on('click', function () {
     var username = $('#username').val();
     var password = $('#password').val();
-    $.post("http://" + backend_host + '/auth/oauth/access_token',
-        {
+    $.ajax({
+        type:'POST',
+        url:"http://" + backend_host + '/auth/oauth/access_token',
+        data: {
             "username": username,
             "password": password,
             "grant_type": "password"
-        }, function (data) {
+        },
+        dataType:'json',
+        success:function(data){
             console.log(data);
-            // location.href= '/admin';
-            // localStorage.setItem('caishengu-access_token', data.access_token);
-        }, function(err){
-        console.log(err);
+        },
+        error:function(jqXHR){
+            console.log(jqXHR.status);
+            if(jqXHR.status == 400){
+
+            }
+        }
     })
 })

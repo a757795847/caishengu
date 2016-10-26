@@ -1,39 +1,68 @@
 img{
     width: 30px;
-    height:30px;
+    height: 40px;
     margin-right: 12px;
 }
 td span {
     margin-right: 12px;
 }
 /*frame*/
-.box-body {
-    padding-top: 0;
+.box.box-solid {
+    border: 1px solid #f4f4f4;
 }
-.external-event.pull-left {
-    margin-right: 10px;
+.box.box-solid .box-header.with-border{
+    margin-bottom: 0;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+     color: #000;
+     background-color: #fff;
+}
+
 button.close {
-    margin-left: 10px;
+    position: relative;
+    z-index: 100;
+    margin: 10px 10px;
+    display: none;
 }
-.box-body div#external-events {
-    margin-top: -10px;
-}
-.external-event.bg-light-blue.pull-left {
-    height: 32px;
-    width: 28px;
+#allClass li:hover button.close{
+    display: block;
+    opacity: 1.2;
 }
 /*order*/
-.box p {
-    font-weight: bold;
-}
-p:before {
-    content: " ";
-    height: 12px;
-    width: 6px;
-    background: #00c0ef;
-    display: inline-block;
-}
 .box .order{
     padding-bottom: 12px;
+}
+.box .order li{
+    line-height: 26px;
+    margin-left: 10px;
+}
+/*frame_detail*/
+.add p{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.addImg {
+    border: 1px solid #000;
+    display: inline-block;
+    width: 100px;
+    height: 120px;
+    line-height: 98px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.addImg input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.addNews{
+    width: 40%;
+}
+button.btn.btn-default.col-md-1.col-lg-1.pull-right {
+    margin-left: 16px;
 }

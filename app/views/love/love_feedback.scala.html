@@ -12,7 +12,7 @@
         </section>
         <section class="content">
             <div class="box box-info">
-                <button type="submit" class="btn turn"><a href="/love">返回</a></button>
+                <a class="btn turn" href="/love">返回</a>
                 <div class="box-body">
                     <div class="add">
                         <div class="detailedImg">
@@ -51,18 +51,17 @@
                     </div>
                     <div class="box">
                         <p>反馈</p>
-                        <img src="#" />
+                        <div id="preview" class="upload_preview"></div>
                         <div class="addImg">
-                            <form action="#" method="post" enctype="multipart/form-data">
+                            <form id="uploadForm" action="#" id="" method="post" enctype="multipart/form-data">
                                 <a href="#">
                                     +
-                                    <input type="file" name="" >
+                                    <input id="fileImg" type="file" name="fileImg" >
                                 </a>
-
                             </form>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary pull-right col-md-1 col-lg-1"><a href="#">保存</a></button>
+                    <button type="button" class="btn btn-primary pull-right col-md-1 col-lg-1" id="fileSubmit"><a href="#">保存</a></button>
                 </div>
             </div>
         </section>
@@ -71,7 +70,8 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/zxxFile.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/love.js")"></script>
 }
 
 

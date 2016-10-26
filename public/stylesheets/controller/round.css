@@ -19,6 +19,14 @@ button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
     height: 26px;
 }
 /*round-manage*/
-.roundAdd{
-	font-size: 20px;
+.form-group {
+    margin-bottom: 15px;
+    width: 30%;
 }
+.box-header {
+    margin-bottom: 0;
+}
+#add .box-body{
+    border-top: 1px solid #f4f4f4;
+}
+

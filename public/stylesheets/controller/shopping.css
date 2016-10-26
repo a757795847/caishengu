@@ -26,4 +26,44 @@ td span {
     margin-left: 15px;
     font-weight: bold;
 }
+/*frame*/
+.box.box-solid {
+    border: 1px solid #f4f4f4;
+}
+.box.box-solid .box-header.with-border{
+    margin-bottom: 0;
+}
+/*frame-detail*/
+.add img{
+    width: 100px;
+    height: 120px;
+    margin-right: 12px;
+}
+.addImg {
+    border: 1px solid #000;
+    display: inline-block;
+    width: 100px;
+    height: 120px;
+    line-height: 96px;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    position: relative;
+}
 
+.addImg input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.addNews{
+    width: 40%;
+    margin-bottom: 20px;
+}
+.addNews textarea{
+    width: 120%;
+}
+button.btn.btn-default.col-md-1.col-lg-1.pull-right {
+    margin-left: 16px;
+}
