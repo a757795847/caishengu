@@ -1,24 +1,36 @@
 
 @main("圈子管理", "round.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/round.css")">
 } {
-    <div class="content-wrapper row">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default col-md-2 col-lg-1"><a href="/controller/round">返回</a></button>
-                <button type="button" class="btn btn-default pull-right col-md-2 col-lg-1"><a href="#">保存</a></button>
-            </div>
-            <div class="row roundAdd">
-                <p>类目名称</p>
-                <form role="form">
-                    <input type="text" class="form-control" placeholder="Text input">
-                </form>
-                <div class="row roundSub">
-                    <button type="button" class="btn btn-primary col-md-2 col-lg-2 pull-right ">下线</button>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/round"><i class="fa  fa-cubes"></i>圈子审批</a></li>
+                <li><a href="javascript:;">新增圈子类目</a></li>
+            </ol>
+        </section>
+        <section class="content" id="add">
+            <div class="box box-info">
+                <div class="box-header">
+                    <a class="btn btn-default" href="/round">返回</a>
+                    <a class="btn btn-default pull-right" href="#">保存</a>
+                </div>
+                    <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="spot">类目名称</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-tag"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入类目名称">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default col-md-1 col-lg-1">上线</button>
                 </div>
             </div>
-        </div>
-            <!-- /.content -->
+        </section>
     </div>
 
 } {

@@ -3,9 +3,9 @@ img{
 	height: 30px;
 	margin-top: -5px;
 }
-/*addImg*/
+/*add*/
 .addImg {
-	margin-top: 32px;
+	margin-top: 22px;
 	display: inline-block;
 	text-align: center;
 	font-size: 14px;
@@ -18,4 +18,14 @@ img{
 	top: 0;
 	left: 0;
 	opacity: 0;
+}
+.form-group {
+	 margin-bottom: 0;
+	width: 30%;
+}
+.box-header {
+	 margin-bottom: 0;
+}
+#add .box-body{
+	border-top: 1px solid #f4f4f4;
 }

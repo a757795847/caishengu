@@ -30,7 +30,9 @@ GET        /investors                    controllers.InvestorsController.index
 GET        /investors/detail             controllers.InvestorsController.detail
 
 #item page
-
+GET        /item                         controllers.ItemController.index
+GET        /item/out                     controllers.ItemController.out
+GET        /item/wait                    controllers.ItemController.waits
 
 #MoneyRun page
 GET        /run                          controllers.MoneyRunController.index
