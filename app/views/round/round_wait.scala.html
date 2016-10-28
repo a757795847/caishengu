@@ -18,13 +18,13 @@
                     <div class="add">
                         <div class="detailedImg">
                             <p>圈子Logo</p>
-                            <img src="../dist/img/avatar.png">
+                            <img id="quanziLogo" src="#">
                         </div>
                     </div>
                     <div class="box order">
                         <p class="spot">圈子信息</p>
                         <ul>
-                            <li>圈子标题：<span>Touchjet</span></li>
+                            <li>圈子标题：<span id="quanziTitle"></span></li>
                             <li>圈子类型：
                                 <div class="form-group">
                                     <select class="form-control select2" >
@@ -35,14 +35,12 @@
                                     </select>
                                 </div>
                             </li>
-                            <li>圈主：<span>张三</span></li>
-                            <li>圈子简介：<span>哇哇哇哇哇哇</span></li>
+                            <li>圈主：<span id="owner"></span></li>
+                            <li>圈子简介：<span id="introduction"></span></li>
                         </ul>
                     </div>
-                    <div class="row">
                         <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >同意</button>
                         <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" data-toggle="modal" data-target="#myModal">拒绝</button>
-                    </div>
                 </div>
             </div>
         </section>
@@ -73,7 +71,7 @@
         </div>
     </div>
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/round/wait.js")"></script>
 }
 
 

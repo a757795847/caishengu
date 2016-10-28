@@ -48,17 +48,17 @@
 
 
 
-    // $.ajax({
-    //     type:'POST',
-    //     url:"http://" + backend_host + '/auth/oauth/access_token',
-    //     dataType:'json',
-    //     success:function(data){
-    //
-    //     },
-    //     error:function(jqXHR){
-    //         if(jqXHR.status == 400){
-    //
-    //         }
-    //     }
-    // })
+    $.ajax({
+        type:'POST',
+        url:"http://" + backend_host + '/web/staff/order/market/'+shoppingID+'?access_token=10ae0842b11080b0b6c9412773164797',
+        dataType:'json',
+        success:function(data){
+
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
+
+            }
+        }
+    })
 })(jQuery)

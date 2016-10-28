@@ -35,12 +35,12 @@ GET        /item/out                     controllers.ItemController.out
 GET        /item/wait                    controllers.ItemController.waits
 
 #MoneyRun page
-GET        /run                          controllers.MoneyRunController.index
+GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
-GET        /manage_index                 controllers.MoneyManageController.index
-GET        /manage_details               controllers.MoneyManageController.details
-GET        /manage_history               controllers.MoneyManageController.history
+GET        /manage                       controllers.ManageController.index
+GET        /manage/detail               controllers.ManageController.details
+GET        /manage/history               controllers.ManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -55,13 +55,13 @@ GET        /round/wait                   controllers.RoundController.waits
 GET        /shareholder                  controllers.ShareholderController.index
 
 #shopping page
-GET        /shopping                     controllers.ShoppingController.index
-GET        /shopping/close               controllers.ShoppingController.close
-GET        /shopping/out                 controllers.ShoppingController.out
-GET        /shopping/receive             controllers.ShoppingController.receive
-GET        /shopping/wait                controllers.ShoppingController.waits
-GET        /shopping/frame               controllers.ShoppingController.frame
-GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
+GET        /shopping                        controllers.ShoppingController.index
+GET        /shopping/close                  controllers.ShoppingController.close
+GET        /shopping/out                    controllers.ShoppingController.out
+GET        /shopping/receive                controllers.ShoppingController.receive
+GET        /shopping/wait                   controllers.ShoppingController.waits
+GET        /shopping/frame                     controllers.ShoppingController.frame
+GET        /shopping/frame/detail              controllers.ShoppingController.frameDetail
 
 #stat page
 GET        /statistics                   controllers.StatisticsController.index

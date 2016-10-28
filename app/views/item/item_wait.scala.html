@@ -16,33 +16,30 @@
                     <div class="add">
                         <div class="detailedImg">
                             <p>Logo</p>
-                            <img src="../dist/img/avatar.png">
+                            <img id="projectLogo" src="#">
                         </div>
                     </div>
                     <div class="box">
                         <div class="order">
                             <ul>
-                                <li>标题：<span>Touchjet</span></li>
-                                <li>名称一句话简介：<span>新型的课触摸式投影仪</span></li>
-                                <li>地区：<span>杭州</span></li>
-                                <li>类型：<span>专业工具</span></li>
-                                <li>项目详情：<span>通过无线连接到同Android平台的移动设备，并投射屏幕内容</span></li>
-                                <li>
+                                <li>标题：<span id="projectTitle"></span></li>
+                                <li>名称一句话简介：<span id="shortIntroduction"></span></li>
+                                <li>地区：<span id="loaction"></span></li>
+                                <li>类型：<span id="projectType"></span></li>
+                                <li>项目详情：<span id="introduction"></span></li>
+                                <li id="images">
                                     <p>项目介绍图</p>
-                                    <img src="../dist/img/avatar.png">
-                                    <img src="../dist/img/avatar.png">
-                                    <img src="../dist/img/avatar.png">
                                 </li>
-                                <li>述求：<span>目前项目需要融资三千万</span></li>
-                                <li>联系人：<span>张三</span></li>
-                                <li>联系电话：<span>23456789</span></li>
+                                <li>述求：<span id="appeal"></span></li>
+                                <li>联系人：<span id="contactPerson"></span></li>
+                                <li>联系电话：<span id="contactPhone"></span></li>
+                                <li>联系地址：<span id="contactAddress"></span></li>
+                                <li>官网：<span><a href="#" id="website"></a></span></li>
+                                <li>邮箱：<span id="email"></span></li>
                             </ul>
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >通过</button>
-                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" data-toggle="modal" data-target="#myModal">拒绝</button>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -76,7 +73,7 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/item/wait.js")"></script>
 }
 
 

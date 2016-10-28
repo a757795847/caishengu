@@ -1,6 +1,10 @@
-img{
+img {
     width: 30px;
-    height:30px;
+    height: 30px;
+    margin-right: 12px;
+}
+
+td span {
     margin-right: 12px;
 }
 
@@ -26,19 +30,44 @@ td span {
     margin-left: 15px;
     font-weight: bold;
 }
+
 /*frame*/
 .box.box-solid {
     border: 1px solid #f4f4f4;
 }
-.box.box-solid .box-header.with-border{
+
+.box.box-solid .box-header.with-border {
     margin-bottom: 0;
 }
+
+button.btn.btn-default a {
+    color: #444;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+button.close {
+    position: relative;
+    z-index: 100;
+    margin: 10px 10px;
+    display: none;
+}
+
+#className li:hover button.close {
+    display: block;
+    opacity: 1.2;
+}
+
 /*frame-detail*/
-.add img{
+.add img {
     width: 100px;
     height: 120px;
     margin-right: 12px;
 }
+
 .addImg {
     border: 1px solid #000;
     display: inline-block;
@@ -57,13 +86,16 @@ td span {
     left: 0;
     opacity: 0;
 }
-.addNews{
+
+.addNews {
     width: 40%;
     margin-bottom: 20px;
 }
-.addNews textarea{
+
+.addNews textarea {
     width: 120%;
 }
+
 button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     margin-left: 16px;
 }

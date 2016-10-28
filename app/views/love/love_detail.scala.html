@@ -13,21 +13,19 @@
         </section>
         <section class="content">
             <div class="box box-info">
-                <button type="submit" class="btn turn"><a href="/love">返回</a></button>
+                <a class="btn turn" href="/love">返回</a>
                 <div class="box-body">
                     <div class="add">
-                        <div class="detailedImg">
+                        <div class="detailedImg" id="images">
                             <p>图片</p>
-                            <img src="../dist/img/avatar.png">
-                            <img src="../dist/img/avatar.png">
-                            <img src="../dist/img/avatar.png">
+
                         </div>
                     </div>
                     <div class="box">
                         <p>项目名称</p>
                         <div class="order">
                             <ul>
-                                <li>爱心午餐项目</li>
+                                <li id="name"></li>
                             </ul>
                         </div>
                     </div>
@@ -35,7 +33,7 @@
                         <p>募集金额</p>
                         <div class="order">
                             <ul>
-                                <li>3000/4000</li>
+                                <li id="moneyCurrent"></li>
                             </ul>
                         </div>
                     </div>
@@ -43,9 +41,8 @@
                         <p>简介</p>
                         <div class="order">
                             <ul>
-                                <li>
-                                    贵州大凉山区的孩子们经常吃不到温暖的午餐，我们发起一个爱心午餐项目，希望给
-                                    孩子们带去温暖的午餐。
+                                <li id="introduction">
+
                                 </li>
                             </ul>
                         </div>
@@ -58,6 +55,6 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/love/detail.js")"></script>
 }
 

@@ -24,10 +24,10 @@
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm">
-                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                                <input id="textShareholder" type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
                                                 <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <button id="searchShareholder" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -45,18 +45,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>张三</td>
-                                                        <td>
-                                                            <span class="label label-info"><a data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span>
-                                                        </td>
-                                                        <td>12345678933</td>
-                                                        <td>
-                                                            <span class="label label-info"><a href="#">查看详情</a></span>
-                                                            <span class="label label-info"><a href="#">通过</a></span>
-                                                            <span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span>
-                                                        </td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -172,7 +161,7 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/shareholder.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shareholder/shareholder.js")"></script>
 }
 
 

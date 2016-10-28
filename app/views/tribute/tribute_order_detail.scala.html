@@ -1,26 +1,19 @@
 @main("贡品订单管理", "tribute.order") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
-
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/tribute.css")">
 } {
 
     <div class="content-wrapper">
         <section class="content-header">
             <ol class="breadcrumb pull-left">
-                <li><a href="/tribute"><i class="fa fa-cart-plus"></i>贡品订单</a></li>
-                <li><a href="#">订单详情</a></li>
+                <li><a href="#"><i class="fa fa-cart-plus"></i>贡品订单</a></li>
+                <li><a href="/tribute/order">订单详情</a></li>
+                <li><a href="#">贡品订单详情</a></li>
             </ol>
         </section>
         <section class="content">
             <div class="box box-info">
-                @*<div class="box-header">*@
-                @*<div class="box-tools">*@
-                @*<div class="input-group pull-right input-group-sm">*@
-                @*<button type="submit" class="btn btn-default pull-right"><a href="/shopping">返回</a></button>*@
-                @*</div>*@
-                @*</div>*@
-                @*</div>*@
-                <button type="submit" class="btn turn"><a href="/tribute">返回</a></button>
+                <a  class="btn turn" href="/tribute/order">返回</a>
                     <!-- /.box-header -->
                 <div class="box-body">
                     <div class="box">
@@ -28,18 +21,13 @@
                         <div class="order">
                             <ul>
                                 <li>
-                                    下单时间：<span>2013-03-01 12:12:12</span>
+                                    下单时间：<span id="orderTime"></span>
                                 </li>
                                 <li>
                                     商品
-                                </li>
-                                <li>
-                                    <span>财神饼</span>
-                                    <i>X1</i>
-                                </li>
-                                <li>
-                                    <span>财神水</span>
-                                    <i>X2</i>
+                                    <ul id="goods">
+
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -49,10 +37,10 @@
                         <div class="order">
                             <ul>
                                 <li>
-                                    姓名：<span>张三</span>
+                                    姓名：<span id="userName"></span>
                                 </li>
                                 <li>
-                                    联系方式：<span>12345678933</span>
+                                    联系方式：<span id="userPhone"></span>
                                 </li>
                             </ul>
                         </div>
@@ -64,6 +52,6 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/tribute/order_detail.js")"></script>
 }
 

@@ -33,14 +33,23 @@ button.close {
 .box .order{
     padding-bottom: 12px;
 }
-.box .order li{
+.order ul li {
     line-height: 26px;
     margin-left: 10px;
+}
+.order ul li i {
+    margin-left: 15px;
+    font-weight: bold;
 }
 /*frame_detail*/
 .add p{
     margin-top: 10px;
     font-weight: bold;
+}
+.add img{
+    width: 100px;
+    height:120px;
+    margin-right: 10px;
 }
 .addImg {
     border: 1px solid #000;
@@ -53,7 +62,6 @@ button.close {
     margin-bottom: 10px;
     position: relative;
 }
-
 .addImg input {
     position: absolute;
     top: 0;
