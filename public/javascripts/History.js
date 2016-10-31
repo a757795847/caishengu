@@ -22,6 +22,7 @@ $(function () {
 var url=window.location.href;
 var indexOf=url.indexOf("?");
 var val=url.substr(indexOf+1);
+console.log(val);
 var data=[
     {
         "finance_type": "转账",
@@ -59,11 +60,11 @@ $(document).ready(function () {
             $('#Table').append(body);
         });
 
-                var tab = '<li id="Left"><a href="#">&laquo;</a></li>';
+                var tab = '<li id="Left"><a href="javascript:;">&laquo;</a></li>';
                 for(var i=0;i<5;i++){
-                    tab +='<li><a href="#">'+[i+1]+'</a></li>'
+                    tab +='<li><a href="javascript:;">'+[i+1]+'</a></li>'
                 }
-                tab += '<li id="Right"><a href="#">&raquo;</a></li>';
+                tab += '<li id="Right"><a href="javascript:;">&raquo;</a></li>';
                 $('.pagination').append(tab);
 
 });
@@ -79,7 +80,7 @@ $('.pagination:eq(0)').on('click','li',function() {
 
     }
     var index_right=$(this).index()+1;
-    if(index_right==6){
+    if(index_right==5){
         $("#Right").addClass("disabled");
 
     }else{
@@ -89,20 +90,23 @@ $('.pagination:eq(0)').on('click','li',function() {
 
 
 
+
     $.get("http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":index,
             "limit":5
         },
         function (data) {
+            console.log(data);
+            var body = "";
            $.each(data, function (i, order) {
-                var body = "";
+
                 body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer"></span><span class="rg"id="add_rmb">' +order.money+ '</span> </p>'
                 body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
                 body += '<span class="lt" id="Name">'+order.from_id+'</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
-                $('#Table').append(body);
-            });
 
+            });
+            $('#Table').html(body);
         }
     )
 

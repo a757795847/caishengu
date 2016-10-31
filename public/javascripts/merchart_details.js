@@ -3,6 +3,7 @@
 var url=window.location.href;
 var indexOf=url.indexOf("?");   //获取第一次出现？的位置下标
 var val=url.substr(indexOf+1);
+console.log(val);
 
 
 $("#recording").click(function(){
