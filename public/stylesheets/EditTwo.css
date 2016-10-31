@@ -59,6 +59,15 @@
     padding-left:27px;
 
 }
+#two input{
+    border:none;
+    outline:none;
+    margin-left:20px;
+    width:73px;
+
+
+
+}
 #two button{
     display: inline-block;
     width: 35%;
@@ -88,12 +97,44 @@
     font-size: 0.75rem;
 
 }
-.modal-footer button{
-    margin-left: 33%;
-    float: left;
+#Table_details input{
+    border:none;
+    outline:none;
+    margin-left:20px;
+    width:150px;
+
+
+}
+#Table_details span{
+    margin-left:20px;
+
+}
+.box-body button{
     width: 14%;
-    border-radius: 15px;
+    border-radius: 30px;
     padding: 3px 21px;
     font-size: 0.75rem;
+    margin: 0 auto;
 
+}
+#money{
+    margin-left:20px;
+
+}
+.example-modal .modal {
+    position: absolute;
+    top: 500px;
+    display: block;
+    z-index: 1;
+}
+
+.example-modal .modal {
+    background: transparent !important;
+}
+#keepWell{
+    text-align:center;
+
+}
+.example-modal{
+    display:none;
 }

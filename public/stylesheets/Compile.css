@@ -58,9 +58,52 @@
     font-size:15px;
     color:#222d32;
     text-decoration:none;
-
 }
 #TableTwo tr td{
     padding-left:27px;
+
+}
+#TableAll input{
+    border:none;
+    outline:none;
+    margin-left:20px;
+    width:150px;
+}
+.table-responsive .mailbox-messages span{
+    float:right;
+    margin-right:50%;
+}
+
+#tab_2 button{
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
+    margin: 10% auto;
+}
+
+#target{
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
+    margin: 20px auto;
+
+}
+.example-modal .modal {
+    position: absolute;
+    top: 500px;
+    display: block;
+    z-index: 1;
+}
+
+.example-modal .modal {
+    background: transparent !important;
+}
+.example-modal{
+    display:none;
+}
+#keepWell{
+    text-align:center;
 
 }

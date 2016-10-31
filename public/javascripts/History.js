@@ -1,86 +1,110 @@
 $('#btnLeft').click(function(){
     if($('#eacl').is(':hidden')){
-        $('#eacl').show();
-    }
-    else{
-        $('#eacl').hide();
-    }
-
-
+        $('#eacl').show();}
+    else{$('#eacl').hide();}
 });
 $("#clear").click(function(){
     $("#eacl input").val("");
-
-
-
 });
-
-
 $(function () {
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment()
-        },
-        function (start, end) {
-            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
-
-    //Date picker
     $('#datepicker').datepicker({
         autoclose: true
     });
     $('#Kobe').datepicker({
         autoclose: true
     });
+});
 
-    //iCheck for checkbox and radio inputs
-   /* $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-        checkboxClass: 'icheckbox_minimal-blue',
-        radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-        checkboxClass: 'icheckbox_minimal-red',
-        radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-        checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat-green'
-    });
 
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
 
-    //Timepicker
-    $(".timepicker").timepicker({
-        showInputs: false
-    });*/
+
+
+var url=window.location.href;
+var indexOf=url.indexOf("?");
+var val=url.substr(indexOf+1);
+var data=[
+    {
+        "finance_type": "转账",
+        "from_id": "1000001",
+        "from_name": "布拉德皮特",
+        "money": "+5",
+        "datetime": "2016-10-31",
+        "remark": "之前有拖账"
+    },
+    {
+        "finance_type": "结清",
+        "from_id": "10086",
+        "from_name": "安吉丽娜朱莉",
+        "money": "-500",
+        "datetime": "2016-09-31",
+        "remark": ""
+
+
+
+    }
+
+
+]
+
+$(document).ready(function () {
+   /* $.get("http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+        function (data) {
+            console.log(data);
+        });*/
+        $.each(data, function (i, order) {
+            var body = "";
+            body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' +order.money+ '</span> </p>'
+            body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+            body += '<span class="lt" id="Name">'+order.from_id+'</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+            $('#Table').append(body);
+        });
+
+                var tab = '<li id="Left"><a href="#">&laquo;</a></li>';
+                for(var i=0;i<5;i++){
+                    tab +='<li><a href="#">'+[i+1]+'</a></li>'
+                }
+                tab += '<li id="Right"><a href="#">&raquo;</a></li>';
+                $('.pagination').append(tab);
+
+});
+
+
+
+$('.pagination:eq(0)').on('click','li',function() {
+    var index = $(this).index() - 1;
+    if(index==0){
+        $("#Left").addClass("disabled");
+    }else{
+        $("#Left").removeClass('disabled');
+
+    }
+    var index_right=$(this).index()+1;
+    if(index_right==6){
+        $("#Right").addClass("disabled");
+
+    }else{
+        $("#Right").removeClass('disabled');
+    }
+    $(this).addClass('active').siblings().removeClass('active');
+
+
+
+    $.get("http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+        {
+            "page":index,
+            "limit":5
+        },
+        function (data) {
+           $.each(data, function (i, order) {
+                var body = "";
+                body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer"></span><span class="rg"id="add_rmb">' +order.money+ '</span> </p>'
+                body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+                body += '<span class="lt" id="Name">'+order.from_id+'</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+                $('#Table').append(body);
+            });
+
+        }
+    )
+
+
 });

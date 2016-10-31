@@ -19,24 +19,27 @@
                         <div class="box-body">
                             <div class="table-responsive">
                                 <a href="/merchart/index" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="Table_details">
                                     <thead>
                                         <tr>
-                                            <th colspan="2" id="shanghu">商户信息</th>
+                                            <th colspan="2" id="shanghu"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>商户ID:<span>12545454</span></td>
-                                            <td>联系人:<span>张三</span></td>
+                                            <td>商户ID: <span id="user_id"></td>
+                                            <td>联系人:<input type="text" maxlength="10" id="user_name"></td>
                                         </tr>
                                         <tr>
-                                            <td>联系方式:<span>215465456</span></td>
-                                            <td>商店名称:<span>水果店</span></td>
+                                            <td>联系方式:<input onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                            onafterpaste="this.value=this.value.replace(/\D/g,'')"  maxlength="11" id="tel">
+                                            </td>
+                                            <td>商店名称:<input type="text" maxlength="11" id="shop"></td>
                                         </tr>
                                         <tr>
-                                            <td>商户地址:<span>第一大道</span></td>
-                                            <td>收款账号:<span>1214354564</span></td>
+                                            <td>商户地址:<input type="text" maxlength="25" id="address"></td>
+                                            <td>收款账号:<input onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                            onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="20" id="account"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -48,13 +51,14 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>待结算:<span>124元</span></td>
-                                            <td><a href="/merchart/history">查看历史记录</a></td>
+                                            <td>待结算: <span id="money"></span>元</td>
+                                            <td><a id="recording">查看历史记录</a></td>
                                         </tr>
 
                                     </tbody>
 
                                 </table>
+                                <button class="btn btn-block btn-default" id="keep">保存</button>
                             </div>
                                 <!-- /.table-responsive -->
                         </div>
@@ -67,7 +71,30 @@
             </div>
                 <!-- /.col -->
         </section>
-    </div>
-} {
+        </div>
 
+    <div class="example-modal">
+        <div class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">商户信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="keepWell">保存成功!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="confirm">确认</button>
+                    </div>
+                </div>
+                    <!-- /.modal-content -->
+            </div>
+                <!-- /.modal-dialog -->
+        </div>
+            <!-- /.modal -->
+    </div>
+
+
+} {
+    <script src="@routes.Assets.at("javascripts/merchart_details.js")"></script>
 }
