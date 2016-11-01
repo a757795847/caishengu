@@ -1,0 +1,49 @@
+
+@main("财神谷介绍","introduce.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+} {
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="javascript:;"><i class="fa fa-university"></i>财神谷新闻</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm">
+                            <a class="btn btn-default pull-right" href="/introduce/add">新增</a>
+                        </div>
+                    </div>
+                </div>
+                    <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>标题</th>
+                                    <th>链接</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="introduce">
+
+                            </tbody>
+                        </table>
+                    </div>
+                        <!-- /.table-responsive -->
+                </div>
+            </div>
+        </section>
+            <!-- /.content -->
+    </div>
+
+} {
+    <script src="@routes.Assets.at("javascripts/controller/csg/index.js")"></script>
+}
+
+
+

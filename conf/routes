@@ -35,12 +35,12 @@ GET        /item/out                     controllers.ItemController.out
 GET        /item/wait                    controllers.ItemController.waits
 
 #MoneyRun page
-GET        /run                          controllers.MoneyRunController.index
+GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
-GET        /manage/index                 controllers.MoneyManageController.index
-GET        /manage/details               controllers.MoneyManageController.details
-GET        /manage/history               controllers.MoneyManageController.history
+GET        /manage_index                 controllers.MoneyManageController.index
+GET        /manage_details               controllers.MoneyManageController.details
+GET        /manage_history               controllers.MoneyManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -56,10 +56,10 @@ GET        /shareholder                  controllers.ShareholderController.index
 
 #shopping page
 GET        /shopping                     controllers.ShoppingController.index
-GET        /shopping/close               controllers.ShoppingController.close
-GET        /shopping/out                 controllers.ShoppingController.out
-GET        /shopping/receive             controllers.ShoppingController.receive
-GET        /shopping/wait                controllers.ShoppingController.waits
+GET        /shopping/detail               controllers.ShoppingController.detail
+#GET        /shopping/out                 controllers.ShoppingController.out
+#GET        /shopping/receive             controllers.ShoppingController.receive
+#GET        /shopping/wait                controllers.ShoppingController.waits
 GET        /shopping/frame               controllers.ShoppingController.frame
 GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 
@@ -83,6 +83,18 @@ GET        /love                         controllers.LoveController.index
 GET        /love/detail                  controllers.LoveController.detailed
 GET        /love/detail/add              controllers.LoveController.detailedAdd
 GET        /love/feedback                controllers.LoveController.feedback
+
+#trends page
+GET        /trends                       controllers.TrendsController.index
+GET        /trends/add                   controllers.TrendsController.add
+
+#trends page
+GET        /introduce                    controllers.IntroduceController.index
+GET        /introduce/add                controllers.IntroduceController.add
+
+#trends page
+GET        /live                         controllers.LiveController.index
+GET        /live/add                     controllers.LiveController.add
 
 
 # administrator 管理员账号

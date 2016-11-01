@@ -29,17 +29,14 @@
                                         <div class="row">
                                             <div class="col-md-3 col-lg-3" >
                                                 <div class="box-body">
-                                                    <a href="compose.html" class="btn btn-default btn-block margin-bottom">新增分类</a>
+                                                    <a href="javascript:;" data-toggle="modal" data-target=".bs-example-modal-add" class="btn btn-default btn-block margin-bottom">新增分类</a>
                                                     <div class="box box-solid">
                                                         <div class="box-header with-border">
                                                             <h3 class="box-title">分类</h3>
                                                         </div>
                                                         <div class="box-body no-padding">
-                                                            <ul class="nav nav-pills nav-stacked">
-                                                                <li class="active"><a href="#">全部</a></li>
-                                                                <li><a href="#">新品</a></li>
-                                                                <li><a href="#">爆款</a></li>
-                                                                <li><a href="#">热销</a></li>
+                                                            <ul id="className" class="nav nav-pills nav-stacked">
+
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -49,11 +46,11 @@
                                                 <div class="box-body">
                                                     <div class="box-header">
                                                         <div class="input-group pull-right input-group-sm">
-                                                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                                            <input id="goodsText" type="text" name="table_search" class="form-control pull-right" placeholder="商品名称">
 
                                                             <div class="input-group-btn">
-                                                                <button type="submit" class="btn btn-default">搜索</button>
-                                                                <button type="submit" class="btn btn-default">新建</button>
+                                                                <button id="searchGoods" type="submit" class="btn btn-default">搜索</button>
+                                                                <button type="submit" class="btn btn-default"><a id="addNew" href="#">新建</a></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -70,42 +67,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <img src="@routes.Assets.at("images/user2-160x160.jpg")" />
-                                                                        <span>门票</span>
-                                                                        <span>￥50</span>
-                                                                        <span>50积分</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="label label-info"><a href="#">下架</a></span>
-                                                                        <span class="label label-info"><a href="/shopping/frame/detail">编辑</a></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <img src="../dist/img/avatar.png" />
-                                                                        <span>门票</span>
-                                                                        <span>￥50</span>
-                                                                        <span>50积分</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="label label-info"><a href="#">下架</a></span>
-                                                                        <span class="label label-info"><a href="/shopping/frame/detail">编辑</a></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <img src="../dist/img/avatar.png" />
-                                                                        <span>门票</span>
-                                                                        <span>￥50</span>
-                                                                        <span>50积分</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="label label-info"><a href="#">下架</a></span>
-                                                                        <span class="label label-info"><a href="/shopping/frame/detail">编辑</a></span>
-                                                                    </td>
-                                                                </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -122,10 +84,10 @@
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm">
-                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                                <input id="ticketText" type="text" name="table_search" class="form-control pull-right" placeholder="商品名称">
 
                                                 <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <button id="searchTicket" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,18 +103,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="../dist/img/avatar.png" />
-                                                            <span>门票</span>
-                                                            <span>￥50</span>
-                                                            <span>50积分</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="label label-info"><a href="#">下架</a></span>
-                                                            <span class="label label-info"><a href="#">编辑</a></span>
-                                                        </td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -171,8 +122,32 @@
         </section>
     </div>
 
+    <div class="modal fade bs-example-modal-add" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="addName">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
+                    <button type="button" id="addClassName" class="btn btn-default btnList" data-dismiss="modal">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shopping/frame.js")"></script>
 }
 
 

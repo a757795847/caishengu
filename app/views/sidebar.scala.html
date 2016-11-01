@@ -20,8 +20,8 @@
                 </a>
             </li>
             @if(userType == 0) {
-                <li class="treeview @active("run.index")">
-                    <a href="/run">
+                <li class="treeview @active("approve.index")">
+                    <a href="/approve">
                         <i class="fa fa-briefcase"></i>
                         <span>财务审批</span>
                     </a>
@@ -53,18 +53,14 @@
             </li>
             <li class="treeview @active("shopping.index") @active("shopping.frame")">
                 <a href="#">
-                    <i class="fa  fa-cart-plus"></i>
+                    <i class="fa fa-cart-plus"></i>
                     <span>商城订单管理</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="@active("shopping.index")">
-                        <a href="/shopping">
-                            <i class="fa fa-circle-o"></i>订单
-                        </a>
-                    </li>
+                    <li class="@active("shopping.index")"><a href="/shopping"><i class="fa fa-circle-o"></i>商城订单</a></li>
                     <li class="@active("shopping.frame")">
                         <a href="/shopping/frame">
                             <i class="fa fa-circle-o"></i>商城货架
@@ -135,6 +131,24 @@
                 <a href="/love">
                     <i class="fa fa-heart"></i>
                     <span>爱心捐赠</span>
+                </a>
+            </li>
+            <li class="treeview @active("trends.index")">
+                <a href="/trends">
+                    <i class="fa fa-flag"></i>
+                    <span>财神谷动态</span>
+                </a>
+            </li>
+            <li class="treeview @active("introduce.index")">
+                <a href="/introduce">
+                    <i class="fa fa-university"></i>
+                    <span>财神谷介绍</span>
+                </a>
+            </li>
+            <li class="treeview @active("live.index")">
+                <a href="/live">
+                    <i class="fa fa-video-camera"></i>
+                    <span>财神谷现场直播</span>
                 </a>
             </li>
         </ul>

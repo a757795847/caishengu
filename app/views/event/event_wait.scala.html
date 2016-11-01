@@ -21,23 +21,22 @@
                     </div>
                     <div class="eventNews">
                         <ul>
-                            <li>开始时间：<span id="startDateTime">2016.04.04 周六 14:00</span></li>
-                            <li>结束时间：<span id="endDateTime">2016.04.04 周六 14:00</span></li>
-                            <li>举办地点：<span id="hostAddress">杭州市文二路华星大厦12楼</span></li>
-                            <li>举办方：<span id="host">杭州丽云集团</span></li>
-                            <li>报名截止时间：<span id="limitDateTime">2016.04.04 周六 14:00</span></li>
-                            <li>限制人数：<span>100人</span></li>
-                            <li>简介：<span>我是简介</span></li>
+                            <li>开始时间：<span id="startDateTime"></span></li>
+                            <li>结束时间：<span id="endDateTime"></span></li>
+                            <li>举办地点：<span id="hostAddress"></span></li>
+                            <li>举办方：<span id="host"></span></li>
+                            <li>报名截止时间：<span id="limitDateTime"></span></li>
+                            <li>限制人数：<span id="limitPerson"></span></li>
+                            <li>简介：<span id="introduction"></span></li>
                         </ul>
                     </div>
                     <div class="eventMaster">
                         <ul>
-                            <li>主办方联系人：<span>张经理</span></li>
-                            <li>联系电话：<span>2345678</span></li>
+                            <li>主办方联系人：<span id="contactPerson"></span></li>
+                            <li>联系电话：<span id="contactPhone"></span></li>
                         </ul>
                     </div>
-                        <button type="button" class="btn btn-default btn-lg pull-right" data-toggle="modal" data-target="#myModal">拒绝</button>
-                        <button type="button" class="btn btn-default btn-lg pull-right">通过</button>
+
                 </div>
             </div>
         </section>
@@ -62,14 +61,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-default">确定</button>
+                    <button type="button" id="noBtn" class="btn btn-default">确定</button>
                 </div>
             </div>
         </div>
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/event/wait.js")"></script>
 }
 
 

@@ -13,7 +13,7 @@
             <div class="box box-info">
                 <a class="btn turn" href="/shopping">返回</a>
                     <!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body" id="detail">
                     <div class="box">
                         <p class="spot">订单信息</p>
                         <div class="order">
@@ -52,10 +52,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-footer clearfix">
-                    <button type="button" class="btn btn-default btn-lg pull-right" data-toggle="modal" data-target="#myModal">关闭</button>
-                    <button type="button" class="btn btn-default btn-lg pull-right" data-toggle="modal" data-target="#abc">发货</button>
-                </div>
             </div>
         </section>
             <!-- /.content -->
@@ -80,13 +76,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-default">确定</button>
+                    <button type="button" id="closeNews" class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="abc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deliverCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -112,7 +108,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-default">确定</button>
+                    <button type="button" id="receive" class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>
@@ -120,5 +116,5 @@
 
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/shopping/shopping_wait.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shopping/detail.js")"></script>
 }

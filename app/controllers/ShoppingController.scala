@@ -1,30 +1,29 @@
 package controllers
-
 import play.api.mvc._
 
 /**
-  * Created by zlm on 16/10/13.
+  * Created by zlm on 16/10/26.
   */
-class ShoppingController extends Controller {
+class ShoppingController  extends Controller {
     def index = Action {
         Ok(views.html.shopping.shopping_index())
     }
 
-    def out = Action {
-        Ok(views.html.shopping.shopping_out())
+//    def out = Action {
+//        Ok(views.html.shopping.shopping_out())
+//    }
+//
+//    def close = Action {
+//        Ok(views.html.shopping.shopping_close())
+//    }
+
+    def detail = Action {
+        Ok(views.html.shopping.shopping_detail())
     }
 
-    def close = Action {
-        Ok(views.html.shopping.shopping_close())
-    }
-
-    def waits = Action {
-        Ok(views.html.shopping.shopping_wait())
-    }
-
-    def receive = Action {
-        Ok(views.html.shopping.shopping_receive())
-    }
+//    def receive = Action {
+//        Ok(views.html.shopping.shopping_receive())
+//    }
 
     def frame = Action {
         Ok(views.html.shopping.shopping_frame())
