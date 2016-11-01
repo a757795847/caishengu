@@ -9,6 +9,7 @@
 
 }
 #Table .rt{
+
     font-size: 5rem;
     color: rgb(0, 200, 239);
     float: right;
@@ -17,5 +18,13 @@
 #posi{
     margin-top:-26px;
     margin-right:20px;
+
+}
+#Table .Exportlist{
+    font-size:1rem;
+    float:right;
+    color: rgb(0, 200, 239);
+    line-height:66px;
+
 
 }

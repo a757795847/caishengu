@@ -1,20 +1,123 @@
-@main("用户相关", "user.index") {
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
-
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/user.css")">
+@main("投资人详情","investors.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Item.css")">
 } {
 
-    <div class="content-wrapper row">
-        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div class="row newsTop">
-                <button type="button" class="btn btn-default col-md-2 col-lg-2">返回</button>
+    <div class="content-wrapper">
+        <section class="content row">
+
+
+                <!-- TABLE: LATEST ORDERS -->
+            <div class="col-md-12 col-lg-12">
+                <div class="box box-info" >
+                    <div class="box-header with-border">
+                        <a href="/investors" class="btn btn-primary btn-lg active"id="BtnClick">返回</a>
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <h4>基本信息</h4>
+                                <table class="table table-bordered" id="length">
+                                    <tr>
+                                        <td>ID: <span>10011</span></td>
+                                        <td>姓名: <span>张三</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>手机号: <span>123468545</span></td>
+                                        <td>职位: <span>业务经理</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>公司: <span>软银</span></td>
+                                        <td>股东: <span>否</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>投资人: <span>是</span></td>
+                                        <td>生日: <span>1975-12-3</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>生辰: <span>甲子年blablabla.....</span></td>
+                                        <td>地区: <span>宁波</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>头像: <img src="@routes.Assets.at("images/logo.jpg")">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <h4>投资人信息</h4>
+                                <table class="table"id="firstTable">
+                                    <tr>
+                                        <td>排名: <span>10</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")"class="Img">
+                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>投资阶段: <span>A轮之前</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>个人简介: <span>blablablabla....</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4 class="Hfour">案例</h4>
+                                            <table class="lastTable">
+                                                <tr>
+                                                    <td>时间</td>
+                                                    <td>轮次</td>
+                                                    <td>金额</td></td>
+                                                    <td>领投机构</td>
+                                                </tr> <tr>
+                                                <td>2016-7-5</td>
+                                                <td>A轮</td>
+                                                <td>三千万</td>
+                                                <td>软银</td>
+                                            </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                                <h4>股东信息</h4>
+                                <table>
+                                    <tr>
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
+                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                                <!-- /.table-responsive -->
+                        </div>
+                            <!-- /.box-body -->
+                            <!-- /.box-footer -->
+                    </div>
+
+                </div>     <!-- /.box -->
+            </div>
+                <!-- /.col -->
+        </section>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <textarea class="form-control" rows="3" maxlength="200"></textarea>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal">确定</button>
+                        <button class="btn btn-default" data-dismiss="modal">清除</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-            <!-- /.content -->
-    </div
-
-} {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+        } {
+    <script src="@routes.Assets.at("javascripts/Item.js")"></script>
 }
 

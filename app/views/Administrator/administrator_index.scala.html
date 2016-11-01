@@ -10,8 +10,13 @@
                 <!-- TABLE: LATEST ORDERS -->
             <div class="box box-info">
                 <div class="father">
-                    <input class="form-control" type="text" placeholder="管理员ID/管理员姓名"/>
-                    <input type="btn" class="btn btn-default" value="新建" id="btnRight">
+                    <div class="input-group input-group-sm" id="search">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="搜索">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default">新建</button>
                 </div>
                 <div class="box-header with-border">
 
@@ -20,7 +25,7 @@
                         <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table class="table no-margin">
+                            <table class="table no-margin" id="Table">
                                 <thead>
                                     <tr>
                                         <th>商户 ID</th>
@@ -29,36 +34,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR9842</a></td>
-                                        <td><span class="label label-success">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR1848</a></td>
-                                        <td><span class="label label-warning">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR7429</a></td>
-                                        <td><span class="label label-danger">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR7429</a></td>
-                                        <td><span class="label label-info">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR1848</a></td>
-                                        <td><span class="label label-warning">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="../pages/examples/invoice.html">OR7429</a></td>
-                                        <td><span class="label label-danger">张三</span></td>
-                                        <td><span class="label label-info"><a href="/Edit">编辑</a></span></td>
-                                    </tr>
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -70,18 +47,6 @@
                 <div class="dropdown pull-right" >
                     <nav>
                         <ul class="pagination">
-                            <li class="disabled"><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li class="disabled"><a href="#">&raquo;</a></li>
-
 
                         </ul>
                     </nav>
@@ -93,7 +58,7 @@
     </div>
 
 } {
-
+    <script src="@routes.Assets.at("javascripts/adminstrator_index.js")"></script>
 
 }
 

@@ -1,12 +1,12 @@
 #turn{
-    width: 83px;
+    padding: 6px 24px;
     border-radius: 13px;
-    margin-left: 2px;
-    margin-top: 10px;
-    height: 38px;
-    font-size: 15px;
+    margin-left: 10px;
+    font-size: 0.75rem;
     line-height: 18px;
-    margin-bottom:13px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
 
 }
 #TableAll tr th,td{
@@ -59,6 +59,15 @@
     padding-left:27px;
 
 }
+#two input{
+    border:none;
+    outline:none;
+    margin-left:20px;
+    width:73px;
+
+
+
+}
 #two button{
     display: inline-block;
     width: 35%;
@@ -80,10 +89,52 @@
 
 }
 #echo [type="btn"]{
-    width: 24%;
+    margin-left: 24%;
     float: left;
-    margin-left: 49px;
-    border-radius: 8px;
-    font-size: 12px;
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
 
+}
+#Table_details input{
+    border:none;
+    outline:none;
+    margin-left:20px;
+    width:150px;
+
+
+}
+#Table_details span{
+    margin-left:20px;
+
+}
+.box-body button{
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
+    margin: 0 auto;
+
+}
+#money{
+    margin-left:20px;
+
+}
+.example-modal .modal {
+    position: absolute;
+    top: 500px;
+    display: block;
+    z-index: 1;
+}
+
+.example-modal .modal {
+    background: transparent !important;
+}
+#keepWell{
+    text-align:center;
+
+}
+.example-modal{
+    display:none;
 }

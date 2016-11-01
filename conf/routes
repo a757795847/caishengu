@@ -17,8 +17,8 @@ GET        /create                       controllers.CreateController.index
 GET        /create/add                   controllers.CreateController.add
 
 #csg page
-GET        /csg                          controllers.CsgNewsController.index
-GET        /csg/add                      controllers.CsgNewsController.add
+GET        /csg                          controllers.CsgController.index
+GET        /csg/add                      controllers.CsgController.add
 
 #event page
 GET        /event                        controllers.EventController.index
@@ -38,9 +38,9 @@ GET        /item/wait                    controllers.ItemController.waits
 GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
-GET        /manage                       controllers.ManageController.index
-GET        /manage/detail                controllers.ManageController.details
-GET        /manage/history               controllers.ManageController.history
+GET        /manage_index                 controllers.MoneyManageController.index
+GET        /manage_details               controllers.MoneyManageController.details
+GET        /manage_history               controllers.MoneyManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -117,3 +117,6 @@ GET        /myproject/details            controllers.MyprojectController.details
 
 #我的活动
 GET        /myactivities                 controllers.MyactivitiesController.myactivities
+
+#主页
+GET        /homepage                     controllers.HomepageController.homepage

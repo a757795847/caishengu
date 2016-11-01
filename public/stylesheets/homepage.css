@@ -1,0 +1,31 @@
+#Table .lt{
+    margin-left:10px;
+
+}
+#Table .rg{
+    margin-right:10px;
+
+
+}
+
+.lt{
+    float:left;
+
+}
+.rg{
+    float:right;
+}
+#tab_2 input{
+    width: 35%;
+    height: 28px;
+    margin: 0 auto;
+    margin-top: 20%;
+
+}
+#tab_2 button{
+    width: 14%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 0.75rem;
+    margin: 10% auto;
+}

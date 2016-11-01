@@ -5,11 +5,13 @@
 
     <div class="content-wrapper">
         <section class="content row">
-            
+
+
+                <!-- TABLE: LATEST ORDERS -->
             <div class="col-md-12 col-lg-12">
                 <div class="box box-info" >
                     <div class="box-header with-border">
-                        <button type="button" class="btn btn-default" id="BtnCilck"><a href=""></a>返回</button>
+                        <a href="/investors" class="btn btn-primary btn-lg active"id="BtnClick">返回</a>
                         <div class="box-body">
                             <div class="table-responsive">
                                 <h4>基本信息</h4>
@@ -85,8 +87,8 @@
                                     </tr>
 
                                 </table>
-                                <button type="btn" class="add col-md-8 col-lg-8" data-toggle="modal" data-target=".bs-example-modal-sm" id="reject">拒绝</button>
-                                <button type="btn" id="Itok">同意</button>
+                                <button type="btn" class="btn btn-block btn-default btn-flat" data-toggle="modal" data-target="#myModal" id="reject">拒绝</button>
+                                <button type="btn" class="btn btn-default btn-flat" id="Itok">同意</button>
                             </div>
                                 <!-- /.table-responsive -->
                         </div>
@@ -98,32 +100,24 @@
             </div>
                 <!-- /.col -->
         </section>
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">请填写拒绝原因!</h4>
+
                     </div>
-                    <div class="modal-body" id="modal_body">
+                    <div class="modal-body">
                         <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <textarea name="Inname" cols="30" rows="6" maxlength="170"></textarea>
-                                </div>
-                            </div>
+                            <textarea class="form-control" rows="3" maxlength="200"></textarea>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-default btnList">确定</button>
+                        <button class="btn btn-default" data-dismiss="modal">确定</button>
+                        <button class="btn btn-default" data-dismiss="modal">清除</button>
                     </div>
-                </div> <!-- /.modal-content -->
+                </div>
             </div>
-
-
-
-
         </div>
 
         } {
