@@ -47,6 +47,10 @@ img{
 .label.label-info a{
     color: #ffffff;
 }
+.top.label.label-info {
+    margin-right: 22px;
+    margin-left: 10px;
+}
 /*搜索栏*/
 .input-group.input-group-sm{
     width: 250px;

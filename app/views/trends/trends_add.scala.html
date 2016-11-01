@@ -1,0 +1,47 @@
+
+@main("财神谷动态","trends.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/trends.css")">
+} {
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/trends"><i class="fa fa-flag"></i>财神谷动态</a></li>
+                <li><a href="javascript:;">新增动态</a></li>
+            </ol>
+        </section>
+        <section class="content" id="add">
+            <div class="box box-info">
+                <div class="box-header">
+                    <a class="btn btn-default" href="/trends">返回</a>
+                    <a class="btn btn-default pull-right" href="#">保存</a>
+                </div>
+                    <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="spot">标题</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-tags"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入标题">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="spot">链接地址</label>
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="请输入链接地址">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+} {
+    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+}
+

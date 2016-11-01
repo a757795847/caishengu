@@ -114,13 +114,17 @@
     })
 
     $('#noBtn').on('click',function(){
-        $('#myModal textarea').val();
+        var reason = $('#myModal textarea').val();
+        console.log(reason);
         $.ajax({
             type:'PUT',
-            url:'http://' + backend_host + '/web/staff/activity/'+url+'?access_token=10ae0842b11080b0b6c9412773164797',
+            //url:'http://' + backend_host + '/web/staff/activity/'+url+'?access_token=10ae0842b11080b0b6c9412773164797',
+            data:{
+                'state': 'reject'
+            },
             dataType:'json',
             success:function(data){
-
+                
             }
         })
     })

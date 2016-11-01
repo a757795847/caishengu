@@ -77,7 +77,7 @@
 
     $('#searchShareholder').on('click',function(){
         var textShareholder = $('#textShareholder').val();
-        console.log(searchText);
+        console.log(textShareholder);
         $.ajax({
             type:'GET',
             url:'http://' + backend_host + '/web/staff/shareholder?access_token=10ae0842b11080b0b6c9412773164797',

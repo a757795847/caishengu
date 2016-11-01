@@ -9,23 +9,28 @@ td span {
 }
 
 /*wait*/
-.btn-group-lg>.btn, .btn-lg {
+.btn-group-lg > .btn, .btn-lg {
     font-size: 14px;
     margin-left: 10px;
 }
-.box .order{
+
+.box .order {
     padding-bottom: 12px;
 }
+
 .col-md-3.col-lg-3 div#external-events {
     margin-top: 10px;
 }
+
 td span {
     margin-right: 12px;
 }
+
 .order ul li {
     line-height: 26px;
     margin-left: 10px;
 }
+
 .order ul li i {
     margin-left: 15px;
     font-weight: bold;
@@ -69,17 +74,22 @@ button.close {
 }
 
 .addImg {
-    border: 1px solid #000;
+    border: 1px solid #eee;
     display: inline-block;
     width: 100px;
     height: 120px;
-    line-height: 96px;
+    line-height: 120px;
     text-align: center;
     font-size: 40px;
     margin-bottom: 10px;
     position: relative;
 }
-
+.addImg form#uploadForm {
+    height: 100%;
+}
+.addImg form#uploadForm a{
+    color: #777;
+}
 .addImg input {
     position: absolute;
     top: 0;
@@ -98,4 +108,9 @@ button.close {
 
 button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     margin-left: 16px;
+}
+
+#preview img {
+    float: left;
+    margin-right: 10px;
 }

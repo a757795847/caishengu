@@ -15,7 +15,7 @@
                     manages += '<tr><td>'+data[i].shop_id+'</td><td>'+data[i].shop_name+'</td><td>'+data[i].contact_person+'</td>';
                     manages += '<td><span class="label label-info"><a href="">查看</a></span></td></tr>'
                 }
-                $('#allManages').html(manages);
+                tabID.html(manages);
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){

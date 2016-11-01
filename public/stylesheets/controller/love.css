@@ -21,7 +21,7 @@
 }
 /*picture*/
 .addImg {
-    border: 1px solid #000;
+    border: 1px solid #eee;
     display: inline-block;
     width: 100px;
     height: 120px;
@@ -30,6 +30,12 @@
     font-size: 40px;
     margin-bottom: 10px;
     position: relative;
+}
+.addImg form#uploadForm {
+    height: 100%;
+}
+.addImg form#uploadForm a{
+    color: #777;
 }
 
 .addImg input {

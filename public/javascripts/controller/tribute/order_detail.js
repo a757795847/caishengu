@@ -57,44 +57,42 @@
             'user_name': '张三',
             'user_phone': '12345678933233',
         }
+    //
+    // $('#orderTime').text(data.order_time);
+    // var goods = '';
+    // for(var i=0; i<data.goods.length;i++){
+    //     goods += '<li><span>'+data.goods[i].goods_id+'</span><i>X'+data.goods[i].quantity+'</i></li>'
+    // };
+    // $('#goods').html(goods);
+    // $('#userName').text(data.user_name);
+    // $('#userPhone').text(data.user_phone);
 
-    $('#orderTime').text(data.order_time);
-    var goods = '';
-    for(var i=0; i<data.goods.length;i++){
-        goods += '<li><span>'+data.goods[i].goods_id+'</span><i>X'+data.goods[i].quantity+'</i></li>'
-    };
-    $('#goods').html(goods);
-    $('#userName').text(data.user_name);
-    $('#userPhone').text(data.user_phone);
-
-
-    //搜索
-    $('#searchOrder').on('click',function(){
-        var textOrder = $('#textOrder').val();
-        $.ajax({
-            type:'GET',
-            url:"http://" + backend_host + '/web/staff/user?access_token=10ae0842b11080b0b6c9412773164797',
-            data:{
-                'keyword' : textOrder
-            },
-            dataType:'json',
-            success:function(data){
-                var users = '';
-                for (var i = 0; i < data.length; i++) {
-                    users += '<tr><td>'+data[i].user_id+'</td><td>'+data[i].user_name+'</td><td>'+data[i].user_phone+'</td>';
-                    users += '<td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
-                }
-                $('#users').html(users);
-            },
-            error:function(jqXHR){
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-                if(jqXHR.status == 400){
-
-                }
+    var order_id = window.location.search.split('?')[1];
+    console.log(order_id);
+    $.ajax({
+        type:'GET',
+        url:"http://" + backend_host + '/web/staff/order/virtual/entity?access_token=10ae0842b11080b0b6c9412773164797&order_id='+order_id,
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            $('#orderTime').text(data.order_time);
+            var goods = '';
+            for(var i=0; i<data.goods.length;i++){
+                goods += '<li><span>'+data.goods[i].goods_id+'</span><i>X'+data.goods[i].quantity+'</i></li>'
+            };
+            $('#goods').html(goods);
+            $('#userName').text(data.user_name);
+            $('#userPhone').text(data.user_phone);
+        },
+        error:function(jqXHR,textStatus,errorThrown){
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+            if(jqXHR.status == 404){
+                //history.go(-1);
             }
+        }
         })
-    })
+
 
 })(jQuery)

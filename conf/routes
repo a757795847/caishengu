@@ -17,8 +17,8 @@ GET        /create                       controllers.CreateController.index
 GET        /create/add                   controllers.CreateController.add
 
 #csg page
-GET        /csg                          controllers.CsgController.index
-GET        /csg/add                      controllers.CsgController.add
+GET        /csg                          controllers.CsgNewsController.index
+GET        /csg/add                      controllers.CsgNewsController.add
 
 #event page
 GET        /event                        controllers.EventController.index
@@ -39,7 +39,7 @@ GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
 GET        /manage                       controllers.ManageController.index
-GET        /manage/detail               controllers.ManageController.details
+GET        /manage/detail                controllers.ManageController.details
 GET        /manage/history               controllers.ManageController.history
 
 #ticket page
@@ -55,13 +55,13 @@ GET        /round/wait                   controllers.RoundController.waits
 GET        /shareholder                  controllers.ShareholderController.index
 
 #shopping page
-GET        /shopping                        controllers.ShoppingController.index
-GET        /shopping/close                  controllers.ShoppingController.close
-GET        /shopping/out                    controllers.ShoppingController.out
-GET        /shopping/receive                controllers.ShoppingController.receive
-GET        /shopping/wait                   controllers.ShoppingController.waits
-GET        /shopping/frame                     controllers.ShoppingController.frame
-GET        /shopping/frame/detail              controllers.ShoppingController.frameDetail
+GET        /shopping                     controllers.ShoppingController.index
+GET        /shopping/detail               controllers.ShoppingController.detail
+#GET        /shopping/out                 controllers.ShoppingController.out
+#GET        /shopping/receive             controllers.ShoppingController.receive
+#GET        /shopping/wait                controllers.ShoppingController.waits
+GET        /shopping/frame               controllers.ShoppingController.frame
+GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 
 #stat page
 GET        /statistics                   controllers.StatisticsController.index
@@ -83,6 +83,18 @@ GET        /love                         controllers.LoveController.index
 GET        /love/detail                  controllers.LoveController.detailed
 GET        /love/detail/add              controllers.LoveController.detailedAdd
 GET        /love/feedback                controllers.LoveController.feedback
+
+#trends page
+GET        /trends                       controllers.TrendsController.index
+GET        /trends/add                   controllers.TrendsController.add
+
+#trends page
+GET        /introduce                    controllers.IntroduceController.index
+GET        /introduce/add                controllers.IntroduceController.add
+
+#trends page
+GET        /live                         controllers.LiveController.index
+GET        /live/add                     controllers.LiveController.add
 
 
 # administrator 管理员账号
