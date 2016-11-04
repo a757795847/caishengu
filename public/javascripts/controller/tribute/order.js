@@ -19,7 +19,7 @@
 
     $.ajax({
         type:'GET',
-        url:"http://" + backend_host + '/web/staff/order/virtual/collection?access_token=10ae0842b11080b0b6c9412773164797&state=all',
+        url:"http://" + backend_host + '/web/staff/order/virtual/collection?'+token+'&state=all',
         dataType:'json',
         success:function(data){
             console.log(data);
@@ -46,7 +46,7 @@
         console.log(textOrder);
         $.ajax({
             type:'GET',
-            url:"http://" + backend_host + '/web/staff/order/virtual/collection?access_token=10ae0842b11080b0b6c9412773164797&',
+            url:"http://" + backend_host + '/web/staff/order/virtual/collection?'+token,
             data:{
                 'state':'all',
                 'keyword' : textOrder

@@ -1,17 +1,71 @@
 (function($){
-    $('#addClassName').on('click',function(){
-        var addclass = $('#addName').val();
-        $('#allClass').append('<li><button type="button" class="close">×</button><a href="#">'+addclass+'</a></li>');
-        $('#addName').val('');
-    });
-    $('#allClass').on('click','li',function(){
-        $('#allClass').find('li').removeClass('active');
+
+    $('#tributeClass').on('click','li',function(){
+        $('#tributeClass li').removeClass('active');
         $(this).addClass('active');
-    });
-    $('#allClass').on('click','button',function(){
-        var text = $(this).next().text();
-        if(confirm('是否删除'+text+'这个分类')){
-            $(this).parent().remove();
+        var hrefUrl = $(this).find('a').attr('data-id');
+        $('#tributeAddDetail').attr('href','/tribute/frame/detail?add&' + hrefUrl );
+        tributeList('http://' + backend_host + '/web/staff/goods/virtual?'+ token +'&class_id='+hrefUrl);
+        $('#searchGoods').attr('data-id',hrefUrl);
+    })
+    //分类
+    $.ajax({
+        type:'GET',
+        url:'http://' + backend_host + '/web/staff/goods/virtual/class?'+token,
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            var classNameLi = '',active = '';
+            for(var i = 0; i<data.length; i++){
+                if(i == 0){
+                    active = 'class="active"';
+                }else{
+                    active = '';
+                }
+                classNameLi += '<li  '+ active +' ><a href="#" data-id="'+data[i].id+'">'+data[i].name+'</a></li>';
+            }
+            $('#tributeClass').html(classNameLi);
+            tributeList('http://' + backend_host + '/web/staff/goods/virtual?'+ token +'&class_id='+data[0].id);
+            $('#tributeAddDetail').attr('href','/tribute/frame/detail?add&' + data[0].id);
+            $('#searchGoods').attr('data-id',data[0].id)
+        },
+        error:function(jqXHR,textStatus,errorThrown){
+            if(jqXHR.status == 400){
+
+            }
         }
     })
+    function tributeList(hrefUrl){
+        $.ajax({
+            type:'GET',
+            url:hrefUrl,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var classNameTr = '', valid = '';
+                for(var i = 0; i<data.length; i++){
+                    valid = data[i].valid?'上架':'下架';
+                    classNameTr += '<tr><td><img src="http://' + backend_host +data[i].goods_image+'?'+token+'" /><span>'+data[i].goods_name+'</span><span>'+data[i].price_point+'积分</span>';
+                    classNameTr += '<span>'+data[i].price_coin+'财神币</span></td><td><span class="label label-info"><a href="#">'+valid+'</a>';
+                    classNameTr += '</span><span class="label label-info"><a href="/tribute/frame/detail?edit&'+data[i].goods_id+'">编辑</a></span></td></tr>';
+                }
+                $('#tributeContent').html(classNameTr);
+            },
+            error:function(jqXHR,textStatus,errorThrown){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
+    }
+    //搜索
+    $('#searchGoods').on('click',function(){
+        var classId = $(this).attr('data-id');
+        var textGoods = $('#textGoods').val();
+        console.log(classId);
+        console.log(textGoods);
+        tributeList('http://' + backend_host + '/web/staff/goods/virtual?'+ token +'&class_id='+classId+'&keyword='+textGoods);
+    })
+    
+    
 })(jQuery)

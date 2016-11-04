@@ -11,8 +11,8 @@ class BorrowController extends Controller {
         Ok(views.html.borrow.borrow_index())
     }
 
-    def add = Action {
-        Ok(views.html.borrow.borrow_add())
+    def detail = Action {
+        Ok(views.html.borrow.borrow_detail())
     }
 }
 

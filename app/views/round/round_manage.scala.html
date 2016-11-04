@@ -14,7 +14,7 @@
             <div class="box box-info">
                 <div class="box-header">
                     <a class="btn btn-default" href="/round">返回</a>
-                    <a class="btn btn-default pull-right" href="#">保存</a>
+                    <a id="addClass" class="btn btn-default pull-right" href="#">保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
@@ -24,16 +24,16 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-tag"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="请输入类目名称">
+                            <input id="roundClass" type="text" class="form-control" placeholder="请输入类目名称">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default col-md-1 col-lg-1">上线</button>
+                    <button id="classRound" type="button" class="btn btn-default col-md-1 col-lg-1 pull-right">下线</button>
                 </div>
             </div>
         </section>
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/round/manage.js")"></script>
 }
 

@@ -65,33 +65,14 @@ $("#newpage").click(function(){
          })
      });
 
-$('.pagination:eq(0)').on('click','li',function(){
-    $(this).addClass('active').siblings().removeClass('active');
-    var index = $(this).index() - 1;
-    if(index==0){
-        $("#Left").addClass("disabled");
-    }else{
-        $("#Left").removeClass('disabled');
-
-    }
-    var index_right=$(this).index()+1;
-    if(index_right==5){
-        $("#Right").addClass("disabled");
-
-    }else{
-        $("#Right").removeClass('disabled');
-    }
-    console.log($(this).index());
-
-
-
+function indexAjxa(index){
     $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":index,
             "limit":5
         },
         function (data) {
-console.log(data);
+            console.log(data);
             var tbody = "";
             $.each(data, function (i,order) {
                 tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
@@ -106,12 +87,35 @@ console.log(data);
             });
             $('#Table').find('tbody').html(tbody);
 
-
         }
     )
+}
+var index = 1;
+$('.pagination:eq(0)').on('click','li',function(){
+    index = $(this).index();
+    $(this).addClass('active').siblings().removeClass('active');
 
-
+    // if($(this).index() != 0){
+    //
+    //     if($(this).index() == 1){
+    //         $("#Left").addClass('disabled');
+    //     }
+    // }
+    // console.log($(this).index());
+    // if($(this).hasClass('disabled')){
+    //     return false;
+    // }else{
+    //     var index2 = $(this).index() -1;
+    //     $('.pagination li').eq(index2).addClass('active').siblings().removeClass('active');
+    //     index = $(this).index() -1;
+    //     indexAjxa(index);
+    // }
 })
+
+$('#Left').on('click',function(){
+    console.log(index);
+})
+
 $('[type="submit"]').click(function(){
         var keyword=$('[name="table_search"]').val();
     console.log(keyword);

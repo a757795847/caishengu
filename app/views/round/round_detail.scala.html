@@ -1,4 +1,3 @@
-
 @main("圈子管理", "round.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/round.css")">
@@ -27,11 +26,8 @@
                             <li>圈子标题：<span id="quanziTitle"></span></li>
                             <li>圈子类型：
                                 <div class="form-group">
-                                    <select class="form-control select2" >
-                                        <option selected="selected">类目1</option>
-                                        <option>类目2</option>
-                                        <option>类目3</option>
-                                        <option>类目4</option>
+                                    <select class="form-control select2" id="classNames">
+
                                     </select>
                                 </div>
                             </li>
@@ -39,8 +35,14 @@
                             <li>圈子简介：<span id="introduction"></span></li>
                         </ul>
                     </div>
-                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >同意</button>
+                    <div id="waitBtn">
                         <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" data-toggle="modal" data-target="#myModal">拒绝</button>
+                        <button id="accept" type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >同意</button>
+                    </div>
+                    <div id="outBtn">
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >下线</button>
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" >保存</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -64,14 +66,14 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-default">确定</button>
+                    <button  type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="reject" type="button" class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>
     </div>
 } {
-    <script src="@routes.Assets.at("javascripts/controller/round/wait.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/round/detail.js")"></script>
 }
 
 

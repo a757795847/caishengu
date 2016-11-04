@@ -8,10 +8,10 @@ import play.api.mvc._
 class CsgNewsController extends Controller {
 
     def index = Action {
-        Ok(views.html.csgNews.csg_index())
+        Ok(views.html.csgNews.csgNews_index())
     }
 
     def add = Action {
-        Ok(views.html.csgNews.csg_add())
+        Ok(views.html.csgNews.csgNews_add())
     }
 }

@@ -1,4 +1,3 @@
-
 @main("融资事件管理","borrow.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
@@ -35,23 +34,23 @@
                                 <button type="button" class="btn btn-default">地区</button>
                             </div>
                                 <!-- /btn-group -->
-                            <input type="text" class="form-control" placeholder="请输入所在地区">
+                            <input id="location" type="text" class="form-control" placeholder="请输入所在地区">
                         </div>
                         <div>
                             <div class="form-group">
                                 <label>请选择所属大类</label>
-                                <select class="form-control select2" >
+                                <select id="classLevel1Id" class="form-control select2" >
                                     <option selected="selected">大类1</option>
-                                    <option>大类1</option>
-                                    <option>大类1</option>
-                                    <option>大类1</option>
+                                    <option>大类2</option>
+                                    <option>大类3</option>
+                                    <option>大类4</option>
                                 </select>
                             </div>
                         </div>
                         <div>
                             <div class="form-group">
                                 <label>请选择所属小类</label>
-                                <select class="form-control select2" >
+                                <select id="classLevel2Id" class="form-control select2" >
                                     <option selected="selected">小类1</option>
                                     <option>小类2</option>
                                     <option>小类3</option>
@@ -62,7 +61,7 @@
                         <div>
                             <div class="form-group">
                                 <label>请选择当前轮次</label>
-                                <select class="form-control select2" >
+                                <select id="stageId" class="form-control select2" >
                                     <option selected="selected">第一轮</option>
                                     <option>第二轮</option>
                                     <option>第三轮</option>
@@ -98,7 +97,7 @@
                         <div>
                             <div class="form-group">
                                 <label>请选择轮次</label>
-                                <select class="form-control select2" >
+                                <select id="stageId2" class="form-control select2" >
                                     <option selected="selected">第一轮</option>
                                     <option>第二轮</option>
                                     <option>第三轮</option>
@@ -111,11 +110,11 @@
                                 <button type="button" class="btn btn-default">金额</button>
                             </div>
                                 <!-- /btn-group -->
-                            <input type="text" class="form-control" placeholder="请输入金额">
+                            <input id="money" type="text" class="form-control" placeholder="请输入金额">
                         </div>
                     </div>
                     <div>
-                        <a class="btn btn-default pull-right col-md-1 col-lg-1" href="#">添加历史</a>
+                        <a id="addBorrow" class="btn btn-default pull-right col-md-1 col-lg-1" href="#">添加历史</a>
                     </div>
                 </div>
             </div>
@@ -130,4 +129,5 @@
             $('#reservation').daterangepicker();
         })
     </script>
+    <script src="@routes.Assets.at("javascripts/controller/borrow/detail.js")"></script>
 }

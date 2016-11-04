@@ -15,7 +15,7 @@
             <div class="box box-info">
                 <div class="box-header">
                     <a  class="btn btn-default" href="/create">返回</a>
-                    <a class="btn btn-default pull-right" href="#">保存</a>
+                    <a id="addNews" class="btn btn-default pull-right" href="#">保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
@@ -25,7 +25,7 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="">
+                            <input id="address" type="text" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -34,7 +34,7 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-file-text-o"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="">
+                            <input id="introduction" type="text" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div>
@@ -52,7 +52,7 @@
 
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/create/add.js")"></script>
 }
 
 

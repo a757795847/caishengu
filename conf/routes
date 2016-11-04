@@ -10,20 +10,19 @@ GET        /                             controllers.LoginController.login
 
 #borrow page
 GET        /borrow                       controllers.BorrowController.index
-GET        /borrow/add                   controllers.BorrowController.add
+GET        /borrow/detail                controllers.BorrowController.detail
 
 #create page
 GET        /create                       controllers.CreateController.index
 GET        /create/add                   controllers.CreateController.add
 
 #csg page
-GET        /csg                          controllers.CsgController.index
-GET        /csg/add                      controllers.CsgController.add
+GET        /csg                          controllers.CsgNewsController.index
+GET        /csg/add                      controllers.CsgNewsController.add
 
 #event page
 GET        /event                        controllers.EventController.index
-GET        /event/out                    controllers.EventController.out
-GET        /event/wait                   controllers.EventController.waits
+GET        /event/detail                 controllers.EventController.detail
 
 #investors page
 GET        /investors                    controllers.InvestorsController.index
@@ -31,16 +30,15 @@ GET        /investors/detail             controllers.InvestorsController.detail
 
 #item page
 GET        /item                         controllers.ItemController.index
-GET        /item/out                     controllers.ItemController.out
-GET        /item/wait                    controllers.ItemController.waits
+GET        /item/detail                  controllers.ItemController.detail
 
 #MoneyRun page
 GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
-GET        /manage_index                 controllers.MoneyManageController.index
-GET        /manage_details               controllers.MoneyManageController.details
-GET        /manage_history               controllers.MoneyManageController.history
+GET        /manage                       controllers.ManageController.index
+GET        /manage/details               controllers.ManageController.details
+GET        /manage/history               controllers.ManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -48,15 +46,14 @@ GET        /ticket                       controllers.TicketController.index
 #round page
 GET        /round                        controllers.RoundController.index
 GET        /round/manage                 controllers.RoundController.manage
-GET        /round/out                    controllers.RoundController.out
-GET        /round/wait                   controllers.RoundController.waits
+GET        /round/detail                 controllers.RoundController.detail
 
 #shareholder page
 GET        /shareholder                  controllers.ShareholderController.index
 
 #shopping page
 GET        /shopping                     controllers.ShoppingController.index
-GET        /shopping/detail               controllers.ShoppingController.detail
+GET        /shopping/detail              controllers.ShoppingController.detail
 #GET        /shopping/out                 controllers.ShoppingController.out
 #GET        /shopping/receive             controllers.ShoppingController.receive
 #GET        /shopping/wait                controllers.ShoppingController.waits

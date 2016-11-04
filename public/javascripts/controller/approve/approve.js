@@ -31,7 +31,7 @@
 
     $.ajax({
         type:'GET',
-        url:"http://" + backend_host + '/web/staff/finance/approve?access_token=10ae0842b11080b0b6c9412773164797',
+        url:"http://" + backend_host + '/web/staff/finance/approve?'+token,
         dataType:'json',
         success:function(data){
             console.log(data);
@@ -93,23 +93,23 @@
         })
     }
     var waitSorting = 'asc', dateSorting = 'asc';
-    $('#wait').on('click',function(){
+    $('#approve').on('click',function(){
         sorting($(this));
         if(waitSorting == 'asc'){
-            listAjax('http://' + backend_host + '/web/staff/finance/approve?access_token=10ae0842b11080b0b6c9412773164797',waitSorting);
+            listAjax('http://' + backend_host + '/web/staff/finance/approve?'+token,waitSorting);
             waitSorting = 'des';
         }else{
-            listAjax('http://' + backend_host + '/web/staff/finance/approve?access_token=10ae0842b11080b0b6c9412773164797',waitSorting);
+            listAjax('http://' + backend_host + '/web/staff/finance/approve?'+token,waitSorting);
             waitSorting = 'asc';
         }
     });
     $('#date').on('click',function(){
         sorting($(this));
         if(dateSorting == 'asc'){
-            listAjax('http://' + backend_host + '/web/staff/finance/approve?access_token=10ae0842b11080b0b6c9412773164797',dateSorting);
+            listAjax('http://' + backend_host + '/web/staff/finance/approve?'+token,dateSorting);
             dateSorting = 'des';
         }else{
-            listAjax('http://' + backend_host + '/web/staff/finance/approve?access_token=10ae0842b11080b0b6c9412773164797',dateSorting);
+            listAjax('http://' + backend_host + '/web/staff/finance/approve?'+token,dateSorting);
             dateSorting = 'asc';
         }
     });
@@ -120,7 +120,7 @@
         console.log(href);
         $.ajax({
             type:'PUT',
-            url:'http://' + backend_host + '/web/staff/finance/approve/'+href+'?access_token=10ae0842b11080b0b6c9412773164797&operation='+operation,
+            url:'http://' + backend_host + '/web/staff/finance/approve/'+href+'?'+token+'&operation='+operation,
             dataType:'json',
             success:function(data){
                 console.log(data);

@@ -17,16 +17,16 @@
                 <div class="box-body">
                     <div class="add">
                         <p>图片</p>
-                        <div id="preview" class="upload_preview">
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
 
-                        </div>
-                        <div class="addImg">
-                            <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
-                                <a href="#">
-                                    +
-                                    <input id="fileImg" type="file" name="fileImg" >
-                                </a>
-                            </form>
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="addNews">
@@ -63,8 +63,8 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">删除</a></button>
-                        <button type="button" id="addGoods" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">保存</a></button>
+                        <button type="button" id="closeGoods" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">删除</a></button>
+                        <button type="button" id="saveGoods" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">保存</a></button>
                     </div>
                 </div>
             </div>
@@ -76,8 +76,13 @@
 
 } {
     <script src="@routes.Assets.at("javascripts/controller/zxxFile.js")"></script>
-    <script src="@routes.Assets.at("javascripts/controller/shopping/frame_detail.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
 
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shopping/frame_detail.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/shopping/uploads.js")"></script>
 }
 
 
