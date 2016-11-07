@@ -6,40 +6,66 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>我的项目</a></li>
       </ol>
-      <div class="box box-info">
-        <div class="table-responsive">
-        <table class="table no-margin" id="Table">
-          <tr>
-            <td>
-              <span class="lf">上金财神谷项目</span>
-              <span class="rt"><a href="">&gt</a></span>
-            </td>
 
-          </tr>
+        <!-- TABLE: LATEST ORDERS -->
+      <div class="col-md-12 col-lg-10">
+
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_1" data-toggle="tab" id="project">我的项目</a></li>
+            <li><a href="#tab_2" data-toggle="tab" id="stretch">我的活动</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+              <div class="table-responsive">
+                <button class="btn btn-primary btn-lg active" id="turn">项目添加</button>
+                <table class="table no-margin" id="Table">
+                  <tr>
+                    <td>
+                      <span class="lf">上金财神谷项目</span>
+                      <span class="rt"><a href="">&gt</a></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="lf">上金财神谷项目</span>
+                      <span class="rt"><a href="">&gt</a></span>
+                    </td>
+                  </tr>
+                </table>
+                <div class="jqueryPage" id="jqueryPage">
+                </div>
+                </div>
+              </div>
+
+              <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+              <table class="table no-margin" id="Table2">
+                <tr>
+                  <td>
+                    <span class="lf">上金财神谷项目</span>
+                    <span class="Exportlist"><a href="">导出名单</a></span>
+                  </td>
+
+                </tr>
 
 
 
-        </table>
+              </table>
+              <div class="jqueryPage" id="Pagetwo">
+              </div>
+            </div>
 
-          <!-- /.box -->
+          </div>
+
+        </div>
+
       </div>
 
-        <!-- /.col -->
-    </section>
-    <div class="dropdown pull-right" id="posi">
-      <nav>
-        <ul class="pagination">
-          <li class="disabled"><a href="#">&laquo;</a></li>
-          <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-          <li class="disabled"><a href="#">&raquo;</a></li>
-
-
-        </ul>
-      </nav>
-        <!-- /.box -->
-    </div>
   </div>
 } {
-
+  <script src="@routes.Assets.at("javascripts/jqueryPage.js")"></script>
+  <script src="@routes.Assets.at("javascripts/myproject.js")"></script>
 
 }
+

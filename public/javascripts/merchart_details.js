@@ -53,7 +53,7 @@ $("#keep").click(function(){
         },
         dataType:'json',
         success:function(data){
-            $(".example-modal").css("display","block");
+
         }
 
     })

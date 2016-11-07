@@ -78,10 +78,10 @@
 
 }
 #echo{
-    width:66%;
+    width:48%;
     background-color:#fff;
     margin-top:2%;
-    min-height:50%;
+
     padding:12px 20px;
     padding-bottom:3px;
     margin-left:21%;
@@ -91,9 +91,8 @@
 #echo [type="btn"]{
     margin-left: 24%;
     float: left;
-    width: 14%;
-    border-radius: 30px;
-    padding: 3px 21px;
+    width: 49px;
+    border-radius: 4px;
     font-size: 0.75rem;
 
 }
@@ -109,14 +108,14 @@
     margin-left:20px;
 
 }
-.box-body button{
+/*.box-body button{
     width: 14%;
     border-radius: 30px;
     padding: 3px 21px;
     font-size: 0.75rem;
     margin: 0 auto;
 
-}
+}*/
 #money{
     margin-left:20px;
 
@@ -138,3 +137,14 @@
 .example-modal{
     display:none;
 }
+#Btnfifa{
+    border-radius:20px;
+
+}#keep{
+     width: 14%;
+     border-radius: 30px;
+     padding: 3px 21px;
+     font-size: 0.75rem;
+     margin: 0 auto;
+
+ }

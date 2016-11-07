@@ -23,7 +23,7 @@
                             <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <a href="/manage/index" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
+                                <a href="/manage" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -32,16 +32,16 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>商户ID:<span>12545454</span></td>
-                                            <td>联系人:<span>张三</span></td>
+                                            <td>商户ID:<span id="shop_id">12545454</span></td>
+                                            <td>联系人:<span id="contact_person">张三</span></td>
                                         </tr>
                                         <tr>
-                                            <td>联系方式:<span>215465456</span></td>
-                                            <td>商店名称:<span>水果店</span></td>
+                                            <td>联系方式:<span id="contact_phone">215465456</span></td>
+                                            <td>商店名称:<span id="shop_name">水果店</span></td>
                                         </tr>
                                         <tr>
-                                            <td>商户地址:<span>第一大道</span></td>
-                                            <td>收款账号:<span>1214354564</span></td>
+                                            <td>商户地址:<span id="shop_address">第一大道</span></td>
+                                            <td>收款账号:<span id="shop_account">1214354564</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -53,7 +53,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td style="font-size:0.75rem;">上次结算日期:<span>2014-12-5</span> <button type="button" class="btn btn-block btn-default"id="Btnfifa">
+                                            <td style="font-size:0.75rem;">上次结算日期:<span id="last_settle_date">2014-12-5</span> <button type="button" class="btn btn-block btn-default"id="Btnfifa">
                                                 申请结算
                                             </button><span style="display:none;">本次结算21412元</span></td>
                                             <td><a href="/History">查看历史记录</a></td>
@@ -104,7 +104,7 @@
                                 <!-- /.form group -->
 
                                 <!-- Date and time range -->
-                            <button type="btn"class="btn btn-default add col-md-8 col-lg-8" data-toggle="modal" data-target="#myModal">确定</button>
+                            <button type="btn"class="btn btn-default" data-toggle="modal" id="confirm">确定</button>
                             <button type="btn"class="btn btn-default" id="clear">清除</button>
                         </div>
                             <!-- Date and time range -->

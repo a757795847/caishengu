@@ -13,7 +13,7 @@
                 var manages = '';
                 for (var i = 0; i < data.length; i++) {
                     manages += '<tr><td>'+data[i].shop_id+'</td><td>'+data[i].shop_name+'</td><td>'+data[i].contact_person+'</td>';
-                    manages += '<td><span class="label label-info"><a href="">查看</a></span></td></tr>'
+                    manages += '<td><span class="label label-info"><a href="/manage/details?'+data[i].shop_id+'">查看</a></span></td></tr>'
                 }
                 tabID.html(manages);
             },

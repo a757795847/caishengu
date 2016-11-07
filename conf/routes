@@ -17,8 +17,8 @@ GET        /create                       controllers.CreateController.index
 GET        /create/add                   controllers.CreateController.add
 
 #csg page
-GET        /csg                          controllers.CsgController.index
-GET        /csg/add                      controllers.CsgController.add
+GET        /csg                          controllers.CsgNewsController.index
+GET        /csg/add                      controllers.CsgNewsController.add
 
 #event page
 GET        /event                        controllers.EventController.index
@@ -38,9 +38,9 @@ GET        /item/wait                    controllers.ItemController.waits
 GET        /approve                      controllers.ApproveController.index
 
 #MoneyManage page
-GET        /manage_index                 controllers.MoneyManageController.index
-GET        /manage_details               controllers.MoneyManageController.details
-GET        /manage_history               controllers.MoneyManageController.history
+GET        /manage                       controllers.ManageController.index
+GET        /manage/details               controllers.ManageController.details
+GET        /manage/history               controllers.ManageController.history
 
 #ticket page
 GET        /ticket                       controllers.TicketController.index
@@ -56,7 +56,7 @@ GET        /shareholder                  controllers.ShareholderController.index
 
 #shopping page
 GET        /shopping                     controllers.ShoppingController.index
-GET        /shopping/detail               controllers.ShoppingController.detail
+GET        /shopping/detail              controllers.ShoppingController.detail
 #GET        /shopping/out                 controllers.ShoppingController.out
 #GET        /shopping/receive             controllers.ShoppingController.receive
 #GET        /shopping/wait                controllers.ShoppingController.waits

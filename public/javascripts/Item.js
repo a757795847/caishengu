@@ -11,24 +11,41 @@ console.log(sub);
 
 });
 
-$("img").each(function(){
-        $(this).click(function(){
-            var falg = true;
-           if(falg){
-               falg = false;
-               $(this).height("250px");
-               $(this).width("200px");
+var url=window.location.href;
+var indexOf=url.indexOf("?");
+var val=url.substr(indexOf+1);
+console.log(val);
+
+$(document).ready(function () {
+    $.get("http://" + backend_host + '/web/staff/user/'+val+'?access_token=10ae0842b11080b0b6c9412773164797',
+        function (data) {
+            console.log(data);
+            $("#user_id").html(data.user_id);
+            $("#user_name").html(data.user_name);
+            $("#user_phone").html(data.user_phone);
+            $("#user_position").html(data.user_position);
+            if(data.is_investor==true){
+                $("#is_investor").html("是");
+
+            }else{
+                $("#is_investor").html("否");
+            }
+            if(data.is_shareholder==true){
+                $("#is_shareholder").html("是");
+
+            }else{
+                $("#is_shareholder").html("否");
+            }
+            $("#birthday").html(data.birthday);
+            $("#birthdate").html(data.birthdate);
+            $("#location").html(data.location);
+            $("#avatar").attr("src",'@routes.Assets.at("images'+data.avatar+'")');
 
 
-           }else{
-               $(this).height("50px");
-               $(this).width("40px");
 
 
 
-           }
 
-        });
-
-
+        })
 });
+

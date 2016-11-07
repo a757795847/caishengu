@@ -80,7 +80,7 @@
 #eacl{
     width:417px;
     background-color:#fff;
-    margin-top:7%;
+    margin-top:26%;
     min-height:50%;
     padding:12px 20px;
     margin-left:17%;
@@ -105,4 +105,8 @@
     font-size: 12px;
 
 }
-}
+.pager{height:30px;line-height:30px;font-size: 14px;margin: 25px 14px;text-align: right;color: #2E6AB1;overflow: hidden;position:relative;bottom:10px;}
+.pager a{border:1px solid #aaa;color:#2E6AB1;margin:5px;padding:4px 11px;text-decoration: none; border-radius:3px;}
+.pager a.hover,.pager a.active{background-color:#2E6AB1;border-color:#000080;color:#FFF;}
+.pager a.disabled{color:#C8CDD2;cursor:auto;}
+

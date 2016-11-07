@@ -54,44 +54,20 @@ $("#newpage").click(function(){
                  });
 
 
-             $('.pagination').append('<li id="Left"><a href="#">&laquo;</a></li>');
-             $('.pagination').append(' <li class="active"><a href="#Table">1<span class="sr-only">(current)</span></a></li>');
-             $('.pagination').append('<li><a href="#">2</a></li>');
-             $('.pagination').append('<li><a href="#">3</a></li>');
-             $('.pagination').append('<li><a href="#">4</a></li>');
-             $('.pagination').append('<li id="Right"><a href="#">&raquo;</a></li>');
+
 
 
          })
      });
 
-$('.pagination:eq(0)').on('click','li',function(){
-    $(this).addClass('active').siblings().removeClass('active');
-    var index = $(this).index() - 1;
-    if(index==0){
-        $("#Left").addClass("disabled");
-    }else{
-        $("#Left").removeClass('disabled');
-
-    }
-    var index_right=$(this).index()+1;
-    if(index_right==5){
-        $("#Right").addClass("disabled");
-
-    }else{
-        $("#Right").removeClass('disabled');
-    }
-    console.log($(this).index());
-
-
-
+function indexAjxa(index,size){
     $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":index,
-            "limit":5
+            "limit":size
         },
         function (data) {
-console.log(data);
+            console.log(data);
             var tbody = "";
             $.each(data, function (i,order) {
                 tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
@@ -107,11 +83,35 @@ console.log(data);
             $('#Table').find('tbody').html(tbody);
 
 
-        }
+            }
     )
+}
 
 
-})
+$("#jqueryPage").pagination({
+    count: 25, //总数
+    size:5, //每页数量
+    index: 1,//当前页
+    lrCount: 3,//当前页左右最多显示的数量
+    lCount: 1,//最开始预留的数量
+    rCount: 1,//最后预留的数量
+    callback: function (options) {
+        var index = options.index -1;
+        var size = options.size;
+        indexAjxa(index,size);
+        //options.count = 300;
+        //return options;
+    },
+});
+
+
+
+
+
+
+
+
+//
 $('[type="submit"]').click(function(){
         var keyword=$('[name="table_search"]').val();
     console.log(keyword);

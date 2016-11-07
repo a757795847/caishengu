@@ -7,7 +7,7 @@
             var users = '';
             for (var i = 0; i < data.length; i++) {
                 users += '<tr><td>'+data[i].user_id+'</td><td>'+data[i].user_name+'</td><td>'+data[i].user_phone+'</td>';
-                users += '<td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
+                users += '<td><span class="label label-info"><a href="/user/detailed?'+data[i].user_id+'">查看</a></span></td></tr>'
             }
             $('#users').html(users);
         },
@@ -31,7 +31,7 @@
                 var users = '';
                 for (var i = 0; i < data.length; i++) {
                     users += '<tr><td>'+data[i].user_id+'</td><td>'+data[i].user_name+'</td><td>'+data[i].user_phone+'</td>';
-                    users += '<td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
+                    users += '<td><span class="label label-info"><a href="/user/detailed?'+data[i].user_id+'">查看</a></span></td></tr>'
                 }
                 $('#users').html(users);
             },
