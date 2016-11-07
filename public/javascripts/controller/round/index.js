@@ -36,6 +36,7 @@
                 'state': state
             }
         }
+        console.log(datas);
         $.ajax({
             type:'GET',
             url:"http://" + backend_host + '/web/staff/quanzi/entity?'+token,

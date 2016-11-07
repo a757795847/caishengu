@@ -1,26 +1,26 @@
-(function ($) {
+newUploader(1);
+cancelImages(1);
+$('#addNews').on('click',function(){
+    var address = $('#address').val();
+    imgUPload(images[0]);
+    $.ajax({
+        type:'POST',
+        url:"http://" + backend_host + '/web/staff/news/caishengu?'+token,
+        data:{
+            'image':images[0],
+            'link':address,
+            'introduction':'这页面没有这个简介表单,随便写的'
+        },
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            location.href = 'csg';
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
 
-        $('#addNews').on('click',function(){
-            var address = $('#address').val();
-            $.ajax({
-                type:'POST',
-                url:"http://" + backend_host + '/web/staff/news/caishengu?'+token,
-                data:{
-                    'image':'xiesi.png',
-                    'link':address,
-                    'introduction':'这页面没有这个简介表单,随便写的'
-                },
-                dataType:'json',
-                success:function(data){
-                    console.log(data);
+            }
+        }
+    })
+})
 
-                },
-                error:function(jqXHR){
-                    if(jqXHR.status == 400){
-
-                    }
-                }
-            })
-        })
-
-})(jQuery)

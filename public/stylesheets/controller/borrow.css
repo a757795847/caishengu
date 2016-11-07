@@ -1,38 +1,64 @@
-/*add*/
+/*上传*/
+.box-header {
+    margin-bottom: 0;
+}
+
+.add #addImgs img, .add #addLogo img {
+    width: 100px;
+    height: 120px;
+}
+
+#addImgs, #addLogo  {
+    margin-bottom: 10px;
+}
+
+.add .imgBox {
+    position: relative;
+    z-index: 99;
+}
+
+.add #addImgs .addImg ,.add #addLogo .addImg{
+    margin-top: 10px;
+    border: 1px solid #d2d6de;
+    width: auto;
+    height: auto;
+    line-height: inherit;
+}
+
+#fsUploadProgress1 .imgBox button, #fsUploadProgress2 .imgBox button {
+    top: -6px;
+    left: 88px;
+    position: absolute;
+}
+
+#fsUploadProgress1 .imgBox {
+    float: none;
+}
+#fsUploadProgress2 .imgBox{
+    float: left;
+}
+/*addLogo*/
 .content .logoAdd {
     margin-top: -15px;
     margin-bottom: 15px;
-    height: 130px;
+    min-height: 130px;
     border-bottom: 1px solid #f4f4f4;
     border-top: 1px solid #f4f4f4;
 }
 
-.content .logoAdd p {
+.content .logoAdd p, .history p:first-of-type {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 32px;
 }
+.content .logoAdd div#addLogo {
 
-.addImg {
-    display: inline-block;
-    text-align: center;
-    font-size: 14px;
-    position: relative;
-}
-
-.addImg input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
 }
 
 .addForm {
     border-bottom: 1px solid #f4f4f4;
-    padding-bottom: 15px;
 }
 
-.addForm .input-group, .addForm .form-group{
+.addForm .input-group, .addForm .form-group {
     width: 30%;
     margin-bottom: 10px;
 }
@@ -41,15 +67,17 @@
     width: 150%;
 }
 
-.history{
+.history {
     width: 50%;
     margin-bottom: 20px;
 }
+
 .daterangepicker.opensleft:before {
     right: 9px;
     top: 310px;
     transform: rotateX(180deg);
 }
+
 .daterangepicker.opensleft:after {
     right: 10px;
     top: 310px;

@@ -38,6 +38,9 @@ td span {
 }
 
 /*frame*/
+button#searchGoods {
+    z-index: 3;
+}
 .box.box-solid {
     border: 1px solid #f4f4f4;
 }
@@ -68,42 +71,7 @@ button.close {
 }
 
 /*frame-detail*/
-.add img {
-    width: 100px;
-    height: 120px;
-    margin-right: 12px;
-}
-#addImgs{
-    overflow: hidden;
-}
-#fsUploadProgress{
-    float: left;
-}
-.imgBox{
-    float: left;
-    position: relative;
-    z-index: 99;
-}
-.imgBox button{
-    position: absolute;
-    z-index: 1000;
-    top: -12px;
-    right: 4px;
-    color: #000;
-    display: none;
-}
 
-.addImg {
-    border: 1px solid #eee;
-    display: inline-block;
-    width: 100px;
-    height: 120px;
-    line-height: 120px;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-    position: relative;
-}
 .addNews {
     width: 40%;
     margin-bottom: 20px;
