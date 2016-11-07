@@ -15,18 +15,23 @@
             <div class="box box-info">
                 <div class="box-header">
                     <a class="btn btn-default" href="/borrow">返回</a>
-                    <a class="btn btn-default pull-right" href="#">保存</a>
+                    <a id="addBorrow" class="btn btn-default pull-right" href="#">保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="logoAdd">
+                    <div class="add logoAdd">
                         <p class="spot">Logo</p>
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <a class="btn btn-default col-md-2 col-lg-2 addImg" href="javascript:;">
-                                上传Logo
-                                <input type="file" name="picture" />
-                            </a>
-                        </form>
+                        <div role="tabpanel" id="addLogo" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress1">
+
+                                <div class="addImg btn btn-default" id="container1">
+                                    <a id="pickfiles1" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>上传Logo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="addForm">
                         <div class="input-group">
@@ -40,10 +45,7 @@
                             <div class="form-group">
                                 <label>请选择所属大类</label>
                                 <select id="classLevel1Id" class="form-control select2" >
-                                    <option selected="selected">大类1</option>
-                                    <option>大类2</option>
-                                    <option>大类3</option>
-                                    <option>大类4</option>
+
                                 </select>
                             </div>
                         </div>
@@ -51,10 +53,7 @@
                             <div class="form-group">
                                 <label>请选择所属小类</label>
                                 <select id="classLevel2Id" class="form-control select2" >
-                                    <option selected="selected">小类1</option>
-                                    <option>小类2</option>
-                                    <option>小类3</option>
-                                    <option>小类4</option>
+
                                 </select>
                             </div>
                         </div>
@@ -62,10 +61,7 @@
                             <div class="form-group">
                                 <label>请选择当前轮次</label>
                                 <select id="stageId" class="form-control select2" >
-                                    <option selected="selected">第一轮</option>
-                                    <option>第二轮</option>
-                                    <option>第三轮</option>
-                                    <option>第四轮</option>
+
                                 </select>
                             </div>
                         </div>
@@ -73,12 +69,19 @@
                             <label>请输入项目详情</label>
                             <textarea class="form-control" rows="5" placeholder="项目详情…………"></textarea>
                         </div>
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <a class="btn btn-default addImg" href="javascript:;">
-                                上传介绍图
-                                <input type="file" name="picture" />
-                            </a>
-                        </form>
+                        <div class="add">
+                            <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                <div  id="fsUploadProgress2">
+
+                                    <div class="addImg btn btn-default" id="container2">
+                                        <a id="pickfiles2" href="#" >
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <span>上传图片</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="history">
                         <p class="spot">融资历史</p>
@@ -98,10 +101,7 @@
                             <div class="form-group">
                                 <label>请选择轮次</label>
                                 <select id="stageId2" class="form-control select2" >
-                                    <option selected="selected">第一轮</option>
-                                    <option>第二轮</option>
-                                    <option>第三轮</option>
-                                    <option>第四轮</option>
+
                                 </select>
                             </div>
                         </div>
@@ -129,5 +129,10 @@
             $('#reservation').daterangepicker();
         })
     </script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/borrow/detail.js")"></script>
 }

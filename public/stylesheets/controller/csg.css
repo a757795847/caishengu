@@ -4,23 +4,30 @@ img{
 	margin-top: -5px;
 }
 /*add*/
-.addImg {
-	margin-top: 22px;
-	display: inline-block;
-	text-align: center;
-	font-size: 14px;
-	margin-bottom: 10px;
-	position: relative;
+#add #addImgs img{
+	width: 100px;
+	height: 120px;
 }
-
-.addImg input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
+#add .imgBox{
+	float: left;
+	position: relative;
+	z-index: 99;
+}
+#add #addImgs .addImg{
+	margin-top: 10px;
+	border: 1px solid #d2d6de;
+	width:auto;
+	height: auto;
+	line-height: inherit;
+}
+#fsUploadProgress .imgBox button{
+	top: -7px;
+}
+#fsUploadProgress .imgBox{
+	float: none;
 }
 .form-group {
-	 margin-bottom: 0;
+	margin-bottom: 10px;
 	width: 30%;
 }
 .box-header {

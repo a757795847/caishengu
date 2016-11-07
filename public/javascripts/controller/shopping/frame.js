@@ -120,7 +120,7 @@
                 var frames = '', valid = '';
                 for(var i = 0; i<data.length; i++){
                     valid = data[i].valid? '上架':'下架';
-                    frames += '<tr><td><img src="http://' + backend_host+data[i].goods_image+'" />';
+                    frames += '<tr><td><img src="http://' + backend_host+data[i].goods_image+'?'+token+'" />';
                     frames += '<span>'+data[i].goods_name +'</span><span>￥'+data[i].price_money+'</span></td><td>';
                     frames += '<span class="label label-info"><a href="#">'+ valid +'</a></span><span class="label label-info">';
                     frames += '<a href="/shopping/frame/detail?frame&'+data[i].goods_id+'">编辑</a></span></td></tr>';

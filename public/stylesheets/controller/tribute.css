@@ -42,35 +42,7 @@ button.close {
     font-weight: bold;
 }
 /*frame_detail*/
-.add p{
-    margin-top: 10px;
-    font-weight: bold;
-}
-.add img{
-    width: 100px;
-    height:120px;
-    margin-right: 10px;
-}
-#detailImg , #detailImg img{
-    float: left;
-}
-.addImg {
-    border: 1px solid #000;
-    display: inline-block;
-    width: 100px;
-    height: 120px;
-    line-height: 98px;
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 10px;
-    position: relative;
-}
-.addImg input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
+
 .addNews{
     width: 40%;
 }

@@ -102,3 +102,40 @@ table>tbody>tr>td{
     background: #00c0ef;
     display: inline-block;
 }
+/*上传图片*/
+.add img {
+    width: 100px;
+    height: 120px;
+    margin-right: 12px;
+}
+#addImgs{
+    overflow: hidden;
+}
+#fsUploadProgress{
+    float: left;
+}
+.imgBox{
+    float: left;
+    position: relative;
+    z-index: 99;
+}
+#fsUploadProgress .imgBox button{
+    position: absolute;
+    z-index: 1000;
+    top: -12px;
+    right: 4px;
+    color: #000;
+    display: none;
+}
+
+.addImg {
+    border: 1px solid #eee;
+    display: inline-block;
+    width: 100px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
