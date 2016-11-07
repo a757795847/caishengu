@@ -1,109 +1,121 @@
 (function ($) {
 
-    // [
-    //     WebStaffQuanziGetResItem {
-    //     quanzi_id:
-    //     string *
-    //     圈子id
-    //     quanzi_name:
-    //     string *
-    //     圈子名称
-    //     owner:
-    //     string *
-    //     圈主
-    //     contact_phone:
-    //     string *
-    //     联系方式
-    //     state:
-    //     string *
-    //     可用状态
-    // }
-    // ]
+    //分类
+    $.ajax({
+        type:'GET',
+        url:"http://" + backend_host + '/web/staff/quanzi/class?'+token,
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            var manages = '';
+            for (var i = 0; i < data.length; i++) {
+                if(data[i].state == true ){
+                    manages += '<tr><td>'+data[i].order+'</td><td>'+data[i].class_name+'</td></tr>';
+                }
+            }
+            $('#manage tbody:eq(0)').html(manages);
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
 
-
-    var data = [
-        {
-            'quanzi_id': '123456',
-            'quanzi_name': '我是圈子名称',
-            'owner': '张三',
-            'contact_phone': '12345678933',
-            'state': '是',
-        },
-        {
-            'quanzi_id': '123456',
-            'quanzi_name': '我是圈子名称',
-            'owner': '张三',
-            'contact_phone': '12345678933',
-            'state': '是',
-        },
-        {
-            'quanzi_id': '123456',
-            'quanzi_name': '我是圈子名称',
-            'owner': '张三',
-            'contact_phone': '12345678933',
-            'state': '是',
-        },
-        {
-            'quanzi_id': '123456',
-            'quanzi_name': '我是圈子名称',
-            'owner': '张三',
-            'contact_phone': '12345678933',
-            'state': '是',
+            }
         }
-    ]
+    })
 
-    var wait = '';
-    for (var i = 0; i < data.length; i++) {
-        if(data[i].state == '是'){
-            wait += '<tr><td>'+data[i].quanzi_name+'</td><td>'+data[i].owner+'</td><td>'+data[i].contact_phone+'</td><td><span class="label label-info"><a href="/round/wait">查看详情</a></span>';
-            wait += '<span class="label label-info"><a href="#">通过</a></span><span class="label label-info">';
-            wait += '<a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+
+
+    function indexAjax(tabID,state,keyword){
+        var datas = {};
+        if(arguments.length == 3){
+            datas = {
+                'state': state,
+                'keyword':keyword
+            }
+        }else{
+            datas = {
+                'state': state
+            }
         }
+        $.ajax({
+            type:'GET',
+            url:"http://" + backend_host + '/web/staff/quanzi/entity?'+token,
+            data:datas,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var rounds = '' , stateUrl = '';
+                for (var i = 0; i < data.length; i++) {
+                    if(state == 'apply'){
+                        stateUrl = '/round/detail?wait&'+data[i].quanzi_id;
+                    }else{
+                        stateUrl = '/round/detail?out&'+data[i].quanzi_id;
+                    }
+                    rounds += '<tr><td>'+data[i].quanzi_name+'</td><td>'+data[i].owner+'</td><td>'+data[i].contact_phone+'</td>'
+                    rounds += '<td><span class="label label-info"><a href="'+stateUrl+'">查看详情</a></span>';
+                    if(state == 'apply'){
+                        rounds += '<span class="label label-info"><a class="accept" href="#">通过</a></span><span class="label label-info">';
+                        rounds += '<a class="reject" data-id="'+data[i].quanzi_id+'" href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+                    }
+                }
+                tabID.html(rounds);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
     }
-    $('#wait tbody:eq(0)').html(wait);
 
-
-
-
-    // [分类
-    //     WebStaffQuanziClassGetResItem {
-    //     class_id:
-    //     string *
-    //     圈子类别id
-    //     class_name:
-    //     string *
-    //     圈子类别名称
-    //     state:
-    //     string
-    //     是否可用 (valid/invalid)
-    // }
-    // ]
-
-    var data2 = [
-        {
-            'class_id': '1',
-            'class_name': '创业板块',
-            'state': '是'
-        },
-        {
-            'class_id': '2',
-            'class_name': '创业板块',
-            'state': '否'
-        },
-        {
-            'class_id': '3',
-            'class_name': '创新板块',
-            'state': '是'
-        },
-    ]
-
-    var manages = '';
-    for (var i = 0; i < data2.length; i++) {
-        if(data2[i].state == '是'){
-            manages += '<tr><td>'+data2[i].class_id+'</td><td>'+data2[i].class_name+'</td></tr>';
+    indexAjax($('#wait tbody:eq(0)'),'apply');
+    indexAjax($('#out tbody:eq(0)'),'accepted');
+    //搜索
+    $('#waitSearch').on('click',function(){
+        var serchText = $('#waitText').val()
+        indexAjax($('#wait tbody:eq(0)'),'apply',serchText);
+    })
+    $('#outSearch').on('click',function(){
+        var serchText = $('#outText').val()
+        indexAjax($('#out tbody:eq(0)'),'accepted',serchText);
+    })
+    //拒绝/通过
+    $('#wait tbody:eq(0)').on('click','.reject',function(event){
+        var dataId = $(this).attr('data-id');
+        $('#reason').on('click',function(){
+            var reasonText = $('#myModal textarea').val();
+            stateAjax('reject',dataId,reasonText)
+            $('#myModal textarea').val('')
+        })
+    })
+    $('#wait tbody:eq(0)').on('click','.accept',function(event){
+        var dataId = $(this).attr('data-id');
+        stateAjax('accept',dataId);
+    })
+    function stateAjax(state,dataId,reject_reason){
+        var data = {
+            state:state
+        };
+        if(arguments.length == 3){
+            data = {
+                'state':state,
+                'reject_reason':reject_reason
+            }
         }
-    }
-    $('#manages').html(manages);
+        $.ajax({
+            type:'PUT',
+            url:"http://" + backend_host + '/web/staff/quanzi/entity/' + dataId +'?'+token,
+            data:data,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
 
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
+    }
 
 })(jQuery)

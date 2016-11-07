@@ -71,10 +71,10 @@
         this.cancelClass = 'btn-default';
 
         this.locale = {
-            format: 'MM/DD/YYYY',
+            format: 'YYYY/MM/DD',
             separator: ' - ',
-            applyLabel: 'Apply',
-            cancelLabel: 'Cancel',
+            applyLabel: '确定',
+            cancelLabel: '取消',
             weekLabel: 'W',
             customRangeLabel: 'Custom Range',
             daysOfWeek: moment.weekdaysMin(),
@@ -685,7 +685,7 @@
                 html += '<th></th>';
             }
 
-            var dateHtml = this.locale.monthNames[calendar[1][1].month()] + calendar[1][1].format(" YYYY");
+            var dateHtml =calendar[1][1].format(" YYYY")+ '/' +this.locale.monthNames[calendar[1][1].month()]  ;
 
             if (this.showDropdowns) {
                 var currentMonth = calendar[1][1].month();

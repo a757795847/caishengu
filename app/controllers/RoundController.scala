@@ -15,11 +15,7 @@ class RoundController extends Controller {
         Ok(views.html.round.round_manage())
     }
 
-    def out = Action {
-        Ok(views.html.round.round_out())
-    }
-
-    def waits = Action {
-        Ok(views.html.round.round_wait())
+    def detail = Action {
+        Ok(views.html.round.round_detail())
     }
 }

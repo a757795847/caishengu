@@ -29,4 +29,8 @@ button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
 #add .box-body{
     border-top: 1px solid #f4f4f4;
 }
+/*btn*/
+#waitBtn, #outBtn{
+    display: none;
+}
 

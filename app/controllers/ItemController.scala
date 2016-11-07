@@ -10,12 +10,9 @@ class ItemController extends Controller{
         Ok(views.html.item.item_index())
 
     }
-    def out = Action{
-        Ok(views.html.item.item_out())
 
-    }
-    def waits = Action{
-        Ok(views.html.item.item_wait())
+    def detail = Action{
+        Ok(views.html.item.item_detail())
 
     }
 }

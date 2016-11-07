@@ -1,70 +1,54 @@
 (function ($) {
-
-    // [
-    //     WebStaffProjectGetResItem {
-    //     project_id:
-    //     string *
-    //     项目id
-    //     project_name:
-    //     string *
-    //     项目名称
-    //     contact_person:
-    //     string *
-    //     联系人
-    //     contact_phone:
-    //     string *
-    //     联系方式
-    //     state:
-    //     string *
-    //     申请状态
-    // }
-    // ]
-
-
-    var data = [
-        {
-            'project_id': '123456',
-            'project_name': '我是项目名称',
-            'contact_person': '张三',
-            'contact_phone': '12345678933',
-            'state': '是',
-        },
-        {
-            'project_id': '123456',
-            'project_name': '我是项目名称',
-            'contact_person': '张三',
-            'contact_phone': '12345678933',
-            'state': '否',
-        },
-        {
-            'project_id': '123456',
-            'project_name': '我是项目名称',
-            'contact_person': '张三',
-            'contact_phone': '12345678933',
-            'state': '否',
-        },
-        {
-            'project_id': '123456',
-            'project_name': '我是项目名称',
-            'contact_person': '张三',
-            'contact_phone': '12345678933',
-            'state': '否',
-        },
-    ]
-
-    var wait = '', out = '';
-    for (var i = 0; i < data.length; i++) {
-        if(data[i].state == '否'){
-            wait += '<tr><td>我是项目名称</td><td>张三</td><td>12345678933</td><td><span class="label label-info"><a href="/item/wait">查看详情</a></span>';
-            wait += '<span class="label label-info"><a href="#">通过</a></span><span class="label label-info">';
-            wait += '<a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
-        }else if(data[i].state == '是'){
-
+    function indexAjax(tabID,state,keyword){
+        var datas = {};
+        if(arguments.length == 3){
+            datas = {
+                'state': state,
+                'keyword':keyword
+            }
+        }else{
+            datas = {
+                'state': state
+            }
         }
+        $.ajax({
+            type:'GET',
+            url:"http://" + backend_host + '/web/staff/activity?'+token,
+            data:datas,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var wait = '', out = '';
+                for (var i = 0; i < data.length; i++) {
+                    wait += '<tr><td>'+data[i].project_name+'</td><td>'+data[i].contact_person+'</td><td>'+data[i].contact_phone+'</td>';
+                    wait += '<td><span class="label label-info"><a href="/item/wait?'+data[i].project_id+'">查看详情</a></span>';
+                    wait += '<span class="label label-info"><a href="#">通过</a></span><span class="label label-info">';
+                    wait += '<a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+                    if(data[i].state == '是'){
+                        wait +='<td>张三</td><td>2014-04-04 12:32:32</td>'
+                    }
+                }
+                tabID.html(wait);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
 
+                }
+            }
+        })
     }
-    $('#wait tbody:eq(0)').html(wait);
 
+    indexAjax($('#wait tbody:eq(0)'),'apply');
+    indexAjax($('#out tbody:eq(0)'),'accepted');
 
+    $('#waitSearch').on('click',function(){
+        var waitText = $('#waitText').val();
+        indexAjax($('#wait tbody:eq(0)'),'apply',waitText)
+    })
+
+    $('#outSearch').on('click',function(){
+        var outText = $('#outText').val();
+        indexAjax($('#out tbody:eq(0)'),'apply',outText)
+    })
 
 })(jQuery)

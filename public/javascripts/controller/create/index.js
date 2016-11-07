@@ -1,71 +1,34 @@
 (function ($) {
-    // [
-    //     WebStaffNewsInnovationGetResItem {
-    //     news_id:
-    //     string *
-    //     新闻id
-    //     order:
-    //     string *
-    //     序号
-    //     image:
-    //     string *
-    //     图片
-    //     link:
-    //     string *
-    //     链接
-    // }
-    // ]
 
-    var data = [
-        {
-            'news_id': '123211',
-            'order': '10',
-            'image': '/dasd/dsad.jpg',
-            'link': 'www.taobao.com'
+    $.ajax({
+        type:'GET',
+        url:"http://" + backend_host + '/web/staff/news/innovation?'+token,
+        dataType:'json',
+        success:function(data){
+            console.log(data);
+            var news = '';
+            for (var i = 0; i < data.length; i++) {
+                news += '<tr><td>'+data[i].order+'</td><td><img src="'+data[i].image+'"></td><td><a href="#">'+data[i].link+'</a>';
+                news += '</td><td><span class="label label-info"><a href="/create/detail?change&'+data[i].news_id+'">编辑</a></span>';
+                news += '<span class="label label-info"><a class="delete" data-id="'+data[i].news_id+'" href="#">删除</a></span></td></tr>';
+            }
+            $('#news').html(news);
         },
-        {
-            'news_id': '123211',
-            'order': '10',
-            'image': '/dasd/dsad.jpg',
-            'link': 'www.taobao.com'
-        },
-        {
-            'news_id': '123211',
-            'order': '10',
-            'image': '/dasd/dsad.jpg',
-            'link': 'www.taobao.com'
-        },
-        {
-            'news_id': '123211',
-            'order': '10',
-            'image': '/dasd/dsad.jpg',
-            'link': 'www.taobao.com'
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
+
+            }
         }
-    ]
-
-    var news = '';
-    for (var i = 0; i < data.length; i++) {
-        news += '<tr><td>'+data[i].order+'</td><td><img src="'+data[i].image+'"></td><td><a href="#">'+data[i].link+'</a>';
-        news += '</td><td><span class="label label-info"><a href="#">删除</a></span></td></tr>';
-    }
-    $('#news').html(news);
-
-    function indexAjax(tabID,state){
+    })
+    $('.delete').on('click',function(){
+        var dataId = $(this).attr('data-id');
         $.ajax({
-            type:'GET',
-            url:"http://" + backend_host + '/web/staff/activity?access_token=10ae0842b11080b0b6c9412773164797',
-            data : {
-                'state': state
-            },
+            type:'DELETE',
+            url:"http://" + backend_host + '/web/staff/news/innovation/'+dataId+'?'+token,
             dataType:'json',
             success:function(data){
                 console.log(data);
-                var news = '';
-                for (var i = 0; i < data.length; i++) {
-                    news += '<tr><td>'+data[i].order+'</td><td><img src="'+data[i].image+'"></td><td><a href="#">'+data[i].link+'</a>';
-                    news += '</td><td><span class="label label-info"><a href="#">删除</a></span></td></tr>';
-                }
-                $('#news').html(news);
+
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -73,6 +36,7 @@
                 }
             }
         })
-    }
+    })
+
 
 })(jQuery)

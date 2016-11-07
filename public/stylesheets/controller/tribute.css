@@ -51,6 +51,9 @@ button.close {
     height:120px;
     margin-right: 10px;
 }
+#detailImg , #detailImg img{
+    float: left;
+}
 .addImg {
     border: 1px solid #000;
     display: inline-block;

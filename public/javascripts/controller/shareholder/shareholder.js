@@ -2,7 +2,7 @@
     function indexAjax(tabID,state){
         $.ajax({
             type:'GET',
-            url:'http://' + backend_host + '/web/staff/shareholder?access_token=10ae0842b11080b0b6c9412773164797',
+            url:'http://' + backend_host + '/web/staff/shareholder?'+token,
             data : {
                 'apply_state': state
             },
@@ -15,7 +15,7 @@
                         shareholders += '<tr><td>'+data[i].user_name+'</td><td><span class="label label-info">'
                         shareholders += '<a data-src="'+data[i].image+'" data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span></td>';
                         shareholders += '<td>'+data[i].phone+'</td><td><span class="label label-info"><a href="#">查看详情</a></span>';
-                        shareholders += '<span class="label label-info"><a class="accept" href="'+data[i].user_id+'">通过</a></span>';
+                        shareholders += '<span class="label label-info"><a class="success" href="'+data[i].user_id+'">通过</a></span>';
                         shareholders += '<span class="label label-info"><a class="reject" href="'+data[i].user_id+'" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
                     }
                     tabID.html(shareholders);
@@ -49,7 +49,7 @@
         console.log(href);
         $.ajax({
             type:'PUT',
-            url:'http://' + backend_host + '/web/staff/finance/approve/'+href+'?access_token=10ae0842b11080b0b6c9412773164797&operation='+operation,
+            url:'http://' + backend_host + '/web/staff/finance/approve/'+href+'?'+token+'&operation='+operation,
             dataType:'json',
             success:function(data){
                 console.log(data);
@@ -65,9 +65,9 @@
         })
     }
 
-    $('.accept').on('click',function(e){
+    $('.success').on('click',function(e){
         e.preventDefault();
-        operationAjax($(this),'accept')
+        operationAjax($(this),'success')
     })
 
     $('.reject').on('click',function(e){
@@ -80,7 +80,7 @@
         console.log(textShareholder);
         $.ajax({
             type:'GET',
-            url:'http://' + backend_host + '/web/staff/shareholder?access_token=10ae0842b11080b0b6c9412773164797',
+            url:'http://' + backend_host + '/web/staff/shareholder?'+token,
             data:{
                 'keyword' : textShareholder
             },

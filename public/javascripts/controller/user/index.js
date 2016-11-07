@@ -1,7 +1,7 @@
 (function ($) {
     $.ajax({
         type:'GET',
-        url:"http://" + backend_host + '/web/staff/user?access_token=10ae0842b11080b0b6c9412773164797',
+        url:"http://" + backend_host + '/web/staff/user?'+token,
         dataType:'json',
         success:function(data){
             var users = '';
@@ -22,7 +22,7 @@
         var textUser = $('#textUser').val();
         $.ajax({
             type:'GET',
-            url:"http://" + backend_host + '/web/staff/user?access_token=10ae0842b11080b0b6c9412773164797',
+            url:"http://" + backend_host + '/web/staff/user?'+token,
             data:{
                 'keyword' : textUser
             },

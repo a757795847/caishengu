@@ -11,11 +11,7 @@ class EventController extends Controller {
         Ok(views.html.event.event_index())
     }
 
-    def out = Action {
-        Ok(views.html.event.event_out())
-    }
-
-    def waits = Action {
-        Ok(views.html.event.event_wait())
+    def detail = Action {
+        Ok(views.html.event.event_detail())
     }
 }
