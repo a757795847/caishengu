@@ -1,14 +1,13 @@
-newUploader(1);
-cancelImages(1);
+
 $('#addNews').on('click',function(){
     var address = $('#address').val();
     var introduction = $('#introduction').val();
-    imgUPload(images[0]);
+    imgUPload(images);
     $.ajax({
         type:'POST',
         url:"http://" + backend_host + '/web/staff/news/innovation?'+token,
         data:{
-            'image':images[0],
+            'image':images,
             'link':address,
             'introduction':introduction
         },

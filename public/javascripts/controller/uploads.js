@@ -1,5 +1,6 @@
 var images = [], imagetoken =[];
 $('#pickfiles').on('click',function(){
+    imagetoken = [];
     imagetokens();
 })
 function imagetokens(){
@@ -62,7 +63,7 @@ function newUploader(imgNumber){
                 var res = eval('(' + info + ')');
                 var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
                 var imageBoxs = '';
-                imageBoxs += '<div class="imgBox"><button type="button" data-index="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<div class="imgBox"><button type="button" data-name="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                 imageBoxs += '<img src="'+ Src +'"></div>'
                 $('#container').before(imageBoxs);
                 if(images.length >= imgNumber){
@@ -71,7 +72,6 @@ function newUploader(imgNumber){
                     uploader.destroy();
                     return false;
                 }
-                imagetoken = [];
                 console.log(images);
             },
             'Error': function (up, err, errTip) {
@@ -94,8 +94,8 @@ $('#fsUploadProgress').on('mouseout ','.imgBox',function(){
 function cancelImages(nub){
     $('#fsUploadProgress').on('click ','.imgBox button',function(e){
         e.stopPropagation();
-        var dataIndex = $(this).attr('data-index');
-        images.splice($.isArray(dataIndex,images),1);
+        var dataName = $(this).attr('data-name');
+        images.splice($.inArray(dataName,images),1);
         $(this).parent().remove();
         $('#pickfiles span').text('选择文件');
         newUploader(nub);
@@ -105,10 +105,9 @@ function cancelImages(nub){
 //   通知图片上传成功
 function imgUPload(imgId){
     $.ajax({
-        type:'POST',
+        type:'PUT',
         url:'http://' + backend_host + '/other/file/'+imgId+'?'+token,
         dataType:'json',
-        async:false,
         success:function(data){
             console.log(data);
         },

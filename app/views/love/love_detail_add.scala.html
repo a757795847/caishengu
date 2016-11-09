@@ -12,30 +12,32 @@
         </section>
         <section class="content">
             <div class="box box-info">
-                <button type="submit" class="btn turn"><a href="/love">返回</a></button>
+                <a class="btn turn" href="/love">返回</a>
                 <div class="box-body">
                     <div class="add">
                         <p>图片</p>
-                        <div class="addImg">
-                            <form action="#" method="post" enctype="multipart/form-data">
-                                <a href="#">
-                                    +
-                                    <input type="file" name="" >
-                                </a>
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
 
-                            </form>
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="addNews">
                         <p>项目名称</p>
-                        <input type="text" class=" form-control" placeholder="项目名称">
+                        <input id="name" type="text" class=" form-control" placeholder="项目名称">
                         <p>募集金额</p>
-                        <input type="number" class="form-control" placeholder="金额">
+                        <input id="loveMoney" type="text" class="form-control" placeholder="金额">
                         <p>简介</p>
-                        <textarea class="form-control" rows="6"></textarea>
+                        <textarea id="introduction" class="form-control" rows="6"></textarea>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1"><a href="#">保存</a></button>
+                        <button id="loveAdd" type="button" class="btn btn-default pull-right col-md-1 col-lg-1"><a href="#">保存</a></button>
                     </div>
                 </div>
             </div>
@@ -46,7 +48,14 @@
 
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("../../../public/javascripts/controller/uploads.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/love/add.js")"></script>
+
 }
 
 

@@ -1,4 +1,5 @@
 @main("优惠券", "ticket.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/ticket.css")">
 } {
@@ -15,7 +16,7 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#rule" data-toggle="tab" aria-expanded="true">规则</a></li>
                             <li class=""><a href="#ticket" data-toggle="tab" aria-expanded="false">优惠券</a></li>
-                            <li class=""><a href="#out" data-toggle="tab" aria-expanded="false">投放记录</a></li>
+                            <li class=""><a href="#record" data-toggle="tab" aria-expanded="false">投放记录</a></li>
                         </ul>
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
@@ -35,34 +36,13 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>2013-5-6 —— 2014-6-7</td>
-                                                        <td>100</td>
-                                                        <td>
-                                                            <div class="form-group">
-                                                                <select class="form-control select2" >
-                                                                    <option selected="selected">Alabama</option>
-                                                                    <option>Alaska</option>
-                                                                    <option>California</option>
-                                                                    <option>Delaware</option>
-                                                                    <option>Tennessee</option>
-                                                                    <option>Texas</option>
-                                                                    <option>Washington</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td>仅限XX门店使用</td>
-                                                        <td>
-                                                            <span class="label label-info"><a href="#">删除</a></span>
-                                                        </td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                            <!-- /.table-responsive -->
                                     </div>
                                     <div class="box-footer clearfix">
-                                        <a href="javascript:void(0)" class="btn btn-md btn-default  pull-right">新增</a>
+                                        <a href="#" class="btn btn-md btn-default  pull-right" data-toggle="modal" data-target="#modelRule">新增</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,12 +52,6 @@
                                     <div class="box-body">
                                         <div class="table-responsive">
                                             <table class="table no-margin">
-                                                <colgroup>
-                                                    <col class="col-xs-1">
-                                                    <col class="col-xs-2">
-                                                    <col class="col-xs-5">
-                                                    <col class="col-xs-2">
-                                                </colgroup>
                                                 <thead>
                                                     <tr>
                                                         <th>图片</th>
@@ -87,42 +61,24 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <form action="#" method="post" enctype="multipart/form-data">
-                                                                <a href="javascript:;" class="file">上传
-                                                                    <input type="file" name="" id="">
-                                                                </a>
-                                                            </form>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control formCenter inputLeft" placeholder="酒店券（最多20字)">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control formCenter inputLeft" placeholder="仅限XX门店使用（最多256字）">
-                                                        </td>
-                                                        <td>
-                                                            <span class="label label-info"><a href="#">删除</a></span>
-                                                        </td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                            <!-- /.table-responsive -->
                                     </div>
                                     <div class="box-footer clearfix">
-                                        <a href="javascript:void(0)" class="btn btn-md btn-default  pull-right">新增</a>
+                                        <a href="#" class="btn btn-md btn-default  pull-right" data-toggle="modal" data-target="#modelTicket">新增</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="out">
+                            <div class="tab-pane" id="record">
                                 <div class="box">
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm">
-                                                <input type="text" name="table_search" class="form-control  pull-right" placeholder="请输入券名/被投放人/手机号">
+                                                <input id="recordText" type="text" name="table_search" class="form-control  pull-right" placeholder="请输入券名/被投放人/手机号">
                                                 <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <button id="recordSearch" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,20 +97,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>2013-5-6</td>
-                                                        <td>酒店券</td>
-                                                        <td>张三</td>
-                                                        <td>12345678933</td>
-                                                        <td>已核销/未核销</td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                            <!-- /.table-responsive -->
-                                    </div>
-                                    <div class="box-footer clearfix">
-                                        <a href="javascript:void(0)" class="btn btn-md btn-default  pull-right">新增</a>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +115,117 @@
         </section>
     </div>
 
+    <div class="modal fade" id="modelRule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增规则</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>请选择时间</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input id="ruleDate" type="text" class="form-control pull-right">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>充值金额</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-cny"></i>
+                            </div>
+                            <input id="ruleMoney" type="text" class="form-control pull-right" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>赠送优惠券</label>
+                        <div class="input-group" style="width: 100%;">
+                            <select id="couponId" class="form-control" >
+                                <option selected="selected">Alabama</option>
+                                <option>Alaska</option>
+                                <option>California</option>
+                                <option>Delaware</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>备注</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-file-text-o"></i>
+                            </div>
+                            <input id="" type="text" class="form-control pull-right" >
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="ruleAdd" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modelTicket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增优惠券</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="add">
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
+
+                                <div class="addImg btn btn-default" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>上传图片</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>券名</label>
+                        <div class="input-group" >
+                            <div class="input-group-addon">
+                                <i class="fa fa-cny"></i>
+                            </div>
+                            <input id="ticketName" type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>备注</label>
+                        <div class="input-group">
+                            <textarea id="remark" type="text" class="form-control" rows="4" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="ticketAdd" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
+    <script type="text/javascript">
+            $(function(){
+                $('#ruleDate').daterangepicker();
+            })
+    </script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/ticket/index.js")"></script>
 }

@@ -22,9 +22,10 @@
                 var wait = '';
                 for (var i = 0; i < data.length; i++) {
                     wait += '<tr><td>'+data[i].activity_name+'</td><td>'+data[i].contact_person+'</td><td>'+data[i].contact_phone+'</td><td><span class="label label-info">';
-                    if(data[i].apply_state == '否'){
-                        wait += '<a href="/event/detail?'+ data[i].apply_state+'&'+data[i].activity_id+'">查看详情</a></span><span class="label label-info"><a href="#">通过</a></span>';
-                        wait += '<span class="label label-info"><a href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+                    if(state == 'apply'){
+                        wait += '<a href="/event/detail?'+ data[i].apply_state+'&'+data[i].activity_id+'">查看详情</a></span>';
+                        wait += '<span class="label label-info"><a data-id="'+data[i].activity_id+'" class="accept" href="#">通过</a></span><span class="label label-info">';
+                        wait += '<a data-id="'+data[i].activity_id+'" class="reject" href="#" data-toggle="modal" data-target="#myModalWait">拒绝</a></span></td></tr>';
                     }else{
                         wait += '<a href="/event/detail?'+ data[i].apply_state+'&'+data[i].activity_id+'">查看详情</a></span>';
                         wait += '</td><td>张三</td><td>2014-04-04 12:32:32</td></tr>'
@@ -52,4 +53,46 @@
         indexAjax($('#out tbody:eq(0)'),'accepted',searchText);
     })
 
+    $('#wait tbody:eq(0)').on('click','.accept',function(){
+        var dataId = $(this).attr('data-id');
+        stateAjax(dataId,'accept')
+    })
+    $('#wait tbody:eq(0)').on('click','.reject',function(){
+        var dataId = $(this).attr('data-id');
+        $('#refuse').on('click',function(){
+            var reason = $('#myModalWait textarea').val();
+            stateAjax(dataId,'reject',reason);
+        })
+    })
+    function stateAjax(dataId,state,reject_reason){
+        var datas = {};
+        if(arguments.length == 2){
+            datas = {
+                'state':state
+            }
+        }else{
+            datas = {
+                'state':state,
+                'reject_reason':reject_reason
+            }
+        }
+        console.log(dataId)
+        console.log(state)
+        console.log(reject_reason)
+        // $.ajax({
+        //     type:'PUT',
+        //     url:"http://" + backend_host + 'PUT /web/staff/activity/'+dataId+'?'+token,
+        //     data:datas,
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //         $('#myModalWait textarea').val('');
+        //     },
+        //     error:function(jqXHR){
+        //         if(jqXHR.status == 400){
+        //
+        //         }
+        //     }
+        // })
+    }
 })(jQuery)

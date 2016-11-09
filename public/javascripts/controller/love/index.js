@@ -1,54 +1,33 @@
 (function ($) {
-    // [
-    //     WebStaffDonateGetResItem {
-    //     id:
-    //     string *
-    //     项目id
-    //     title:
-    //     string *
-    //     标题
-    //     money_current:
-    //     string *
-    //     已募集金额
-    //     money_total:
-    //     string *
-    //     总募集金额
-    // }
-    // ]
+    function listAjax(contentId,state){
+        $.ajax({
+            type:'GET',
+            url:'http://'+backend_host+'/web/staff/donate?state='+ state+'&'+token,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var list = '',url = '';
+                for (var i = 0; i < data.length; i++) {
+                    if(state == 'finished'){
+                        url = '/love/detail?feedback&'+data[i].id;
+                    }else{
+                        url = '/love/detail?look&'+data[i].id;
+                    }
+                    list += '<tr><td>'+data[i].title+'</td><td>'+data[i].money_current+'/'+data[i].money_total+'</td>';
+                    list += '<td><span class="label label-info"><a href="'+url+'">详情</a></span>';
+                    list += '</td></tr>'
+                }
+                contentId.html(list);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
 
-    var data = [
-        {
-            'id': '123456',
-            'title': '爱心午餐项目',
-            'money_current': '3000',
-            'money_total': '4000'
-        },
-        {
-            'id': '123456',
-            'title': '爱心午餐项目',
-            'money_current': '3000',
-            'money_total': '4000'
-        },
-        {
-            'id': '123456',
-            'title': '爱心午餐项目',
-            'money_current': '3000',
-            'money_total': '4000'
-        },
-        {
-            'id': '123456',
-            'title': '爱心午餐项目',
-            'money_current': '3000',
-            'money_total': '4000'
-        }
-    ]
-
-    var wait = '';
-    for (var i = 0; i < data.length; i++) {
-        wait += '<tr><td>'+data[i].title+'</td><td>'+data[i].money_current+'/'+data[i].money_total+'</td>';
-        wait += '<td><span class="label label-info"><a href="/love/detail">详情</a></span></td></tr>'
+                }
+            }
+        })
     }
-    $('#wait tbody:eq(0)').html(wait);
-
+    listAjax($('#wait tbody:eq(0)'),'raising');
+    listAjax($('#end tbody:eq(0)'),'raise_success');
+    listAjax($('#out tbody:eq(0)'),'finished');
 
 })(jQuery)

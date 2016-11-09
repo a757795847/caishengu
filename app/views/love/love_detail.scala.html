@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/love.css")">
 } {
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="detail">
         <section class="content-header">
             <ol class="breadcrumb pull-left">
                 <li><a href="/love"><i class="fa fa-heart"></i>爱心捐赠</a></li>
@@ -15,14 +15,14 @@
             <div class="box box-info">
                 <a class="btn turn" href="/love">返回</a>
                 <div class="box-body">
-                    <div class="add">
+                    <div>
                         <div class="detailedImg" id="images">
                             <p>图片</p>
 
                         </div>
                     </div>
                     <div class="box">
-                        <p>项目名称</p>
+                        <p class="spot">项目名称</p>
                         <div class="order">
                             <ul>
                                 <li id="name"></li>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <p>募集金额</p>
+                        <p class="spot">募集金额</p>
                         <div class="order">
                             <ul>
                                 <li id="moneyCurrent"></li>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <p>简介</p>
+                        <p class="spot">简介</p>
                         <div class="order">
                             <ul>
                                 <li id="introduction">
@@ -47,6 +47,21 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="add">
+                        <p>反馈</p>
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
+
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="fileSubmit" href="#" class="btn btn-primary pull-right col-md-1 col-lg-1">保存</a>
                 </div>
             </div>
         </section>
@@ -55,6 +70,12 @@
     </div>
 
 } {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/uploads.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/love/detail.js")"></script>
 }
 

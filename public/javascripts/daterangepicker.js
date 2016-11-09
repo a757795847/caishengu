@@ -685,7 +685,7 @@
                 html += '<th></th>';
             }
 
-            var dateHtml =calendar[1][1].format(" YYYY")+ '/' +this.locale.monthNames[calendar[1][1].month()]  ;
+            var dateHtml =calendar[1][1].format(" YYYY")+ '&nbsp;&nbsp;' +this.locale.monthNames[calendar[1][1].month()]  ;
 
             if (this.showDropdowns) {
                 var currentMonth = calendar[1][1].month();
