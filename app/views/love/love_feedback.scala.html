@@ -52,13 +52,18 @@
                     <div class="box">
                         <p>反馈</p>
                         <div id="preview" class="upload_preview"></div>
-                        <div class="addImg">
-                            <form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
-                                <a href="#">
-                                    +
-                                    <input id="fileImg" type="file" name="fileImg" >
-                                </a>
-                            </form>
+                        <div class="add">
+                            <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                <div  id="fsUploadProgress">
+
+                                    <div class="addImg" id="container">
+                                        <a id="pickfiles" href="#" >
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <span>选择文件</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary pull-right col-md-1 col-lg-1" id="fileSubmit"><a href="#">保存</a></button>
@@ -70,7 +75,10 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/zxxFile.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/love/love.js")"></script>
 }
 

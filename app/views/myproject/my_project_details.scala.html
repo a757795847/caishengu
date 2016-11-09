@@ -34,13 +34,16 @@
                             <td class="light">
                                 <div class="form-group">
                                     <select class="form-control select2">
-                                        <option selected="selected">Alabama</option>
-                                        <option>Alaska</option>
-                                        <option disabled="disabled">California (disabled)</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                        <option selected="selected">杭州</option>
+                                        <option>温州</option>
+                                        <option disabled="disabled">上海</option>
+                                        <option>宁波</option>
+                                        <option>金华</option>
+                                        <option>舟山</option>
+                                        <option>湖州</option>
+                                        <option>丽水</option>
+                                        <option>衢州</option>
+                                        <option>嘉兴</option>
                                     </select>
                                 </div>
                             </td>
@@ -129,11 +132,31 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="lf">项目图片</td>
+                            <td>
+                                <div class="add">
+                                    <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                        <div  id="fsUploadProgress">
+
+                                            <div class="addImg" id="container">
+                                                <a id="pickfiles" href="#" >
+                                                    <i class="glyphicon glyphicon-plus"></i>
+                                                    <span>选择图片</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                        <tr>
                             <td class="lf">BP</td>
                             <td class="aight">财神谷.PDF <button type="button" class="btn btn-default">上传BP</button></td>
                         </tr>
                         <tr>
-                            <td colspan="2"> <button class="btn btn-block btn-default btn-flat"id="Upload">提交</button></td>
+                            <td colspan="2"> <button class="btn btn-block btn-default btn-flat"id="Upload">保存</button></td>
 
                         </tr>
                     </table>
@@ -148,6 +171,10 @@
     </div>
 
 } {
-
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/my_project_details.js")"></script>
 
 }

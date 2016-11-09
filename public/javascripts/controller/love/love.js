@@ -1,83 +1,122 @@
-(function($){
-    var params = {
-        fileInput: $("#fileImg").get(0),
-        //dragDrop: $("#fileDragArea").get(0),
-        upButton: $("#fileSubmit").get(0),
-        url: $("#uploadForm").attr("action"),
-        filter: function(files) {
-            var arrFiles = [];
-            for (var i = 0, file; file = files[i]; i++) {
-                if (file.type.indexOf("image") == 0) {
-                    if (file.size >= 512000) {
-                        alert('您这张"'+ file.name +'"图片大小过大，应小于500k');
-                    } else {
-                        arrFiles.push(file);
-                    }
-                } else {
-                    alert('文件"' + file.name + '"不是图片。');
-                }
+var images = [], imagetoken =[];
+$('#pickfiles').on('click',function(){
+    imagetokens();
+})
+function imagetokens(){
+    $.ajax({
+        type:'POST',
+        url:'http://' + backend_host + '/other/file/apply?'+token,
+        dataType:'json',
+        async:false,
+        success:function(data){
+            imagetoken.push(data.token);
+            imagetoken.push(data.file_key);
+
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
+
             }
-            return arrFiles;
-        },
-        onSelect: function(files) {
-            var html = '', i = 0;
-            $("#preview").html('<div class="upload_loading"></div>');
-            var funAppendImage = function() {
-                file = files[i];
-                if (file) {
-                    var reader = new FileReader()
-                    reader.onload = function(e) {
-                        html = html + '<div id="uploadList_'+ i +'" class="upload_append_list"><p>' +
-                            '<img id="uploadImage_' + i + '" src="' + e.target.result + '" class="upload_image" /></p>'+
-                            '</div>';
-                        i++;
-                        funAppendImage();
-                    }
-                    reader.readAsDataURL(file);
-                } else {
-                    $("#preview").html(html);
-                }
-            };
-            funAppendImage();
-        },
-        onDelete: function(file) {
-            $("#uploadList_" + file.index).fadeOut();
-        },
-        onDragOver: function() {
-            $(this).addClass("upload_drag_hover");
-        },
-        onDragLeave: function() {
-            $(this).removeClass("upload_drag_hover");
-        },
-        onProgress: function(file, loaded, total) {
-            var eleProgress = $("#uploadProgress_" + file.index), percent = (loaded / total * 100).toFixed(2) + '%';
-            eleProgress.show().html(percent);
-        },
-        onSuccess: function(file, response) {
-            $("#uploadInf").append("<p>上传成功，图片地址是：" + response + "</p>");
-        },
-        onFailure: function(file) {
-            $("#uploadInf").append("<p>图片" + file.name + "上传失败！</p>");
-            $("#uploadImage_" + file.index).css("opacity", 0.2);
-        },
-        onComplete: function() {
-            //提交按钮隐藏
-            $("#fileSubmit").hide();
-            //file控件value置空
-            $("#fileImage").val("");
-            $("#uploadInf").append("<p>当前图片全部上传完毕，可继续添加上传。</p>");
         }
-    };
-    ZXXFILE = $.extend(ZXXFILE, params);
-    ZXXFILE.init();
+    });
+}
+imagetokens();
+//创建上传七牛
+function newUploader(imgNumber){
+    var uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',
+        browse_button: 'container',
+        container: 'addImgs',
+        uptoken: imagetoken[0],
+        unique_names: false,
+        multi_selection: false,
+        max_file_size:'3mb',
+        save_key: false,
+        domain: 'http://qiniu-plupload.qiniudn.com/',
+        get_new_uptoken: true,
+        auto_start: true,
+        log_level: 5,
+        filters: {
+            mime_types: [
+                {title: "Image files", extensions: "jpg,jpeg,gif,png"}
+            ]
+        },
+        init: {
+            'FilesAdded': function (up, files) {
 
+            },
+            'BeforeUpload': function (up, file) {
 
-    $('#uploadForm').on('click',function(e){
-        if($('#preview div').length >= 3){
-            e.preventDefault();
-            $('#uploadForm').html('<p style="font-size: 10px">最多只能提交9张</p>')
-        };
+            },
+            'UploadProgress': function (up, file) {
+
+            },
+            'UploadComplete': function () {
+
+            },
+            'FileUploaded': function (up, file, info) {
+                if(imagetoken[1] != undefined){
+                    images.push(imagetoken[1]);
+                }
+                var domain = up.getOption('domain');
+                var res = eval('(' + info + ')');
+                var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
+                var imageBoxs ='';
+                imageBoxs += '<div class="imgBox"><button type="button" data-index="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<img src="'+ Src +'"></div>'
+                $('#container').before(imageBoxs);
+                if(images.length >= imgNumber){
+                    imgNumber = imgNumber ;
+                    $('#pickfiles span').text('最多添加'+imgNumber+'张');
+                    uploader.destroy();
+                    return false;
+                }
+                imagetoken = [];
+                console.log(images);
+            },
+            'Error': function (up, err, errTip) {
+
+            },
+            'Key': function (up, file) {
+                var key = imagetoken[1];
+                return key
+            }
+        }
+    });
+}
+newUploader(9);
+$('#fsUploadProgress').on('mousemove ','.imgBox',function(){
+    $(this).find('button').css('display','block');
+})
+$('#fsUploadProgress').on('mouseout ','.imgBox',function(){
+    $(this).find('button').css('display','none');
+})
+function cancelImages(nub){
+    $('#fsUploadProgress').on('click ','.imgBox button',function(e){
+        e.stopPropagation();
+        var dataIndex = $(this).attr('data-index');
+        images.splice($.isArray(dataIndex,images),1);
+        $(this).parent().remove();
+        $('#pickfiles span').text('选择文件');
+        newUploader(nub);
     })
+}
+cancelImages(9);
+//   通知图片上传成功
+function imgUPload(imgId){
+    $.ajax({
+        type:'POST',
+        url:'http://' + backend_host + '/other/file/'+imgId+'?'+token,
+        dataType:'json',
+        async:false,
+        success:function(data){
+            console.log(data);
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
 
-})(jQuery)
+            }
+        }
+    })
+}
 

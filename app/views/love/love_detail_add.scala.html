@@ -15,15 +15,18 @@
                 <button type="submit" class="btn turn"><a href="/love">返回</a></button>
                 <div class="box-body">
                     <div class="add">
-                        <p>图片</p>
-                        <div class="addImg">
-                            <form action="#" method="post" enctype="multipart/form-data">
-                                <a href="#">
-                                    +
-                                    <input type="file" name="" >
-                                </a>
+                        <div class="add">
+                            <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                <div  id="fsUploadProgress">
 
-                            </form>
+                                    <div class="addImg" id="container">
+                                        <a id="pickfiles" href="#" >
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <span>选择文件</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="addNews">
@@ -46,6 +49,10 @@
 
 
 } {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
 }
 

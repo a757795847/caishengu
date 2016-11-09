@@ -20,6 +20,31 @@
     line-height: 25px;
 }
 /*picture*/
+.add img {
+    width: 100px;
+    height: 120px;
+    margin-right: 12px;
+}
+#addImgs{
+    overflow: hidden;
+}
+#fsUploadProgress{
+    float: left;
+}
+.imgBox{
+    float: left;
+    position: relative;
+    z-index: 99;
+}
+#fsUploadProgress .imgBox button{
+    position: absolute;
+    z-index: 1000;
+    top: -12px;
+    right: 4px;
+    color: #000;
+    display: none;
+}
+
 .addImg {
     border: 1px solid #eee;
     display: inline-block;
@@ -27,22 +52,9 @@
     height: 120px;
     line-height: 120px;
     text-align: center;
-    font-size: 40px;
+    font-size: 14px;
     margin-bottom: 10px;
     position: relative;
-}
-.addImg form#uploadForm {
-    height: 100%;
-}
-.addImg form#uploadForm a{
-    color: #777;
-}
-
-.addImg input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
 }
 
 .add p, .addNews p {

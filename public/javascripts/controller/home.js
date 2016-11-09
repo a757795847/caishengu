@@ -1,100 +1,122 @@
-var data=[
-    {"shop_id":"110000",
-     "shop_name":"杭州绿城",
-    "contact_person":"宋卫平"
-    },
-    {"shop_id":"120000",
-        "shop_name":"上海申花",
-        "contact_person":"马俊"},
-    {
-        "shop_id":"130000",
-        "shop_name":"北京国安",
-        "contact_person":"央企"
-    },
-    {
-        "shop_id":"140000",
-        "shop_name":"广州恒大",
-        "contact_person":"许家印"
-    },
-    {
-        "shop_id":"150000",
-        "shop_name":"江苏苏宁",
-        "contact_person":"张近东"
-    },
-    {
-        "shop_id":"120000",
-        "shop_name":"山东鲁能",
-        "contact_person":"国企"
-    }
+var images = [], imagetoken =[];
+$('#pickfiles').on('click',function(){
+    imagetokens();
+})
+function imagetokens(){
+    $.ajax({
+        type:'POST',
+        url:'http://' + backend_host + '/other/file/apply?'+token,
+        dataType:'json',
+        async:false,
+        success:function(data){
+            imagetoken.push(data.token);
+            imagetoken.push(data.file_key);
 
-
-];
-
-$(document).ready(function () {
-    $.get("http://" + backend_host + '/web/staff/finance/manage/shop/collection?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-        {
-            "page":0 ,
-            "limit": 5,
-        }, function (data) {
-            console.log(data);
-
-        }
-             /*   var tbody = "";
-            $.each(data, function (i, order) {
-                tbody = '<tr><td>'+order.shop_id+'</td><td>'+order.shop_name+'</td><td><span class="label label-success">'+order.contact_person+'</span></td><td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
-
-                $('#Table').find('tbody').append(tbody);
-            });*/
-
-
-    )
-
-
-    var tab = '<li id="Left"><a href="javascript:;">&laquo;</a></li>';
-    for(var i=0;i<5;i++){
-        tab +='<li><a href="javascript:;">'+[i+1]+'</a></li>'
-    }
-    tab += '<li id="Right"><a href="javascript:;">&raquo;</a></li>';
-    $('.pagination').append(tab);
-
-
-});
-
-$('.pagination:eq(0)').on('click','li',function() {
-    var index = $(this).index() - 1;
-    if(index==0){
-        $("#Left").addClass("disabled");
-    }else{
-        $("#Left").removeClass('disabled');
-
-    }
-    var index_right=$(this).index()+1;
-    if(index_right==5){
-        $("#Right").addClass("disabled");
-
-    }else{
-        $("#Right").removeClass('disabled');
-    }
-    $(this).addClass('active').siblings().removeClass('active');
-
-
-
-
-    $.get("http://" + backend_host + '/web/staff/finance/manage/shop/collection?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-        {
-            "page":index,
-            "limit":5
         },
-        function (data) {
-            console.log(data);
-            var body = "";
-            $.each(data, function (i, order) {
-                tbody = '<tr><td>'+order.shop_id+'</td><td>'+order.shop_name+'</td><td><span class="label label-success">'+order.contact_person+'</span></td><td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
-            });
-            $('#Table').html(body);
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
+
+            }
         }
-    )
+    });
+}
+imagetokens();
+//创建上传七牛
+function newUploader(imgNumber){
+    var uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',
+        browse_button: 'container',
+        container: 'addImgs',
+        uptoken: imagetoken[0],
+        unique_names: false,
+        multi_selection: false,
+        max_file_size:'3mb',
+        save_key: false,
+        domain: 'http://qiniu-plupload.qiniudn.com/',
+        get_new_uptoken: true,
+        auto_start: true,
+        log_level: 5,
+        filters: {
+            mime_types: [
+                {title: "Image files", extensions: "jpg,jpeg,gif,png"}
+            ]
+        },
+        init: {
+            'FilesAdded': function (up, files) {
 
+            },
+            'BeforeUpload': function (up, file) {
 
-});
+            },
+            'UploadProgress': function (up, file) {
 
+            },
+            'UploadComplete': function () {
+
+            },
+            'FileUploaded': function (up, file, info) {
+                if(imagetoken[1] != undefined){
+                    images.push(imagetoken[1]);
+                }
+                var domain = up.getOption('domain');
+                var res = eval('(' + info + ')');
+                var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
+                var imageBoxs ='';
+                imageBoxs += '<div class="imgBox"><button type="button" data-index="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<img src="'+ Src +'"></div>'
+                $('#container').before(imageBoxs);
+                if(images.length >= imgNumber){
+                    imgNumber = imgNumber ;
+                    $('#pickfiles span').text('最多添加'+imgNumber+'张');
+                    uploader.destroy();
+                    return false;
+                }
+                imagetoken = [];
+                console.log(images);
+            },
+            'Error': function (up, err, errTip) {
+
+            },
+            'Key': function (up, file) {
+                var key = imagetoken[1];
+                return key
+            }
+        }
+    });
+}
+newUploader(9);
+$('#fsUploadProgress').on('mousemove ','.imgBox',function(){
+    $(this).find('button').css('display','block');
+})
+$('#fsUploadProgress').on('mouseout ','.imgBox',function(){
+    $(this).find('button').css('display','none');
+})
+function cancelImages(nub){
+    $('#fsUploadProgress').on('click ','.imgBox button',function(e){
+        e.stopPropagation();
+        var dataIndex = $(this).attr('data-index');
+        images.splice($.isArray(dataIndex,images),1);
+        $(this).parent().remove();
+        $('#pickfiles span').text('选择文件');
+        newUploader(nub);
+    })
+}
+
+//   通知图片上传成功
+function imgUPload(imgId){
+    $.ajax({
+        type:'POST',
+        url:'http://' + backend_host + '/other/file/'+imgId+'?'+token,
+        dataType:'json',
+        async:false,
+        success:function(data){
+            console.log(data);
+        },
+        error:function(jqXHR){
+            if(jqXHR.status == 400){
+
+            }
+        }
+    })
+}
+imgUPload(9);

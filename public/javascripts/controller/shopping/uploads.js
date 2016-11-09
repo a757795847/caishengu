@@ -61,7 +61,7 @@ function newUploader(imgNumber){
                 var domain = up.getOption('domain');
                 var res = eval('(' + info + ')');
                 var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
-                var imageBoxs = '';
+                var imageBoxs ='';
                 imageBoxs += '<div class="imgBox"><button type="button" data-index="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                 imageBoxs += '<img src="'+ Src +'"></div>'
                 $('#container').before(imageBoxs);
@@ -76,8 +76,7 @@ function newUploader(imgNumber){
             },
             'Error': function (up, err, errTip) {
 
-            }
-            ,
+            },
             'Key': function (up, file) {
                 var key = imagetoken[1];
                 return key

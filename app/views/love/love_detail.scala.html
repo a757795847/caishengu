@@ -16,9 +16,16 @@
                 <a class="btn turn" href="/love">返回</a>
                 <div class="box-body">
                     <div class="add">
-                        <div class="detailedImg" id="images">
-                            <p>图片</p>
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
 
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="box">
@@ -55,6 +62,10 @@
     </div>
 
 } {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/love/detail.js")"></script>
 }
 

@@ -32,11 +32,11 @@ $("#newpage").click(function(){
 });
 
 
- $(document).ready(function () {
+ $(document).ready(function (){
      $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
          {
-             "page":0 ,
-             "limit": 5,
+             "page":0,
+             "limit":5,
          },
          function (data) {
                  var tbody = "";
