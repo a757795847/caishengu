@@ -34,6 +34,10 @@
             var financing_date = $('#reservation').val();
             var stage_id2 = $('#stageId2').val();
             var money = $('#money').val();
+            imgUPload(imageLogo);
+            for(var i=0;i<images.length;i++){
+                imgUPload(images[i]);
+            }
             $.ajax({
                 type:'POST',
                 url:"http://" + backend_host + '/web/staff/news/financing?'+token,
@@ -235,6 +239,23 @@
                 newUploader(father,child);
             }
 
+        })
+    }
+    //   通知图片上传成功
+    function imgUPload(imgId){
+        $.ajax({
+            type:'PUT',
+            url:'http://' + backend_host + '/other/file/'+imgId+'?'+token,
+            dataType:'json',
+            async:false,
+            success:function(data){
+                console.log(data);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
         })
     }
 })(jQuery)

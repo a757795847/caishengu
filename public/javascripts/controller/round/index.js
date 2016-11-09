@@ -44,17 +44,12 @@
             dataType:'json',
             success:function(data){
                 console.log(data);
-                var rounds = '' , stateUrl = '';
+                var rounds = '' ;
                 for (var i = 0; i < data.length; i++) {
-                    if(state == 'apply'){
-                        stateUrl = '/round/detail?wait&'+data[i].quanzi_id;
-                    }else{
-                        stateUrl = '/round/detail?out&'+data[i].quanzi_id;
-                    }
                     rounds += '<tr><td>'+data[i].quanzi_name+'</td><td>'+data[i].owner+'</td><td>'+data[i].contact_phone+'</td>'
-                    rounds += '<td><span class="label label-info"><a href="'+stateUrl+'">查看详情</a></span>';
+                    rounds += '<td><span class="label label-info"><a href="/round/detail?'+data[i].state+'&'+data[i].quanzi_id+'">查看详情</a></span>';
                     if(state == 'apply'){
-                        rounds += '<span class="label label-info"><a class="accept" href="#">通过</a></span><span class="label label-info">';
+                        rounds += '<span class="label label-info"><a data-id="'+data[i].quanzi_id+'" class="accept" href="#">通过</a></span><span class="label label-info">';
                         rounds += '<a class="reject" data-id="'+data[i].quanzi_id+'" href="#" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
                     }
                 }
@@ -85,7 +80,6 @@
         $('#reason').on('click',function(){
             var reasonText = $('#myModal textarea').val();
             stateAjax('reject',dataId,reasonText)
-            $('#myModal textarea').val('')
         })
     })
     $('#wait tbody:eq(0)').on('click','.accept',function(event){
@@ -102,21 +96,23 @@
                 'reject_reason':reject_reason
             }
         }
-        $.ajax({
-            type:'PUT',
-            url:"http://" + backend_host + '/web/staff/quanzi/entity/' + dataId +'?'+token,
-            data:data,
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
-
-                }
-            }
-        })
+        console.log(data);
+        console.log(dataId);
+        // $.ajax({
+        //     type:'PUT',
+        //     url:"http://" + backend_host + '/web/staff/quanzi/entity/' + dataId +'?'+token,
+        //     data:data,
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //         $('#myModal textarea').val('')
+        //     },
+        //     error:function(jqXHR){
+        //         if(jqXHR.status == 400){
+        //
+        //         }
+        //     }
+        // })
     }
 
 })(jQuery)

@@ -1,83 +1,20 @@
 (function($){
-
-    // {
-    //     quanzi_id:
-    //         string *
-    //         圈子id
-    //     quanzi_logo:
-    //         string *
-    //         圈子logo
-    //     quanzi_title:
-    //         string *
-    //         圈子标题
-    //     class_name:
-    //         string *
-    //         圈子类别名称
-    //     class_id:
-    //         string *
-    //         圈子类别id
-    //     owner:
-    //         string *
-    //         圈主
-    //     introduction:
-    //         string *
-    //         圈子简介
-    // }
-
-    var data = {
-        'quanzi_id' : '123456',
-        'quanzi_logo':'/dsfds/fsdf/dsf.jpg',
-        'quanzi_title':'Touchjet',
-        'class_name':'',
-        'class_id':'',
-        'owner':'张三',
-        'introduction':'哇哇哇哇哇哇'
-    };
-
-
-
     var stateUrl = window.location.search.split('?')[1].split('&');
-    if(stateUrl[0] == 'wait'){
+    if(stateUrl[0] == 'apply'){
         detailAjax(stateUrl[1]);
-        $('#waitBtn').css('display','block');
-        $('#reason').on('click',function(){
-            var reasonText = $('#myModal textarea').val();
-            stateAjax('reject',stateUrl[1],reasonText)
-            $('#myModal textarea').val('')
+        $('#apply').css('display','block');
+        $('#reject').on('click',function(){
+            var reasonText = $('#myModalWait textarea').val();
+            stateAjax('reject',reasonText);
         })
         $('#accept').on('click',function(event){
             var dataId = $(this).attr('data-id');
-            stateAjax('accept',stateUrl[1]);
+            stateAjax('accept');
         })
-        function stateAjax(state,dataId,reject_reason){
-            var data = {
-                state:state
-            };
-            if(arguments.length == 3){
-                data = {
-                    'state':state,
-                    'reject_reason':reject_reason
-                }
-            }
-            $.ajax({
-                type:'PUT',
-                url:"http://" + backend_host + '/web/staff/quanzi/entity/' + dataId +'?'+token,
-                data:data,
-                dataType:'json',
-                success:function(data){
-                    console.log(data);
 
-                },
-                error:function(jqXHR){
-                    if(jqXHR.status == 400){
-
-                    }
-                }
-            })
-        }
-    }else if(stateUrl[0] == 'out'){
+    }else if(stateUrl[0] == 'underway'){
         detailAjax(stateUrl[1]);
-        $('#outBtn').css('display','block');
+        $('#underway').css('display','block');
     }
 
     function detailAjax(dataId){
@@ -123,5 +60,33 @@
         })
     }
 
+    function stateAjax(state,reject_reason){
+        var data = {
+            state:state
+        };
+        if(arguments.length == 2){
+            data = {
+                'state':state,
+                'reject_reason':reject_reason
+            }
+        }
+        console.log(data);
+        console.log(stateUrl[1]);
+        // $.ajax({
+        //     type:'PUT',
+        //     url:"http://" + backend_host + '/web/staff/quanzi/entity/' + stateUrl[1] +'?'+token,
+        //     data:data,
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //          $('#myModal textarea').val('')
+        //     },
+        //     error:function(jqXHR){
+        //         if(jqXHR.status == 400){
+        //
+        //         }
+        //     }
+        // })
+    }
 
 })(jQuery)

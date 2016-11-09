@@ -19,7 +19,7 @@ button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
     height: 26px;
 }
 /*round-manage*/
-.form-group {
+#add .form-group {
     margin-bottom: 15px;
     width: 30%;
 }
@@ -30,7 +30,7 @@ button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
     border-top: 1px solid #f4f4f4;
 }
 /*btn*/
-#waitBtn, #outBtn{
+#apply, #underway{
     display: none;
 }
 

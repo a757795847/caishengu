@@ -1,43 +1,41 @@
-.file {
-    position: relative;
-    display: inline-block;
-    background: #ffffff;
-    border: 1px solid #d2d6de;
-    border-radius: 4px;
-    padding: 2px 12px;
-    overflow: hidden;
-    color: #333333;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
-}
-.file input {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-}
-.file:hover {
-    background: #ffffff;
-    border-color: #d2d6de;
-    color: #004974;
-    text-decoration: none;
-}
-.outBtn{
-    margin-top: -5px;
-    margin-right: 5px;
-}
 input.form-control.formCenter.inputLeft {
     height: 25px;
     width: 80%;
     border-radius: 12px;
 }
 /*rule*/
-.form-group {
-     margin-bottom: 0;
-}
 select.form-control.select2 {
     width: 50%;
     height: 25px;
+}
+.daterangepicker.dropdown-menu.show-calendar.opensleft {
+    margin-top: 350px;
+}
+#modelRule .form-group {
+    margin-bottom: 0;
+    margin-bottom: 10px;
+}
+/*ticket*/
+#ticket img{
+    width: 30px;
+    height: 30px;
+    margin-top: -6px;
+}
+#modelTicket .form-group {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+#modelTicket .addImg {
+     width: auto;
+     height: auto;
+     line-height: inherit;
+}
+#modelTicket input{
+    width: 35%;
+}
+#modelTicket textarea{
+    width:200%;
+}
+#fsUploadProgress .imgBox button {
+    top: -7px;
 }

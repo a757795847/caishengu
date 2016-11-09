@@ -13,10 +13,7 @@
     margin-left: 10px;
 }
 
-/*wait*/
-/*.box.box-info {*/
-    /*background-image: linear-gradient(to left,#b9f0fd 1%,white 55%);*/
-/*}*/
+
 .eventNews, .eventMaster {
     padding: 10px 0;
     border-bottom: 1px solid #d2d6de;
@@ -27,28 +24,6 @@
     border-bottom: none;
     padding-top: 0;
 }
-
-/*.eventNews, .eventMaster {*/
-    /*margin: 20px 0;*/
-    /*font-size: 16px;*/
-    /*line-height: 28px;*/
-    /*border-bottom: 1px solid #000;*/
-    /*padding-bottom: 20px;*/
-/*}*/
-
-/*.eventMaster {*/
-    /*border: none;*/
-/*}*/
-
-/*.event button.btn.btn-default.pull-right {*/
-    /*margin-right: 20px;*/
-/*}*/
-
-/*.event .row {*/
-    /*margin-right: 0;*/
-/*}*/
-
-/*.eventNews img {*/
-    /*width: 120px;*/
-    /*margin-right: 10px;*/
-/*}*/
+#apply , #underway{
+    display: none;
+}

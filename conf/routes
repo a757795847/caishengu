@@ -54,9 +54,6 @@ GET        /shareholder                  controllers.ShareholderController.index
 #shopping page
 GET        /shopping                     controllers.ShoppingController.index
 GET        /shopping/detail              controllers.ShoppingController.detail
-#GET        /shopping/out                 controllers.ShoppingController.out
-#GET        /shopping/receive             controllers.ShoppingController.receive
-#GET        /shopping/wait                controllers.ShoppingController.waits
 GET        /shopping/frame               controllers.ShoppingController.frame
 GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
 

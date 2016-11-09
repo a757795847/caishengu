@@ -24,7 +24,7 @@
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm">
-                                                <input id="waitText" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                                <input id="waitText" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/活动名称">
 
                                                 <div class="input-group-btn">
                                                     <button id="waitSearch" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -39,7 +39,7 @@
                                             <table class="table no-margin">
                                                 <thead>
                                                     <tr>
-                                                        <th>活动姓名</th>
+                                                        <th>活动名称</th>
                                                         <th>联系人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -71,7 +71,7 @@
                                     <div class="box-header">
                                         <div class="box-tools">
                                             <div class="input-group input-group-sm">
-                                                <input id="outText" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                                <input id="outText" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/活动名称">
 
                                                 <div class="input-group-btn">
                                                     <button id="outSeatch" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -85,7 +85,7 @@
                                             <table class="table no-margin">
                                                 <thead>
                                                     <tr>
-                                                        <th>活动姓名</th>
+                                                        <th>活动名称</th>
                                                         <th>联系人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -124,7 +124,7 @@
         </section>
     </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalWait" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -142,7 +142,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button"  class="btn btn-default" data-dismiss="modal">确定</button>
+                    <button id="refuse" type="button"  class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>

@@ -36,14 +36,20 @@
                             <li>联系电话：<span id="contactPhone"></span></li>
                         </ul>
                     </div>
-
+                    <div id="apply">
+                        <button type="button" class="btn btn-default btn-lg pull-right" data-toggle="modal" data-target="#myModalWait">拒绝</button>
+                        <button id="yesBtn" type="button" class="btn btn-default btn-lg pull-right">通过</button>
+                    </div>
+                    <div id="underway">
+                        <button id="colseBtn" type="button" class="btn btn-primary btn-lg pull-right">删除</button>
+                    </div>
                 </div>
             </div>
         </section>
 
             <!-- /.content -->
     </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalWait" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -61,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" id="noBtn" class="btn btn-default">确定</button>
+                    <button type="button" id="noBtn" class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>

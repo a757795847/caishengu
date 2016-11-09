@@ -49,19 +49,16 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="box">
+                    <div class="add">
                         <p>反馈</p>
-                        <div id="preview" class="upload_preview"></div>
-                        <div class="add">
-                            <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
-                                <div  id="fsUploadProgress">
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
 
-                                    <div class="addImg" id="container">
-                                        <a id="pickfiles" href="#" >
-                                            <i class="glyphicon glyphicon-plus"></i>
-                                            <span>选择文件</span>
-                                        </a>
-                                    </div>
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>选择文件</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -78,8 +75,9 @@
     <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
     <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/controller/love/love.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/uploads.js")"></script>
 }
 
 

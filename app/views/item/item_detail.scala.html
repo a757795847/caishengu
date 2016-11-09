@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <ol class="breadcrumb pull-left">
-                <li><a href="/item"><i class="fa fa-heart"></i>项目审批</a></li>
+                <li><a href="/item"><i class="fa  fa-share-alt"></i>项目审批</a></li>
                 <li><a href="#">待审批项目详情</a></li>
             </ol>
         </section>
@@ -39,7 +39,13 @@
                             </ul>
                         </div>
                     </div>
-
+                    <div id="apply">
+                        <button type="button" id="yesBtn" class="btn btn-default pull-right col-md-1 col-lg-1" >通过</button>
+                        <button type="button" class="btn btn-default pull-right col-md-1 col-lg-1" data-toggle="modal" data-target="#myModalWait">拒绝</button>
+                    </div>
+                    <div id="underway">
+                        <button id="colseBtn" type="button" class="btn btn-primary pull-right col-md-1 col-lg-1" >删除</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -48,7 +54,7 @@
     </div>
 
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalWait" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -66,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-default">确定</button>
+                    <button id="noBtn" type="button" class="btn btn-default">确定</button>
                 </div>
             </div>
         </div>

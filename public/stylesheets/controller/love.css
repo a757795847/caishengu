@@ -19,44 +19,14 @@
     width: 300px;
     line-height: 25px;
 }
-/*picture*/
-.add img {
-    width: 100px;
-    height: 120px;
-    margin-right: 12px;
+
+/*detail*/
+.box p.spot{
+    font-weight: bold;
 }
-#addImgs{
-    overflow: hidden;
-}
-#fsUploadProgress{
-    float: left;
-}
-.imgBox{
-    float: left;
-    position: relative;
-    z-index: 99;
-}
-#fsUploadProgress .imgBox button{
-    position: absolute;
-    z-index: 1000;
-    top: -12px;
-    right: 4px;
-    color: #000;
+#detail .add, #fileSubmit{
     display: none;
 }
-
-.addImg {
-    border: 1px solid #eee;
-    display: inline-block;
-    width: 100px;
-    height: 120px;
-    line-height: 120px;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
 .add p, .addNews p {
     font-size: 14px;
 }

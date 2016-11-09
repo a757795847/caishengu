@@ -19,3 +19,6 @@
 button.btn.btn-default.pull-right.col-md-1.col-lg-1 {
     margin-left: 20px;
 }
+#accept,#underway{
+    display: none;
+}

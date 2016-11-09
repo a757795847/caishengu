@@ -7,30 +7,27 @@
         url:"http://" + backend_host + '/web/staff/activity/'+url[1]+'?'+token,
         dataType:'json',
         success:function(data){
-
             console.log(data);
 
-            $('#poster').attr('src',data.poster);
+            $('#poster').attr('src','http://' + backend_host +'/'+data.poster+'?'+token);
             $('#startDateTime').text(data.start_datetime);
             $('#endDateTime').text(data.end_datetime);
-            $('#hostaddress').text(data.host_address);
+            $('#hostAddress').text(data.host_address);
             $('#host').text(data.host);
             $('#limitDateTime').text(data.limit_datetime);
-            $('#limitperson').text(data.limit_person);
+            $('#limitPerson').text(data.limit_person);
             $('#introduction').text(data.introduction);
             $('#contactPerson').text(data.contact_person);
             $('#contactPhone').text(data.contact_phone);
             $('#state').text(data.state);
+            $('#noBtn').attr('data-id',data.activity_id);
+            $('#yesBtn').attr('data-id',data.activity_id);
+            $('#colseBtn').attr('data-id',data.activity_id);
 
-            var btnYes = '<button type="button" class="btn btn-default btn-lg pull-right" data-toggle="modal" data-target="#myModal">拒绝</button>';
-                btnYes += '<button id="yesBtn" type="button" class="btn btn-default btn-lg pull-right">通过</button>';
-            console.log(btnYes)
-            var btnNo = '<button id="colseBtn" type="button" class="btn btn-primary btn-lg pull-right">删除</button>';
-
-            if(url[1] == 'abc'){
-                $('.box-body:eq(0)').append(btnYes);
+            if(url[0] == 'apply'){
+                $('#apply').css('display','block');
             }else{
-                $('.box-body:eq(0)').append(btnNo);
+                $('#underway').css('display','block');
             }
         },
         error:function(jqXHR){
@@ -41,18 +38,41 @@
     })
 
     $('#noBtn').on('click',function(){
-        var reason = $('#myModal textarea').val();
-        console.log(reason);
-        $.ajax({
-            type:'PUT',
-            url:'http://' + backend_host + '/web/staff/activity/'+url+'?'+token,
-            data:{
-                'state': 'reject'
-            },
-            dataType:'json',
-            success:function(data){
-                
+        var reason = $('#myModalWait textarea').val();
+        stateAjax('reject',reason);
+    })
+    $('#yesBtn').on('click',function(){
+        stateAjax('accept');
+    })
+    function stateAjax(state,reject_reason){
+        var datas = {};
+        if(arguments.length == 1){
+            datas = {
+                'state':state
             }
-        })
+        }else{
+            datas = {
+                'state':state,
+                'reject_reason':reject_reason
+            }
+        }
+        // $.ajax({
+        //     type:'PUT',
+        //     url:"http://" + backend_host + '/web/staff/activity/'+url[1]+'?'+token,
+        //     data:datas,
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //         $('#myModalWait textarea').val('');
+        //     },
+        //     error:function(jqXHR){
+        //         if(jqXHR.status == 400){
+        //
+        //         }
+        //     }
+        // })
+    }
+    $('#colseBtn').on('click',function(){
+
     })
 })(jQuery)

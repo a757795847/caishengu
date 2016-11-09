@@ -2,7 +2,7 @@
     //分类列表
     $.ajax({
         type:'GET',
-        url:'http://' + backend_host + '/web/staff/goods/market/class?access_token=10ae0842b11080b0b6c9412773164797',
+        url:'http://' + backend_host + '/web/staff/goods/market/class?'+token,
         dataType:'json',
         success:function(data){
             console.log(data);
@@ -57,8 +57,23 @@
     });
     $('#className').on('click','button',function(){
         var text = $(this).next().text();
+        var dataId = $(this).next().attr('data-id');
+        var thisBtn = $(this);
         if(confirm('是否删除'+text+'这个分类')){
-            $(this).parent().remove();
+            $.ajax({
+                type:'PUT',
+                url:'http://' + backend_host + '/web/staff/goods/market/class?class_id='+dataId+'&valid=false&'+token,
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    thisBtn.parent().remove();
+                },
+                error:function(jqXHR,textStatus,errorThrown){
+                    if(jqXHR.status == 400){
+
+                    }
+                }
+            })
         }
     })
 
