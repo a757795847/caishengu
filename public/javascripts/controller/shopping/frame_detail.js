@@ -49,7 +49,7 @@ if(detailUrl.length > 1 ){
             url:'http://' + backend_host + '/web/staff/goods/market?'+token,
             data:{
                 'class_id': detailUrl,
-                'images':['dfasdfas/dfasdf'],
+                'images':images,
                 'title':title,
                 'price_money':priceMoney,
                 'price_coin':priceCoin,
@@ -134,7 +134,6 @@ function changeDetailAjax(frame){
     })
 }
 
-//    上传图片
 
 
 

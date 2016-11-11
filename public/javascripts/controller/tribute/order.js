@@ -1,22 +1,4 @@
 (function($){
-    // [
-    //     WebStaffOrderVirtualCollectionGetResItem {
-    //     order_id:
-    //     string *
-    //     订单id
-    //     order_description:
-    //     string *
-    //     订单描述
-    //     user_name:
-    //     string *
-    //     购买人
-    //     phone:
-    //     string *
-    //     联系方式
-    // }
-    // ]
-
-
     $.ajax({
         type:'GET',
         url:"http://" + backend_host + '/web/staff/order/virtual/collection?'+token+'&state=all',
@@ -32,8 +14,6 @@
         },
         error:function(jqXHR){
             console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
             if(jqXHR.status == 400){
 
             }
@@ -63,8 +43,6 @@
             },
             error:function(jqXHR){
                 console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
                 if(jqXHR.status == 400){
 
                 }

@@ -59,8 +59,6 @@ GET        /shopping/frame/detail        controllers.ShoppingController.frameDet
 
 #stat page
 GET        /statistics                   controllers.StatisticsController.index
-GET        /statistics/action            controllers.StatisticsController.action
-GET        /statistics/data              controllers.StatisticsController.data
 
 #tribute page
 GET        /tribute/order                controllers.TributeController.order

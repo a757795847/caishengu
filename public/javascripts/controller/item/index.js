@@ -13,7 +13,7 @@
         }
         $.ajax({
             type:'GET',
-            url:"http://" + backend_host + '/web/staff/activity?'+token,
+            url:"http://" + backend_host + '/web/staff/project?'+token,
             data:datas,
             dataType:'json',
             success:function(data){
@@ -21,10 +21,12 @@
                 var wait = '', url = '';
                 url = state == 'apply'?'apply':'underway';
                 for (var i = 0; i < data.length; i++) {
-                    wait += '<tr><td>'+data[i].activity_name+'</td><td>'+data[i].contact_person+'</td><td>'+data[i].contact_phone+'</td>';
+                    wait += '<tr><td>'+data[i].project_name+'</td><td>'+data[i].contact_person+'</td><td>'+data[i].contact_phone+'</td>';
                     wait += '<td><span class="label label-info"><a href="/item/detail?'+url+'&'+data[i].activity_id+'">查看详情</a></span>';
-                    wait += '<span class="label label-info"><a data-id="'+data[i].activity_id+'" class="accept" href="#">通过</a></span><span class="label label-info">';
-                    wait += '<a class="reject" data-id="'+data[i].activity_id+'" href="#" data-toggle="modal" data-target="#myModalWait">拒绝</a></span></td>';
+                    if(state == 'apply'){
+                        wait += '<span class="label label-info"><a data-id="'+data[i].project_id+'" class="accept" href="#">通过</a></span><span class="label label-info">';
+                        wait += '<a class="reject" data-id="'+data[i].project_id+'" href="#" data-toggle="modal" data-target="#myModalWait">拒绝</a></span></td>';
+                    }
                     if(state == 'accepted'){
                         wait +='<td>张三</td><td>2014-04-04 12:32:32</td>';
                     }
@@ -65,35 +67,25 @@
         })
     })
     function stateAjax(dataId,state,reject_reason){
-        var datas = {};
-        if(arguments.length == 2){
-            datas = {
-                'state':state
-            }
-        }else{
-            datas = {
-                'state':state,
-                'reject_reason':reject_reason
-            }
+        var dataUrl = 'http://' + backend_host + '/web/staff/project/'+dataId+'?'+token+'&state='+state;
+        if(arguments.length == 3){
+            dataUrl += '&reject_reason='+reject_reason;
         }
-        console.log(dataId)
-        console.log(state)
-        console.log(reject_reason)
-        // $.ajax({
-        //     type:'PUT',
-        //     url:"http://" + backend_host + 'PUT /web/staff/activity/'+dataId+'?'+token,
-        //     data:datas,
-        //     dataType:'json',
-        //     success:function(data){
-        //         console.log(data);
-        //         $('#myModalWait textarea').val('');
-        //     },
-        //     error:function(jqXHR){
-        //         if(jqXHR.status == 400){
-        //
-        //         }
-        //     }
-        // })
+        console.log(dataUrl);
+        $.ajax({
+            type:'PUT',
+            url:dataUrl,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                $('#myModalWait textarea').val('');
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
     }
 
 })(jQuery)

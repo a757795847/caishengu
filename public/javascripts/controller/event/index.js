@@ -65,34 +65,24 @@
         })
     })
     function stateAjax(dataId,state,reject_reason){
-        var datas = {};
-        if(arguments.length == 2){
-            datas = {
-                'state':state
-            }
-        }else{
-            datas = {
-                'state':state,
-                'reject_reason':reject_reason
-            }
+        var dataUrl = 'http://' + backend_host + '/web/staff/activity/'+dataId+'?'+token+'&state='+state;
+        if(arguments.length == 3){
+            dataUrl += '&reject_reason='+reject_reason;
         }
-        console.log(dataId)
-        console.log(state)
-        console.log(reject_reason)
-        // $.ajax({
-        //     type:'PUT',
-        //     url:"http://" + backend_host + 'PUT /web/staff/activity/'+dataId+'?'+token,
-        //     data:datas,
-        //     dataType:'json',
-        //     success:function(data){
-        //         console.log(data);
-        //         $('#myModalWait textarea').val('');
-        //     },
-        //     error:function(jqXHR){
-        //         if(jqXHR.status == 400){
-        //
-        //         }
-        //     }
-        // })
+        console.log(dataUrl);
+        $.ajax({
+            type:'PUT',
+            url:dataUrl,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                $('#myModalWait textarea').val('');
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
     }
 })(jQuery)

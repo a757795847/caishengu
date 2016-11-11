@@ -11,12 +11,8 @@ if(detailUrl[0] == 'edit' ){
                 imageChange = data.images[i].split('/')[3];
                 imageBoxs += '<div class="imgBox"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                 imageBoxs += '<img src="http://' + backend_host +data.images[i]+'?'+token+'"></div>';
-                images.push(imageChange);
-            }
-            if(data.images.length < 2){
-                newUploader(1);
-            }else{
-                $('#pickfiles span').text('最多添加'+2+'张');
+                images = imageChange[0];
+                $('#container').hide();
             }
             $('#container').before(imageBoxs);
             $('#title').val(data.title);
@@ -29,7 +25,6 @@ if(detailUrl[0] == 'edit' ){
             }
         }
     })
-    cancelImages(1);
     $('#saveGoods').on('click',function(){
         changeDetailAjax('http://' + backend_host + '/web/staff/goods/virtual/entity/'+detailUrl[1]+'?'+token,true);
     })
@@ -42,6 +37,7 @@ if(detailUrl[0] == 'edit' ){
         var title = $('#title').val();
         var priceCoin = $('#priceCoin').val();
         var pricePoint = $('#pricePoint').val();
+        images = [images];
         $.ajax({
             type:'POST',
             url:'http://' + backend_host + '/web/staff/goods/virtual?'+token,
@@ -56,7 +52,7 @@ if(detailUrl[0] == 'edit' ){
             dataType:'json',
             success:function(data){
                 console.log(data);
-                //location.href = '/tribute/frame';
+                location.href = '/tribute/frame';
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -72,6 +68,8 @@ function changeDetailAjax(url,frame){
     var title = $('#title').val();
     var priceCoin = $('#priceCoin').val();
     var pricePoint = $('#pricePoint').val();
+    images = [images];
+    console.log(images);
     $.ajax({
         type:'PUT',
         url:url,

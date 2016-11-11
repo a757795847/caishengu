@@ -82,7 +82,7 @@
     //门票列表
     function ticketAjax(searchText){
         var ajaxData = {};
-        if(arguments.length > 1){
+        if(arguments.length == 1){
             ajaxData = {
                 'keyword' : searchText
             }
@@ -122,13 +122,20 @@
         $('#addNew').attr('href','/shopping/frame/detail?' + addNew);
         frameList(addNew);
     })
-    function frameList(addNew){
+    function frameList(addNew,searchText){
+        var datas = {
+            'class_id':addNew
+        };
+        if(arguments.length == 2){
+            datas = {
+                'keyword' : searchText,
+                'class_id':addNew
+            };
+        }
         $.ajax({
             type:'GET',
             url:'http://' + backend_host + '/web/staff/goods/market?'+token,
-            data:{
-                'class_id':addNew
-            },
+            data:datas,
             dataType:'json',
             success:function(data){
                 console.log(data);
@@ -154,35 +161,7 @@
         var searchText = $('#goodsText').val();
         var goodsClassId = $(this).attr('data-id');
         console.log(goodsClassId);
-        $.ajax({
-            type:'GET',
-            url:"http://" + backend_host + '/web/staff/goods/market?'+token,
-            data:{
-                'keyword' : searchText,
-                'class_id':goodsClassId
-            },
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-                var frames = '', valid = '';
-                for(var i = 0; i<data.length; i++){
-                    valid = data[i].valid? '上架':'下架';
-                    frames += '<tr><td><img src="http://' + backend_host+data[i].goods_image+'" />';
-                    frames += '<span>'+data[i].goods_name +'</span><span>￥'+data[i].price_money+'</span></td><td>';
-                    frames += '<span class="label label-info"><a href="#">'+ valid +'</a></span><span class="label label-info">';
-                    frames += '<a href="/shopping/frame/detail?frame&'+data[i].goods_id+'">编辑</a></span></td></tr>';
-                }
-                $('#goods tbody:eq(0)').html(frames);
-            },
-            error:function(jqXHR,textStatus,errorThrown){
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-                if(jqXHR.status == 400){
-
-                }
-            }
-        })
+        frameList(goodsClassId,searchText);
     })
 
 })(jQuery)

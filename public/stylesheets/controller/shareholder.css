@@ -1,17 +1,3 @@
-.addImg {
-    display: inline-block;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.addImg input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
 
 .modal-content img {
     width: 300px;
@@ -23,16 +9,36 @@
         margin: 300px auto;
     }
 }
-
+#upload .box{
+    padding: 0 20px;
+}
 #upload .box-header {
-    margin-bottom: 40px;
+    margin-bottom: 0;
+}
+#upload .add{
+    float: right;
+    margin-right: -10px;
+}
+#upload .addImg {
+     width: auto;
+     height: auto;
+     line-height: inherit;
+    background: #eee;
+    padding: 5px 40px;
+    border-radius: 6px;
+}
+
+#fsUploadProgress .imgBox button{
+    top: -7px;
+}
+#fsUploadProgress .imgBox{
+    float: none;
 }
 
 #upload .callout {
     border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
     box-shadow: 0px 1px 1px;
-    width: 40%;
 }
 
 #upload .callout p {
@@ -43,9 +49,8 @@
 }
 
 #upload .box-header > .box-tools {
-    position: absolute;
-    left: 0px;
-    top: 5px;
+    position: initial;
+    float: right;
 }
 
 #upload .label.label-info {
