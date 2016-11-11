@@ -1,6 +1,7 @@
 
 @main("财神谷动态","live.index") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/live.css")">
 } {
     <div class="content-wrapper">
         <section class="content-header">
@@ -13,7 +14,7 @@
                 <div class="box-header">
                     <div class="box-tools">
                         <div class="input-group input-group-sm">
-                            <a class="btn btn-default pull-right" href="/live/add">新增</a>
+                            <a class="btn btn-default pull-right" href="/live/add" id="adds">新增</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +43,7 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/csgNews/index.js")"></script>
+    <script src="@routes.Assets.at("javascripts/live_index.js")"></script>
 }
 
 

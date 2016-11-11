@@ -21,7 +21,9 @@ img{
 	line-height: inherit;
 }
 #fsUploadProgress .imgBox button{
+	position:relative;
 	top: -7px;
+	right:13px;
 }
 #fsUploadProgress .imgBox{
 	float: none;

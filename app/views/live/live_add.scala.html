@@ -13,8 +13,8 @@
         <section class="content" id="add">
             <div class="box box-info">
                 <div class="box-header">
-                    <a class="btn btn-default" href="/live">返回</a>
-                    <a class="btn btn-default pull-right" href="#">保存</a>
+                    <a class="btn btn-default" href="/live" id="turn">返回</a>
+                    <a id="addNews" class="btn btn-default pull-right" href="#">保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
@@ -24,7 +24,7 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-tags"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="请输入标题">
+                            <input type="text" class="form-control" placeholder="请输入标题" id="trends">
                         </div>
                     </div>
                     <div class="form-group">
@@ -33,7 +33,7 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="请输入链接地址">
+                            <input type="text" class="form-control" placeholder="请输入链接地址" id="address">
                         </div>
                     </div>
                 </div>
@@ -42,6 +42,6 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/live_add.js")"></script>
 }
 

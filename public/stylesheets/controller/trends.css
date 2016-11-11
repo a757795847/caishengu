@@ -1,3 +1,59 @@
+
+/*返回*/
+.content-header>.breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    padding: 7px 5px;
+    position: initial;
+    border-radius: 2px;
+}
+section.content-header {
+    padding-bottom: 20px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: none;
+}
+table>tbody>tr>td{
+    border-bottom: 1px solid #f4f4f4;
+}
+#turn{
+    padding: 6px 24px;
+    border-radius: 13px;
+    margin-left: 10px;
+    font-size: 0.75rem;
+    line-height: 18px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
+    color:#fff;
+}
+#addNews{
+    float:right;
+    margin-right:12px;
+    padding: 6px 24px;
+    border-radius: 13px;
+    font-size: 0.75rem;
+    line-height: 18px;
+    margin-bottom: 8px;
+    background-color: #55acee;
+    border: none;
+    color:#fff;
+
+}
+/*点*/
+.spot{
+    font-weight: bold;
+}
+.spot:before {
+    content: " ";
+    height: 12px;
+    width: 6px;
+    background: #00c0ef;
+    display: inline-block;
+}
 img{
     width: 40px;
     height: 30px;
@@ -5,30 +61,38 @@ img{
 }
 
 /*add*/
+#add #addImgs img{
+    width: 100px;
+    height: 120px;
+}
+#addImgs{
+    overflow: hidden;
+}
+#fsUploadProgress{
+    float: left;
+}
+.imgBox{
+    float: left;
+    position: relative;
+    z-index: 99;
+}
+#fsUploadProgress .imgBox button{
+    position: absolute;
+    z-index: 1000;
+    top: -5px;
+    right: 4px;
+    color: #000;
+    display: none;
+}
+
 .addImg {
-    margin-top: 22px;
+    border: 1px solid #eee;
     display: inline-block;
+    width: 100px;
+    height: 120px;
+    line-height: 120px;
     text-align: center;
     font-size: 14px;
     margin-bottom: 10px;
     position: relative;
-}
-
-.addImg input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
-.form-group {
-    width: 30%;
-}
-.box-header {
-    margin-bottom: 0;
-}
-#add .box-body{
-    border-top: 1px solid #f4f4f4;
-}
-.box-body form{
-    margin-top: -10px;
 }

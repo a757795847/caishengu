@@ -64,6 +64,8 @@ var uploader = Qiniu.uploader({
             imageBoxs += '<div class="imgBox"><button type="button" data-name="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
             imageBoxs += '<img src="'+ Src +'"></div>';
             $('#container').hide();
+
+            
             $('#container').before(imageBoxs);
             console.log(images);
         },

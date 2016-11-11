@@ -89,6 +89,52 @@ function newUploader(imgNumber) {
     });
 }
 newUploader(4);
+function newPDF(pdfNumber) {
+    var uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',
+        browse_button: 'addPdf',
+        container:'content',
+        uptoken: imagetoken[0],
+        unique_names:false,
+        multi_selection: false,
+        save_key: false,
+        domain: 'http://qiniu-plupload.qiniudn.com/',
+        get_new_uptoken: true,
+        auto_start: true,
+        log_level: 5,
+        filters: {
+            mime_types: [
+                {title: "Pdf files", extensions: "pdf"}
+            ]
+        },
+        init: {
+            'FilesAdded': function (up, files) {
+
+            },
+            'BeforeUpload': function (up, file) {
+
+            },
+            'UploadProgress': function (up, file) {
+
+            },
+            'UploadComplete': function () {
+
+            },
+            'FileUploaded': function (up, file, info) {
+              alert("haha");
+            },
+            'Error': function (up, err, errTip){
+
+            }
+            ,
+            'Key': function (up, file) {
+                var key = imagetoken[1];
+                return key
+            }
+        }
+    });
+}
+newPDF(1);
 $('#fsUploadProgress').on('mousemove ','.imgBox',function(){
     $(this).find('button').css('display','block');
 })

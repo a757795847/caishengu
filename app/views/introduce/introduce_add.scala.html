@@ -1,6 +1,5 @@
 
 @main("财神谷介绍","introduce.index") {
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/trends.css")">
 } {
     <div class="content-wrapper">
@@ -13,8 +12,8 @@
         <section class="content" id="add">
             <div class="box box-info">
                 <div class="box-header">
-                    <a class="btn btn-default" href="/introduce">返回</a>
-                    <a class="btn btn-default pull-right" href="#">保存</a>
+                    <a class="btn btn-default" href="/introduce" id="turn">返回</a>
+                    <a id="addNews" class="btn btn-default pull-right" href="#" >保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
@@ -24,7 +23,7 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-tags"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="请输入标题">
+                            <input type="text" class="form-control" placeholder="请输入标题" id="title">
                         </div>
                     </div>
                     <div class="form-group">
@@ -33,17 +32,21 @@
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="请输入链接地址">
+                            <input type="text" class="form-control" placeholder="请输入链接地址" id="address">
                         </div>
                     </div>
-                    <div>
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <a class="btn btn-default col-md-2 col-lg-2 addImg" href="javascript:;">
-                                上传图片
-                                <input type="file" name="picture" />
-                            </a>
+                    <div class="add">
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
 
-                        </form>
+                                <div class="addImg btn btn-default" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>上传图片</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +54,12 @@
     </div>
 
 } {
-    <script src="@routes.Assets.at("javascripts/controller/home.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/upload.js")"></script>
+    <script src="@routes.Assets.at("javascripts/introduce_add.js")"></script>
 }
 
