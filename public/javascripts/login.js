@@ -28,6 +28,7 @@ $('#btn').on('click', function () {
             },
             dataType: 'json',
             success: function (data) {
+                console.log(data);
                 $.ajax({
                     type: 'GET',
                     url: "http://" + backend_host + '/web/person/privilege?access_token=10ae0842b11080b0b6c9412773164797',
@@ -35,28 +36,37 @@ $('#btn').on('click', function () {
                     success: function (data) {
                         var datas = "";
                         $.each(data, function (i, order) {
-                             console.log(order);
-                          if(order==true){
-                              datas+=[i]+',';
-                              console.log([i]);
+                            console.log(order);
+                            if (order == true) {
+                                datas += [i] + ',';
+                                console.log([i]);
 
-                                         }
+                            }
 
-                                                         });
+                        });
                         console.log(datas);
-                       datas=datas.substr(0, datas.length-1);
+                        datas = datas.substr(0, datas.length - 1);
                         console.log(datas);
                         localStorage.setItem("user_list", datas);
-                                             }
+                    }
 
 
-                        })
-
-                                      }
-             })
+                })
+               if(data.scope=="staff"){
+                   window.location.href="/statistics";
+               }else if(data.scope=="admin"){
+                   window.location.href="/merchart/index";
+               }else if(data.scope=="user"){
+                   window.location.href="/myproject/index";
+                   
+               }else{
+                   window.location.href="/homepage";
+               }
             }
+        })
+    }
 
-                                });
+});
 
 
    /* error: function(jqXHR){
