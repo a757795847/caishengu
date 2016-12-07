@@ -7,56 +7,6 @@
         dataType:'json',
         success:function(data){
             console.log(data);
-            // {
-            //     project_id:
-            //         string *
-            //         项目id
-            //     project_name:
-            //         string *
-            //         项目名称
-            //     project_logo:
-            //         string *
-            //         logo
-            //     short_introduction:
-            //         string *
-            //         短简介
-            //     loaction:
-            //         string *
-            //         地区
-            //     project_type:
-            //         string *
-            //         类型
-            //     introduction:
-            //         string *
-            //         项目详情
-            //     images:
-            //         [
-            //             介绍图
-            //             string
-            //         ]
-            //     appeal:
-            //         string *
-            //         诉求
-            //     contact_address:
-            //         string *
-            //         联系地址
-            //     website:
-            //         string *
-            //         官网
-            //     email:
-            //         string *
-            //         邮箱
-            //     contact_person:
-            //         string *
-            //         联系人
-            //     contact_phone:
-            //         string *
-            //         联系方式
-            //     state:
-            //         string *
-            //         申请状态
-            // }
-
             $('#project_logo').attr('src',data.project_logo);
             $('#projectTitle').text(data.project_title);
             $('#shortIntroduction').text(data.short_introduction);
@@ -99,33 +49,26 @@
     $('#yesBtn').on('click',function(){
         stateAjax('accept');
     })
-    function stateAjax(state,reject_reason){
-        var datas = {};
-        if(arguments.length == 1){
-            datas = {
-                'state':state
-            }
-        }else{
-            datas = {
-                'state':state,
-                'reject_reason':reject_reason
-            }
+    function stateAjax(dataId,state,reject_reason){
+        var dataUrl = 'http://' + backend_host + '/web/staff/project/'+dataId+'?'+token+'&state='+state;
+        if(arguments.length == 3){
+            dataUrl += '&reject_reason='+reject_reason;
         }
-        // $.ajax({
-        //     type:'PUT',
-        //     url:"http://" + backend_host + '/web/staff/project/'+url[1]+'?'+token,
-        //     data:datas,
-        //     dataType:'json',
-        //     success:function(data){
-        //         console.log(data);
-        //         $('#myModalWait textarea').val('');
-        //     },
-        //     error:function(jqXHR){
-        //         if(jqXHR.status == 400){
-        //
-        //         }
-        //     }
-        // })
+        console.log(dataUrl);
+        $.ajax({
+            type:'PUT',
+            url:dataUrl,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                $('#myModalWait textarea').val('');
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
     }
     $('#colseBtn').on('click',function(){
 

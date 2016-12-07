@@ -7,14 +7,6 @@ import play.api.mvc._
   */
 class StatisticsController extends Controller {
     def index = Action {
-        Ok(views.html.stat.statistics_index())
-    }
-
-    def action = Action {
-        Ok(views.html.stat.statistics_action())
-    }
-
-    def data = Action {
-        Ok(views.html.stat.statistics_data())
+        Ok(views.html.statistics.statistics_index())
     }
 }

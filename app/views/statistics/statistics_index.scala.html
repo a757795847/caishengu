@@ -1,0 +1,230 @@
+@main("统计", "statistics.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/statistics.css")">
+} {
+
+    <div class="content-wrapper ">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-pie-chart"></i>统计</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#user" data-toggle="tab" aria-expanded="true">用户信息</a></li>
+                            <li class=""><a href="#consume" data-toggle="tab" aria-expanded="false">消费行为</a></li>
+                            <li class=""><a href="#misc" data-toggle="tab" aria-expanded="false">数据分析</a></li>
+                        </ul>
+                        <div class="tab-content">
+                                <!-- Font Awesome Icons -->
+                            <div class="tab-pane active" id="user">
+                                <div class="box overDiv">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm-4">
+                                                <!-- small box -->
+                                            <div class="small-box bg-aqua">
+                                                <div class="inner">
+                                                    <h4>注册用户数</h4>
+
+                                                    <p>1500000</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-user-plus"></i>
+                                                </div>
+                                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-4">
+                                                <!-- small box -->
+                                            <div class="small-box bg-yellow">
+                                                <div class="inner">
+                                                    <h4>男性</h4>
+
+                                                    <p>800000       55%</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa  fa-mars"></i>
+                                                </div>
+                                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-4">
+                                                <!-- small box -->
+                                            <div class="small-box bg-red">
+                                                <div class="inner">
+                                                    <h4>女性</h4>
+
+                                                    <p>700000       45%</p>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="fa fa-venus"></i>
+                                                </div>
+                                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="box box-primary">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">性别比例</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div id="sex">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="box box-success">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">年龄段</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div id="age">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="box box-danger">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">地区</h3>
+                                                </div>
+                                                <div class="box-body" style="width: 50%;float: left;">
+                                                    <div id="map">
+
+                                                    </div>
+                                                </div>
+                                                <div class="box-body" style="width: 50%;float: left;">
+                                                    <div id="city" >
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="consume">
+                                <div class="box">
+                                    <div class="overDiv">
+                                        <button type="button" class="btn btn-default btn-sm pull-right">导出</button>
+                                        <select class="form-control">
+                                            <option selected="selected">2016年</option>
+                                            <option>2015年</option>
+                                            <option>2014年</option>
+                                            <option>2013年</option>
+                                        </select>
+                                        <select class="form-control">
+                                            <option selected="selected">1月</option>
+                                            <option>2月</option>
+                                            <option>3月</option>
+                                            <option>4月</option>
+                                            <option>5月</option>
+                                            <option>6月</option>
+                                        </select>
+                                    </div>
+                                    <div id="action">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="misc">
+                                <div class="box ">
+                                    <div class="row">
+                                        <div class="overDiv">
+                                            <div class="col-lg-4 col-sm-4">
+                                                    <!-- small box -->
+                                                <div class="small-box bg-green">
+                                                    <div class="inner">
+                                                        <h4>在线人数</h4>
+
+                                                        <p>12,312</p>
+                                                    </div>
+                                                    <div class="icon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="box box-primary">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">在线时间</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div id="onDate">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="box box-success">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">供奉时间</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div id="inDate">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="box box-danger">
+                                                <div class="box-header with-border">
+                                                    <h3 class="box-title">线下商户消费统计</h3>
+                                                </div>
+                                                <div class="box-body">
+                                                    <div class="overDiv">
+                                                        <button type="button" class="btn btn-default btn-sm pull-right">导出</button>
+                                                        <select class="form-control">
+                                                            <option selected="selected">2016年</option>
+                                                            <option>2015年</option>
+                                                            <option>2014年</option>
+                                                            <option>2013年</option>
+                                                        </select>
+                                                        <select class="form-control">
+                                                            <option selected="selected">1月</option>
+                                                            <option>2月</option>
+                                                            <option>3月</option>
+                                                            <option>4月</option>
+                                                            <option>5月</option>
+                                                            <option>6月</option>
+                                                        </select>
+                                                    </div>
+                                                    <div id="commercial">
+
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                    </div>
+                            <!-- /.tab-content -->
+                </div>
+                        <!-- /.nav-tabs-custom -->
+            </div>
+        </section>
+    </div>
+
+} {
+    <script src="@routes.Assets.at("javascripts/echarts.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/statistics/index.js")"></script>
+}
+
+

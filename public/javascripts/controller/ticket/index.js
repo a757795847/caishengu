@@ -227,9 +227,9 @@
         var ticketName = $('#ticketName').val();
         var remarkVal = $('#remark').val();
         var datas = {
-            'name':'222',
-            'image':'20161108be6d4487-4306-4498-a991-bb20f3eab15d',
-            'remark':'2222222222'
+            'name':ticketName,
+            'image':images,
+            'remark':remarkVal
         };
         datas = JSON.stringify(datas);
         // 192.168.1.100:9000
@@ -242,6 +242,7 @@
             success:function(data){
                 console.log(data);
                 imgUPload(images);
+                images = '';
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -254,8 +255,8 @@
         var ruleDate = $('#ruleDate').val().split('-');
         var ruleMoney = $('#ruleMoney').val();
         var couponId = $('#couponId option:selected').attr('data-id');
-        ruleDate[0] = ruleDate[0].replace(/(\/)/g,'-');
-        ruleDate[1] = ruleDate[1].replace(/(\/)/g,'-');
+        ruleDate[0] = ruleDate[0].trim().replace(/(\/)/g,'-');
+        ruleDate[1] = ruleDate[1].trim().replace(/(\/)/g,'-');
         var datas = {
             'start_date':ruleDate[0],
             'end_date':ruleDate[1],
@@ -263,9 +264,7 @@
             'coupon_id':couponId
         };
         datas = JSON.stringify(datas);
-        console.log(ruleDate);
-        console.log(ruleMoney);
-        console.log(couponId);
+        console.log(datas);
         $.ajax({
             type:'POST',
             contentType:"application/json",
@@ -275,6 +274,7 @@
             success:function(data){
                 console.log(data);
                 imgUPload(images);
+                images = '';
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){

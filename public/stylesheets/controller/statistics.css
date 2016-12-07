@@ -1,0 +1,28 @@
+#user .box.box-primary,#misc .box.box-primary {
+    border-top: 3px solid #3c8dbc;
+}
+#user .box.box-danger,#misc .box.box-danger {
+    border-top: 3px solid #dd4b39;
+}
+#user .box.box-success,#misc .box.box-success {
+    border-top: 3px solid #00a65a;
+}
+#user #sex,#user #age,#user #map,#user #city, #misc #onDate,#misc #inDate,#misc #commercial{
+    height: 300px;
+}
+
+#consume .overDiv , #misc .overDiv{
+    overflow: hidden;
+}
+#consume .overDiv button, #misc .overDiv button{
+    padding: 7px 20px;
+}
+#consume .overDiv select, #misc .overDiv select{
+    float: left;
+    width: calc(45% - 16px);
+    margin-right: 16px;
+}
+#consume #action{
+    margin-top: 20px;
+    height: 600px;
+}

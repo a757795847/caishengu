@@ -104,4 +104,98 @@
         })
     })
 
+    var imagetoken =[];
+    $('#pickfiles').on('click',function(){
+        imagetoken = [];
+        imagetokens();
+    })
+    function imagetokens(){
+        $.ajax({
+            type:'POST',
+            url:'http://' + backend_host + '/other/file/apply?'+token,
+            dataType:'json',
+            async:false,
+            success:function(data){
+                imagetoken.push(data.token);
+                imagetoken.push(data.file_key);
+
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        });
+    }
+    imagetokens();
+//创建上传七牛
+
+    var uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',
+        browse_button: 'container',
+        container: 'addImgs',
+        uptoken: imagetoken[0],
+        unique_names: false,
+        multi_selection: false,
+        max_file_size:'3mb',
+        save_key: false,
+        domain: 'http://qiniu-plupload.qiniudn.com/',
+        get_new_uptoken: true,
+        auto_start: true,
+        log_level: 5,
+        filters: {
+            mime_types: [
+                {title : "pdf files", extensions : "pdf"}
+            ]
+        },
+        init: {
+            'FilesAdded': function (up, files) {
+
+            },
+            'BeforeUpload': function (up, file) {
+
+            },
+            'UploadProgress': function (up, file) {
+
+            },
+            'UploadComplete': function () {
+
+            },
+            'FileUploaded': function (up, file, info) {
+                var domain = up.getOption('domain');
+                var res = eval('(' + info + ')');
+                var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
+                pdfUPload(imagetoken[1]);
+                
+                console.log(pdfName);
+            },
+            'Error': function (up, err, errTip) {
+
+            }
+            ,
+            'Key': function (up, file) {
+                var key = imagetoken[1];
+                return key;
+            }
+        }
+    });
+
+//   通知文件上传成功
+    function pdfUPload(pdfName){
+        $.ajax({
+            type:'PUT',
+            url:'http://' + backend_host + '/other/file/'+pdfName+'?'+token,
+            dataType:'json',
+            async:false,
+            success:function(data){
+                console.log(data);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
+    }
+
 })(jQuery)

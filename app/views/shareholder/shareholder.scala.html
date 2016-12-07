@@ -121,13 +121,17 @@
                             <div class="tab-pane" id="upload">
                                 <div class="box">
                                     <div class="box-header">
-                                        <div class="box-tools">
-                                            <form action="#" method="post" enctype="multipart/form-data">
-                                                <a class="btn btn-default addImg" href="javascript:;">
-                                                    点击上传文件(仅支持PDF文件)
-                                                    <input type="file" name="picture" />
-                                                </a>
-                                            </form>
+                                        <div class="add">
+                                            <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                                <div  id="fsUploadProgress">
+
+                                                    <div class="addImg" id="container">
+                                                        <a id="pickfiles" href="#" >
+                                                            点击上传文件(仅支持PDF)
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                         <!-- /.box-header -->
@@ -197,6 +201,11 @@
     </div>
 
 } {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/shareholder/shareholder.js")"></script>
 }
 
