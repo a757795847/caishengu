@@ -121,7 +121,26 @@ function newPDF(pdfNumber) {
 
             },
             'FileUploaded': function (up, file, info) {
-              alert("haha");
+                var sub = "";
+                sub+='<div id="container"><div id="ads">';
+                sub+='<span class="close">关闭</span><p>广告内容：gbtags.com</p><div class="close-win">';
+                sub+='<div class="line"></div></div></div></div>';
+                
+                $("#cell").append(sub);
+
+                $('#ads').addClass('slideRight');
+                $('.close').on('click', function () {
+                    $('.close-win').show();
+                });
+                $('.line').on('webkitAnimationEnd animationend', function () {
+                    //隐藏广告
+                    $('#ads').hide();
+                    setTimeout(function(){
+                        $('#ads').removeClass('slideRight').css({"bottom":"-100px","display":"block"});
+                    },300);
+                    //隐藏关闭效果层
+                    $('.close-win').hide();
+                })
             },
             'Error': function (up, err, errTip){
 
@@ -135,6 +154,8 @@ function newPDF(pdfNumber) {
     });
 }
 newPDF(1);
+
+
 $('#fsUploadProgress').on('mousemove ','.imgBox',function(){
     $(this).find('button').css('display','block');
 })

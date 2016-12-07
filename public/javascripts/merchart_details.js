@@ -30,33 +30,55 @@ console.log(val);
             })
 
 })
+console.log(val);
     $("#confirm").click(function(){
         $(".example-modal").css("display","none");
 
     });
-
+    
 $("#keep").click(function(){
     var contact_person=$("#user_name").val();
     var contact_phone=$("#tel").val();
     var shop_name=$("#shop").val();
     var shop_address=$("#address").val();
     var account=$("#account").val();
-    $.ajax({
-        type:'PUT',
-        url:"http://" + backend_host + '/web/admin/manage/shop/'+val+'?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-        data: {
-            "contact_person": contact_person,
-            "contact_phone": contact_phone,
-            "shop_name": shop_name,
-            "shop_address" :shop_address,
-            "account": account
-        },
-        dataType:'json',
-        success:function(data){
+    if( val!="http://localhost:9000/merchart/details"){
+        $.ajax({
+            type:'PUT',
+            url:"http://" + backend_host + '/web/admin/manage/shop/'+val+'?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+            data: {
+                "contact_person": contact_person,
+                "contact_phone": contact_phone,
+                "shop_name": shop_name,
+                "shop_address" :shop_address,
+                "account": account
+            },
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+            }
 
-        }
+        })
 
-    })
+    }else {
+        $.ajax({
+            type: 'POST',
+            url: "http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+            data: {
+                "user_phone":"111",
+                "user_password":"hyh123456",
+                "contact_person": contact_person,
+                "contact_phone": contact_phone,
+                "shop_name": shop_name,
+                "shop_address": shop_address,
+                "account": account
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
 
+        })
+    }
     
 });

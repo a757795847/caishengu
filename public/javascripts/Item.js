@@ -15,8 +15,12 @@ var url=window.location.href;
 var indexOf=url.indexOf("?");
 var val=url.substr(indexOf+1);
 console.log(val);
-
-$(document).ready(function () {
+$("#clear").click(function(){
+    $("textarea").val("");
+    
+    
+});
+/*$(document).ready(function () {
     $.get("http://" + backend_host + '/web/staff/user/'+val+'?access_token=10ae0842b11080b0b6c9412773164797',
         function (data) {
             console.log(data);
@@ -26,7 +30,6 @@ $(document).ready(function () {
             $("#user_position").html(data.user_position);
             if(data.is_investor==true){
                 $("#is_investor").html("是");
-
             }else{
                 $("#is_investor").html("否");
             }
@@ -39,7 +42,7 @@ $(document).ready(function () {
             $("#birthday").html(data.birthday);
             $("#birthdate").html(data.birthdate);
             $("#location").html(data.location);
-            $("#avatar").attr("src",'@routes.Assets.at("images'+data.avatar+'")');
+          //  $("#avatar").attr("src",'@routes.Assets.at("images'+data.avatar+'")');
 
 
 
@@ -47,5 +50,13 @@ $(document).ready(function () {
 
 
         })
-});
+});*/
 
+$('table img').zoomify();
+
+   /*var sub= $(".zoomify").attr("class");
+    if(sub="zoomify zoomed"){
+        console.log("ss");
+        $(".zoomify").css("transform","scale(10.4)translate(39.527px,13.2955px)");
+
+    }*/

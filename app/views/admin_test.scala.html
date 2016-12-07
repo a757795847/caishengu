@@ -13,14 +13,13 @@
 
             </div>
                 <div class="form-group">
-                    <input id="username" class="form-control" type="text" size="15" name="userId"
+                    <input id="username" class="form-control" type="text" maxlength="12" name="userId"
                     placeholder="请输入用户名"/>
-                    <p error-message id=UserId></p>
                 </div>
-                <div class="form-group">
-                    <input id="password" class="form-control" type="password" size="15" name="password"
+                <div class="form-group" id="passwords">
+                    <input id="password" class="form-control" type="password" maxlength="10" name="password"
                     placeholder="请输入密码"/>
-                    <p error-message id=UserPwd></p>
+                    <p id="prompt"></p>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b" id="btn">登录</button>
 
@@ -32,7 +31,6 @@
 
         <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
             <!-- jQuery UI 1.11.4 -->
-        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
 
         <script src="@routes.Assets.at("javascripts/config/global_config.js")"></script>

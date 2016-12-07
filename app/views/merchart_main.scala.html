@@ -1,4 +1,4 @@
-@(title: String)(before: Html)(content: Html)(after: Html)
+@(title: String,selectedTab: String = "")(before: Html)(content: Html)(after: Html)
 
 <!DOCTYPE html>
 
@@ -84,7 +84,7 @@
 
             </nav>
         </header>
-            @merchart_sidebar(1)
+            @merchart_sidebar(0, selectedTab)
              @content
 
             </div>

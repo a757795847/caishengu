@@ -49,12 +49,11 @@ body{
 }
 #btn{
     text-align:center;
-    margin-top:5px;
+    margin-top:13px;
     height:25px;
     line-height:13px;
     width:100%;
     border-radius:5px;
-    margin-left:5px;
 
 
 
@@ -77,5 +76,15 @@ body{
     right: 10px;
     top: 50%;
     margin-top: -20px;
+
+}
+#prompt{
+    position: absolute;
+    top: 27px;
+    color: #d21b1b;
+
+}
+#passwords{
+    position:relative;
 
 }

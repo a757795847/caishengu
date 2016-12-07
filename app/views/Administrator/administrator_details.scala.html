@@ -1,4 +1,4 @@
-@merchart_main("新增/编辑管理员"){
+@merchart_main("新增/编辑管理员","administrator_index"){
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Compile.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/blue.css")">
 
@@ -6,7 +6,7 @@
     <div class="content-wrapper row">
         <section class="content" >
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>管理员账号</a></li>
+                <li><a href="/administrator/index"><i class="fa fa-dashboard"></i>管理员账号</a></li>
                 <li class="active">新增/编辑管理员</li>
             </ol>
 
@@ -50,7 +50,7 @@
                                     <table class="table table-hover table-striped">
                                         <tbody>
                                             <tr>
-                                                <td><input type="checkbox"  id="statistics"></td>
+                                                <td><input type="checkbox"  id="statistic"></td>
                                                 <td class="mailbox-date"><span>统计</span></td>
                                             </tr>
                                             <tr>
@@ -70,8 +70,20 @@
                                                 <td class="mailbox-date"><span>商城订单管理</span></td>
                                             </tr>
                                             <tr>
+                                                <td><input type="checkbox" id="goods_market"></td>
+                                                <td class="mailbox-date"><span>在线商城货架管理</span></td>
+                                            </tr>
+                                            <tr>
                                                 <td><input type="checkbox" id="Tripute"></td>
                                                 <td class="mailbox-date"><span>贡品订单管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="goods_ticket"></td>
+                                                <td class="mailbox-date"><span>门票管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="finance_approve"></td>
+                                                <td class="mailbox-date"><span>财务审批</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="Financial"></td>
@@ -80,6 +92,14 @@
                                             <tr>
                                                 <td><input type="checkbox" id="Activity"></td>
                                                 <td class="mailbox-date"><span>活动审批</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="coupon"></td>
+                                                <td class="mailbox-date"><span>优惠券管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="donate"></td>
+                                                <td class="mailbox-date"><span>爱心捐赠管理</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="Project"></td>
@@ -100,6 +120,18 @@
                                             <tr>
                                                 <td><input type="checkbox" id="Business"></td>
                                                 <td class="mailbox-date"><span>创业头条管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="caishengu_trend"></td>
+                                                <td class="mailbox-date"><span>财神谷动态管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="caishengu_introduction"></td>
+                                                <td class="mailbox-date"><span>财神谷介绍管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="caishengu_live"></td>
+                                                <td class="mailbox-date"><span>财神谷现场直播管理</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
