@@ -89,7 +89,7 @@ console.log(data);
 
 
 $("#jqueryPage").pagination({
-    count: 25, //总数
+    count: 5, //总数
     size:5, //每页数量
     index: 1,//当前页
     lrCount: 3,//当前页左右最多显示的数量

@@ -1,7 +1,7 @@
-@merchart_main("历史记录") {
+@merchart_main("历史记录","merchart_index") {
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/datepicker3.css")">
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/history.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/History.css")">
 } {
 
     <div class="content-wrapper row">
@@ -89,8 +89,8 @@
 
 
             </div>
-            <button type="btn"class="btn btn-default">确定</button>
-            <button type="btn"class="btn btn-default" id="clear">清除</button>
+            <button type="btn"class="btn btn-default pull-left" id="comfirm">确定</button>
+            <button type="btn"class="btn btn-primary" id="clear">清除</button>
                 <!-- /.box -->
         </div>
     </div>

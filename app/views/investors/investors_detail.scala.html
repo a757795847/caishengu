@@ -1,6 +1,10 @@
 
 @main("投资人详情","investors.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap-grid.min.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/zoomify.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Item.css")">
+
 } {
 
     <div class="content-wrapper">
@@ -48,8 +52,8 @@
                                         <td>排名: <span>10</span></td>
                                     </tr>
                                     <tr>
-                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")"class="Img">
-                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img"></td>
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")">
+                                            <img src="@routes.Assets.at("images/logo.jpg")"></td>
                                     </tr>
                                     <tr>
                                         <td>投资阶段: <span>A轮之前</span></td>
@@ -81,8 +85,8 @@
                                 <h4>股东信息</h4>
                                 <table>
                                     <tr>
-                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
-                                            <img src="@routes.Assets.at("images/logo.jpg")" class="Img">
+                                        <td>证明资料: <img src="@routes.Assets.at("images/logo.jpg")">
+                                            <img src="@routes.Assets.at("images/logo.jpg")">
                                         </td>
                                     </tr>
 
@@ -105,7 +109,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
-
+                        <h4>请填写拒绝理由!</h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" role="form">
@@ -113,15 +117,20 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal">确定</button>
-                        <button class="btn btn-default" data-dismiss="modal">清除</button>
+                        <button class="btn btn-default pull-left" data-dismiss="modal" id="comfirm">确定</button>
+                        <button class="btn btn-primary" id="clear">清除</button>
                     </div>
                 </div>
             </div>
         </div>
 
+
         } {
+    <script src="@routes.Assets.at("javascripts/zoomify.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/Item.js")"></script>
+
+
+
 }
 
 

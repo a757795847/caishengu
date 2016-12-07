@@ -1,10 +1,10 @@
-@merchart_main("管理员账号"){
+@merchart_main("管理员账号","administrator_index"){
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/Administrator.css")">
 } {
     <div class="content-wrapper">
         <section class="content">
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>管理员账号</a></li>
+                <li><a href="/administrator/index"><i class="fa fa-dashboard"></i>管理员账号</a></li>
             </ol>
 
                 <!-- TABLE: LATEST ORDERS -->
@@ -16,7 +16,7 @@
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default">新建</button>
+                    <button type="button" class="btn btn-default" id="news">新建</button>
                 </div>
                 <div class="box-header with-border">
 
@@ -28,7 +28,7 @@
                             <table class="table no-margin" id="Table">
                                 <thead>
                                     <tr>
-                                        <th>商户 ID</th>
+                                        <th>管理员 ID</th>
                                         <th>管理员</th>
                                         <th>操作</th>
                                     </tr>
@@ -44,12 +44,7 @@
                         <!-- /.box-body -->
                         <!-- /.box-footer -->
                 </div>
-                <div class="dropdown pull-right" >
-                    <nav>
-                        <ul class="pagination">
-
-                        </ul>
-                    </nav>
+                <div class="jqueryPage" id="jqueryPage">
                 </div>
                     <!-- /.box -->
             </div>
@@ -58,6 +53,7 @@
     </div>
 
 } {
+    <script src="@routes.Assets.at("javascripts/jqueryPage.js")"></script>
     <script src="@routes.Assets.at("javascripts/adminstrator_index.js")"></script>
 
 }

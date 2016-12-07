@@ -6,6 +6,7 @@ $(document).ready(function () {
             "limit": 5,
         },
         function (data) {
+            console.log('1')
             var tbody = "";
             $.each(data, function (i, order) {
                tbody ='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
@@ -19,57 +20,35 @@ $(document).ready(function () {
 
 
 
-            var tab = '<li id="Left"><a href="#">&laquo;</a></li>';
-            for(var i=0;i<5;i++){
-                tab +='<li><a href="#">'+[i+1]+'</a></li>'
-            }
-            tab += '<li id="Right"><a href="#">&raquo;</a></li>';
-                $('.pagination').append(tab);
 
 
         })
 });
 
-$('.pagination:eq(0)').on('click','li',function() {
-    var index = $(this).index() - 1;
-    if (index == 0) {
-        $("#Left").addClass("disabled");
-    } else {
-        $("#Left").removeClass('disabled');
 
-    }
-    var index_right = $(this).index() + 1;
-    if (index_right == 6) {
-        $("#Right").addClass("disabled");
-
-    } else {
-        $("#Right").removeClass('disabled');
-    }
-    $(this).addClass('active').siblings().removeClass('active');
-
+function indexAjxa(index,size){
     $.get("http://" + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":index,
-            "limit":5
+            "limit":size
         },
         function (data) {
             console.log(data);
             var tbody = "";
-            $.each(data, function (i,order) {
+            $.each(data, function (i, order) {
                 tbody ='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
-                tbody +='<td><span class="label label-info" ><a href="/administrator/details">编辑</a></span></td></tr>';
+                tbody +='<td><span class="label label-info" ><a href="/administrator/details?'+order.id+'">编辑</a></span></td></tr>';
 
-
-
-
+               // $('#Table').find('tbody').append(tbody);
+                console.log(tbody);
             });
             $('#Table').find('tbody').html(tbody);
 
 
         }
     )
-});
+}
 
 $('[type="submit"]').click(function(){
     var keyword=$('[name="table_search"]').val();
@@ -98,4 +77,24 @@ $('[type="submit"]').click(function(){
 
 
 
+});
+$("#news").click(function(){
+    window.location.href="/administrator/details";
+
+});
+
+$("#jqueryPage").pagination({
+    count: 5, //总数
+    size:5, //每页数量
+    index: 2,//当前页
+    lrCount: 3,//当前页左右最多显示的数量
+    lCount: 1,//最开始预留的数量
+    rCount: 1,//最后预留的数量
+    callback: function (options) {
+        var index = options.index -1;
+        var size = options.size;
+        indexAjxa(index,size);
+        //options.count = 300;
+        //return options;
+    },
 });

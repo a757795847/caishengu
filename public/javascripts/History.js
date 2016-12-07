@@ -1,3 +1,4 @@
+//日历插件
 $('#btnLeft').click(function(){
     if($('#eacl').is(':hidden')){
         $('#eacl').show();}
@@ -48,20 +49,35 @@ var data=[
 ]
 
 $(document).ready(function () {
-   /* $.get("http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-        function (data) {
-            console.log(data);
-        });*/
-        $.each(data, function (i, order) {
+    $.ajax({
+        type: 'GET',
+        url: "http://" + backend_host + '/web/admin/manage/shop/' + val + '/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+        dataType: 'json',
+        success: function (data) {
             var body = "";
-            body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' +order.money+ '</span> </p>'
-            body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
-            body += '<span class="lt" id="Name">'+order.from_id+'</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
-            $('#Table').append(body);
-        });
+            $.each(data, function (i, order) {
+                body += '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' + order.money + '</span> </p>'
+                body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+                body += '<span class="lt" id="Name">' + order.from_id + '</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+                $("#Table").append(body);
+            });
 
 
+        }
 
+
+        /* $.get("http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+         success: function (data) {
+         $.each(data, function (i, order) {
+         var body = "";
+         body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' + order.money + '</span> </p>'
+         body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+         body += '<span class="lt" id="Name">' + order.from_id + '</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+         $('#Table').append(body);
+         });
+         }
+         );*/
+    });
 });
 
 function indexAjxa(index,size){
@@ -72,19 +88,20 @@ function indexAjxa(index,size){
         },
         function (data) {
             var body = "";
-            body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' +order.money+ '</span> </p>'
-            body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
-            body += '<span class="lt" id="Name">'+order.from_id+'</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
-            $('#Table').append(body);
+            $.each(data, function (i, order) {
+                body = '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' + order.money + '</span> </p>'
+                body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+                body += '<span class="lt" id="Name">' + order.from_id + '</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+                $('#Table').append(body);
 
-
+            });
         }
     )
 }
 
 
 $("#jqueryPage").pagination({
-    count: 25, //总数
+    count: 5, //总数
     size:5, //每页数量
     index: 1,//当前页
     lrCount: 3,//当前页左右最多显示的数量
