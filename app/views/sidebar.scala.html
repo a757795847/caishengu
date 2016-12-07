@@ -13,45 +13,43 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="treeview @active("stat.index")">
+            <li class="treeview user-list-hide @active("statistics.index")" data-token="statistic">
                 <a href="/statistics">
                     <i class="fa fa-pie-chart"></i>
                     <span>统计</span>
                 </a>
             </li>
-            @if(userType == 0) {
-                <li class="treeview @active("approve.index")">
-                    <a href="/approve">
-                        <i class="fa fa-briefcase"></i>
-                        <span>财务审批</span>
-                    </a>
-                </li>
-            }
-            <li class="treeview @active("manage.index")">
+            <li class="treeview user-list-hide @active("approve.index")" data-token="finance_approve" >
+                <a href="/approve">
+                    <i class="fa fa-briefcase"></i>
+                    <span>财务审批</span>
+                </a>
+            </li>
+            <li class="treeview user-list-hide @active("manage.index")" data-token="finance">
                 <a href="/manage">
                     <i class="fa fa-laptop"></i>
                     <span>财务管理</span>
                 </a>
             </li>
-            <li class="treeview @active("user.index")">
+            <li class="treeview user-list-hide @active("user.index")" data-token="user_related">
                 <a href="/user">
                     <i class="fa fa-users"></i>
                     <span>用户相关</span>
                 </a>
             </li>
-            <li class="treeview @active("investors.index")">
+            <li class="treeview user-list-hide @active("investors.index")" data-token="investor">
                 <a href="/investors">
                     <i class="fa  fa-send "></i>
                     <span>投资人管理</span>
                 </a>
             </li>
-            <li class="treeview @active("shareholder.index")">
+            <li class="treeview user-list-hide @active("shareholder.index")" data-token="shareholder">
                 <a href="/shareholder">
                     <i class="fa fa-gg"></i>
                     <span>股东管理</span>
                 </a>
             </li>
-            <li class="treeview @active("shopping.index") @active("shopping.frame")">
+            <li class="treeview user-list-hide @active("shopping.index") @active("shopping.frame")" data-token="order">
                 <a href="#">
                     <i class="fa fa-cart-plus"></i>
                     <span>商城订单管理</span>
@@ -68,7 +66,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview @active("tribute.order") @active("tribute.frame")">
+            <li class="treeview user-list-hide @active("tribute.order") @active("tribute.frame")" data-token="goods_virtual">
                 <a href="#">
                     <i class="fa fa-road"></i>
                     <span>贡品订单管理</span>
@@ -85,67 +83,67 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview @active("event.index")">
+            <li class="treeview user-list-hide @active("event.index")" data-token="activity">
                 <a href="/event">
                     <i class="fa  fa-support"></i>
                     <span>活动审批</span>
                 </a>
             </li>
-            <li class="treeview @active("item.index")">
+            <li class="treeview user-list-hide @active("item.index")" data-token="project">
                 <a href="/item">
                     <i class="fa  fa-share-alt"></i>
                     <span>项目审批</span>
                 </a>
             </li>
-            <li class="treeview @active("round.index")">
+            <li class="treeview user-list-hide @active("round.index")" data-token="quanzi">
                 <a href="/round">
                     <i class="fa  fa-cubes"></i>
                     <span>圈子审批</span>
                 </a>
             </li>
-            <li class="treeview @active("csgNews.index")">
+            <li class="treeview user-list-hide @active("csgNews.index")" data-token="news_caishengu">
                 <a href="/csg">
                     <i class="fa fa-newspaper-o"></i>
                     <span>财神谷新闻</span>
                 </a>
             </li>
-            <li class="treeview @active("create.index")">
+            <li class="treeview user-list-hide @active("create.index")" data-token="news_innovation">
                 <a href="/create">
                     <i class="fa fa-file"></i>
                     <span>创业头条管理</span>
                 </a>
             </li>
-            <li class="treeview @active("borrow.index")">
+            <li class="treeview user-list-hide @active("borrow.index")" data-token="news_financing">
                 <a href="/borrow">
                     <i class="fa fa-coffee"></i>
                     <span>融资事件管理</span>
                 </a>
             </li>
-            <li class="treeview @active("ticket.index")">
+            <li class="treeview user-list-hide @active("ticket.index")">
                 <a href="/ticket">
                     <i class="fa fa-cc-diners-club"></i>
                     <span>优惠券</span>
                 </a>
             </li>
-            <li class="treeview @active("love.index")">
+            <li class="treeview user-list-hide @active("love.index")">
                 <a href="/love">
                     <i class="fa fa-heart"></i>
                     <span>爱心捐赠</span>
                 </a>
             </li>
-            <li class="treeview @active("trends.index")">
+            <li class="treeview user-list-hide @active("trends.index")">
                 <a href="/trends">
                     <i class="fa fa-flag"></i>
                     <span>财神谷动态</span>
                 </a>
             </li>
-            <li class="treeview @active("introduce.index")">
+            <li class="treeview user-list-hide @active("introduce.index")">
                 <a href="/introduce">
                     <i class="fa fa-university"></i>
                     <span>财神谷介绍</span>
                 </a>
             </li>
-            <li class="treeview @active("live.index")">
+            <li class="treeview user-list-hide @active("live.index")">
                 <a href="/live">
                     <i class="fa fa-video-camera"></i>
                     <span>财神谷现场直播</span>

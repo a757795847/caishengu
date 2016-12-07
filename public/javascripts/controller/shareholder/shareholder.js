@@ -1,11 +1,19 @@
 (function ($) {
-    function indexAjax(tabID,state){
+    function indexAjax(tabID,state,val){
+        if(arguments.length == 2){
+            var data = {
+                'apply_state': state
+            }
+        }else{
+            var data = {
+                'apply_state': state,
+                'keyword':val
+            }
+        }
         $.ajax({
             type:'GET',
             url:'http://' + backend_host + '/web/staff/shareholder?'+token,
-            data : {
-                'apply_state': state
-            },
+            data : data,
             dataType:'json',
             success:function(data){
                 console.log(data);
@@ -13,7 +21,7 @@
                     var shareholders = '';
                     for (var i = 0; i < data.length; i++) {
                         shareholders += '<tr><td>'+data[i].user_name+'</td><td><span class="label label-info">'
-                        shareholders += '<a data-src="'+data[i].image+'" data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span></td>';
+                        shareholders += '<a class="lookImg" data-src="'+data[i].image+'" data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span></td>';
                         shareholders += '<td>'+data[i].phone+'</td><td><span class="label label-info"><a href="#">查看详情</a></span>';
                         shareholders += '<span class="label label-info"><a class="success" href="'+data[i].user_id+'">通过</a></span>';
                         shareholders += '<span class="label label-info"><a class="reject" href="'+data[i].user_id+'" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
@@ -31,11 +39,11 @@
                     }
                     tabID.html(list);
                 }
-
+                $('.textShareholder').val('');
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
-
+                    errorMessage('数据读取失败');
                 }
             }
         })
@@ -59,51 +67,45 @@
                 console.log(textStatus);
                 console.log(errorThrown);
                 if(jqXHR.status == 400){
-
+                    errorMessage('操作失败,请刷新页面重试')
                 }
             }
         })
     }
 
-    $('.success').on('click',function(e){
+    $('#wait tbody:eq(0)').on('click','.success',function(e){
         e.preventDefault();
         operationAjax($(this),'success')
     })
 
-    $('.reject').on('click',function(e){
+    $('#wait tbody:eq(0)').on('click','.reject',function(e){
         e.preventDefault();
-        operationAjax($(this),'reject')
-    })
-
-    $('#searchShareholder').on('click',function(){
-        var textShareholder = $('#textShareholder').val();
-        console.log(textShareholder);
-        $.ajax({
-            type:'GET',
-            url:'http://' + backend_host + '/web/staff/shareholder?'+token,
-            data:{
-                'keyword' : textShareholder
-            },
-            dataType:'json',
-            success:function(data){
-                var users = '';
-                for (var i = 0; i < data.length; i++) {
-                    users += '<tr><td>'+data[i].user_id+'</td><td>'+data[i].user_name+'</td><td>'+data[i].user_phone+'</td>';
-                    users += '<td><span class="label label-info"><a href="#">查看</a></span></td></tr>'
-                }
-                $('#users').html(users);
-            },
-            error:function(jqXHR){
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-                if(jqXHR.status == 400){
-
-                }
+        var href = $(this).attr('href');
+        var dataId = $(this);
+        $('#noBtn').attr('data-id',href);
+        $('#noBtn').on('click',function(){
+            if(dataId.attr('href') == $(this).attr('data-id')){
+                operationAjax(dataId,'reject');
             }
         })
+
     })
 
+    $('.searchShareholder').on('click',function(){
+        var index = $(this).attr('data-eq')
+        var textShareholder = $('.textShareholder').eq(index).val();
+        if(textShareholder == ''){
+            return;
+        }
+        if(index == 0){
+            indexAjax($('#wait tbody:eq(0)'),'apply',textShareholder);
+        }else{
+            indexAjax($('#list tbody:eq(0)'),'success',textShareholder);
+        }
+    })
+
+
+    //上传文件
     var imagetoken =[];
     $('#pickfiles').on('click',function(){
         imagetoken = [];
@@ -122,7 +124,7 @@
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
-
+                    errorMessage('获取图片名称失败')
                 }
             }
         });
@@ -192,10 +194,19 @@
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
-
+                    errorMessage('文件上传失败')
                 }
             }
         })
     }
+
+    //文件
+    $('#upload').on('click','.deleteFile',function(){
+        var fileId = $(this).attr('data-id')
+        console.log(fileId);
+        errorMessage('删除文件失败')
+    })
+
+
 
 })(jQuery)

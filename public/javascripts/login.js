@@ -1,4 +1,3 @@
-
 if( location.href != "http://localhost:9000/" ){
     if(localStorage.getItem('caishengu-access_token') == null){
         location.href = '/';
@@ -19,6 +18,7 @@ $('#btn').on('click', function () {
         dataType:'json',
         success:function(data){
             console.log(data);
+            localStorage.setItem('user_list',data.length);
         },
         error:function(jqXHR){
             console.log(jqXHR.status);
