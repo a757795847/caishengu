@@ -125,6 +125,7 @@ $('#btn').on('click', function () {
                          {
                          window.location.href = "/"+datas[0].route;
                          }
+
                          else if (dataT.scope == "admin") {
                          window.location.href = "/merchart/index";
                          } else if (dataT.scope == "user") {
