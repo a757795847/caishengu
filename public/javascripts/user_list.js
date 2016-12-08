@@ -21,6 +21,11 @@ function errorMessage(text) {
     },1000)
 }
 $('#close').on('click',function () {
+    overdueToken();
+})
+
+function overdueToken() {
+    localStorage.removeItem('user_token');
     localStorage.removeItem('user_list');
     location.href = '/';
-})
+}

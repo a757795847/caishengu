@@ -23,19 +23,18 @@ folder instead of downloading all of them to reduce the load. -->
 
     </head>
     <script id="permissions" data-permissions="@permissions" type="text/javascript">
-//        function userList(permissions) {
-//            var lost = localStorage.getItem('user_list').split(',');
-//            if(lost.indexOf(permissions) == -1){
-//                history.go(-1);
-//            }
-//        }
-//        var permissions = document.getElementById('permissions').getAttribute('data-permissions');
-//        userList(permissions)
+        function userList(permissions) {
+            var lost = localStorage.getItem('user_list').split(',');
+            if(lost.indexOf(permissions) == -1){
+                window.stop ? window.stop() : document.execCommand("Stop");
+                history.go(-1);
+            }
+        }
+        var permissions = document.getElementById('permissions').getAttribute('data-permissions');
+        userList(permissions);
     </script>
     <body class="hold-transition skin-blue sidebar-mini">
-        <div id="error">
-            错误信息
-        </div>
+        <div id="error"></div>
         <div class="wrapper">
 
             <header class="main-header">
