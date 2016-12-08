@@ -29,11 +29,13 @@ $('#btn').on('click', function () {
             dataType: 'json',
             success: function (data) {
                 console.log(data);
+                var dataT = data;
                 $.ajax({
                     type: 'GET',
                     url: "http://" + backend_host + '/web/person/privilege?access_token=10ae0842b11080b0b6c9412773164797',
                     dataType: 'json',
                     success: function (data) {
+                        console.log(data);
                         var datas = "";
                         $.each(data, function (i, order) {
                             console.log(order);
@@ -48,25 +50,26 @@ $('#btn').on('click', function () {
                         datas = datas.substr(0, datas.length - 1);
                         console.log(datas);
                         localStorage.setItem("user_list", datas);
+                        if(dataT.scope=="staff"){
+                            window.location.href="/statistics";
+                        }else if(dataT.scope=="admin"){
+                            window.location.href="/merchart/index";
+                        }else if(dataT.scope=="user"){
+                            window.location.href="/myproject/index";
+
+                        }else{
+                            window.location.href="/homepage";
+                        }
                     }
 
 
                 })
-               if(data.scope=="staff"){
-                   window.location.href="/statistics";
-               }else if(data.scope=="admin"){
-                   window.location.href="/merchart/index";
-               }else if(data.scope=="user"){
-                   window.location.href="/myproject/index";
-                   
-               }else{
-                   window.location.href="/homepage";
-               }
+
             }
         })
     }
 
-});
+                                });
 
 
    /* error: function(jqXHR){
