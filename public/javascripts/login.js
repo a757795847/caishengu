@@ -1,6 +1,5 @@
-
-if( location.href != "http://localhost:9000/" ){
-    if(localStorage.getItem('caishengu-access_token') == null){
+if (location.href != "http://localhost:9000/") {
+    if (localStorage.getItem('caishengu-access_token') == null) {
         location.href = '/';
     }
 }
@@ -28,45 +27,116 @@ $('#btn').on('click', function () {
             },
             dataType: 'json',
             success: function (data) {
-                var dataT=data;
+                var dataT = data;
                 console.log(data);
                 var token = data.access_token;
                 localStorage.setItem("user_token", token);
                 $.ajax({
-                        type: 'GET',
-                        url: "http://" + backend_host + '/web/person/privilege?access_token=' + token + '',
-                        dataType: 'json',
-                        success: function (data) {
-                            var datas = "";
-                            $.each(data, function (i, order) {
-                                console.log(order);
-                                if (order == true) {
-                                    datas += [i] + ',';
-                                    console.log([i]);
-
+                    type: 'GET',
+                    url: "http://" + backend_host + '/web/person/privilege?access_token=' + token + '',
+                    dataType: 'json',
+                    success: function (data) {
+                        var datas = [];
+                        $.each(data, function (i, order) {
+                            if (order == true) {
+                                /*datas += [i] + ',';
+                                 console.log([i]);*/
+                                var route = ""
+                                switch (i) {
+                                    case "activity":
+                                        route = 'event';
+                                        break;
+                                    case "caishengu_introduction":
+                                        route = 'introduce';
+                                        break;
+                                    case "caishengu_live":
+                                        route = 'live';
+                                        break;
+                                    case "caishengu_trend":
+                                        route = 'trends';
+                                        break;
+                                    case "coupon":
+                                        route = 'ticket';
+                                        break;
+                                    case "donate":
+                                        route = 'love';
+                                        break;
+                                    case "finance":
+                                        route = 'manage';
+                                        break;
+                                    case "finance_approve":
+                                        route = 'approve';
+                                        break;
+                                    case "goods_market":
+                                        route = 'shopping';
+                                        break;
+                                    case "goods_ticket":
+                                        route = 'shopping';
+                                        break;
+                                    case "goods_virtual":
+                                        route = 'tribute';
+                                        break;
+                                    case "investor":
+                                        route = 'investors';
+                                        break;
+                                    case "news_caishengu":
+                                        route = 'csg';
+                                        break;
+                                    case "news_financing":
+                                        route = 'borrow';
+                                        break;
+                                    case "news_innovation":
+                                        route = 'create';
+                                        break;
+                                    case "order":
+                                        route = 'shopping';
+                                        break;
+                                    case "project":
+                                        route = 'item';
+                                        break;
+                                    case "quanzi":
+                                        route = 'round';
+                                        break;
+                                    case "shareholder":
+                                        route = 'shareholder';
+                                        break;
+                                    case "statistic":
+                                        route = 'statistics';
+                                        break;
+                                    case "user_related":
+                                        route = 'user';
+                                        break;
                                 }
 
-                            });
-                            console.log(datas);
-                            datas = datas.substr(0, datas.length - 1);
-                            console.log(datas);
-                            localStorage.setItem("user_list", datas);
-                            if(dataT.scope == "staff")
-                            {
-                                window.location.href = "/statistics";
+                                var item = {
+                                    name: i,
+                                    route: route
+                                }
+                                datas.push(
+                                    item
+                                )
                             }
-                            else if (dataT.scope == "admin") {
-                                window.location.href = "/merchart/index";
-                            } else if (dataT.scope == "user") {
-                                window.location.href = "/myproject/index";
 
-                            } else {
-                                window.location.href = "/homepage";
-                            }
-                        }
+                        });
+                        console.log(datas[0].route);
+                        localStorage.setItem("user_list", JSON.stringify(datas));
+
+                        if(dataT.scope == "staff")
+                         {
+                         window.location.href = "/"+datas[0].route;
+                         }
+                         else if (dataT.scope == "admin") {
+                         window.location.href = "/merchart/index";
+                         } else if (dataT.scope == "user") {
+                         window.location.href = "/myproject/index";
+
+                         } else {
+                         window.location.href = "/homepage";
+                         }
+                    }
 
 
-            })
+                })
 
             }
         })
