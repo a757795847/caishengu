@@ -1,32 +1,6 @@
 (function($){
 
 
-    // [
-    //     WebStaffFinanceApproveGetResItem {
-    //     id:
-    //     string *
-    //     财务审批申请id
-    //     money:
-    //     string *
-    //     审批金额
-    //     datetime:
-    //     string *
-    //     申请时间
-    //     shop_name:
-    //     string *
-    //     商户全称
-    //     contact_name:
-    //     string *
-    //     商户联系人
-    //     apply_id:
-    //     string *
-    //     申请人id
-    //     apply_name:
-    //     string *
-    //     申请人
-    // }
-    // ]
-
     var accepts = []; //批量同意需要用到的数组
 
     $.ajax({
@@ -48,6 +22,9 @@
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
+            }
+            if(jqXHR.status == 401){
+                overdueToken()
             }
         }
     })
@@ -88,6 +65,9 @@
             error:function(jqXHR){
                 if(jqXHR.status == 400){
 
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })
@@ -131,6 +111,9 @@
                 console.log(errorThrown);
                 if(jqXHR.status == 400){
 
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })
