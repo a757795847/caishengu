@@ -55,10 +55,10 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {*/
             var body = "";
-            $.each(data, function (i, order) {
-                body += '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' + order.money + '</span> </p>'
-                body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
-                body += '<span class="lt" id="Name">' + order.from_id + '</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
+            $.each(data, function (i, order)
+    body += '<tr></tr><td> <p style="height:36px;padding:10px"> <span class="lt" id="Transfer">' + order.finance_type + '</span><span class="rg"id="add_rmb">' + order.money + '</span> </p>'
+    body += '<p style="height:36px;padding:10px"> <span class="lt">来源:</span><span class="lt" id="user_name">' + order.from_name + '</span>'
+    body += '<span class="lt" id="Name">' + order.from_id + '</span> <span class="rg" id="date">' + order.datetime + '</span> </p> </td></tr>'
                 $("#Table").append(body);
             });
 

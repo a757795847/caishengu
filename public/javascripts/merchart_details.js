@@ -5,6 +5,11 @@ var indexOf=url.indexOf("?");   //获取第一次出现？的位置下标
 var val=url.substr(indexOf+1);
 console.log(val);
 
+$("#resetting").click(function(){
+    $(".ps").val("");
+
+
+});
 
 $("#recording").click(function(){
     window.location.href='/merchart/history?'+val+'';
@@ -42,6 +47,8 @@ $("#keep").click(function(){
     var shop_name=$("#shop").val();
     var shop_address=$("#address").val();
     var account=$("#account").val();
+    var user_phone=$("#user_phone").val();
+    var user_password=$("#user_password").val();
     if( val!="http://localhost:9000/merchart/details"){
         $.ajax({
             type:'PUT',
@@ -65,8 +72,8 @@ $("#keep").click(function(){
             type: 'POST',
             url: "http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
             data: {
-                "user_phone":contact_phone,
-                "user_password":"hyh123456",
+                "user_phone":user_phone,
+                "user_password":user_password,
                 "contact_person": contact_person,
                 "contact_phone": contact_phone,
                 "shop_name": shop_name,
