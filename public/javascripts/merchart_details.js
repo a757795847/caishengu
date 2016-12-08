@@ -65,7 +65,7 @@ $("#keep").click(function(){
             type: 'POST',
             url: "http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
             data: {
-                "user_phone":"111",
+                "user_phone":contact_phone,
                 "user_password":"hyh123456",
                 "contact_person": contact_person,
                 "contact_phone": contact_phone,

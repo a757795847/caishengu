@@ -152,3 +152,11 @@
     margin-right:6px;
 
 }
+#resetting {
+    position: absolute;
+    right: 4%;
+    bottom: 15%;
+    height: 62%;
+    font-size: 10px;
+    line-height: 9px;
+}
