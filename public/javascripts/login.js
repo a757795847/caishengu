@@ -1,5 +1,6 @@
-if (location.href != "http://localhost:9000/") {
-    if (localStorage.getItem('caishengu-access_token') == null) {
+
+if( location.href != "http://localhost:9000/" ){
+    if(localStorage.getItem('caishengu-access_token') == null){
         location.href = '/';
     }
 }

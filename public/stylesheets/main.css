@@ -17,6 +17,23 @@
     background: #54a5c5;
     border-left-color: #00c0ef;
 }
-.breadcrumb {
-    background-color: #ecf0f5;
+.user-list-hide{
+    display: none;
+}
+#error{
+    position: fixed;
+    top: -54px;
+    left: 43%;
+    width: 300px;
+    height: 54px;
+    background: #ddd;
+    z-index: 1080;
+    line-height: 54px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-transition: top .5s  ;
+    -o-transition: top .5s ;
+    -moz-transition: top .5s  ;
+    transition: top .5s  ;
 }

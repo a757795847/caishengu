@@ -1,4 +1,4 @@
-@main("统计", "statistics.index") {
+@main("统计", "statistics.index","statistic") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/statistics.css")">
 } {
@@ -114,7 +114,7 @@
                             <div class="tab-pane" id="consume">
                                 <div class="box">
                                     <div class="overDiv">
-                                        <button type="button" class="btn btn-default btn-sm pull-right">导出</button>
+
                                         <select class="form-control">
                                             <option selected="selected">2016年</option>
                                             <option>2015年</option>
@@ -129,6 +129,7 @@
                                             <option>5月</option>
                                             <option>6月</option>
                                         </select>
+                                        <button type="button" class="btn btn-default btn-sm">导出</button>
                                     </div>
                                     <div id="action">
 
@@ -186,7 +187,6 @@
                                                 </div>
                                                 <div class="box-body">
                                                     <div class="overDiv">
-                                                        <button type="button" class="btn btn-default btn-sm pull-right">导出</button>
                                                         <select class="form-control">
                                                             <option selected="selected">2016年</option>
                                                             <option>2015年</option>
@@ -201,6 +201,7 @@
                                                             <option>5月</option>
                                                             <option>6月</option>
                                                         </select>
+                                                        <button type="button" class="btn btn-default btn-sm">导出</button>
                                                     </div>
                                                     <div id="commercial">
 

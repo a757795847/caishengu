@@ -29,6 +29,9 @@ button.close {
     display: block;
     opacity: 1.2;
 }
+table tbody tr td:last-child{
+    padding-top: 16px;
+}
 /*order*/
 .box .order{
     padding-bottom: 12px;
