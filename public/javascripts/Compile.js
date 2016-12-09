@@ -88,7 +88,6 @@ $("#target").click(function(){
 
          var datas = {
                   "staff_name": staff_name,
-                  "staff_password":staff_password,
                   "staff_phone": staff_phone,
                   "statistic": statistic,
                   "user_related": User_related,
@@ -114,13 +113,40 @@ $("#target").click(function(){
 
 
     };
+    var datat={
+        "staff_name": staff_name,
+        "staff_phone": staff_phone,
+        "statistic": statistic,
+        "user_related": User_related,
+        "investor": Investor,
+        "shareholder": Shareholder,
+        "order": Mall_orders,
+        "goods_market": goods_market,
+        "goods_virtual": Tripute,
+        "goods_ticket": goods_ticket,
+        "finance_approve": finance_approve,
+        "finance": Financial,
+        "activity": Activity,
+        "project": Project,
+        "quanzi": Circle,
+        "news_caishengu": Caishengu,
+        "news_financing": Financing,
+        "news_innovation": Business,
+        "coupon": coupon,
+        "donate": donate,
+        "caishengu_trend": caishengu_trend,
+        "caishengu_introduction": caishengu_introduction,
+        "caishengu_live": caishengu_live
+
+    }
     datas = JSON.stringify(datas);
+    datat = JSON.stringify(datat);
     if(val !='http://localhost:9000/administrator/details'){
         $.ajax({
             type:'PUT',
             contentType:'application/json',
             url:'http://'+ backend_host + '/web/admin/manage/staff/'+val+'?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-            data: datas,
+            data: datat,
             dataType:'json',
             success:function(data){
                 console.log(data);

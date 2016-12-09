@@ -118,12 +118,18 @@ $('#btn').on('click', function () {
                             }
 
                         });
-                        console.log(datas[0].route);
+
+
                         localStorage.setItem("user_list", JSON.stringify(datas));
 
                         if(dataT.scope == "staff")
                          {
-                         window.location.href = "/"+datas[0].route;
+                             if(datas.length == 0){
+                                 $("#prompt").text("您没有相关用户权限");
+
+                             }else{
+                                 window.location.href = "/"+datas[0].route;
+                             }
                          }
                          else if (dataT.scope == "admin") {
                          window.location.href = "/merchart/index";
