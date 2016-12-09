@@ -33,6 +33,9 @@
             if(jqXHR.status == 400){
 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
     function tributeList(hrefUrl){
@@ -54,6 +57,9 @@
             error:function(jqXHR,textStatus,errorThrown){
                 if(jqXHR.status == 400){
 
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })

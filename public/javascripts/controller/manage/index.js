@@ -21,6 +21,9 @@
                 if(jqXHR.status == 400){
 
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
     }

@@ -65,6 +65,9 @@ if(detailUrl.length > 1 ){
                 if(jqXHR.status == 400){
 
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
     })
@@ -102,6 +105,9 @@ function detailAjax(goodsId,maxImage){
             if(jqXHR.status == 400){
 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
 }
@@ -129,6 +135,9 @@ function changeDetailAjax(frame){
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
+            }
+            if(jqXHR.status == 401){
+                overdueToken()
             }
         }
     })

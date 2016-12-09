@@ -9,21 +9,10 @@ class ShoppingController  extends Controller {
         Ok(views.html.shopping.shopping_index())
     }
 
-//    def out = Action {
-//        Ok(views.html.shopping.shopping_out())
-//    }
-//
-//    def close = Action {
-//        Ok(views.html.shopping.shopping_close())
-//    }
 
     def detail = Action {
         Ok(views.html.shopping.shopping_detail())
     }
-
-//    def receive = Action {
-//        Ok(views.html.shopping.shopping_receive())
-//    }
 
     def frame = Action {
         Ok(views.html.shopping.shopping_frame())

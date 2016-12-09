@@ -45,6 +45,9 @@
                 if(jqXHR.status == 400){
                     errorMessage('数据读取失败');
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
     }
@@ -68,6 +71,9 @@
                 console.log(errorThrown);
                 if(jqXHR.status == 400){
                     errorMessage('操作失败,请刷新页面重试')
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })
@@ -125,6 +131,9 @@
             error:function(jqXHR){
                 if(jqXHR.status == 400){
                     errorMessage('获取图片名称失败')
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         });
@@ -195,6 +204,9 @@
             error:function(jqXHR){
                 if(jqXHR.status == 400){
                     errorMessage('文件上传失败')
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })

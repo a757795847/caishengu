@@ -1,5 +1,6 @@
 newUploader(9);
 var url = window.location.search.split('?')[1].split('&');
+console.log(url)
 if(url[0] == 'look'){
     detailAJax();
 }else if(url[0] == 'feedback'){
@@ -37,6 +38,9 @@ function detailAJax(){
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
+            }
+            if(jqXHR.status == 401){
+                overdueToken()
             }
         }
     })

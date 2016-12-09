@@ -15,6 +15,9 @@
             if(jqXHR.status == 400){
 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
     //搜索
@@ -36,11 +39,11 @@
                 $('#users').html(users);
             },
             error:function(jqXHR){
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
                 if(jqXHR.status == 400){
 
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })
