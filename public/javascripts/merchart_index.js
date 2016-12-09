@@ -70,7 +70,7 @@ function indexAjxa(index,size){
 console.log(data);
             var tbody = "";
             $.each(data, function (i,order) {
-                tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
+                tbody += '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
                 tbody += '<td>' + order.name + '</td>'
                 tbody += '<td><span class="label label-success">' + order.contact + '</span></td>'
                 tbody += '<td><div class="sparkbar" data-color="#00a65a" data-height="20">' + order.state + '</div></td>'
@@ -89,13 +89,14 @@ console.log(data);
 
 
 $("#jqueryPage").pagination({
-    count: 5, //总数
+    count: 10, //总数
     size:5, //每页数量
     index: 1,//当前页
-    lrCount: 3,//当前页左右最多显示的数量
+    lrCount: 5,//当前页左右最多显示的数量
     lCount: 1,//最开始预留的数量
     rCount: 1,//最后预留的数量
     callback: function (options) {
+        console.log(options);
         var index = options.index -1;
         var size = options.size;
         indexAjxa(index,size);

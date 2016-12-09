@@ -32,7 +32,7 @@
     margin-top: 9px;
     border-radius: 13px;
     margin-left: 19px;
-    font-size: 0.75rem;
+    font-size: 8px;
     line-height: 19px;
     margin-bottom: 8px;
     background-color: #55acee;
@@ -97,14 +97,14 @@
     line-height: 40px;
     font-size: 16px;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
     text-align: right;
     color: #2E6AB1;
     overflow: hidden;
     position:relative;
     bottom:10px;
 }
-.pager a{border:1px solid #ddd;color:#428bca;padding:6px 12px;text-decoration: none;}
+.pager a{border:1px solid #ddd;color:#428bca;padding:4px 10px;text-decoration: none;}
 .pager a.hover{background-color: #F7F7F7;color:#428bca;border-color:#ddd;}
 .pager a.active{background-color: #428bca;
     border-color: #428bca;color:#FFF;}
