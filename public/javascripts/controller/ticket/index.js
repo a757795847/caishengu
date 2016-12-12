@@ -32,7 +32,7 @@
             var ticket = '',ruleTicket = '';
             for(var i=0;i<data.length;i++){
                 ticket += '<tr><td><img src="http://' + backend_host+data[i].image+'?'+token+'" alt=""></td><td>'+data[i].name+'</td><td>'+data[i].remark+'</td>';
-                ticket += '<td><span class="label label-info"><a data-id="'+data[i].id+'" href="#">删除</a></span></td></tr>';
+                ticket += '<td></td><td><span class="label label-info"><a data-id="'+data[i].id+'" href="#">删除</a></span></td></tr>';
                 ruleTicket += '<option data-id="'+data[i].id+'">'+data[i].name+'</option>'
             }
             $('#ticket tbody:eq(0)').html(ticket);
@@ -310,4 +310,7 @@
             }
         })
     })
+    $('#validTime').datepicker({
+        autoclose: true
+    });
 })(jQuery)

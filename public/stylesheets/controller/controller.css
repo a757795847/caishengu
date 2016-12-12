@@ -13,8 +13,14 @@ img{
     height: 120px;
     margin-right: 10px;
 }
+table tbody tr th{
+    font-weight: inherit;
+}
 .nav-tabs-custom>.nav-tabs>li.active {
     border-top-color: #00c0ef;
+}
+.noPadding{
+    padding: 0;
 }
 /*box*/
 .box-footer {

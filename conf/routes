@@ -56,6 +56,8 @@ GET        /shopping                     controllers.ShoppingController.index
 GET        /shopping/detail              controllers.ShoppingController.detail
 GET        /shopping/frame               controllers.ShoppingController.frame
 GET        /shopping/frame/detail        controllers.ShoppingController.frameDetail
+GET        /shopping/mail                controllers.ShoppingController.mail
+GET        /shopping/mail/detail         controllers.ShoppingController.mailDetail
 
 #stat page
 GET        /statistics                   controllers.StatisticsController.index

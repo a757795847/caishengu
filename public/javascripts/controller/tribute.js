@@ -48,11 +48,11 @@
                 var classNameTr = '', valid = '';
                 for(var i = 0; i<data.length; i++){
                     valid = data[i].valid?'上架':'下架';
-                    classNameTr += '<tr><td><img src="http://' + backend_host +data[i].goods_image+'?'+token+'" /><span>'+data[i].goods_name+'</span><span>'+data[i].price_point+'积分</span>';
-                    classNameTr += '<span>'+data[i].price_coin+'财神币</span></td><td><span class="label label-info"><a href="#">'+valid+'</a>';
+                    classNameTr += '<tr><td><img src="http://' + backend_host +data[i].goods_image+'?'+token+'" /><span>'+data[i].goods_name+'</span><span>'+data[i].price_point+'财神币/';
+                    classNameTr += data[i].price_coin+'积分</span></td><td><span class="label label-info"><a href="#">'+valid+'</a>';
                     classNameTr += '</span><span class="label label-info"><a href="/tribute/frame/detail?edit&'+data[i].goods_id+'">编辑</a></span></td></tr>';
                 }
-                $('#tributeContent').html(classNameTr);
+                //$('#tributeContent').html(classNameTr);
             },
             error:function(jqXHR,textStatus,errorThrown){
                 if(jqXHR.status == 400){

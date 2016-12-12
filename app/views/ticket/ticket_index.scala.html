@@ -1,5 +1,6 @@
 @main("优惠券", "ticket.index","coupon") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/datepicker3.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/ticket.css")">
 } {
@@ -57,6 +58,7 @@
                                                         <th>图片</th>
                                                         <th>券名</th>
                                                         <th>备注</th>
+                                                        <th>有效时间</th>
                                                         <th>操作</th>
                                                     </tr>
                                                 </thead>
@@ -200,6 +202,15 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label>有效时间</label>
+                        <div class="input-group" >
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input id="validTime" type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>备注</label>
                         <div class="input-group">
                             <textarea id="remark" type="text" class="form-control" rows="4" ></textarea>
@@ -227,5 +238,7 @@
     <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
 
     <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/ticket/index.js")"></script>
 }

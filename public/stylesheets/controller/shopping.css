@@ -7,7 +7,13 @@ img {
 td span {
     margin-right: 12px;
 }
-
+.box{
+    margin-bottom: 0;
+}
+/*all*/
+#all tbody tr th , #detail tbody tr th{
+    font-weight: inherit;
+}
 /*wait*/
 .btn-group-lg > .btn, .btn-lg {
     font-size: 14px;

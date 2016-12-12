@@ -49,10 +49,10 @@
                     <span>股东管理</span>
                 </a>
             </li>
-            <li class="treeview user-list-hide @active("shopping.index") @active("shopping.frame")" data-token="order">
+            <li class="treeview user-list-hide @active("shopping.index") @active("shopping.frame") @active("shopping.mail")" data-token="order">
                 <a href="#">
                     <i class="fa fa-cart-plus"></i>
-                    <span>商城订单管理</span>
+                    <span>商城</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -60,12 +60,17 @@
                 <ul class="treeview-menu">
                     <li class="@active("shopping.index")">
                         <a href="/shopping">
-                            <i class="fa fa-circle-o"></i>商城订单
+                            <i class="fa fa-circle-o"></i>订单
                         </a>
                     </li>
                     <li class="@active("shopping.frame")">
                         <a href="/shopping/frame">
-                            <i class="fa fa-circle-o"></i>商城货架
+                            <i class="fa fa-circle-o"></i>货架
+                        </a>
+                    </li>
+                    <li class="@active("shopping.mail")">
+                        <a href="/shopping/mail">
+                            <i class="fa fa-circle-o"></i>邮费模板
                         </a>
                     </li>
                 </ul>
@@ -101,7 +106,7 @@
             </li>
             <li class="treeview user-list-hide @active("round.index")" data-token="quanzi">
                 <a href="/round">
-                    <i class="fa  fa-cubes"></i>
+                    <i class="fa fa-opera"></i>
                     <span>圈子审批</span>
                 </a>
             </li>

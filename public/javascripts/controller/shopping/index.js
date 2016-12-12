@@ -81,4 +81,8 @@
         })
 
     })
+
+    $('#reservation').datepicker({
+        autoclose: true
+    });
 })(jQuery)
