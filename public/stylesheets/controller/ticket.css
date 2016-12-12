@@ -39,3 +39,6 @@ select.form-control.select2 {
 #fsUploadProgress .imgBox button {
     top: -7px;
 }
+.tab-pane .box {
+    margin-bottom: 0;
+}

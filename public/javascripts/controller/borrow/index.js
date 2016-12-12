@@ -18,6 +18,9 @@
             if(jqXHR.status == 400){
                 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
     $('.delete').on('click',function(){
@@ -33,6 +36,9 @@
             error:function(jqXHR){
                 if(jqXHR.status == 400){
 
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
                 }
             }
         })

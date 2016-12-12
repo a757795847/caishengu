@@ -23,6 +23,9 @@ if(detailUrl[0] == 'edit' ){
             if(jqXHR.status == 400){
 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
     $('#saveGoods').on('click',function(){
@@ -58,6 +61,9 @@ if(detailUrl[0] == 'edit' ){
                 if(jqXHR.status == 400){
 
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
     })
@@ -89,6 +95,9 @@ function changeDetailAjax(url,frame){
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
+            }
+            if(jqXHR.status == 401){
+                overdueToken()
             }
         }
     })

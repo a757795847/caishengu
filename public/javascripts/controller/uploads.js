@@ -18,6 +18,9 @@ function imagetokens(){
             if(jqXHR.status == 400){
 
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     });
 }
@@ -114,6 +117,9 @@ function imgUPload(imgId){
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
+            }
+            if(jqXHR.status == 401){
+                overdueToken()
             }
         }
     })

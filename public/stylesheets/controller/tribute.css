@@ -7,6 +7,13 @@ td span {
     margin-right: 12px;
 }
 /*frame*/
+.input-group.input-group-sm {
+    float: right;
+}
+.box-header {
+    margin-bottom: 0;
+}
+
 .box.box-solid {
     border: 1px solid #f4f4f4;
 }
@@ -32,6 +39,9 @@ button.close {
 table tbody tr td:last-child{
     padding-top: 16px;
 }
+#tributeContent tr th:first-child span{
+    margin-left: 30px;
+}
 /*order*/
 .box .order{
     padding-bottom: 12px;
@@ -51,4 +61,12 @@ table tbody tr td:last-child{
 }
 button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     margin-left: 16px;
+}
+.addNews .form-group img{
+    width:100px;
+    height:120px;
+}
+.addNews .form-group textarea{
+    width:150%;
+    margin-bottom: 20px;
 }

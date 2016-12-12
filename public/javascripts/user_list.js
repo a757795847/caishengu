@@ -3,15 +3,13 @@ var lost = JSON.parse(localStorage.getItem('user_list'));
 var liLength = $('.sidebar .sidebar-menu .treeview').length;
 
 
-for(var i=0;i<lost.length;i++){
-    for(var j =0;j<liLength;j++){
-        if($('.sidebar .sidebar-menu .treeview').eq(j).attr('data-token') == lost[i].name){
-            $('.sidebar .sidebar-menu .treeview').eq(j).removeClass('user-list-hide');
-        }
-    }
-}
-
-
+// for(var i=0;i<lost.length;i++){
+//     for(var j =0;j<liLength;j++){
+//         if($('.sidebar .sidebar-menu .treeview').eq(j).attr('data-token') == lost[i].name){
+//             $('.sidebar .sidebar-menu .treeview').eq(j).removeClass('user-list-hide');
+//         }
+//     }
+// }
 
 function errorMessage(text) {
     $('#error').text(text);

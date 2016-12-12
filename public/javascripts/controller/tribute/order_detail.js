@@ -53,6 +53,9 @@
             if(jqXHR.status == 404){
                 //history.go(-1);
             }
+            if(jqXHR.status == 401){
+                overdueToken()
+            }
         }
     })
 

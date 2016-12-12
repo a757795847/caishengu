@@ -37,6 +37,9 @@
                 if (jqXHR.status == 400) {
 
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
     }
@@ -71,8 +74,15 @@
                 if (jqXHR.status == 400) {
 
                 }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
             }
         })
 
     })
+
+    $('#reservation').datepicker({
+        autoclose: true
+    });
 })(jQuery)
