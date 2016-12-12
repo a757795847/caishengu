@@ -1,16 +1,17 @@
 table td{
     padding: 2% 6%;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     height:88px;
 
 }
 table .lf{
     float:left;
-    line-height:66px;
+    line-height:97px;
 
 }
 .rt{
-    font-size: 5rem;
+    line-height:97px;
+    font-size: 3rem;
     color: rgb(0, 200, 239);
     float: right;
 

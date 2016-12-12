@@ -5,3 +5,10 @@ body{
 .breadcrumb {
     background-color: #ecf0f5;
 }
+html{
+    font-size:16px;
+}
+.label{
+    font-size:89%;
+}
+

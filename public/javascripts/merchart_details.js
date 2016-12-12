@@ -23,6 +23,7 @@ console.log(val);
 
         function (data){
             console.log(data);
+            $("#mobile").val(data.mobile);
             $("#user_id").text(data.id);
             $("#user_name").val(data.contact_person);
             $("#tel").val(data.contact_phone);
@@ -30,6 +31,7 @@ console.log(val);
             $("#address").val(data.shop_address);
             $("#account").val(data.account);
             $("#money").text(data.remain);
+            $("#openbank").val("中国银行-西城分行");
 
             
             })
@@ -47,7 +49,7 @@ $("#keep").click(function(){
     var shop_name=$("#shop").val();
     var shop_address=$("#address").val();
     var account=$("#account").val();
-    var user_phone=$("#user_phone").val();
+    var user_phone=$("#mobile").val();
     var user_password=$("#user_password").val();
     if( val!="http://localhost:9000/merchart/details"){
         $.ajax({
