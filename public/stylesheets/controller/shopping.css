@@ -7,12 +7,29 @@ img {
 td span {
     margin-right: 12px;
 }
-.box{
+
+.box {
     margin-bottom: 0;
 }
+
 /*all*/
-#all tbody tr th , #detail tbody tr th{
+#all tbody tr th, #detail tbody tr th {
     font-weight: inherit;
+}
+
+.header-right {
+    float: right;
+}
+
+.daterangepicker.dropdown-menu.show-calendar.opensleft {
+    margin-top: 390px;
+    margin-right: -380px;
+}
+.daterangepicker.opensleft:before {
+    right: 560px;
+}
+.daterangepicker.opensleft:after{
+    right: 562px;
 }
 /*wait*/
 .btn-group-lg > .btn, .btn-lg {
@@ -46,6 +63,7 @@ td span {
 button#searchGoods {
     z-index: 3;
 }
+
 .box.box-solid {
     border: 1px solid #f4f4f4;
 }
@@ -74,9 +92,11 @@ button.close {
     display: block;
     opacity: 1.2;
 }
-table tbody tr td:last-child{
-   padding-top: 12px;
+
+table tbody tr td:last-child {
+    padding-top: 12px;
 }
+
 /*frame-detail*/
 
 .addNews {
@@ -96,4 +116,14 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     float: left;
     margin-right: 10px;
 }
-/*img*/
+
+/*mail_detail*/
+.contentName {
+    width: 200px;
+}
+#mailTbody input{
+    width: 50px;
+}
+.table-responsive{
+    margin-bottom: 20px;
+}

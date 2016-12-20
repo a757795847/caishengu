@@ -72,15 +72,4 @@
     margin-bottom: 20px;
 }
 
-.daterangepicker.opensleft:before {
-    right: 9px;
-    top: 310px;
-    transform: rotateX(180deg);
-}
-
-.daterangepicker.opensleft:after {
-    right: 10px;
-    top: 310px;
-    transform: rotateX(180deg);
-}
 

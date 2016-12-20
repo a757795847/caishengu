@@ -1,0 +1,75 @@
+@main("财神像管理", "wealth.index") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/wealth.css")">
+} {
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="#"><i class="fa fa-user-secret"></i>财神像管理</a></li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <div class="box-body">
+                    <div class="add">
+                        <p>财神像</p>
+                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div id="fsUploadProgress">
+
+                                <div class="addImg" id="container">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>添加财神像</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>十二生肖财神</p>
+                    <div id="chinese" class="clear">
+                        @* <div class="add">
+                             <div role="tabpanel" id="mouse" class="tab-pane fade in active pull-left mRight" aria-labelledby="demo-tab">
+                                 <div>
+
+                                     <div class="addImg" id="mouseChild">
+                                         <a href="#" >
+                                             <span>鼠</span>
+                                         </a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>*@
+                    </div>
+                    <p>背景音乐</p>
+                    <div class="music clear">
+                        <div class="add">
+                            <div role="tabpanel" class="tab-pane fade in active pull-left mRight" aria-labelledby="demo-tab">
+                                <div>
+
+                                    <div class="addImg btn btn-default btn-sm btn-huanyuan" id="music">
+                                        <a id="pickfiles" href="#" >
+                                            <span>上传音乐</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button type="button" id="saveGoods" class="btn btn-default btn-sm col-md-1 col-lg-1 pull-right"><a href="#">保存</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- /.content -->
+    </div>
+
+} {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/wealth/index.js")"></script>
+}

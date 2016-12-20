@@ -90,6 +90,12 @@ GET        /introduce/add                controllers.IntroduceController.add
 GET        /live                         controllers.LiveController.index
 GET        /live/add                     controllers.LiveController.add
 
+#trends page
+GET        /wealth                       controllers.WealthController.index
+
+#trends page
+GET        /answer                       controllers.AnswerController.index
+GET        /answer/detail                controllers.AnswerController.detail
 
 # administrator 管理员账号
 

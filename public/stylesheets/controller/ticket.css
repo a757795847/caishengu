@@ -8,7 +8,7 @@ select.form-control.select2 {
     width: 50%;
     height: 25px;
 }
-.daterangepicker.dropdown-menu.show-calendar.opensleft {
+.daterangepicker.dropdown-menu.show-calendar.opensleft,.daterangepicker.dropdown-menu.show-calendar.opensright  {
     margin-top: 350px;
 }
 #modelRule .form-group {

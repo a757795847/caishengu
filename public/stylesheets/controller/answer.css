@@ -1,0 +1,6 @@
+.box-body{
+    width: 300px;
+}
+.box-body .form-group textarea{
+    width:200%;
+}

@@ -1,4 +1,6 @@
 (function($){
+    $('#ruleDate').daterangepicker();
+    $('#validTime').daterangepicker();
     // 规则
     $.ajax({
         type:'GET',
@@ -310,7 +312,5 @@
             }
         })
     })
-    $('#validTime').datepicker({
-        autoclose: true
-    });
+    
 })(jQuery)
