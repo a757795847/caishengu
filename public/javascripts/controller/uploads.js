@@ -59,7 +59,7 @@ function newUploader(imgNumber){
 
             },
             'FileUploaded': function (up, file, info) {
-                if(imagetoken[1] != undefined){
+               if(imagetoken[1] != undefined){
                     images.push(imagetoken[1]);
                 }
                 var domain = up.getOption('domain');
@@ -83,7 +83,7 @@ function newUploader(imgNumber){
             ,
             'Key': function (up, file) {
                 var key = imagetoken[1];
-                return key
+                return key;
             }
         }
     });

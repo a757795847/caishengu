@@ -124,12 +124,13 @@ table>tbody>tr>td{
     float: left;
     position: relative;
     z-index: 99;
+    margin-bottom: 10px;
 }
 #fsUploadProgress .imgBox button{
     position: absolute;
     z-index: 1000;
-    top: -12px;
-    right: 4px;
+    top: -5px;
+    right: 15px;
     color: #000;
     display: none;
 }

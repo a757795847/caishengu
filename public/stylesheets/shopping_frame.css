@@ -1,0 +1,74 @@
+.box-body{
+  padding:0 25px;
+}
+img{
+  width:60px;
+  height:50px;
+  display: inline-block;
+
+}
+.table.no-margin td{
+  line-height:50px;
+
+
+}
+.table.no-margin td span{
+  color:#3c8dbc;
+
+}
+.table.no-margin td span:hover{
+  color:#6aaed6;
+
+}
+.bottom{
+  position:relative;
+  left:13px;
+
+}
+#addtr{
+  padding: 3px 20px;
+  color: #fff;
+  margin-top: -5px;
+  font-size: 12px;
+  line-height: 19px;
+  background-color: #55acee;
+  border: none;
+  float: right;
+  border: 20px;
+
+}
+#ticket{
+  padding:0 25px;
+
+}
+/*.father{
+  margin-top:55px;
+
+}*/
+.father select{
+  float: left;
+  width: 180px;
+  height: 30px;
+  margin-right:34px;
+
+
+}
+.input-group.pull-right.input-group-sm{
+ margin-right:34px;
+
+}
+#addgr{
+  padding: 3px 20px;
+  color: #fff;
+  margin-top: -5px;
+  font-size: 12px;
+  line-height: 19px;
+  background-color: #55acee;
+  border: none;
+  float: right;
+  border: 20px;
+  position: relative;
+  top: 22px;
+  right: 33px;
+
+}

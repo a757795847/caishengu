@@ -1,4 +1,4 @@
-newUploader(3);
+newUploader(9);
 $('#loveAdd').on('click',function(){
     var loveName = $('#name').val();
     var loveMoney = $('#loveMoney').val();

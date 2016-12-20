@@ -10,6 +10,7 @@ function imagetokens(){
         dataType:'json',
         async:false,
         success:function(data){
+
             imagetoken.push(data.token);
             imagetoken.push(data.file_key);
 
@@ -55,7 +56,8 @@ var uploader = Qiniu.uploader({
         'UploadComplete': function () {
 
         },
-        'FileUploaded': function (up, file, info) {
+        'FileUploaded':
+           function (up, file, info) {
             images = imagetoken[1];
             var domain = up.getOption('domain');
             var res = eval('(' + info + ')');
@@ -64,6 +66,7 @@ var uploader = Qiniu.uploader({
             imageBoxs += '<div class="imgBox"><button type="button" data-name="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
             imageBoxs += '<img src="'+ Src +'"></div>';
             $('#container').hide();
+
 
             
             $('#container').before(imageBoxs);
@@ -82,6 +85,7 @@ var uploader = Qiniu.uploader({
 
 $('#fsUploadProgress').on('mousemove ','.imgBox',function(){
     $(this).find('button').css('display','block');
+
 })
 $('#fsUploadProgress').on('mouseout ','.imgBox',function(){
     $(this).find('button').css('display','none');

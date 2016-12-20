@@ -1,0 +1,115 @@
+#addImgs{
+    width:800px;
+    margin-left:46px;
+
+}
+.form-control.address{
+    width:43%;
+    display: inline-block;
+    margin-left: 10px;
+    height: 27px;
+
+}
+.add{
+    margin-top:10px;
+
+}
+#specifications{
+    margin-top:25px;
+
+}
+.btn.btn-default {
+    padding: 3px 20px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+}
+.table.no-margin th{
+    text-align:center;
+}
+.table.no-margin td{
+    text-align:right;
+    line-height:33px;
+}
+
+.table.no-margin i{
+    color:#3c8dbc;
+    width:32px;
+
+
+}
+.category{
+    margin-left:30px;
+    width:50%;
+
+}
+.father{
+    position:relative;
+
+}
+.father span{
+    position:relative;
+    z-index:10000;
+}
+.father div{
+    margin:0;
+    padding-left:15px;
+    line-height:38px;
+    border:1px solid #000000;
+    height:38px;
+
+}
+.category ul li{
+    line-height:30px;
+    border:1px solid #000000;
+    height:30px;
+    border-top:none;
+
+}
+.category ul li input{
+    margin:0 15px;
+
+}
+.category span{
+    float:right;
+    margin-right:15px;
+    color:#3c8dbc;
+
+}
+
+.category ul {
+    opacity:0;
+    width:100%;
+    height:0px;
+    transition:all .5s;
+    -moz-transition:all .5s; /* Firefox 4 */
+    -webkit-transition:all .5s; /* Safari and Chrome */
+    -o-transition:all .5s; /* Opera */
+
+}
+#Freight{
+    margin-top:20px;
+    margin-left:29px;
+
+}
+#Freight select{
+    margin-left:23px;
+    height:25px;
+    width:43%;
+    display:inline-block;
+
+
+}
+
+
+
+
+
+
+
+
+

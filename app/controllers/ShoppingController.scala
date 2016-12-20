@@ -27,4 +27,7 @@ class ShoppingController  extends Controller {
     def mailDetail = Action {
         Ok(views.html.shopping.shopping_mail_detail())
     }
+    def frames = Action {
+        Ok(views.html.shopping.shopping_frame_details())
+    }
 }

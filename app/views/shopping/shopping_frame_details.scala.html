@@ -1,0 +1,163 @@
+@main("商城订单管理", "shopping.frame") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/shopping_frame_details.css")">
+
+} {
+
+    <div class="content-wrapper" >
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/shopping/frame"><i class="fa fa-cart-plus"></i>商城</a></li>
+                <li><a href="javascript:;" id="nav"></a>货架</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="box box-info">
+                <a class="btn turn" href="/shopping/frame">返回</a>
+                <div>
+                    编号: <input type="text" class="form-control address">
+                </div>
+
+                <div class="add">
+                    <p>图片:</p>
+                    <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                        <div  id="fsUploadProgress">
+
+                            <div class="addImg" id="container">
+                                <a id="pickfiles" href="#" >
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    <span>选择文件</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    标题: <input type="text" class="form-control address">
+                </div>
+
+                <div id="specifications">
+                    <p>规格尺寸</p>
+                    <table class="table no-margin">
+                        <thead>
+                            <th>头图</th>
+                            <th>颜色</th>
+                            <th>重量</th>
+                            <th>规格</th>
+                            <th>财神币</th>
+                            <th>积分</th>
+                            <th>数量</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <i class="glyphicon glyphicon-plus"></i></td>
+                                <td> <input type="text" class="form-control" value="红色"></td>
+                                <td> <input type="text" class="form-control" ></td>
+                                <td> <input type="text" class="form-control" value="大"></td>
+                                <td> <input type="text" class="form-control" value="1"></td>
+                                <td> <input type="text" class="form-control" value="10"></td>
+                                <td> <input type="text" class="form-control" value="10"></td>
+                                <td> <button class="btn btn-default">删除</button></td>
+                            </tr>
+                            <tr>
+                                <td><i class="glyphicon glyphicon-plus"></i></td>
+                                <td> <input type="text" class="form-control" value="白色"></td>
+                                <td> <input type="text" class="form-control" ></td>
+                                <td> <input type="text" class="form-control" value="大"></td>
+                                <td> <input type="text" class="form-control" value="1"></td>
+                                <td> <input type="text" class="form-control" value="10"></td>
+                                <td> <input type="text" class="form-control" value="10"></td>
+                                <td> <button class="btn btn-default">删除</button></td>
+                            </tr>
+                            <tr>
+                                <td><p>厂商:</p></td>
+                                <td> <input type="text" class="form-control" value="xx厂商"></td>
+                                <td> <p>发货地:</p></td>
+                                <td> <select class="form-control select2" id="default">
+                                </select> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> <button class="btn btn-default">新增</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="category">
+                    <h5>类目选择</h5>
+                   <div class="father">
+                       <div>
+                           一级类目名   <span class="open">展开</span>
+                       </div>
+
+
+                       <ul class="twocat">
+                           <li>  <input type="checkbox" id="inlineCheckbox1">二级类目名</li>
+                           <li> <input type="checkbox" id="inlineCheckbox2">二级类目名</li>
+                           <li> <input type="checkbox" id="inlineCheckbox3">二级类目名</li>
+                       </ul>
+                   </div>
+
+                    <div class="father">
+                        <div>
+                            一级类目名   <span class="open">展开</span>
+                        </div>
+
+                        <ul class="twocat">
+                            <li>  <input type="checkbox" id="inlineCheckbox4">二级类目名</li>
+                            <li>  <input type="checkbox" id="inlineCheckbox5">二级类目名</li>
+                            <li>   <input type="checkbox" id="inlineCheckbox6">二级类目名</li>
+                        </ul>
+                    </div>
+
+                    <div class="father">
+                        <div>
+                            一级类目名  <span class="open">展开</span>
+                        </div>
+
+                        <ul class="twocat">
+                            <li> <input type="checkbox" id="inlineCheckbox7">二级类目名</li>
+                            <li> <input type="checkbox" id="inlineCheckbox8">二级类目名</li>
+                            <li> <input type="checkbox" id="inlineCheckbox9">二级类目名</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div id="Freight">
+                    运费模板:   <select class="form-control select2">
+                            <option>模板1</option>
+                            </select>
+                </div>
+
+                <div class="add">
+                    <p>介绍图片:</p>
+                    <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                        <div  id="fsUploadProgress">
+
+                            <div class="addImg" id="container">
+                                <a id="pickfiles" href="#" >
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    <span>选择文件</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+            <!-- /.content -->
+    </div>
+} {
+    <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/uploads.js")"></script>
+    <script src="@routes.Assets.at("javascripts/shopping_frame_details.js")"></script>
+}
+
