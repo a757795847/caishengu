@@ -1,6 +1,5 @@
 @main("优惠券", "ticket.index","coupon") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/datepicker3.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/ticket.css")">
 } {
@@ -196,7 +195,7 @@
                         <label>券名</label>
                         <div class="input-group" >
                             <div class="input-group-addon">
-                                <i class="fa fa-cny"></i>
+                                <i class="fa fa-folder"></i>
                             </div>
                             <input id="ticketName" type="text" class="form-control" >
                         </div>
@@ -228,17 +227,11 @@
 } {
     <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
-    <script type="text/javascript">
-            $(function(){
-                $('#ruleDate').daterangepicker();
-            })
-    </script>
+
     <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
 
     <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/ticket/index.js")"></script>
 }

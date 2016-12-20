@@ -1,4 +1,5 @@
 @main("贡品订单管理", "tribute.order","goods_virtual") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/tribute.css")">
 } {
@@ -12,11 +13,23 @@
         <section class="content">
             <div class="box box-info">
                 <div class="box-header">
-                    <div class="box-tools">
-                        <div class="input-group pull-right input-group-sm">
-                            <input id="textOrder" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
-                            <div class="input-group-btn">
-                                <button id="searchOrder" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    <div>
+                        <div class="box-tools">
+                            <div class="input-group pull-right input-group-sm">
+                                <input id="textOrder" type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                <div class="input-group-btn">
+                                    <button id="searchOrder" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm timeDiv">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                </div>
+                                <input id="timeInterval" type="text" name="table_search" class="form-control pull-right" placeholder="请选择时间区间">
                             </div>
                         </div>
                     </div>
@@ -56,6 +69,8 @@
     </div>
 
 } {
+    <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/tribute/order.js")"></script>
 }
 

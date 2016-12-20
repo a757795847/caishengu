@@ -1,4 +1,3 @@
-
 @main("商城订单管理", "shopping.mail") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/shopping.css")">
@@ -15,7 +14,62 @@
             <div class="box box-info">
                 <a class="btn turn" href="/shopping/mail">返回</a>
                 <div class="box-body">
-
+                    <div class="contentName">
+                        <div class="form-group">
+                            <label>模板名称</label>
+                            <div class="input-group" >
+                                <div class="input-group-addon">
+                                    <i class="fa fa-folder"></i>
+                                </div>
+                                <input type="text" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>默认首重(kg)</label>
+                            <div class="input-group" >
+                                <div class="input-group-addon">
+                                    <i class="fa fa-anchor"></i>
+                                </div>
+                                <input type="text" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>默认续重(kg)</label>
+                            <div class="input-group" >
+                                <div class="input-group-addon">
+                                    <i class="fa fa-anchor"></i>
+                                </div>
+                                <input type="text" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <colgroup>
+                                <col class="col-xs-5">
+                                <col class="col-xs-1">
+                                <col class="col-xs-1">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>省份</th>
+                                    <th>首重(1kg)</th>
+                                    <th>续重(1kg)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mailTbody">
+                                <tr>
+                                    <th>浙江省</th>
+                                    <th><input type="text">元</th>
+                                    <th><input type="text">元</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <button type="button" id="closeGoods" class="btn btn-default btn-sm col-md-1 col-lg-1 pull-right"><a href="#">删除</a></button>
+                        <button type="button" id="saveGoods" class="btn btn-default btn-sm col-md-1 col-lg-1 pull-right"><a href="#">保存</a></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -25,7 +79,7 @@
 
 
 } {
-
+    <script src="@routes.Assets.at("javascripts/controller/shopping/mail_detail.js")"></script>
 }
 
 

@@ -1,5 +1,5 @@
 @main("商城订单管理", "shopping.index") {
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/datepicker3.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/shopping.css")">
 } {
@@ -26,25 +26,29 @@
                             <div class="tab-pane active" id="all">
                                 <div class="box">
                                     <div class="box-header">
-                                        <div class="form-group col-xs-6">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" id="reservation">
-                                            </div>
-                                                <!-- /.input group -->
-                                        </div>
-                                        <div class="box-tools">
-                                            <div class="input-group input-group-sm">
-                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                        <div>
+                                            <div class="box-tools pull-right">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
 
-                                                <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clear">
+                                            <div class="box-tools">
+                                                <div class="input-group input-group-sm timeDiv">
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                                    </div>
+                                                    <input id="timeInterval" type="text" name="table_search" class="form-control pull-right" placeholder="请选择时间区间">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -53,6 +57,7 @@
                                                     <tr>
                                                         <th>订单编号</th>
                                                         <th>内容</th>
+                                                        <th>下单时间</th>
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -64,6 +69,7 @@
                                                     <tr>
                                                         <th>100001</th>
                                                         <th>财神饼等3件商品</th>
+                                                        <th>2016.09.03-12:09:21</th>
                                                         <th>张三</th>
                                                         <th>12345678911</th>
                                                         <th>查看详情</th>
@@ -111,6 +117,7 @@
                                                     <tr>
                                                         <th>订单编号</th>
                                                         <th>内容</th>
+                                                        <th>下单时间</th>
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -155,6 +162,7 @@
                                                     <tr>
                                                         <th>订单编号</th>
                                                         <th>内容</th>
+                                                        <th>下单时间</th>
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -199,6 +207,7 @@
                                                     <tr>
                                                         <th>订单编号</th>
                                                         <th>内容</th>
+                                                        <th>下单时间</th>
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -243,6 +252,7 @@
                                                     <tr>
                                                         <th>订单编号</th>
                                                         <th>内容</th>
+                                                        <th>下单时间</th>
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
@@ -304,8 +314,8 @@
         </div>
     </div>
 } {
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/shopping/index.js")"></script>
 }
 

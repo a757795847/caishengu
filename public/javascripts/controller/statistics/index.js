@@ -1,4 +1,6 @@
 (function($){
+    $('#userDate').daterangepicker()
+    $('#goodsDate').daterangepicker()
 
     //$('#consumeAction').css('width',$('#consumeAction').clientWidth);
     var myChartSex = echarts.init(document.getElementById('sex'));
@@ -705,59 +707,11 @@
 
     var widthAction = document.getElementById('user').clientWidth;
     var widthDate = document.getElementById('sex').clientWidth
-    $('#action').css('width',widthAction);
+    // $('#action').css('width',widthAction);
     $('#onDate').css('width',widthDate);
     $('#inDate').css('width',widthDate);
     $('#commercial').css('width',widthAction);
-    var myChartAction = echarts.init(document.getElementById('action'));
-    
-    optionAction = {
-        title: {
-            text: ''
-        },
-        tooltip : {
-            trigger: 'axis'
-        },
-        legend: {
-            data:['在线商城','虚拟商城']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis : [
-            {
-                type : 'category',
-                boundaryGap : false,
-                data : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
-            }
-        ],
-        yAxis : [
-            {
-                type : 'value'
-            }
-        ],
-        series : [
-            {
-                name:'在线商城',
-                type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
-                data:[120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90]
-            },
-            {
-                name:'虚拟商城',
-                type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
-                data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290]
-            }
-        ]
-    };
-
-    myChartAction.setOption(optionAction);
+   
 
 
     var myChartOnDate = echarts.init(document.getElementById('onDate'));

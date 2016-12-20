@@ -20,8 +20,8 @@
                     } else {
                         urlA = '/shopping/detail?' + data[i].order_id + '&close';
                     }
-                    shopping += '<tr><td>' + data[i].order_id + '</td><td>' + data[i].order_description + '</td><td>' + data[i].user_name + '</td>';
-                    shopping += '<td>' + data[i].phone + '</td>';
+                    shopping += '<tr><td>' + data[i].order_id + '</td><td>' + data[i].order_description + '</td><td>2016.09.03-12:09:21</td>';
+                    shopping += '<td>' + data[i].user_name + '</td><td>' + data[i].phone + '</td>';
                     shopping += '<td><span class="label label-info"><a href="' + urlA + '">查看</a></span>';
                     if (state == 'paid') {
                         shopping += '<span class="label label-info"><a data-id="'+data[i].order_id+'" class="close" href="#" data-toggle="modal" data-target="#myModal">关闭</a></span>';
@@ -82,7 +82,6 @@
 
     })
 
-    $('#reservation').datepicker({
-        autoclose: true
-    });
+    $('#timeInterval').daterangepicker();
+    
 })(jQuery)

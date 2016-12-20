@@ -26,3 +26,12 @@
     margin-top: 20px;
     height: 600px;
 }
+#consume .box.box-primary{
+    width: 50%;
+}
+#consume .box.box-primary .box-header{
+    margin-bottom: 0;
+}
+.daterangepicker.dropdown-menu.show-calendar.opensleft{
+    margin-top: 352px;
+}

@@ -7,9 +7,7 @@ td span {
     margin-right: 12px;
 }
 /*frame*/
-.input-group.input-group-sm {
-    float: right;
-}
+
 .box-header {
     margin-bottom: 0;
 }
@@ -41,6 +39,16 @@ table tbody tr td:last-child{
 }
 #tributeContent tr th:first-child span{
     margin-left: 30px;
+}
+.daterangepicker.dropdown-menu.show-calendar.opensleft {
+    margin-top: 414px;
+    margin-right: -380px;
+}
+.daterangepicker.opensleft:before {
+    right: 560px;
+}
+.daterangepicker.opensleft:after{
+    right: 562px;
 }
 /*order*/
 .box .order{

@@ -1,0 +1,31 @@
+.mRight{
+    margin-right: 76px;
+    margin-bottom: 10px;
+}
+.btn-huanyuan{
+    width: initial;
+    height: initial;
+    line-height: initial;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+.music .mRight>div{
+    height: initial;
+}
+button.close{
+    position: absolute;
+    right: 4px;
+    top: -3px;
+}
+#addImgs img{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#fsUploadProgress .imgBox button {
+    display: block;
+    top: -4px;
+    right: 23px;
+}
+#chinese .add img {
+    margin-right: 0;
+}

@@ -43,5 +43,5 @@
         var textOrder = $('#textOrder').val();
         indexList(textOrder)
     })
-
+    $('#timeInterval').daterangepicker();
 })(jQuery)
