@@ -49,7 +49,7 @@
                             <th>数量</th>
                             <th></th>
                         </thead>
-                        <tbody>
+                        <tbody id="boxInfo">
                             <tr>
                                 <td> <i class="glyphicon glyphicon-plus"></i></td>
                                 <td> <input type="text" class="form-control" value="红色"></td>
@@ -58,7 +58,7 @@
                                 <td> <input type="text" class="form-control" value="1"></td>
                                 <td> <input type="text" class="form-control" value="10"></td>
                                 <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <button class="btn btn-default">删除</button></td>
+                                <td> <button class="btn btn-default out">删除</button></td>
                             </tr>
                             <tr>
                                 <td><i class="glyphicon glyphicon-plus"></i></td>
@@ -68,22 +68,24 @@
                                 <td> <input type="text" class="form-control" value="1"></td>
                                 <td> <input type="text" class="form-control" value="10"></td>
                                 <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <button class="btn btn-default">删除</button></td>
+                                <td> <button class="btn btn-default out">删除</button></td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <table id="Table">
                             <tr>
-                                <td><p>厂商:</p></td>
+                                <td>厂商:</td>
                                 <td> <input type="text" class="form-control" value="xx厂商"></td>
-                                <td> <p>发货地:</p></td>
+                                <td> 发货地:</td>
                                 <td> <select class="form-control select2" id="default">
                                 </select> </td>
                                 <td> </td>
                                 <td> </td>
                                 <td> </td>
-                                <td> <button class="btn btn-default">新增</button></td>
+                                <td> <button class="btn btn-default add">新增</button></td>
                             </tr>
-
-                        </tbody>
                     </table>
+
                 </div>
                 <div class="category">
                     <h5>类目选择</h5>
@@ -134,10 +136,10 @@
 
                 <div class="add">
                     <p>介绍图片:</p>
-                    <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
-                        <div  id="fsUploadProgress">
+                    <div role="tabpanel" id="imagebox" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                        <div  class="fsUploadProgress">
 
-                            <div class="addImg" id="container">
+                            <div class="addImg" id="pushadd">
                                 <a id="pickfiles" href="#" >
                                     <i class="glyphicon glyphicon-plus"></i>
                                     <span>选择文件</span>
@@ -145,9 +147,11 @@
                             </div>
                         </div>
                     </div>
+                <div class="footer">
+            <button class="btn btn-default black" id="delete">删除</button>
+            <button class="btn btn-default black" id="keep">保存到仓库</button>
                 </div>
-
-            </div>
+                </div>
         </section>
 
             <!-- /.content -->

@@ -134,6 +134,14 @@ table>tbody>tr>td{
     color: #000;
     display: none;
 }
+.fsUploadProgress .imgBox button{
+    position: absolute;
+    z-index: 1000;
+    top: -5px;
+    right: 15px;
+    color: #000;
+    display: none;
+}
 
 .addImg {
     border: 1px solid #eee;
@@ -156,4 +164,18 @@ table>tbody>tr>td{
     width: 0;
     height: 0;
     visibility:hidden;
+}
+.btn.btn-default.pull-right {
+    padding: 3px 20px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+}
+
+.btn.btn-default.pull-right a{
+    color:#fff;
+
 }

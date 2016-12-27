@@ -16,10 +16,10 @@
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#all" data-toggle="tab" aria-expanded="true">全部</a></li>
-                            <li class=""><a href="#wait" data-toggle="tab" aria-expanded="true">待发货</a></li>
+                            <li class=""><a href="#wait" data-toggle="tab" aria-expanded="false">待发货</a></li>
                             <li class=""><a href="#out" data-toggle="tab" aria-expanded="false">已发货</a></li>
                             <li class=""><a href="#receive" data-toggle="tab" aria-expanded="false">已收货</a></li>
-                            <li class=""><a href="#close" data-toggle="tab" aria-expanded="false">关闭订单</a></li>
+                            <li class=""><a href="#closes" data-toggle="tab" aria-expanded="false">退款订单</a></li>
                         </ul>
                         <div class="tab-content">
                                 <!-- Font Awesome Icons -->
@@ -100,7 +100,7 @@
                                 <div class="box">
                                     <div class="box-header">
                                         <div class="box-tools">
-                                            <div class="input-group input-group-sm">
+                                            <div class="input-group input-group-sm" >
                                                 <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
 
                                                 <div class="input-group-btn">
@@ -121,12 +121,15 @@
                                                         <th>购买人</th>
                                                         <th>联系方式</th>
                                                         <th>操作</th>
+                                                        <th>订单状态</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                 </tbody>
                                             </table>
+
                                         </div>
                                             <!-- /.table-responsive -->
                                     </div>
@@ -189,12 +192,24 @@
                             <div class="tab-pane" id="receive">
                                 <div class="box">
                                     <div class="box-header">
-                                        <div class="box-tools">
-                                            <div class="input-group input-group-sm" >
-                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                        <div>
+                                            <div class="box-tools pull-right">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
 
-                                                <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clear">
+                                            <div class="box-tools">
+                                                <div class="input-group input-group-sm timeDiv">
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                                    </div>
+                                                    <input id="timeMain" type="text" name="table_search" class="form-control pull-right" placeholder="请选择时间区间">
                                                 </div>
                                             </div>
                                         </div>
@@ -231,15 +246,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="close">
+                            <div class="tab-pane" id="closes">
                                 <div class="box">
                                     <div class="box-header">
-                                        <div class="box-tools">
-                                            <div class="input-group input-group-sm">
-                                                <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
+                                        <div>
+                                            <div class="box-tools pull-right">
+                                                <div class="input-group input-group-sm">
+                                                    <input type="text" name="table_search" class="form-control pull-right" placeholder="手机号/姓名">
 
-                                                <div class="input-group-btn">
-                                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clear">
+                                            <div class="box-tools">
+                                                <div class="input-group input-group-sm timeDiv">
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                                    </div>
+                                                    <input id="timeover" type="text" name="table_search" class="form-control pull-right" placeholder="请选择时间区间">
                                                 </div>
                                             </div>
                                         </div>
@@ -261,6 +288,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -278,6 +306,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                             <!-- /.tab-content -->
                     </div>
                         <!-- /.nav-tabs-custom -->

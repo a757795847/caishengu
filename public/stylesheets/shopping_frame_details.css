@@ -3,6 +3,11 @@
     margin-left:46px;
 
 }
+#imagebox{
+    width:800px;
+    margin-left:46px;
+
+}
 .form-control.address{
     width:43%;
     display: inline-block;
@@ -18,7 +23,7 @@
     margin-top:25px;
 
 }
-.btn.btn-default {
+#specifications .btn.btn-default {
     padding: 3px 20px;
     color: #fff;
     font-size: 12px;
@@ -96,12 +101,40 @@
     margin-left:29px;
 
 }
-#Freight select{
-    margin-left:23px;
-    height:25px;
-    width:43%;
-    display:inline-block;
+#Freight select {
+    margin-left: 23px;
+    height: 25px;
+    width: 43%;
+    display: inline-block;
 
+}
+.footer{
+    text-align:center;
+
+}
+
+
+.black{
+    margin-left:20px;
+    width: 110px;
+    height: 37px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+}
+#Table{
+  width:100%;
+
+}
+#Table td{
+    padding:4px 8px;
+    text-align:center;
+    line-height:33px;
+    width:14%;
 
 }
 

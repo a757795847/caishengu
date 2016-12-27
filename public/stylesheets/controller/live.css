@@ -1,13 +1,11 @@
 #adds{
-    float:right;
-    margin-right:12px;
-    padding: 6px 24px;
-    border-radius: 13px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    margin-bottom: 8px;
+    padding: 3px 20px;
+    color: #fff;
+    margin-top: -5px;
+    font-size: 12px;
+    line-height: 19px;
     background-color: #55acee;
     border: none;
-    color:#fff;
+    border: 20px;
 
 }

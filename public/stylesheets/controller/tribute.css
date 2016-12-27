@@ -78,3 +78,14 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     width:150%;
     margin-bottom: 20px;
 }
+#pulls{
+    padding: 3px 20px;
+    color: #fff;
+    margin-top: -5px;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+}

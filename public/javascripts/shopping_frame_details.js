@@ -1,4 +1,5 @@
-
+newUploader(9);
+newUpbrowse(9);
 $(".father").on('click','span',function(){
         var Edit=$(this).html();
     console.log(Edit);
@@ -24,4 +25,23 @@ $(".father").on('click','span',function(){
 
 
 
+});
+$("#boxInfo").on("click",'.out',function(){
+    $(this).parent().parent().remove();
+
+});
+    var sub="";
+$(".btn.btn-default.add").on("click",function(){
+     sub= '<tr></tr><td> <i class="glyphicon glyphicon-plus"></i></td>';
+     sub += '<td> <input type="text" class="form-control" value="红色"></td>';
+     sub += '<td><input type="text" class="form-control" ></td>';
+     sub += ' <td> <input type="text" class="form-control" value="大"></td>';
+     sub += ' <td> <input type="text" class="form-control" value="1"></td>';
+     sub += ' <td> <input type="text" class="form-control" value="10"></td>';
+     sub += ' <td> <input type="text" class="form-control" value="10"></td>';
+     sub += ' <td> <button class="btn btn-default out">删除</button></td></tr>';
+
+    console.log(sub);
+$(".table.no-margin").find('tbody').append(sub);
+    
 });

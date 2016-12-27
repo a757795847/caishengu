@@ -23,7 +23,7 @@
     color: #fff;
     width: 10%;
     border-radius: 13px;
-    font-size: 0.75rem;
+    font-size: 12px;
     background-color: #55acee;
     border: none;
     margin-right: 3%;
@@ -35,7 +35,7 @@
     color: #fff;
     width: 10%;
     border-radius: 13px;
-    font-size: 0.75rem;
+    font-size: 12px;
     background-color: #55acee;
     border: none;
     margin-right: 3%;
@@ -54,10 +54,9 @@
     float: left;
     margin-top: 2%;
     color: #fff;
-    width: 12%;
-    padding: 8px 17px;
-    border-radius: 16px;
-    font-size: 0.75rem;
+    padding: 7px 19px;
+    border-radius: 14px;
+    font-size: 12px;
     background-color: #55acee;
     border: none;
     margin-left: 2%;

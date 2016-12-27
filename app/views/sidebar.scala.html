@@ -49,48 +49,35 @@
                     <span>股东管理</span>
                 </a>
             </li>
-            <li class="treeview user-list-hide @active("shopping.index") @active("shopping.frame") @active("shopping.mail")" data-token="order">
-                <a href="#">
+            <li class="treeview user-list-hide @active("shopping.index")" data-token="order">
+                <a href="/shopping">
                     <i class="fa fa-cart-plus"></i>
                     <span>商城</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="@active("shopping.index")">
-                        <a href="/shopping">
-                            <i class="fa fa-circle-o"></i>订单
-                        </a>
-                    </li>
-                    <li class="@active("shopping.frame")">
-                        <a href="/shopping/frame">
-                            <i class="fa fa-circle-o"></i>货架
-                        </a>
-                    </li>
-                    <li class="@active("shopping.mail")">
-                        <a href="/shopping/mail">
-                            <i class="fa fa-circle-o"></i>邮费模板
-                        </a>
-                    </li>
-                </ul>
             </li>
-            <li class="treeview user-list-hide @active("tribute.order") @active("tribute.frame")" data-token="goods_virtual">
-                <a href="#">
+            <li class="treeview user-list-hide @active("shopping.frame")" data-token="order">
+                <a href="/shopping/frame">
+                    <i class="glyphicon glyphicon-hand-right"></i>
+                    <span>商城货架</span>
+                </a>
+            </li>
+            <li class="treeview user-list-hide @active("shopping.mail")" data-token="order">
+                <a href="/shopping/mail">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                    <span>邮费模板</span>
+                </a>
+            </li>
+            <li class="treeview user-list-hide @active("tribute.order") " data-token="goods_virtual">
+                <a href="/tribute/order">
                     <i class="fa fa-road"></i>
                     <span>贡品订单管理</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="@active("tribute.order")"><a href="/tribute/order"><i class="fa fa-circle-o"></i>贡品</a></li>
-                    <li class="@active("tribute.frame")">
-                        <a href="/tribute/frame">
-                            <i class="fa fa-circle-o"></i>虚拟商城货架
-                        </a>
-                    </li>
-                </ul>
+            </li>
+            <li class="treeview user-list-hide @active("tribute.frame") " data-token="goods_virtual">
+                <a href="/tribute/frame">
+                    <i class="glyphicon glyphicon-resize-horizontal"></i>
+                    <span>贡品货架</span>
+                </a>
             </li>
             <li class="treeview user-list-hide @active("event.index")" data-token="activity">
                 <a href="/event">

@@ -2,7 +2,7 @@
     padding: 6px 24px;
     border-radius: 13px;
     margin-left: 10px;
-    font-size: 0.75rem;
+    font-size: 12px;
     line-height: 18px;
     margin-bottom: 8px;
     background-color: #55acee;
@@ -73,7 +73,7 @@
     width: 35%;
     margin-left: 9%;
     height: 23px;
-    font-size: 0.75rem;
+    font-size: 12px;
     line-height: 7px;
 
 }
@@ -93,7 +93,7 @@
     float: left;
     width: 49px;
     border-radius: 4px;
-    font-size: 0.75rem;
+    font-size: 12px;
 
 }
 #Table_details input{
@@ -144,7 +144,7 @@
      width: 14%;
      border-radius: 30px;
      padding: 3px 21px;
-     font-size: 0.75rem;
+     font-size: 12px;
      margin: 0 auto;
 
  }

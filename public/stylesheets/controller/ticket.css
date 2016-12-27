@@ -42,3 +42,15 @@ select.form-control.select2 {
 .tab-pane .box {
     margin-bottom: 0;
 }
+.btn.btn-md.btn-default.pull-right{
+    padding: 3px 20px;
+    color: #fff;
+    margin-top: -5px;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+
+}

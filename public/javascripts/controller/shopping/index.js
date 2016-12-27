@@ -83,5 +83,7 @@
     })
 
     $('#timeInterval').daterangepicker();
-    
+    $('#timeover').daterangepicker();
+    $('#timeMain').daterangepicker();
+
 })(jQuery)

@@ -64,3 +64,16 @@ textarea.form-control {
 #preview div{
     float: left;
 }
+.btn.btn-default.pull-right{
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+}
+.btn.btn-default.pull-right a{
+    color:#fff;
+
+}
