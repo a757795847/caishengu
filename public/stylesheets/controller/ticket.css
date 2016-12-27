@@ -42,3 +42,6 @@ select.form-control.select2 {
 .tab-pane .box {
     margin-bottom: 0;
 }
+.addImg {
+    border: 1px solid #ddd;
+}
