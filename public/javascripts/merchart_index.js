@@ -67,7 +67,7 @@ function indexAjxa(index,size){
             "limit":size
         },
         function (data) {
-console.log(data);
+        console.log(data);
             var tbody = "";
             $.each(data, function (i,order) {
                 tbody += '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'

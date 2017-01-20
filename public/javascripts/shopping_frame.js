@@ -4,3 +4,9 @@ $("#addtr").click(function(){
 
 
 });
+$("#addgr").click(function(){
+   window.location.href="/shopping/frame/details";
+
+
+
+});
