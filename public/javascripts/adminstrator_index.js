@@ -6,10 +6,10 @@ $(document).ready(function () {
             "limit": 5,
         },
         function (data) {
-            console.log(data.length)
+            console.log(data.list)
             var tbody = "";
 
-            $.each(data, function (i, order) {
+            $.each(data.list, function (i, order) {
                tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details?'+order.id+'">编辑</a></span></td></tr>';
@@ -36,7 +36,7 @@ function indexAjxa(index,size){
         function (data) {
             console.log(data);
             var tbody = "";
-            $.each(data, function (i, order) {
+            $.each(data.list, function (i, order) {
                 tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details?'+order.id+'">编辑</a></span></td></tr>';
@@ -61,7 +61,7 @@ $('[type="submit"]').click(function(){
         },
         function (data) {
             var tbody = "";
-            $.each(data, function (i,order) {
+            $.each(data.list, function (i,order) {
                 tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details">编辑</a></span></td></tr>';
