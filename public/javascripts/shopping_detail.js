@@ -52,7 +52,7 @@ $(function () {
                     addData += '<div class="input-group-btn">';
                     addData += '<button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>';
                     addData += '</div>';
-                    addData += '<input type="text" class="form-control address" placeholder="二级分类名" >';
+                    addData += '<input type="text" class="form-control address" placeholder="二级分类名" value= '+data.label_list[i].label_name+'>';
                     addData += '<span><a href="#" data-toggle="modal" data-target="#myModal" class="shopping-frame-detail-remove">删除</a></span>';
                     addData += '<span>上</span>';
                     addData += '<span>下</span>';
