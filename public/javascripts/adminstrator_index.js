@@ -1,12 +1,11 @@
 
 $(document).ready(function () {
-    $.get("http://" + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+    $.getJSON("http://" + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":0 ,
             "limit": 5,
         },
         function (data) {
-            console.log(data.list)
             var tbody = "";
 
             $.each(data.list, function (i, order) {
