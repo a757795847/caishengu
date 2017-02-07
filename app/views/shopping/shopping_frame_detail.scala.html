@@ -38,22 +38,12 @@
 
                 <div class="father">
 
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
-                            </div>
-                            <input type="text" class="form-control address" placeholder="二级分类名">
-                            <span>删除</span>
-                            <span>上</span>
-                            <span>下</span>
-                        </div>
-
-                    <div class="input-group">
+                    @*<div class="input-group">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
                         </div>
                         <input type="text" class="form-control address" placeholder="二级分类名">
-                        <span>删除</span>
+                        <span><a href="#" data-toggle="modal" data-target="#myModal" class="shopping-frame-detail-remove">删除</a></span>
                         <span>上</span>
                         <span>下</span>
                     </div>
@@ -63,10 +53,20 @@
                             <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
                         </div>
                         <input type="text" class="form-control address" placeholder="二级分类名">
-                        <span>删除</span>
+                        <span><a href="#" data-toggle="modal" data-target="#myModal" class="shopping-frame-detail-remove" onclick="add()">删除</a></span>
                         <span>上</span>
                         <span>下</span>
                     </div>
+
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default"><i class="fa fa-chain"></i></button>
+                        </div>
+                        <input type="text" class="form-control address" placeholder="二级分类名">
+                        <span><a href="#" data-toggle="modal" data-target="#myModal" class="shopping-frame-detail-remove">删除</a></span>
+                        <span>上</span>
+                        <span>下</span>
+                    </div>*@
                 </div>
                 <button class="btn btn-default" id="addgr">新增</button>
 
@@ -74,6 +74,25 @@
         </section>
 
             <!-- /.content -->
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12 eacho">
+                                <h4>确定删除该类别?</h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal" id="clear">取消</button>
+                    <button type="button" class="btn btn-default btn-sure" data-dismiss="modal" id="comfirm">确定</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
