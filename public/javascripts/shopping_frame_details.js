@@ -29,13 +29,17 @@ $('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
 newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token);
 var images = [];
 function fileUploadCompleteCallbacks(key, src) {
-    var imageBoxs = '';
-    imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    imageBoxs += '<img src="' + src + '"></div>';
-    
-    $('#pushadd').before(imageBoxs);
-    images.push(key)
-    console.log(images)
+    if(images.length > 8){
+        $('#pushadd').hide()
+    }else{
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        imageBoxs += '<img src="' + src + '"></div>';
+        $('#pushadd').before(imageBoxs);
+        images.push(key)
+    }
+
+    console.log(images.length)
 }
 $('#imagebox').on('mousemove ', '.imgBox', function () {
     $(this).find('button').css('display', 'block');
@@ -48,7 +52,7 @@ $('#imagebox').on('click ', '.imgBox button', function (e) {
     e.stopPropagation();
     var dataName = $(this).attr('data-name');
     $(this).parent().remove();
-    $('#container').show();
+    $('#pushadd').show();
     images.splice(images.indexOf(dataName),1)
     console.log(images)
 })
