@@ -21,15 +21,17 @@ td span {
     float: right;
 }
 
-.daterangepicker.dropdown-menu.show-calendar.opensleft {
-    margin-top: 390px;
-    margin-right: -380px;
+.daterangepicker.dropup:before{
+    top: -7px;
+    bottom: initial;
+    border-bottom: 7px solid #ccc;
+    border-top: none ;
 }
-.daterangepicker.opensleft:before {
-    right: 560px;
-}
-.daterangepicker.opensleft:after{
-    right: 562px;
+.daterangepicker.dropup:after{
+    top: -6px;
+    bottom: initial;
+    border-bottom: 6px solid #fff;
+    border-top: none ;
 }
 /*wait*/
 .btn-group-lg > .btn, .btn-lg {

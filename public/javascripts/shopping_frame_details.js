@@ -39,6 +39,7 @@ function fileUploadCompleteCallbacks(key, src) {
         images.push(key)
     }
 
+    
     console.log(images.length)
 }
 $('#imagebox').on('mousemove ', '.imgBox', function () {
