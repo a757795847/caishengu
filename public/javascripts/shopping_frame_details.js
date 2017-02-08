@@ -1,5 +1,59 @@
-newUploader(9);
-newUpbrowse(9);
+
+newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+
+var image = "";
+function fileUploadCompleteCallback(key, src) {
+    var imageBoxs = '';
+    imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+    imageBoxs += '<img src="' + src + '"></div>';
+    $('#container').hide();
+
+    $('#container').before(imageBoxs);
+
+    image = key;
+}
+$('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+    $(this).find('button').css('display', 'block');
+
+})
+$('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+    $(this).find('button').css('display', 'none');
+})
+$('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+    e.stopPropagation();
+    var dataName = $(this).attr('data-name');
+    images = '';
+    $(this).parent().remove();
+    $('#container').show();
+})
+newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token);
+var images = [];
+function fileUploadCompleteCallbacks(key, src) {
+    var imageBoxs = '';
+    imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+    imageBoxs += '<img src="' + src + '"></div>';
+    
+    $('#pushadd').before(imageBoxs);
+    images.push(key)
+    console.log(images)
+}
+$('#imagebox').on('mousemove ', '.imgBox', function () {
+    $(this).find('button').css('display', 'block');
+
+})
+$('#imagebox').on('mouseout ', '.imgBox', function () {
+    $(this).find('button').css('display', 'none');
+})
+$('#imagebox').on('click ', '.imgBox button', function (e) {
+    e.stopPropagation();
+    var dataName = $(this).attr('data-name');
+    $(this).parent().remove();
+    $('#container').show();
+    images.splice(images.indexOf(dataName),1)
+    console.log(images)
+})
+
+
 $(".father").on('click','span',function(){
         var Edit=$(this).html();
     console.log(Edit);
@@ -18,13 +72,7 @@ $(".father").on('click','span',function(){
             });
             $(this).html("展开");
 
-
         }
-
-
-
-
-
 });
 $("#boxInfo").on("click",'.out',function(){
     $(this).parent().parent().remove();

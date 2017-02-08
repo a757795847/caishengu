@@ -21,12 +21,12 @@ function imagetokens() {
     return result;
 }
 
-function newQiniu(completeCallback, browse_button, container, token) {
+function newQiniu(completeCallback, browse_button, container, file_token) {
     return Qiniu.uploader({
         runtimes: 'html5,flash,html4',
         browse_button: browse_button, //'container',
         container: container,// 'addImgs',
-        uptoken: token,
+        uptoken: file_token,
         unique_names: false,
         multi_selection: false,
         max_file_size: '3mb',
@@ -59,6 +59,7 @@ function newQiniu(completeCallback, browse_button, container, token) {
                 //images = imagetoken[1];
                 //var domain = up.getOption('domain');
                 //var res = eval('(' + info + ')');
+
                 var src = 'http://' + backend_host + '/other/file/' + key + '?' + token;
                 completeCallback(key, src);
             },

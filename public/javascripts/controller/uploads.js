@@ -195,8 +195,6 @@ function cancelImages(nub){
         images.splice($.inArray(dataName,images),1);
         $(this).parent().remove();
         $('#pickfiles span').text('选择文件');
-
-
         newUploader(nub);
     })
 }
