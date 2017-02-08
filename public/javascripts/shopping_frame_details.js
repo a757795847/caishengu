@@ -1,5 +1,11 @@
 newUploader(9);
 newUpbrowse(9);
+
+var url=window.location.href;
+var indexOf=url.indexOf("=");
+var val=url.substr(indexOf+1);
+
+console.log(val)
 $(".father").on('click','span',function(){
         var Edit=$(this).html();
     console.log(Edit);
@@ -24,6 +30,25 @@ $(".father").on('click','span',function(){
 
 
 
+
+});
+$.ajax({
+    type: 'GET',
+    url: "http://" + backend_host + '/web/staff/goods/market/entity?'+ token,
+    dataType: 'json',
+    data:{
+        "id":val,
+    },
+    success: function (data) {
+        console.log(data);
+        $("#Numbering").val(data.given_id);
+        $("#title").val(data.name);
+        $("#Manufacturers").val(data.manufacturer);
+
+
+
+
+    }
 
 });
 $("#boxInfo").on("click",'.out',function(){
