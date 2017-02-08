@@ -15,7 +15,7 @@ $("#addgr").click(function(){
 $(document).ready(function () {
    $.getJSON("http://" + backend_host + '/web/staff/goods/market/class/collection?' + token,
        function (data) {
-          // console.log(data)
+          console.log(data)
           var tbody = "";
 
           $.each(data.list, function (i, order) {

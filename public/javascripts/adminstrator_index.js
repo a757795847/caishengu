@@ -1,15 +1,14 @@
 
 $(document).ready(function () {
-    $.get("http://" + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+    $.getJSON("http://" + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":0 ,
             "limit": 5,
         },
         function (data) {
-            console.log(data.length)
             var tbody = "";
 
-            $.each(data, function (i, order) {
+            $.each(data.list, function (i, order) {
                tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details?'+order.id+'">编辑</a></span></td></tr>';
@@ -36,7 +35,7 @@ function indexAjxa(index,size){
         function (data) {
             console.log(data);
             var tbody = "";
-            $.each(data, function (i, order) {
+            $.each(data.list, function (i, order) {
                 tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details?'+order.id+'">编辑</a></span></td></tr>';
@@ -61,7 +60,7 @@ $('[type="submit"]').click(function(){
         },
         function (data) {
             var tbody = "";
-            $.each(data, function (i,order) {
+            $.each(data.list, function (i,order) {
                 tbody +='<tr> <td><a href="../pages/examples/invoice.html" id="user_id">'+order.id+'</a></td>';
                 tbody +='<td><span class="label label-success" id="user_name">'+order.name+'</span></td>';
                 tbody +='<td><span class="label label-info" ><a href="/administrator/details">编辑</a></span></td></tr>';
