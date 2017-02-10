@@ -38,6 +38,7 @@
 
 }
 .input-group span{
+    cursor: pointer;
     margin-left:25px;
     color:#3c8dbc;
 

@@ -17,6 +17,20 @@ td span {
 }
 .box.box-solid .box-header.with-border{
     margin-bottom: 0;
+    text-align: center;
+}
+
+.box.box-solid .no-padding{
+    text-align: center;
+}
+
+.box.box-solid .no-padding ul li{
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.box.box-solid .no-padding ul li:hover{
+    background-color: #54a5c5;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
@@ -76,7 +90,6 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
 }
 .addNews .form-group textarea{
     width:150%;
-    margin-bottom: 20px;
 }
 #pulls{
     padding: 3px 20px;
@@ -88,4 +101,19 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     border: none;
     border: 20px;
 
+}
+
+button.tribute-frame-detail-remove {
+    display: none;
+}
+
+
+div.addNews #addImgs_shelves {
+    overflow: hidden;
+}
+
+span.tribute-frame-detail-hint {
+    color: red;
+    margin-top: 10px;
+    display: none;
 }

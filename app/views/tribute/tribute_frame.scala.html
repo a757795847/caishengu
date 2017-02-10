@@ -16,9 +16,9 @@
                         <div class="col-md-4 col-lg-3" >
                             <div class="box-body">
                                 <div class="box box-solid">
-                                    @*<div class="box-header with-border">*@
-                                        @*<h3 class="box-title">分类</h3>*@
-                                    @*</div>*@
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">分类</h3>
+                                    </div>
                                     <div class="box-body no-padding">
                                         <ul class="nav nav-pills nav-stacked" id="tributeClass">
 
@@ -31,7 +31,7 @@
                             <div class="box-body">
                                 <div class="box-header noPadding">
                                     <div class="input-group input-group-sm pull-right">
-                                        <a class="btn btn-default pull-right btn-sm" id="pulls" href="/tribute/frame/detail">新增</a>
+                                        <a class="btn btn-default pull-right btn-sm" id="pulls tribute_frame_pulls" onclick="tribute_frame_pulls()">新增</a>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -47,15 +47,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="tributeContent">
-                                            <tr>
-                                                <th>清香 <span>0财神币/0积分</span></th>
-                                                <th>
-                                                    <span class="label label-info"><a href="/tribute/frame/detail">编辑</a></span>
-                                                    <span class="label label-info"><a href="#">删除</a></span>
-                                                    <span class="label label-info"><a href="#">上</a></span>
-                                                    <span class="label label-info"><a href="#">下</a></span>
-                                                </th>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -79,6 +71,26 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
                     <button type="button" id="closeName" class="btn btn-default btnList" data-dismiss="modal">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12 eacho">
+                                <h4>确定删除该类别?</h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clear">取消</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="comfirm">确定</button>
                 </div>
             </div>
         </div>
