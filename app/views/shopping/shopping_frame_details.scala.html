@@ -15,8 +15,9 @@
             <div class="box box-info">
                 <a class="btn turn" href="/shopping/frame">返回</a>
                 <div>
-                    编号: <input type="text" class="form-control address" id="Numbering">
+                    编号: <input type="text" class="form-control address" id="shopping_frame_details_given_id">
                 </div>
+                <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_1">请输入编号</span>
 
                 <div class="add">
                     <p>图片:</p>
@@ -31,10 +32,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="shopping-frame-details-hint">（图片最多添加9张）</div>
+                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_2">请至少上传一张图片</span>
                 </div>
                 <div>
-                    标题: <input type="text" class="form-control address" id="title">
+                    标题: <input type="text" class="form-control address" id="shopping_frame_details_name">
                 </div>
+                <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_3">请输入标题</span>
 
                 <div id="specifications">
                     <p>规格尺寸</p>
@@ -50,51 +54,33 @@
                             <th></th>
                         </thead>
                         <tbody id="boxInfo">
-                            <tr>
-                                <td> <i class="glyphicon glyphicon-plus"></i></td>
-                                <td> <input type="text" class="form-control" value="红色"></td>
-                                <td> <input type="text" class="form-control" ></td>
-                                <td> <input type="text" class="form-control" value="大"></td>
-                                <td> <input type="text" class="form-control" value="1"></td>
-                                <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <button class="btn btn-default out">删除</button></td>
-                            </tr>
-                            <tr>
-                                <td><i class="glyphicon glyphicon-plus"></i></td>
-                                <td> <input type="text" class="form-control" value="白色"></td>
-                                <td> <input type="text" class="form-control" ></td>
-                                <td> <input type="text" class="form-control" value="大"></td>
-                                <td> <input type="text" class="form-control" value="1"></td>
-                                <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <input type="text" class="form-control" value="10"></td>
-                                <td> <button class="btn btn-default out">删除</button></td>
-                            </tr>
+
                         </tbody>
                     </table>
+                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_4">请填写规格尺寸</span>
                     <table id="Table">
                             <tr>
                                 <td>厂商:</td>
-                                <td> <input type="text" class="form-control" value="xx厂商" id="Manufacturers"></td>
+                                <td> <input type="text" class="form-control" placeholder="xx厂商" value="" id="shopping_frame_details_manufacturer"></td>
                                 <td> 发货地:</td>
-                                <td> <select class="form-control select2" id="default">
-                                </select> </td>
+                                <td>
+                                    <select class="form-control select2 shopping_frame_details_select" id="default shopping_frame_details_select">
+
+                                    </select>
+                                </td>
                                 <td> </td>
                                 <td> </td>
                                 <td> </td>
                                 <td> <button class="btn btn-default add">新增</button></td>
                             </tr>
                     </table>
+                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_5">请填写厂商</span>
 
                 </div>
                 <div class="category">
-                    <h5>类目选择</h5>
+                    <h5>类目选择</h5>@*
                    <div class="father">
-                       <div>
-                           一级类目名   <span class="open">展开</span>
-                       </div>
-
-
+                       <div>一级类目名<span class="open">展开</span></div>
                        <ul class="twocat">
                            <li>  <input type="checkbox" id="inlineCheckbox1">二级类目名</li>
                            <li> <input type="checkbox" id="inlineCheckbox2">二级类目名</li>
@@ -125,13 +111,15 @@
                             <li> <input type="checkbox" id="inlineCheckbox9">二级类目名</li>
                         </ul>
                     </div>
-
+*@
                 </div>
+                <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_6">请至少选择一个选择类目列表</span>
 
                 <div id="Freight">
-                    运费模板:   <select class="form-control select2">
-                            <option>模板1</option>
-                            </select>
+                    运费模板:
+                        <select class="form-control select2 shopping-frame-details-template">
+
+                        </select>
                 </div>
 
                 <div class="add">
@@ -147,11 +135,15 @@
                             </div>
                         </div>
                     </div>
-                <div class="footer">
-            <button class="btn btn-default black" id="delete">删除</button>
-            <button class="btn btn-default black" id="keep">保存到仓库</button>
+                    <div class="shopping-frame-details-hint">（图片最多添加9张）</div>
+                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_7">请至少上传一张图片</span>
+
+                    <div class="footer">
+                        <button class="btn btn-default black shopping-frame-details-remove" id="delete">删除</button>
+                        <button class="btn btn-default black" id="keep">保存到仓库</button>
+                    </div>
                 </div>
-                </div>
+            </div>
         </section>
 
             <!-- /.content -->

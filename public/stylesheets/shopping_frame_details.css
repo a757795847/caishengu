@@ -3,8 +3,13 @@
     margin-left:46px;
 
 }
+
+div.fsUploadProgress {
+    height: 120px;
+}
+
 #imagebox{
-    width:800px;
+    /*width:800px;*/
     margin-left:46px;
 
 }
@@ -73,13 +78,14 @@
     border:1px solid #000000;
     height:30px;
     border-top:none;
-
+    display: none;
 }
 .category ul li input{
     margin:0 15px;
 
 }
 .category span{
+    cursor: pointer;
     float:right;
     margin-right:15px;
     color:#3c8dbc;
@@ -109,6 +115,7 @@
 
 }
 .footer{
+    margin-top: 20px;
     text-align:center;
 
 }
@@ -127,7 +134,8 @@
 
 }
 #Table{
-  width:100%;
+    border-top: 1px solid #eaeaea;
+    width:100%;
 
 }
 #Table td{
@@ -138,9 +146,50 @@
 
 }
 
+div.footer .shopping-frame-details-remove {
+    display: none;
+}
+
+div.shopping-frame-details-hint {
+    color: #666;
+    font-size: 12px;
+    padding: 10px 38px 0;
+}
+
+div.addImg {
+    margin-bottom: 0;
+}
 
 
+span.shopping-frame-details-common-hint {
+    color: red;
+    padding: 10px 46px;
+    font-size: 12px;
+    display: none;
+}
 
+td.shopping-frame-details-tou-tu {
+    text-align: center!important;
+    border: 1px solid #eaeaea;
+}
+
+div.addImg-tu {
+    border: 1px solid #eee;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+}
+
+div.imgBox_tu img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin-right: 0;
+}
 
 
 

@@ -10,7 +10,7 @@ $(function () {
     var type = window.location.search;
     console.info("type", type);
 
-    if (type == "" || type == null) {
+    if (type == "") {
         $("#keep").on("click", function () {
             var genera_name = $("#title").val()
             console.info("genera_name", genera_name)
@@ -46,20 +46,34 @@ $(function () {
                 console.log("data.name", data.name);
                 $("#title").val(data.name);
 
+                var imageBoxs = '';
+                imageBoxs += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<img src="http://'+backend_host+''+data.image+'?'+token+'"></div>';
+                $('#container').hide();
+                // console.log(imageBoxs);
+                $('#container').before(imageBoxs);
+
                 $("#keep").on("click", function () {
-                    var genera_name = $("#title").val()
-                    console.info("genera_name", genera_name)
+                    var genera_name = $("#title").val();
+                    // console.info("genera_name", genera_name);
+                    var put_data = null;
+                    if (image == "") {
+                        put_data = {
+                            "id": id,
+                            "name": genera_name,
+                        }
+                    } else {
+                        put_data = {
+                            "id": id,
+                            "name": genera_name,
+                            "image": image
+                        }
+                    }
                     $.ajax({
                         type: 'PUT',
                         contentType: 'application/json',
                         url: 'http://' + backend_host + '/web/staff/goods/market/class/entity?' + token,
-                        data: JSON.stringify({
-                            "id": id,
-                            "name": genera_name,
-
-                            //todo 图片url
-                            "image": ""
-                        }),
+                        data: JSON.stringify(put_data),
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
@@ -73,7 +87,7 @@ $(function () {
                         }
 
                     })
-                })
+                });
 
                 var addData = '';
                 for (var i = 0; i < data.label_list.length; i++) {
@@ -182,12 +196,37 @@ $(function () {
             })
 
         });
-
-
-
-
-
-
     }
 });
 
+
+
+
+
+newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+
+var image = "";
+function fileUploadCompleteCallback(key, src) {
+    var imageBoxs = '';
+    imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+    imageBoxs += '<img src="' + src + '"></div>';
+    $('#container').hide();
+
+    $('#container').before(imageBoxs);
+
+    image = key;
+}
+$('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+    $(this).find('button').css('display', 'block');
+
+})
+$('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+    $(this).find('button').css('display', 'none');
+})
+$('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+    e.stopPropagation();
+    var dataName = $(this).attr('data-name');
+    images = '';
+    $(this).parent().remove();
+    $('#container').show();
+})

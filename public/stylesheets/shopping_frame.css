@@ -13,6 +13,7 @@ img{
 
 }
 .table.no-margin td span{
+  cursor: pointer;
   color:#3c8dbc;
 
 }

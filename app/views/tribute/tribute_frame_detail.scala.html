@@ -23,18 +23,28 @@
                                 <div class="addImg" id="container">
                                     <a id="pickfiles" href="#" >
                                         <i class="glyphicon glyphicon-plus"></i>
-                                        <span>选择文件</span>
+                                        <span>供桌文件</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        <span class="tribute-frame-detail-hint" id="tribute_frame_detail_gz_img">请上传供桌图片</span>
                     </div>
                     <div class="addNews">
                         <div class="form-group">
                             <label>货架图片</label>
-                            <div>
-                                <img src="#" alt="">
+                            <div role="tabpanel" id="addImgs_shelves" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                                <div  id="fsUploadProgress_shelves">
+
+                                    <div class="addImg" id="container_shelves">
+                                        <a id="pickfiles" href="#" >
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <span>货架文件</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_hj_img">请上传货架图片</span>
                         </div>
                         <div class="form-group">
                             <label>标题</label>
@@ -42,8 +52,9 @@
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default"><i class="fa fa-map-signs"></i></button>
                                 </div>
-                                <input id="title" type="text" class="form-control" placeholder="项目名称">
+                                <input id="title_project" type="text" class="form-control" placeholder="项目名称">
                             </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_name">请输入项目名称</span>
                         </div>
                         <div class="form-group">
                             <label>时效</label>
@@ -51,8 +62,9 @@
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default"><i class="fa fa-clock-o"></i></button>
                                 </div>
-                                <input id="title" type="text" class="form-control" placeholder="时效">
+                                <input id="title_time" type="text" class="form-control" placeholder="时效">
                             </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_hint">请输入时效（正整数）</span>
                         </div>
                         <div class="form-group">
                             <label>人民币</label>
@@ -62,6 +74,7 @@
                                 </div>
                                 <input id="priceCoin" type="text" class="form-control" placeholder="金额">
                             </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_coin">请输入金额（数字）</span>
                         </div>
                         <div class="form-group">
                             <label>积分</label>
@@ -71,19 +84,51 @@
                                 </div>
                                 <input id="pricePoint" type="text" class="form-control" placeholder="金额">
                             </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_point">请输入积分（正整数）</span>
+                        </div>
+                        <div class="form-group">
+                            <label>货架图片所占格子大小</label>
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default"><i class="fa fa-ruble"></i></button>
+                                </div>
+                                <input id="shelves_number" type="text" class="form-control" placeholder="请输入">
+                            </div>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_shelves_number">请输入所占各自大小（正整数）</span>
                         </div>
                         <div class="form-group">
                             <label>备注</label>
                             <textarea id="introduction" class="form-control" rows="6"></textarea>
+                            <span class="tribute-frame-detail-hint" id="tribute_frame_detail_textarea">请输入备注</span>
                         </div>
                     </div>
                     <div>
-                        <button type="button" id="closeGoods" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">删除</a></button>
+                        <button type="button" id="closeGoods" class="btn btn-default col-md-1 col-lg-1 pull-right tribute-frame-detail-remove"  data-toggle="modal" data-target="#myModal"><a href="#">删除</a></button>
                         <button type="button" id="saveGoods" class="btn btn-default col-md-1 col-lg-1 pull-right"><a href="#">保存</a></button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-sm-12 eacho">
+                                    <h4>确定删除该类别?</h4>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="clear">取消</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="comfirm">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             <!-- /.content -->
     </div>

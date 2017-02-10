@@ -1,3 +1,4 @@
+/*
 (function($){
 
     $('#tributeClass').on('click','li',function(){
@@ -75,3 +76,222 @@
     
     
 })(jQuery)
+*/
+
+/*$(function () {
+    $(".tribute-frame-left-xiang").css("backgroundColor", "#54a5c5" );
+    $(".tribute-frame-left-xiang").css("color", "blank");
+    $(".tribute-frame-left-xiang").css("fontWeight", "bold");
+
+
+    $(".tribute-frame-left-xiang").on("click", function () {
+        $(this).css("backgroundColor", "#54a5c5");
+        $(".tribute-frame-left-hua").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-you").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-deng").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-gaodian").css("backgroundColor", "#fff");
+    });
+    $(".tribute-frame-left-hua").on("click", function () {
+        $(this).css("backgroundColor", "#54a5c5");
+        $(".tribute-frame-left-xiang").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-you").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-deng").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-gaodian").css("backgroundColor", "#fff");
+    });
+    $(".tribute-frame-left-you").on("click", function () {
+        $(this).css("backgroundColor", "#54a5c5");
+        $(".tribute-frame-left-xiang").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-hua").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-deng").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-gaodian").css("backgroundColor", "#fff");
+    });
+    $(".tribute-frame-left-deng").on("click", function () {
+        $(this).css("backgroundColor", "#54a5c5");
+        $(".tribute-frame-left-xiang").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-hua").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-you").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-gaodian").css("backgroundColor", "#fff");
+    });
+    $(".tribute-frame-left-gaodian").on("click", function () {
+        $(this).css("backgroundColor", "#54a5c5");
+        $(".tribute-frame-left-xiang").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-hua").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-you").css("backgroundColor", "#fff");
+        $(".tribute-frame-left-deng").css("backgroundColor", "#fff");
+    });
+});*/
+
+
+var out_id = "";
+
+$(function () {
+    $.getJSON("http://" + backend_host + '/web/staff/goods/virtual/class/collection?' + token,
+        function (data) {
+            // console.log(data)
+            var tbody = "";
+            out_id = data.list[0].id;
+
+            $.each(data.list, function (i, order) {
+
+                tbody +='<li class="tribute-frame-left-common" id="'+ order.id +'" >'+ order.name +'</li>';
+
+            });
+
+            $('#tributeClass').append(tbody);
+
+            // console.info("第一个子节点1", $("#tributeClass").find("li").eq(0));
+            $("#tributeClass li:first").css("backgroundColor", "#54a5c5" );
+
+
+            $.getJSON("http://" + backend_host + '/web/staff/goods/virtual/collection?' + token + "&class_id=" + data.list[0].id,
+                function (data) {
+                    // console.log(data)
+                    var tbody_s = "";
+
+                    $.each(data.list, function (i, order) {
+
+                        tbody_s +='<tr><th>'+ order.name +'<span>'+ order.point+'财神币/'+ order.coin +'积分</span></th>';
+                        tbody_s +='<th><span class="label label-info"><a href="/tribute/frame/detail?1&id='+order.id+'">编辑</a></span>';
+                        tbody_s +='<span class="label label-info tribute-frame-remove" id="'+order.id+'" data-toggle="modal" data-target="#myModal"><a href="#">删除</a></span>';
+                        tbody_s +='<span class="label label-info"><a href="#">上</a></span>';
+                        tbody_s +='<span class="label label-info"><a href="#">下</a></span></th></tr>';
+
+                    });
+
+                    $('#tributeContent').append(tbody_s);
+
+                    $(".tribute-frame-remove").click(function () {
+                        var goods_id = $(this).attr("id");
+                        console.info("goods_id", goods_id);
+                        $("#comfirm").click(function () {
+                            $.ajax({
+                                type:'DELETE',
+                                contentType:'application/json',
+                                url:'http://'+ backend_host + '/web/staff/goods/virtual/entity?' + token + "&goods_id=" + goods_id,
+                                data:{},
+                                dataType:'json',
+                                success:function(data){
+                                    // console.log(data);
+
+                                    $.getJSON("http://" + backend_host + '/web/staff/goods/virtual/collection?' + token + "&class_id=" + out_id,
+                                        function (data) {
+                                            console.log("确认删除后重新get的数据", data);
+                                            console.log("确认删除后重新get的数据个数", data.length);
+                                            var tbody_s = "";
+
+                                            $.each(data.list, function (i, order) {
+
+                                                tbody_s += '<tr><th>' + order.name + '<span>' + order.point + '财神币/' + order.coin + '积分</span></th>';
+                                                tbody_s += '<th><span class="label label-info"><a href="/tribute/frame/detail?1&id=' + order.id + '">编辑</a></span>';
+                                                tbody_s += '<span class="label label-info tribute-frame-remove" id="' + order.id + '" data-toggle="modal" data-target="#myModal"><a href="#">删除</a></span>';
+                                                tbody_s += '<span class="label label-info"><a href="#">上</a></span>';
+                                                tbody_s += '<span class="label label-info"><a href="#">下</a></span></th></tr>';
+
+                                            });
+
+                                            $('#tributeContent').html(tbody_s);
+
+                                        });
+
+                                },
+                                error:function(jqXHR){
+                                    console.log(jqXHR.status);
+                                    if(jqXHR.status == 406){
+
+                                    }
+                                }
+
+                            })
+                        })
+
+                    })
+                });
+
+
+
+
+            $(".tribute-frame-left-common").on("click", function () {
+
+                $(".tribute-frame-left-common").css("backgroundColor", "");
+                $(this).css("backgroundColor", "#54a5c5" );
+
+                console.info("id", $(this).attr("id"));
+                out_id = $(this).attr("id");
+
+                $.getJSON("http://" + backend_host + '/web/staff/goods/virtual/collection?' + token + "&class_id=" + $(this).attr("id"),
+                    function (data) {
+                        // console.log(data)
+                        var tbody_s = "";
+
+                        $.each(data.list, function (i, order) {
+
+                            tbody_s +='<tr><th>'+ order.name +'<span>'+ order.point+'财神币/'+ order.coin +'积分</span></th>';
+                            tbody_s +='<th><span class="label label-info"><a href="/tribute/frame/detail?1&id='+order.id+'">编辑</a></span>';
+                            tbody_s +='<span class="label label-info tribute-frame-remove" id="' + order.id + '" data-toggle="modal" data-target="#myModal"><a href="#" >删除</a></span>';
+                            tbody_s +='<span class="label label-info"><a href="#">上</a></span>';
+                            tbody_s +='<span class="label label-info"><a href="#">下</a></span></th></tr>';
+
+                        });
+
+                        $('#tributeContent').html(tbody_s);
+
+                        $(".tribute-frame-remove").click(function () {
+                            var goods_id = $(this).attr("id");
+                            console.info("goods_id", goods_id);
+                            $("#comfirm").click(function () {
+                                $.ajax({
+                                    type:'DELETE',
+                                    contentType:'application/json',
+                                    url:'http://'+ backend_host + '/web/staff/goods/virtual/entity?' + token + "&goods_id=" + goods_id,
+                                    data:{},
+                                    dataType:'json',
+                                    success:function(data){
+                                        // console.log(data);
+
+                                        $.getJSON("http://" + backend_host + '/web/staff/goods/virtual/collection?' + token + "&class_id=" + out_id,
+                                            function (data) {
+                                                console.log("确认删除后重新get的数据", data);
+                                                console.log("确认删除后重新get的数据个数", data.list.length);
+                                                var tbody_s = "";
+
+                                                $.each(data.list, function (i, order) {
+
+                                                    tbody_s += '<tr><th>' + order.name + '<span>' + order.point + '财神币/' + order.coin + '积分</span></th>';
+                                                    tbody_s += '<th><span class="label label-info"><a href="/tribute/frame/detail?1&id=' + order.id + '">编辑</a></span>';
+                                                    tbody_s += '<span class="label label-info tribute-frame-remove" id="' + order.id + '" data-toggle="modal" data-target="#myModal"><a href="#">删除</a></span>';
+                                                    tbody_s += '<span class="label label-info"><a href="#">上</a></span>';
+                                                    tbody_s += '<span class="label label-info"><a href="#">下</a></span></th></tr>';
+
+                                                });
+
+                                                $('#tributeContent').html(tbody_s);
+
+                                            });
+
+                                    },
+                                    error:function(jqXHR){
+                                        console.log(jqXHR.status);
+                                        if(jqXHR.status == 406){
+
+                                        }
+                                    }
+
+                                })
+                            })
+
+                        })
+                    });
+
+
+
+            })
+    });
+
+
+
+});
+
+function tribute_frame_pulls() {
+    console.info("out_id", out_id);
+    location.href = "/tribute/frame/detail?0&id=" + out_id
+}
