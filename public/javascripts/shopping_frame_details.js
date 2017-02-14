@@ -21,75 +21,17 @@ $(".father").on('click', 'span', function () {
 
     }
 });
-$("#boxInfo").on("click", '.out', function () {
-    $(this).parent().parent().remove();
 
-});
-
-var index_i = 99;
-var image_tu = [];
-$(".btn.btn-default.add").on("click", function () {
-    console.info("index_i", index_i);
-    var sub = "";
-    var faid = 'addImgs_tu' + index_i;
-    var chid = "container_tu" + index_i;
-    var fsid = "fsUploadProgress_tu" + index_i;
-    sub += '<tr> <td class="shopping-frame-details-tou-tu"> <div role="tabpanel" id="' + faid + '"  class="tab-pane fade in active" aria-labelledby="demo-tab">';
-    sub += '<div  id="' + fsid + '">';
-    sub += '<div class="addImg-tu" id="' + chid + '">';
-    sub += '<a id="pickfiles' + index_i + '" href="#" >';
-    sub += '<i class="glyphicon glyphicon-plus"></i>';
-    sub += '</a></div></div></div></td>';
-    sub += '<td> <input type="text" class="form-control colors" placeholder="红色" value=""></td>';
-    sub += '<td> <input type="text" class="form-control weight" placeholder="kg"></td>';
-    sub += '<td> <input type="text" class="form-control spec" placeholder="大" value=""></td>';
-    sub += '<td> <input type="text" class="form-control coin" placeholder="1" value=""></td>';
-    sub += '<td> <input type="text" class="form-control point" placeholder="10" value=""></td>';
-    sub += '<td> <input type="text" class="form-control number" placeholder="10" value=""></td>';
-    sub += '<td> <button class="btn btn-default out">删除</button></td></tr>';
-
-    console.log(sub);
-    $(".table.no-margin").find('tbody').append(sub);
-    console.log('container_tu' + index_i)
-    newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token);
-
-    function fileUploadCompleteCallback_other(key, src) {
-        var imageBoxs_tu = '';
-        imageBoxs_tu += '<div class="imgBox_tu"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-        imageBoxs_tu += '<img class="images" data-key="' + key + '" src="' + src + '"></div>';
-        $('#' + faid).hide();
-
-        $('#' + faid).before(imageBoxs_tu);
-
-        image_tu.push(key);
-    }
-
-    $('#' + fsid).on('mousemove ', '.imgBox', function () {
-        $(this).find('button').css('display', 'block');
-
-    })
-    $('#' + fsid).on('mouseout ', '.imgBox', function () {
-        $(this).find('button').css('display', 'none');
-    })
-    $('#' + fsid).on('click ', '.imgBox_tu button', function (e) {
-        e.stopPropagation();
-        var dataName = $(this).attr('data-name');
-        image_tu = '';
-        $(this).parent().remove();
-        $('#container_tu' + index_i).show();
-    })
-    index_i++
-});
 var list = [];
 function listdata(image, color, weight, spec, coin, point, number) {
     var data = {
         'image': image,
         'color': color,
-        'weight': weight,
+        'weight': parseFloat(weight),
         'spec': spec,
-        'coin': coin,
-        'point': point,
-        'number': number
+        'coin': parseFloat(coin),
+        'point': parseFloat(point),
+        'number': parseFloat(number)
     };
     list.push(data)
 }
@@ -110,6 +52,67 @@ $(function () {
     var suffix_type = window.location.search.slice(1, 2);
     // console.info("suffix_type", suffix_type);
     if (suffix_type == 0) {
+
+        $("#boxInfo").on("click", '.out', function () {
+            $(this).parent().parent().remove();
+
+        });
+        var index_i = 99;
+        var image_tu_add = [];
+        $(".btn.btn-default.add").on("click", function () {
+            console.info("index_i", index_i);
+            var sub = "";
+            var faid = 'addImgs_tu' + index_i;
+            var chid = "container_tu" + index_i;
+            var fsid = "fsUploadProgress_tu" + index_i;
+            sub += '<tr> <td class="shopping-frame-details-tou-tu"> <div role="tabpanel" id="' + faid + '"  class="tab-pane fade in active" aria-labelledby="demo-tab">';
+            sub += '<div  id="' + fsid + '">';
+            sub += '<div class="addImg-tu" id="' + chid + '">';
+            sub += '<a id="pickfiles' + index_i + '" href="#" >';
+            sub += '<i class="glyphicon glyphicon-plus"></i>';
+            sub += '</a></div></div></div></td>';
+            sub += '<td> <input type="text" class="form-control colors" placeholder="红色" value=""></td>';
+            sub += '<td> <input type="text" class="form-control weight" placeholder="kg"></td>';
+            sub += '<td> <input type="text" class="form-control spec" placeholder="大" value=""></td>';
+            sub += '<td> <input type="text" class="form-control coin" placeholder="1" value=""></td>';
+            sub += '<td> <input type="text" class="form-control point" placeholder="10" value=""></td>';
+            sub += '<td> <input type="text" class="form-control number" placeholder="10" value=""></td>';
+            sub += '<td> <button class="btn btn-default out">删除</button></td></tr>';
+
+            console.log(sub);
+            $(".table.no-margin").find('tbody').append(sub);
+            console.log('container_tu' + index_i)
+            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token);
+
+            function fileUploadCompleteCallback_other(key, src) {
+                var imageBoxs_tu = '';
+                imageBoxs_tu += '<div class="imgBox_tu"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs_tu += '<img class="images" data-key="' + key + '" src="' + src + '"></div>';
+                $('#' + faid).hide();
+
+                $('#' + faid).before(imageBoxs_tu);
+
+                image_tu_add.push(key);
+            }
+
+            $('#' + fsid).on('mousemove ', '.imgBox', function () {
+                $(this).find('button').css('display', 'block');
+
+            })
+            $('#' + fsid).on('mouseout ', '.imgBox', function () {
+                $(this).find('button').css('display', 'none');
+            })
+            $('#' + fsid).on('click ', '.imgBox_tu button', function (e) {
+                e.stopPropagation();
+                var dataName = $(this).attr('data-name');
+                image_tu_add = [];
+                $(this).parent().remove();
+                $('#container_tu' + index_i).show();
+            })
+            index_i++
+        });
+
+
         newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
 
         var image = [];
@@ -359,7 +362,7 @@ $(function () {
                 var coin = datas.find('.coin').val()
                 var point = datas.find('.point').val()
                 var number = datas.find('.number').val()
-                listdata(theimage, colors, parseFloat(weight), spec, parseFloat(coin), parseFloat(point), parseFloat(number))
+                listdata(theimage, colors, weight, spec, coin, point, number)
             }
             console.log(list)
 
@@ -367,9 +370,21 @@ $(function () {
             for (var b = 0; b < list.length; b++) {
                 if (list[b].coin == "" || list[b].color == "" || list[b].image == undefined || list[b].number == "" || list[b].point == "" || list[b].spec == "" || list[b].weight == "") {
                     $("#shpping_frame_details_hint_4").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
                     list = []
+                } else if (!/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(list[b].weight) || !/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(list[b].coin)) {
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                } else if (!/^[0-9]*[1-9][0-9]*$/.test(list[b].point) || !/^[0-9]*[1-9][0-9]*$/.test(list[b].number)) {
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
                 } else {
                     $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
                 }
             }
 
@@ -397,7 +412,8 @@ $(function () {
                 "introduce_images": images
             }
             console.info("add_data", add_data);
-            if (given_id == "" || !/^[0-9]*[1-9][0-9]*$/.test(given_id) || image.length == 0 || name == "" || manufacturer == "" || type_list_data.length == 0 || images.length == 0) {
+            console.info("list.length", list.length);
+            if (given_id == "" || !/^[0-9]*[1-9][0-9]*$/.test(given_id) || image.length == 0 || name == "" || manufacturer == "" || type_list_data.length == 0 || images.length == 0 || list.length == 0) {
                 if (given_id == "" || !/^[0-9]*[1-9][0-9]*$/.test(given_id)) {
                     $("#shpping_frame_details_hint_1").css("display", "inline-block");
                 } else {
@@ -428,6 +444,28 @@ $(function () {
                 } else {
                     $("#shpping_frame_details_hint_7").css("display", "none");
                 }
+                if (list.length == 0) {
+                    for (var b = 0; b < list.length; b++) {
+                        if (list[b].coin == "" || list[b].color == "" || list[b].image == undefined || list[b].number == "" || list[b].point == "" || list[b].spec == "" || list[b].weight == "") {
+                            $("#shpping_frame_details_hint_4").css("display", "inline-block");
+                            $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                            $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                            list = []
+                        } else if (!/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(list[b].weight) || !/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(list[b].coin)) {
+                            $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
+                            $("#shpping_frame_details_hint_4").css("display", "none");
+                            $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                        } else if (!/^[0-9]*[1-9][0-9]*$/.test(list[b].point) || !/^[0-9]*[1-9][0-9]*$/.test(list[b].number)) {
+                            $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
+                            $("#shpping_frame_details_hint_4").css("display", "none");
+                            $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                        } else {
+                            $("#shpping_frame_details_hint_4").css("display", "none");
+                            $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                            $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                        }
+                    }
+                }
             } else {
                 $("#shpping_frame_details_hint_1").css("display", "none");
                 $("#shpping_frame_details_hint_2").css("display", "none");
@@ -445,7 +483,7 @@ $(function () {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        location.href = "/shopping/frame"
+                        // location.href = "/shopping/frame"
                     },
                     error: function (jqXHR) {
                         console.log(jqXHR.status);
@@ -464,6 +502,123 @@ $(function () {
         var goodsId = window.location.search.slice(4);
         // console.info("goodsId", goodsId);
         $(".shopping-frame-details-remove").css("display", "inline-block");
+
+
+        var index_i = 99;
+        var image_tu_add = [];
+        $(".btn.btn-default.add").on("click", function () {
+            console.info("index_i", index_i);
+            var sub = "";
+            var faid = 'addImgs_tu' + index_i;
+            var chid = "container_tu" + index_i;
+            var fsid = "fsUploadProgress_tu" + index_i;
+            sub += '<tr> <td class="shopping-frame-details-tou-tu"> <div role="tabpanel" id="' + faid + '"  class="tab-pane fade in active" aria-labelledby="demo-tab">';
+            sub += '<div  id="' + fsid + '">';
+            sub += '<div class="addImg-tu" id="' + chid + '">';
+            sub += '<a id="pickfiles' + index_i + '" href="#" >';
+            sub += '<i class="glyphicon glyphicon-plus"></i>';
+            sub += '</a></div></div></div></td>';
+            sub += '<td> <input type="text" class="form-control colors" placeholder="红色" value=""></td>';
+            sub += '<td> <input type="text" class="form-control weight" placeholder="kg"></td>';
+            sub += '<td> <input type="text" class="form-control spec" placeholder="大" value=""></td>';
+            sub += '<td> <input type="text" class="form-control coin" placeholder="1" value=""></td>';
+            sub += '<td> <input type="text" class="form-control point" placeholder="10" value=""></td>';
+            sub += '<td> <input type="text" class="form-control number" placeholder="10" value=""></td>';
+            sub += '<td> <button class="btn btn-default shopping-frame-details-save">保存</button></td>';
+            sub += '<td> <button class="btn btn-default out">删除</button></td></tr>';
+
+            console.log(sub);
+            $(".table.no-margin").find('tbody').append(sub);
+            console.log('container_tu' + index_i)
+
+
+            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token);
+
+            function fileUploadCompleteCallback_other(key, src) {
+                var imageBoxs_tu = '';
+                imageBoxs_tu += '<div class="imgBox_tu"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs_tu += '<img class="images" data-key="' + key + '" src="' + src + '"></div>';
+                $('#' + faid).hide();
+
+                $('#' + faid).before(imageBoxs_tu);
+
+                image_tu_add.push(key);
+            }
+
+            $('#' + fsid).on('mousemove ', '.imgBox', function () {
+                $(this).find('button').css('display', 'block');
+
+            })
+            $('#' + fsid).on('mouseout ', '.imgBox', function () {
+                $(this).find('button').css('display', 'none');
+            })
+            $('#' + fsid).on('click ', '.imgBox_tu button', function (e) {
+                e.stopPropagation();
+                var dataName = $(this).attr('data-name');
+                image_tu_add = [];
+                $(this).parent().remove();
+                $('#container_tu' + index_i).show();
+            })
+            index_i++
+
+            $(".shopping-frame-details-save").click(function () {
+                var theimage = $(this).parent().parent().find('.images').data('key');
+                console.info("theimage", theimage);
+                var colors = $(this).parent().prev().prev().prev().prev().prev().prev().find('.colors').val();
+                console.info("colors", colors);
+                var weight = $(this).parent().prev().prev().prev().prev().prev().find('.weight').val();
+                var spec = $(this).parent().prev().prev().prev().prev().find('.spec').val();
+                var coin = $(this).parent().prev().prev().prev().find('.coin').val();
+                var point = $(this).parent().prev().prev().find('.point').val();
+                var number = $(this).parent().prev().find('.number').val();
+                if (theimage == undefined || colors == "" || weight == "" || spec == "" || coin == "" || point == "" || number == "") {
+                    $("#shpping_frame_details_hint_4").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                } else if (!/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(weight) || !/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(coin)) {
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                } else if (!/^[0-9]*[1-9][0-9]*$/.test(point) || !/^[0-9]*[1-9][0-9]*$/.test(number)) {
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
+                    $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                } else {
+                    $("#shpping_frame_details_hint_4").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                    $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                    var add_data_s = {
+                        "goods_id": goodsId,
+                        "image": theimage,
+                        "color": colors,
+                        "weight": parseFloat(weight),
+                        "spec": spec,
+                        "coin": parseFloat(coin),
+                        "point": parseFloat(point),
+                        "number": parseFloat(number)
+                    };
+                    console.info("add_data_s", add_data_s);
+                    $.ajax({
+                        type: 'POST',
+                        contentType: 'application/json',
+                        url: 'http://' + backend_host + '/web/staff/goods/market/entity/spec?' + token,
+                        data: JSON.stringify(add_data_s),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            location.href = "/shopping/frame"
+                        },
+                        error: function (jqXHR) {
+                            console.log(jqXHR.status);
+                            if (jqXHR.status == 406) {
+
+                            }
+                        }
+
+                    })
+                }
+            });
+        });
 
 
         $.getJSON("http://" + backend_host + '/web/staff/goods/market/entity?' + token + "&id=" + goodsId,
@@ -638,7 +793,6 @@ $(function () {
                 var defaultImg = '';
                 var defaultData = '';
                 $.each(datas.spec_list, function (i, order) {
-
                     defaultData += '<tr><td class="shopping-frame-details-tou-tu"> <div role="tabpanel" id="addImgs_tu' + i + '" class="tab-pane fade in active" aria-labelledby="demo-tab">';
                     defaultData += '<div  id="fsUploadProgress_tu' + i + '"><div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                     defaultData += '<img class="edit-default-img images" data-key="' + order.image.split('/')[3] + '" src="http://' + backend_host + order.image + '?' + token + '"></div><div class="addImg-tu edit-addImg-tou-tu" id="container_tu' + i + '">';
@@ -651,7 +805,8 @@ $(function () {
                     defaultData += '<td> <input type="text" class="form-control coin" placeholder="" value=' + order.coin + '></td>';
                     defaultData += '<td> <input type="text" class="form-control point" placeholder="" value=' + order.point + '></td>';
                     defaultData += '<td> <input type="text" class="form-control number" placeholder="" value=' + order.number + '></td>';
-                    defaultData += '<td> <button class="btn btn-default out">删除</button></td></tr>';
+                    defaultData += '<td> <button class="btn btn-default shopping_frame_details_modification" data-spec_id="'+order.spec_id+'" id="shopping_frame_details_modification">修改</button></td>';
+                    defaultData += '<td> <button class="btn btn-default out" data-spec_id="'+order.spec_id+'">删除</button></td></tr>';
                 });
                 $('table.table tbody#boxInfo').append(defaultData);
                 $.each(datas.spec_list, function (i, order) {
@@ -669,6 +824,69 @@ $(function () {
                         // image = key;
                     }
                 });
+
+                $(".shopping_frame_details_modification").click(function () {
+                    var spec_id = $(this).data("spec_id");
+                    console.info("spec_id", spec_id);
+
+                    var theimage = $(this).parent().parent().find('.images').data('key');
+                    console.info("theimage", theimage);
+                    var colors = $(this).parent().prev().prev().prev().prev().prev().prev().find('.colors').val();
+                    console.info("colors", colors);
+                    var weight = $(this).parent().prev().prev().prev().prev().prev().find('.weight').val();
+                    var spec = $(this).parent().prev().prev().prev().prev().find('.spec').val();
+                    var coin = $(this).parent().prev().prev().prev().find('.coin').val();
+                    var point = $(this).parent().prev().prev().find('.point').val();
+                    var number = $(this).parent().prev().find('.number').val();
+
+                    if (theimage == undefined || colors == "" || weight == "" || spec == "" || coin == "" || point == "" || number == "") {
+                        $("#shpping_frame_details_hint_4").css("display", "inline-block");
+                        $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                        $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                    } else if (!/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(weight) || !/^(([1-9]\d{0,9})|0)(\.\d{1,2})?$/.test(coin)) {
+                        $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
+                        $("#shpping_frame_details_hint_4").css("display", "none");
+                        $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                    } else if (!/^[0-9]*[1-9][0-9]*$/.test(point) || !/^[0-9]*[1-9][0-9]*$/.test(number)) {
+                        $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
+                        $("#shpping_frame_details_hint_4").css("display", "none");
+                        $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                    } else {
+                        $("#shpping_frame_details_hint_4").css("display", "none");
+                        $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
+                        $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
+                        var modification_data = {
+                            "spec_id": spec_id,
+                            "image": theimage,
+                            "color": colors,
+                            "weight": parseFloat(weight),
+                            "spec": spec,
+                            "coin": parseFloat(coin),
+                            "point": parseFloat(point),
+                            "number": parseFloat(number)
+                        };
+                        console.info("modification_data", modification_data);
+                        $.ajax({
+                            type: 'PUT',
+                            contentType: 'application/json',
+                            url: 'http://' + backend_host + '/web/staff/goods/market/entity/spec?' + token,
+                            data: JSON.stringify(modification_data),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+                                location.href = "/shopping/frame"
+                            },
+                            error: function (jqXHR) {
+                                console.log(jqXHR.status);
+                                if (jqXHR.status == 406) {
+
+                                }
+                            }
+
+                        })
+                    }
+                });
+
                 //编辑进来default页面specifications是整个父元素
                 $('#specifications').on('mousemove ', '.imgBox', function () {
                     $(this).find('button').css('display', 'block');
@@ -750,7 +968,6 @@ $(function () {
                             var Edit = $(this).html();
                             console.log(Edit);
                             if (Edit == "展开") {
-                                console.log("1");
                                 $(this).parent().next().css({
                                     "height": "auto",
                                     'opacity': 1,
@@ -769,8 +986,90 @@ $(function () {
 
                             }
                         })
+
+                        $(".father ul.twocat li input").click(function (event) {
+                            if (event.currentTarget.checked == true) {
+                                var classId = $(this).attr("class");
+                                // console.info("classId",classId);
+                                var labelId = $(this).attr("id");
+                                // console.info("labelId",labelId);
+                                var add_data = {
+                                    "goods_id": goodsId,
+                                    "class_label_list": [{
+                                        "class_id": classId,
+                                        "label_id": labelId
+                                    }]
+                                };
+                                $.ajax({
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    url: 'http://' + backend_host + '/web/staff/goods/market/entity/label?' + token,
+                                    data: JSON.stringify(add_data),
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        // console.log(data);
+                                        // location.href = "/shopping/frame"
+                                    },
+                                    error: function (jqXHR) {
+                                        console.log(jqXHR.status);
+                                        if (jqXHR.status == 406) {
+
+                                        }
+                                    }
+                                })
+                            } else {
+                                var labelId_delete = $(this).attr("id");
+                                $.ajax({
+                                    type: 'DELETE',
+                                    contentType: 'application/json',
+                                    url: 'http://' + backend_host + '/web/staff/goods/market/entity/label?' + token + "&goods_label_id=" + labelId_delete + "&goods_id=" + goodsId,
+                                    data: {},
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.info("success");
+                                        // console.log(data);
+                                        // location.href = "/shopping/frame"
+                                    },
+                                    error: function (jqXHR) {
+                                        console.log(jqXHR.status);
+                                        if (jqXHR.status == 406) {
+
+                                        }
+                                    }
+
+                                })
+                            }
+                        })
                     });
 
+
+
+
+                $("#boxInfo").on("click", '.out', function () {
+                    $(this).parent().parent().remove();
+                    var spec_id = $(this).data("spec_id");
+                    console.info("spec_id", spec_id);
+                    $.ajax({
+                        type: 'DELETE',
+                        contentType: 'application/json',
+                        url: 'http://' + backend_host + '/web/staff/goods/market/entity/spec?' + token,
+                        data: JSON.stringify({
+                            "spec_id": spec_id
+                        }),
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            // location.href = "/shopping/frame"
+                        },
+                        error: function (jqXHR) {
+                            console.log(jqXHR.status);
+                            if (jqXHR.status == 406) {
+
+                            }
+                        }
+
+                    })
+                });
 
                 $("#delete").click(function () {
                     $.ajax({
@@ -795,6 +1094,7 @@ $(function () {
                     })
                 })
 
+
                 $("#keep").click(function () {
                     var given_id = $("#shopping_frame_details_given_id").val();
                     console.info("编号", given_id)
@@ -806,26 +1106,6 @@ $(function () {
                     console.info("发货地1", place)
                     var postage = $(".shopping-frame-details-template").find("option:selected").text();
                     console.info("postage", postage);
-
-                    for (var i = 0; i < $('#boxInfo tr').length; i++) {
-                        var datas = $('#boxInfo tr').eq(i)
-                        var theimage = datas.find('.images').data("key")
-                        var colors = datas.find('.colors').val()
-                        var weight = datas.find('.weight').val()
-                        var spec = datas.find('.spec').val()
-                        var coin = datas.find('.coin').val()
-                        var point = datas.find('.point').val()
-                        var number = datas.find('.number').val()
-                        listdata(theimage, colors, parseFloat(weight), spec, parseFloat(coin), parseFloat(point), parseFloat(number))
-                    }
-                    for (var b = 0; b < list.length; b++) {
-                        if (list[b].coin == "" || list[b].color == "" || list[b].image == undefined || list[b].number == "" || list[b].point == "" || list[b].spec == "" || list[b].weight == "") {
-                            $("#shpping_frame_details_hint_4").css("display", "inline-block");
-                            list = []
-                        } else {
-                            $("#shpping_frame_details_hint_4").css("display", "none");
-                        }
-                    }
 
                     for (var c = 0; c < $('.father ul li input').length; c++) {
 
@@ -843,16 +1123,16 @@ $(function () {
                         "given_id": parseFloat(given_id),
                         "name": name,
                         "images": image,
-                        "spec_list": list,
+                        // "spec_list": list,
                         "manufacturer": manufacturer,
                         "place": place,
-                        "class_label_list": type_list_data,
+                        // "class_label_list": type_list_data,
                         "postage": postage,
                         "introduce_images": images
                     }
                     console.info("edit_data", edit_data);
 
-                    /*$.ajax({
+                    $.ajax({
                         type: 'PUT',
                         contentType: 'application/json',
                         url: 'http://' + backend_host + '/web/staff/goods/market/entity?' + token,
@@ -860,7 +1140,7 @@ $(function () {
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            location.href = "/shopping/frame"
+                            // location.href = "/shopping/frame"
                         },
                         error: function (jqXHR) {
                             console.log(jqXHR.status);
@@ -869,10 +1149,10 @@ $(function () {
                             }
                         }
 
-                    })*/
+                    });
 
 
-                    list = []
+                    list = [];
                     type_list_data = []
                 })
             })
