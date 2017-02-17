@@ -65,3 +65,7 @@ table .lf{
     background-color: #55acee;
     border: none;
 }
+
+table.no-margin tbody {
+    border-bottom: 1px solid #f4f4f4;
+}

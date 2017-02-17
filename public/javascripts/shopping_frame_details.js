@@ -82,7 +82,7 @@ $(function () {
             console.log(sub);
             $(".table.no-margin").find('tbody').append(sub);
             console.log('container_tu' + index_i)
-            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token);
+            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token, 1, "jpg, jpeg, gif, png");
 
             function fileUploadCompleteCallback_other(key, src) {
                 var imageBoxs_tu = '';
@@ -113,7 +113,7 @@ $(function () {
         });
 
 
-        newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+        newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token, 1, "jpg, jpeg, gif, png");
 
         var image = [];
 
@@ -162,7 +162,7 @@ $(function () {
             $('#container').show();
         })
 
-        newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token);
+        newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token, 1, "jpg, jpeg, gif, png");
         var images = [];
 
         function fileUploadCompleteCallbacks(key, src) {
@@ -181,8 +181,6 @@ $(function () {
                 images.push(key)
             }
 
-            console.info("图片arr", images);
-            console.info("图片张数3", images.length);
         }
 
         $('#imagebox').on('mousemove ', '.imgBox', function () {
@@ -226,7 +224,7 @@ $(function () {
 
         $('table.table tbody#boxInfo').append(defaultData);
 
-        newQiniu(fileUploadCompleteCallback_first, 'container_tu', 'addImgs_tu', imagetokens().token);
+        newQiniu(fileUploadCompleteCallback_first, 'container_tu', 'addImgs_tu', imagetokens().token, 1, "jpg, jpeg, gif, png");
 
         var image_tu = "";
 
@@ -525,14 +523,14 @@ $(function () {
             sub += '<td> <input type="text" class="form-control point" placeholder="10" value=""></td>';
             sub += '<td> <input type="text" class="form-control number" placeholder="10" value=""></td>';
             sub += '<td> <button class="btn btn-default shopping-frame-details-save">保存</button></td>';
-            sub += '<td> <button class="btn btn-default out">删除</button></td></tr>';
+            sub += '<td> <button class="btn btn-default add_out">删除</button></td></tr>';
 
             console.log(sub);
             $(".table.no-margin").find('tbody').append(sub);
             console.log('container_tu' + index_i)
 
 
-            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token);
+            newQiniu(fileUploadCompleteCallback_other, chid, faid, imagetokens().token, 1, "jpg, jpeg, gif, png");
 
             function fileUploadCompleteCallback_other(key, src) {
                 var imageBoxs_tu = '';
@@ -606,10 +604,13 @@ $(function () {
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            location.href = "/shopping/frame"
+                            errorMessage("保存成功");
+                            location=location
+                            // location.href = "/shopping/frame"
                         },
                         error: function (jqXHR) {
                             console.log(jqXHR.status);
+                            errorMessage("保存失败");
                             if (jqXHR.status == 406) {
 
                             }
@@ -637,7 +638,7 @@ $(function () {
 
                         $.each(data, function (i, order) {
 
-                            defaultOption += '<option value=' + order.id + '>' + order.name + '</option>';
+                            defaultOption += '<option value=' + order.id + ' id='+order.id+'>' + order.name + '</option>';
 
                         });
 
@@ -652,31 +653,27 @@ $(function () {
 
                         $.each(data_template.list, function (i, order) {
 
-                            defaultTemplateOption += '<option value=' + order.name + '>' + order.name + '</option>';
+                            defaultTemplateOption += '<option value=' + order.id + ' id='+order.id+'>' + order.name + '</option>';
 
                         });
 
                         $('.shopping-frame-details-template').append(defaultTemplateOption).val(datas.postage);
                     });
 
-                var image = datas.images;
-                console.info("编辑图片", image)
-                var imageBoxs_num = datas.images.length;
-                console.info("imageBoxs_num", imageBoxs_num);
+                var image_up_data = datas.images;
+                console.info("编辑图片e", image_up_data)
                 if (datas.images.length < 9) {
                     var imageBoxs = '';
-                    // $.each(datas.images, function (i, order) {
                     for (var a = 0; a < datas.images.length; a++) {
-                        imageBoxs += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                        imageBoxs += '<div class="imgBox"><button type="button" data-name="'+datas.images[a]+'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs += '<img src="http://' + backend_host + datas.images[a] + '?' + token + '"></div>';
                         // console.log(imageBoxs);
                     }
                     $('#container').before(imageBoxs);
-                    // })
                 } else {
                     var imageBoxs_nine = '';
                     for (var i = 0; i < datas.images.length; i++) {
-                        imageBoxs_nine += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                        imageBoxs_nine += '<div class="imgBox"><button type="button" data-name="'+datas.images[i]+'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs_nine += '<img src="http://' + backend_host + '' + datas.images[i] + '?' + token + '"></div>';
                         // console.log(imageBoxs);
                     }
@@ -695,96 +692,100 @@ $(function () {
                     var dataName = $(this).attr('data-name');
                     console.info("dataName", dataName);
                     var index = null;
-                    for (var i = 0; i < image.length; i++) {
-                        if (dataName == image[i]) {
+                    for (var i = 0; i < image_up_data.length; i++) {
+                        if (dataName == image_up_data[i]) {
                             index = i
                         }
                     }
                     console.info("删除的下标", index);
-                    image.splice(index, 1);
-                    console.info("image", image);
+                    image_up_data.splice(index, 1);
+                    console.info("image_up_data", image_up_data);
                     $(this).parent().remove();
                     $('#container').show();
+                    console.info("下面的图片", images);
                 })
-                newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+                newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token, 1, "jpg, jpeg, gif, png");
 
                 function fileUploadCompleteCallback(key, src) {
-                    if (image.length == 8) {
-                        var imageBoxs = '';
+                    var imageBoxs = '';
+                    if (image_up_data.length == 8) {
                         imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs += '<img src="' + src + '"></div>';
                         $('#container').before(imageBoxs);
 
-                        image.push(key)
+                        image_up_data.push(key)
                         $('#container').hide()
                     } else {
-                        var imageBoxs = '';
                         imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs += '<img src="' + src + '"></div>';
                         $('#container').before(imageBoxs);
 
-                        image.push(key)
+                        image_up_data.push(key)
                     }
                     console.info("编辑图片2", image)
                 }
 
 
-                var images = datas.introduce_images;
-                console.info("编辑图片3", images);
+                var images_down_data = datas.introduce_images;
+                console.info("编辑图片3", images_down_data);
                 if (datas.introduce_images.length < 9) {
                     var imageBoxs_down = '';
-                    for (var a = 0; a < datas.introduce_images.length; a++) {
-                        imageBoxs_down += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                        imageBoxs_down += '<img src="http://' + backend_host + datas.introduce_images[a] + '?' + token + '"></div>';
+                    for (var d = 0; d < datas.introduce_images.length; d++) {
+                        imageBoxs_down += '<div class="imgBox"><button type="button" data-name="'+datas.introduce_images[d]+'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                        imageBoxs_down += '<img src="http://' + backend_host + datas.introduce_images[d] + '?' + token + '"></div>';
                     }
                     $('#pushadd').before(imageBoxs_down);
                 } else {
                     var imageBoxs_down_nine = '';
-                    for (var i = 0; i < datas.introduce_images.length; i++) {
-                        imageBoxs_down_nine += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                        imageBoxs_down_nine += '<img src="http://' + backend_host + datas.introduce_images[i] + '?' + token + '"></div>';
+                    for (var f = 0; f < datas.introduce_images.length; f++) {
+                        imageBoxs_down_nine += '<div class="imgBox"><button type="button" data-name="'+datas.introduce_images[f]+'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                        imageBoxs_down_nine += '<img src="http://' + backend_host + datas.introduce_images[f] + '?' + token + '"></div>';
                     }
                     $('#pushadd').hide()
                     $('#pushadd').before(imageBoxs_down_nine);
                 }
 
-                $('#imagebox').on('mousemove ', '.imgBox', function () {
+                $('.fsUploadProgress').on('mousemove ', '.imgBox', function () {
                     $(this).find('button').css('display', 'block');
 
                 })
-                $('#imagebox').on('mouseout ', '.imgBox', function () {
+                $('.fsUploadProgress').on('mouseout ', '.imgBox', function () {
                     $(this).find('button').css('display', 'none');
                 })
-                $('#imagebox').on('click ', '.imgBox button', function (e) {
+                $('.fsUploadProgress').on('click ', '.imgBox button', function (e) {
                     e.stopPropagation();
                     var dataName = $(this).attr('data-name');
+                    console.info("data-name", dataName);
                     var index = null;
-                    for (var i = 0; i < images.length; i++) {
-                        if (dataName == images[i]) {
+                    console.info("新的图片", images);
+                    for (var i = 0; i < images_down_data.length; i++) {
+                        if (dataName == images_down_data[i]) {
                             index = i
                         }
                     }
                     console.info("删除的下标", index);
-                    images.splice(index, 1);
-                    console.info("images", images);
+                    /*if(images.indexOf(dataName) != -1){
+                        images.splice(images.indexOf(dataName), 1);
+                    }*/
+                    images_down_data.splice(index, 1);
+                    console.info("images_down_data", images_down_data);
                     $(this).parent().remove();
                     $('#pushadd').show();
                 })
-                newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token);
+                newQiniu(fileUploadCompleteCallbacks, 'pushadd', 'imagebox', imagetokens().token, 1, "jpg, jpeg, gif, png");
                 function fileUploadCompleteCallbacks(key, src) {
-                    if (images.length == 8) {
-                        var imageBoxs = '';
+                    var imageBoxs = '';
+                    if (images_down_data.length == 8) {
                         imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs += '<img src="' + src + '"></div>';
                         $('#pushadd').before(imageBoxs);
-                        images.push(key)
+                        images_down_data.push(key)
                         $('#pushadd').hide()
                     } else {
-                        var imageBoxs = '';
                         imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                         imageBoxs += '<img src="' + src + '"></div>';
                         $('#pushadd').before(imageBoxs);
-                        images.push(key)
+                        images_down_data.push(key)
                     }
                     console.info("编辑图片4", images);
                 }
@@ -812,7 +813,7 @@ $(function () {
                 $.each(datas.spec_list, function (i, order) {
                     console.info("头图初始化");
                     console.info("iddd", $("#container_tu0"));
-                    newQiniu(fileUploadCompleteCallback, "container_tu" + i, "addImgs_tu" + i, imagetokens().token);
+                    newQiniu(fileUploadCompleteCallback, "container_tu" + i, "addImgs_tu" + i, imagetokens().token, 1, "jpg, jpeg, gif, png");
                     function fileUploadCompleteCallback(key, src) {
                         var imageBoxs = '';
                         imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
@@ -874,10 +875,12 @@ $(function () {
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
-                                location.href = "/shopping/frame"
+                                errorMessage("保存成功");
+                                // location.href = "/shopping/frame"
                             },
                             error: function (jqXHR) {
                                 console.log(jqXHR.status);
+                                errorMessage("保存失败");
                                 if (jqXHR.status == 406) {
 
                                 }
@@ -905,17 +908,15 @@ $(function () {
 
 
                 // 新增规格尺寸的父元素
-                $('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+                $('#specifications').on('mousemove ', '.imgBox', function () {
                     $(this).find('button').css('display', 'block');
 
                 })
-                $('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+                $('#specifications').on('mouseout ', '.imgBox', function () {
                     $(this).find('button').css('display', 'none');
                 })
-                $('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+                $('#specifications').on('click ', '.imgBox button', function (e) {
                     e.stopPropagation();
-                    var dataName = $(this).attr('data-name');
-                    images = '';
                     $(this).parent().remove();
                     $('#container').show();
                 });
@@ -1046,29 +1047,45 @@ $(function () {
 
 
                 $("#boxInfo").on("click", '.out', function () {
-                    $(this).parent().parent().remove();
-                    var spec_id = $(this).data("spec_id");
-                    console.info("spec_id", spec_id);
-                    $.ajax({
-                        type: 'DELETE',
-                        contentType: 'application/json',
-                        url: 'http://' + backend_host + '/web/staff/goods/market/entity/spec?' + token,
-                        data: JSON.stringify({
-                            "spec_id": spec_id
-                        }),
-                        dataType: 'json',
-                        success: function (data) {
-                            console.log(data);
-                            // location.href = "/shopping/frame"
-                        },
-                        error: function (jqXHR) {
-                            console.log(jqXHR.status);
-                            if (jqXHR.status == 406) {
+                    var boxInfo_length = $("#boxInfo tr").length;
+                    console.info("boxInfo_length", boxInfo_length);
+                    console.info("spec_list", datas.spec_list.length);
+                    if (datas.spec_list.length == 1){
+                        errorMessage("删除失败");
+                    } else {
+                        $(this).parent().parent().remove();
+                        var spec_id = $(this).data("spec_id");
+                        console.info("spec_id", spec_id);
+                        $.ajax({
+                            type: 'DELETE',
+                            contentType: 'application/json',
+                            url: 'http://' + backend_host + '/web/staff/goods/market/entity/spec?' + token,
+                            data: JSON.stringify({
+                                "spec_id": spec_id
+                            }),
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+                                errorMessage("删除成功");
+                                location=location
+                                // location.href = "/shopping/frame"
+                            },
+                            error: function (jqXHR) {
+                                console.log(jqXHR.status);
+                                errorMessage("删除失败");
+                                if (jqXHR.status == 406) {
 
+                                }
                             }
-                        }
 
-                    })
+                        })
+                    }
+                });
+
+                $("#boxInfo").on("click", '.add_out', function () {
+                    var boxInfo_length = $("#boxInfo tr").length;
+                    console.info("boxInfo_length", boxInfo_length);
+                    $(this).parent().parent().remove();
                 });
 
                 $("#delete").click(function () {
@@ -1102,9 +1119,9 @@ $(function () {
                     console.info("标题", name);
                     var manufacturer = $("#shopping_frame_details_manufacturer").val();
                     console.info("厂商", manufacturer);
-                    var place = $(".shopping_frame_details_select").find("option:selected").text();
+                    var place = $(".shopping_frame_details_select").find("option:selected").attr("id");
                     console.info("发货地1", place)
-                    var postage = $(".shopping-frame-details-template").find("option:selected").text();
+                    var postage = $(".shopping-frame-details-template").find("option:selected").attr("id");
                     console.info("postage", postage);
 
                     for (var c = 0; c < $('.father ul li input').length; c++) {
@@ -1122,13 +1139,13 @@ $(function () {
                         "id": goodsId,
                         "given_id": parseFloat(given_id),
                         "name": name,
-                        "images": image,
+                        "images": image_up_data,
                         // "spec_list": list,
                         "manufacturer": manufacturer,
                         "place": place,
                         // "class_label_list": type_list_data,
                         "postage": postage,
-                        "introduce_images": images
+                        "introduce_images": images_down_data
                     }
                     console.info("edit_data", edit_data);
 
@@ -1140,7 +1157,7 @@ $(function () {
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            // location.href = "/shopping/frame"
+                            location.href = "/shopping/frame"
                         },
                         error: function (jqXHR) {
                             console.log(jqXHR.status);

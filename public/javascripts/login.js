@@ -1,6 +1,6 @@
 if (location.href != "http://localhost:9000/") {
     if (localStorage.getItem('caishengu-access_token') == null) {
-        location.href = '/';
+        // location.href = '/';
     }
 }
 
@@ -10,13 +10,9 @@ $('#btn').on('click', function () {
     var re = /[a-zA-Z0-9]$/;
     if (username == "" || password == "") {
         $("#prompt").text("请输入用户名或密码");
-        console.log("2");
     } else if (re.test(username) == false) {
         $("#prompt").text("请输入有效的字符或数字");
-        console.log("3");
     } else {
-        console.log("4");
-        $("#prompt").text("");
         $.ajax({
             type: 'POST',
             url: "http://" + backend_host + '/auth/oauth/access_token',
@@ -146,6 +142,7 @@ $('#btn').on('click', function () {
 
             }
         })
+        $("#prompt").text("");
     }
 
 });

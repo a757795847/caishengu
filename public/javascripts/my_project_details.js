@@ -173,3 +173,19 @@ function cancelImages(nub){
     })
 }
 cancelImages(9);
+
+var project_id = window.location.search.slice(4);
+console.info("project_id", project_id);
+
+
+$(function () {
+    if (project_id == "") {
+        console.info("进入添加项目");
+    } else {
+        $.getJSON("http://" + backend_host + '/web/user/project/' + project_id + '' + '?access_token=b16470a96ef88930e260448733550bd3',
+            function (data) {
+                console.log("data", data);
+                $("#my_project_name").val(data.project_name);
+            })
+    }
+});

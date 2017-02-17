@@ -19,47 +19,61 @@ $("#resetting").click(function(){
 
 });
 
-var url=window.location.href;
+/*var url=window.location.href;
 var indexOf=url.indexOf("?");
 var val=url.substr(indexOf+1);
+console.info("value", val);*/
 
+
+var val = window.location.search.slice(1);
+console.info("admin_details_type", val);
+
+
+function errorMessage(text) {
+    $('#error').text(text);
+    $('#error').css('top','0');
+    setTimeout(function () {
+        $('#error').css('top','-54px');
+    },1000)
+}
 
 $(document).ready(function () {
 
-    console.log(val);
-    $.get("http://" + backend_host + '/web/admin/manage/staff/'+val+'?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+    if (val == "") {
 
-        function (data){
-            $("#admin_id").text(data.staff_id);
-            $("#admin_name").val(data.staff_name);
-            $("#admin_tel").val(data.staff_phone);
-            $("#statistics").attr("checked",data.statistic);
-            $("#User_related").attr("checked",data.user_related);
-            $("#Investor").attr("checked",data.investor);
-            $("#Shareholder").attr("checked",data.shareholder);
-            $("#Mall_orders").attr("checked",data.order);
-            $("#Tripute").attr("checked",data.goods_virtual);
-            $("#Financial").attr("checked",data.finance);
-            $("#Activity").attr("checked",data.activity);
-            $("#Project").attr("checked",data.project);
-            $("#Circle").attr("checked",data.quanzi);
-            $("#Caishengu").attr("checked",data.news_caishengu);
-            $("#Financing").attr("checked",data.news_financing);
-            $("#Business").attr("checked",data.news_innovation);
-            $("#goods_market").attr("checked",data.goods_market);
-            $("#goods_ticket").attr("checked",data.goods_ticket);
-            $("#finance_approve").attr("checked",data.finance_approve);
-            $("#coupon").attr("checked",data.coupon);
-            $("#donate").attr("checked",data.donate);
-            $("#caishengu_trend").attr("checked",data.caishengu_trend);
-            $("#caishengu_introduction").attr("checked",data.caishengu_introduction);
-            $("#caishengu_live").attr("checked",data.caishengu_live);
+    } else {
+        $.getJSON("http://" + backend_host + '/web/admin/manage/staff/' + val + '?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
 
-        })
+            function (data) {
+                $("#admin_id").text(data.staff_id);
+                $("#admin_name").val(data.staff_name);
+                $("#admin_tel").val(data.staff_phone);
+                $("#statistics").attr("checked", data.statistic);
+                $("#User_related").attr("checked", data.user_related);
+                $("#Investor").attr("checked", data.investor);
+                $("#Shareholder").attr("checked", data.shareholder);
+                $("#Mall_orders").attr("checked", data.order);
+                $("#Tripute").attr("checked", data.goods_virtual);
+                $("#Financial").attr("checked", data.finance);
+                $("#Activity").attr("checked", data.activity);
+                $("#Project").attr("checked", data.project);
+                $("#Circle").attr("checked", data.quanzi);
+                $("#Caishengu").attr("checked", data.news_caishengu);
+                $("#Financing").attr("checked", data.news_financing);
+                $("#Business").attr("checked", data.news_innovation);
+                $("#goods_market").attr("checked", data.goods_market);
+                $("#goods_ticket").attr("checked", data.goods_ticket);
+                $("#finance_approve").attr("checked", data.finance_approve);
+                $("#coupon").attr("checked", data.coupon);
+                $("#donate").attr("checked", data.donate);
+                $("#caishengu_trend").attr("checked", data.caishengu_trend);
+                $("#caishengu_introduction").attr("checked", data.caishengu_introduction);
+                $("#caishengu_live").attr("checked", data.caishengu_live);
 
+            })
+    }
 });
 
-console.log(val);
 $("#target").click(function(){
     var staff_name = $("#admin_name").val();
     var staff_password = $("#staff_password").val();
@@ -86,35 +100,37 @@ $("#target").click(function(){
     var caishengu_introduction = $("#caishengu_introduction").is(":checked");
     var caishengu_live = $("#caishengu_live").is(":checked");
 
-         var datas = {
-                  "staff_name": staff_name,
-                  "staff_phone": staff_phone,
-                  "statistic": statistic,
-                  "user_related": User_related,
-                  "investor": Investor,
-                  "shareholder": Shareholder,
-                  "order": Mall_orders,
-                  "goods_market": goods_market,
-                  "goods_virtual": Tripute,
-                  "goods_ticket": goods_ticket,
-                  "finance_approve": finance_approve,
-                  "finance": Financial,
-                  "activity": Activity,
-                  "project": Project,
-                  "quanzi": Circle,
-                  "news_caishengu": Caishengu,
-                  "news_financing": Financing,
-                  "news_innovation": Business,
-                  "coupon": coupon,
-                  "donate": donate,
-                  "caishengu_trend": caishengu_trend,
-                  "caishengu_introduction": caishengu_introduction,
-                  "caishengu_live": caishengu_live
+     var datas = {
+              "staff_name": staff_name,
+              "staff_password": staff_password,
+              "staff_phone": staff_phone,
+              "statistic": statistic,
+              "user_related": User_related,
+              "investor": Investor,
+              "shareholder": Shareholder,
+              "order": Mall_orders,
+              "goods_market": goods_market,
+              "goods_virtual": Tripute,
+              "goods_ticket": goods_ticket,
+              "finance_approve": finance_approve,
+              "finance": Financial,
+              "activity": Activity,
+              "project": Project,
+              "quanzi": Circle,
+              "news_caishengu": Caishengu,
+              "news_financing": Financing,
+              "news_innovation": Business,
+              "coupon": coupon,
+              "donate": donate,
+              "caishengu_trend": caishengu_trend,
+              "caishengu_introduction": caishengu_introduction,
+              "caishengu_live": caishengu_live
 
 
     };
     var datat={
         "staff_name": staff_name,
+        // "staff_password": staff_password,
         "staff_phone": staff_phone,
         "statistic": statistic,
         "user_related": User_related,
@@ -138,53 +154,70 @@ $("#target").click(function(){
         "caishengu_introduction": caishengu_introduction,
         "caishengu_live": caishengu_live
 
-    }
-    datas = JSON.stringify(datas);
-    datat = JSON.stringify(datat);
-    if(val !='http://localhost:9000/administrator/details'){
-        $.ajax({
-            type:'PUT',
-            contentType:'application/json',
-            url:'http://'+ backend_host + '/web/admin/manage/staff/'+val+'?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-            data: datat,
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-                $(".example-modal").css("display","block");
-                console.log("put");
-            },
-            error:function(jqXHR){
-                console.log(jqXHR.status);
-                if(jqXHR.status == 406){
-                    $(".example-modal").css("display","block");
-                    $(".example-modal #keepWell").html("请正确填写信息!");
+    };
 
+    console.info("修改datat", datat);
+    console.info("新增datas", datas);
+    if(val !== ""){
+        if(!/^(\+86)?\s*1[34578]\d{9}$/.test(datat.staff_phone)) {
+            $("#admin_details_message").css("display", "block");
+            errorMessage("请输入正确的联系方式");
+        } else {
+            $("#admin_details_message").css("display", "none");
+            $.ajax({
+                type: 'PUT',
+                contentType: 'application/json',
+                url: 'http://' + backend_host + '/web/admin/manage/staff/' + val + '?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+                data: JSON.stringify(datat),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    $(".example-modal").css("display", "block");
+                    console.log("put");
+                },
+                error: function (jqXHR) {
+                    console.log(jqXHR.status);
+                    if (jqXHR.status == 406) {
+                        $(".example-modal").css("display", "block");
+                        $(".example-modal #keepWell").html("请正确填写信息!");
+
+                    } else if (jqXHR.status == 400) {
+                        errorMessage("联系方式已存在");
+                    }
                 }
-            }
 
-        })
+            })
+        }
     }else{
-        $.ajax({
-            type:'POST',
-            contentType:'application/json',
-            url:'http://'+ backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-            data: datas,
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-                $(".example-modal").css("display","block");
-            },
-            error:function(jqXHR){
-                console.log(jqXHR.status);
-                if(jqXHR.status == 406){
-                    $(".example-modal").css("display","block");
-                    $(".example-modal #keepWell").html("请正确填写信息!");
-                    console.log("post");
+        if (!/^(\+86)?\s*1[34578]\d{9}$/.test(datas.staff_phone)) {
+            $("#admin_details_message").css("display", "block");
+            errorMessage("请输入正确的联系方式");
+        } else {
+            $("#admin_details_message").css("display", "none");
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json',
+                url: 'http://' + backend_host + '/web/admin/manage/staff?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+                data: JSON.stringify(datas),
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    $(".example-modal").css("display", "block");
+                },
+                error: function (jqXHR) {
+                    console.log(jqXHR);
+                    console.log(jqXHR.status);
+                    if (jqXHR.status == 406) {
+                        $(".example-modal").css("display", "block");
+                        $(".example-modal #keepWell").html("请正确填写信息!");
+                        console.log("post");
+                    } else if (jqXHR.status == 400) {
+                        errorMessage("联系方式已存在");
+                    }
                 }
-            }
 
-        })
-
+            })
+        }
     }
 
 
