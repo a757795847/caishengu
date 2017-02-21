@@ -27,8 +27,6 @@
 */
 $("#newpage").click(function(){
     window.location.href="/merchart/details";
-
-
 });
 
 

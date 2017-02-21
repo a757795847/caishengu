@@ -16,6 +16,10 @@ $(function () {
     });
 });
 
+$("#merchart_history_close").click(function () {
+    $("#eacl").css("display", "none");
+});
+
 
 
 /*
@@ -31,19 +35,15 @@ console.info("val", val);
 var val = window.location.search.slice(1);
 console.info("val_id", val);
 
-$("#turn").click(function () {
-    location.href = "/merchart/details?"+ val
-});
-
 $(document).ready(function () {
    $.ajax({
         type: 'GET',
         url: "http://" + backend_host + '/web/admin/manage/shop/' + val + '/finance?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         dataType: 'json',
-       data:{
+        data:{
            "page":0,
            "limit":5
-       },
+        },
         success: function (data) {
             console.log(data);
             var tbody = "";
@@ -120,18 +120,20 @@ $("#comfirm").click(function(){
             var tbody = "";
             $.each(data.list, function (i, order){
                 tbody +='<tr><td><p style="height:36px;padding:10px"><span class="lt" id="Transfer">'+order.finance_type+'</span>';
-                tbody +='<span class="rg" id="add_rmb">+'+order.money+'</span></p><p style="height:36px;padding:10px">';
+                tbody +='<span class="rg" id="add_rmb">'+order.money+'</span></p><p style="height:36px;padding:10px">';
                 tbody +='<span class="lt">来源:</span><span class="lt" id="user_name">'+order.from_name+'</span><span class="lt" id="Name">'+order.from_id+'</span>';
                 tbody +='<span class="rg" id="date">'+order.datetime+'</span> </p> </td></tr>';
             });
             $('#Table').html(tbody);
-
-
         }
     });
 
 });
- $("#turn").on('click',function(){
-     history.go(-1);
-
+ $("#turn").click(function(){
+     // history.go(-1);
+     window.location.href = '/merchart/details?' + val;
  });
+
+$("#btnRight").click(function () {
+    location.href = "http://" + backend_host + '/web/admin/manage/shop/'+val+'/finance/output?&access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1';
+});

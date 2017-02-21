@@ -59,15 +59,21 @@ $(document).ready(function (){
             var tbody = "";
 
             $.each(data.list,function (i, order){
-                 tbody += '<tr class="myProject-jump" id="'+order.project_id+'"><td><span class="lf">' + order.activity_name + '</span> <span class="rt"><a href="">&gt</a></span> </td></tr>'
+                 tbody += '<tr class="myProject-jump-active" id="'+order.project_id+'"><td><span class="lf">' + order.activity_name + '</span> <span class="rt"><a id="'+order.activity_id+'" class="derive-list">导出名单</a></span> </td></tr>'
 
                 }
             );
             $('#Table2').append(tbody);
-        })
+            $(".derive-list").click(function () {
+                var activity_id = $(this).attr("id");
+                console.info("activity_id", activity_id);
+                location.href ="http://" + backend_host + '/web/user/activity/'+activity_id+'/output?access_token=b16470a96ef88930e260448733550bd3'
+            })
+        });
 
     $("#turn").click(function () {
         location.href = "/myproject/details";
     })
 
-    });
+
+});

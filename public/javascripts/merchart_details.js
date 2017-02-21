@@ -19,7 +19,6 @@ $("#resetting").click(function(){
 
 $("#recording").click(function(){
     window.location.href='/merchart/history?'+merchart_details_id+'';
-
 });
 
 $(document).ready(function () {
@@ -43,7 +42,7 @@ $(document).ready(function () {
     } else {
         $(".merchart-details-message").css("display", "none");
     }
-})
+});
     $("#confirm").click(function(){
         $(".example-modal").css("display","none");
 
@@ -118,5 +117,5 @@ $("#keep").click(function(){
             }
         }
 
-    
+
 });

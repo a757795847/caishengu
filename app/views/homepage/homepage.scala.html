@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>dffdf</title>
+        <title>商户后台-主页</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -92,85 +92,48 @@
                     <div class="col-md-12 col-lg-10">
 
                         <div class="nav-tabs-custom">
+                            <button class="home-page-export" id="home_page_export">导出</button>
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
-                                <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
+                                <li class="active"><a href="#tab_1" data-toggle="tab">主页</a></li>
+                                <li><a href="#tab_2" data-toggle="tab">验证序列号</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
                                     <div class="table-responsive">
                                     <table class="table no-margin" id="Table">
-                                        <tr>
-                                            <td>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">转账</span><span class="rg">+5元</span>
-                                                </p>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">来源:</span><span class="lt">张三</span><span class="lt">100001</span><span class="rg">2015-10-11 12:14:34</span>
-                                                </p>
-                                            </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">转账</span><span class="rg">+5元</span>
-                                                </p>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">来源:</span><span class="lt">张三</span><span class="lt">100001</span><span class="rg">2015-10-11 12:14:34</span>
-                                                </p>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">转账</span><span class="rg">+5元</span>
-                                                </p>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">来源:</span><span class="lt">张三</span><span class="lt">100001</span><span class="rg">2015-10-11 12:14:34</span>
-                                                </p>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">转账</span><span class="rg">+5元</span>
-                                                </p>
-                                                <p style="height:36px;padding:10px">
-                                                    <span class="lt">来源:</span><span class="lt">张三</span><span class="lt">100001</span><span class="rg">2015-10-11 12:14:34</span>
-                                                </p>
-                                            </td>
-
-                                        </tr>
                                     </table>
-                                        <div class="dropdown pull-right" >
-                                            <nav>
-                                                <ul class="pagination">
-                                                    <li class="disabled"><a href="#">&laquo;</a></li>
-                                                    <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li><a href="#">6</a></li>
-                                                    <li><a href="#">7</a></li>
-                                                    <li><a href="#">8</a></li>
-                                                    <li><a href="#">9</a></li>
-                                                    <li class="disabled"><a href="#">&raquo;</a></li>
+                                    @*<div class="dropdown pull-right" >
+                                        <nav>
+                                            <ul class="pagination">
+                                                <li class="disabled"><a href="#">&laquo;</a></li>
+                                                <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                                <li><a href="#">6</a></li>
+                                                <li><a href="#">7</a></li>
+                                                <li><a href="#">8</a></li>
+                                                <li><a href="#">9</a></li>
+                                                <li class="disabled"><a href="#"></a></li>
 
 
-                                                </ul>
-                                            </nav>
-                                                <!-- /.box -->
-                                        </div>
-                                        </div>
+                                            </ul>
+                                        </nav>
+                                            <!-- /.box -->
+                                    </div>*@
+
+                                    <div class="jqueryPage" id="jqueryPage">
+
+                                    </div>
+                                    </div>
                                 </div>
                                     <!-- /.tab-pane -->
                                 <div class="tab-pane" id="tab_2">
-                                    <input type="text" class="form-control" placeholder="请输入验证码">
-                                    <button class="btn btn-block btn-default btn-flat">验证</button>
+                                    <input type="text" class="form-control" id="verification_input" placeholder="请输入验证码">
+                                    <span class="verification-message" id="verification_message">验证码不能为空</span>
+                                    <button class="btn btn-block btn-default btn-flat" id="verification_btn">验证</button>
                                 </div>
                                     <!-- /.tab-pane -->
                                     <!-- /.tab-pane -->
@@ -179,13 +142,68 @@
                         </div>
                             <!-- nav-tabs-custom -->
                     </div>
+                </section>
+            </div>
+
+            <div id="eacl"  >
+                <div class="box box-primary">
+                    <div class="merchart-history-close" id="merchart_history_close">x</div>
+                    <div class="box-header">
+                        <h3 class="box-title">日期</h3>
+                    </div>
+                    <div class="box-body">
+                            <!-- Date -->
+                        <div class="form-group">
+                            <label>起始时间</label>
+
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="datepicker">
+                            </div>
+                                <!-- /.input group -->
+                        </div>
+                            <!-- /.form group -->
+
+                            <!-- Date range -->
+                        <div class="form-group">
+                            <label>结束时间</label>
+
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="Kobe">
+                            </div>
+                                <!-- /.input group -->
+                        </div>
+                            <!-- /.form group -->
+
+                            <!-- Date and time range -->
+
+                    </div>
+                        <!-- Date and time range -->
+
+                        <!-- /.form group -->
+                    <div class="home-page-message" id="home_page_message">请选择起始或结束时间</div>
+                    <div class="home-page-message" id="home_page_time_message">起始时间不应在结束时间之后</div>
+
+                    <button type="btn" class="btn btn-default pull-left" id="comfirm">确定</button>
+                    <button type="btn" class="btn btn-primary" id="clear">清除</button>
+                        <!-- /.box -->
+                </div>
+            </div>
         </div>
 
         <script src="@routes.Assets.at("javascripts/jquery-2.2.3.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/app.min.js")"></script>
         <script src="@routes.Assets.at("javascripts/demo.js")"></script>
-
-
+        <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
+        <script src="@routes.Assets.at("javascripts/config/global_config.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jqueryPage.js")"></script>
+        <script src="@routes.Assets.at("javascripts/home_page.js")"></script>
     </body>
 </html>

@@ -261,7 +261,7 @@ $(function () {
 
                 $.each(data, function (i, order) {
 
-                    defaultOption += '<option value=' + order.name + '>' + order.name + '</option>';
+                    defaultOption += '<option value=' + order.id + '>' + order.name + '</option>';
 
                 });
 
@@ -331,7 +331,7 @@ $(function () {
 
                 $.each(data.list, function (i, order) {
 
-                    defaultTemplateOption += '<option value=' + order.name + '>' + order.name + '</option>';
+                    defaultTemplateOption += '<option value=' + order.id + '>' + order.name + '</option>';
 
                 });
 
@@ -345,9 +345,9 @@ $(function () {
             console.info("标题", name);
             var manufacturer = $("#shopping_frame_details_manufacturer").val();
             console.info("厂商", manufacturer);
-            var place = $(".shopping_frame_details_select").find("option:selected").text();
-            console.info("发货地1", place)
-            var postage = $(".shopping-frame-details-template").find("option:selected").text();
+            var place = $(".shopping_frame_details_select").find("option:selected").val();
+            console.info("发货地", place)
+            var postage = $(".shopping-frame-details-template").find("option:selected").val();
             console.info("postage", postage);
 
 
@@ -493,7 +493,7 @@ $(function () {
                 })
             }
 
-            list = []
+            list = [];
             type_list_data = []
         })
     } else {
@@ -1157,7 +1157,7 @@ $(function () {
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            location.href = "/shopping/frame"
+                            // location.href = "/shopping/frame"
                         },
                         error: function (jqXHR) {
                             console.log(jqXHR.status);

@@ -142,7 +142,6 @@
 }
 #clear{
     float:right;
-    margin-right:1%;
     background-color: #3c8dbc;
     border-color: #367fa9;
     border-radius: 3px;
@@ -163,3 +162,16 @@ td.nothing-data {
     padding-top: 13rem!important;
 }
 
+div.merchart-history-close {
+    padding-right: 10px;
+    float: right;
+    cursor: pointer;
+}
+
+.box-header {
+    display: inline-block;
+}
+
+div.box-body {
+    margin-bottom: 10px;
+}

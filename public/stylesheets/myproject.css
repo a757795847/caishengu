@@ -69,3 +69,8 @@ table .lf{
 table.no-margin tbody {
     border-bottom: 1px solid #f4f4f4;
 }
+
+a.derive-list {
+    font-size: 14px;
+    cursor: pointer;
+}
