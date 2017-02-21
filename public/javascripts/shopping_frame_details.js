@@ -481,7 +481,7 @@ $(function () {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        // location.href = "/shopping/frame"
+                        location.href = "/shopping/frame"
                     },
                     error: function (jqXHR) {
                         console.log(jqXHR.status);
@@ -1157,7 +1157,7 @@ $(function () {
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            // location.href = "/shopping/frame"
+                            location.href = "/shopping/frame"
                         },
                         error: function (jqXHR) {
                             console.log(jqXHR.status);
