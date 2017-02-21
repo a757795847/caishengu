@@ -27,20 +27,19 @@
 */
 $("#newpage").click(function(){
     window.location.href="/merchart/details";
-
-
 });
 
 
  $(document).ready(function (){
-     $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+     $.getJSON("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
          {
              "page":0,
              "limit":5,
          },
          function (data) {
+         console.info("data", data);
                  var tbody = "";
-                 $.each(data, function (i, order) {
+                 $.each(data.list, function (i, order) {
                      var state = order.state="open"?"营业中":"停业";
                      tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
                      tbody += '<td>' + order.name + '</td>'
@@ -48,28 +47,23 @@ $("#newpage").click(function(){
                      tbody += '<td><div class="sparkbar" data-color="#00a65a" data-height="20">' + state + '</div></td>'
                      tbody += '<td><span class="label label-info"><a href="/merchart/details?'+ order.id +'">编辑</a></span></td></tr>'
 
-
                      $('#Table').find('tbody').append(tbody);
 
                  });
-
-
-
-
 
          })
      });
 
 function indexAjxa(index,size){
-    $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+    $.getJSON("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
         {
             "page":index,
             "limit":size
         },
         function (data) {
-        console.log(data);
+        console.log("分页data", data);
             var tbody = "";
-            $.each(data, function (i,order) {
+            $.each(data.list, function (i,order) {
                 tbody += '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
                 tbody += '<td>' + order.name + '</td>'
                 tbody += '<td><span class="label label-success">' + order.contact + '</span></td>'
@@ -116,31 +110,29 @@ $("#jqueryPage").pagination({
 $('[type="submit"]').click(function(){
         var keyword=$('[name="table_search"]').val();
     console.log(keyword);
-
-    $.get("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
-        {
-            "keyword":keyword
-        },
-        function (data) {
-            var tbody = "";
-            $.each(data, function (i,order) {
-
-                tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
-                tbody += '<td>' + order.name + '</td>'
-                tbody += '<td><span class="label label-success">' + order.contact + '</span></td>'
-                tbody += '<td><div class="sparkbar" data-color="#00a65a" data-height="20">' + order.state + '</div></td>'
-                tbody += '<td><span class="label label-info"><a href="/merchart/details">编辑</a></span></td></tr>'
-
-
-
-
-            });
-            $('#Table').find('tbody').html(tbody);
-
-        }
-
-    )
-
+    if (keyword !== "") {
+        $.getJSON("http://" + backend_host + '/web/admin/manage/shop?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
+            {
+                "keyword": keyword
+            },
+            function (data) {
+                console.info("搜索data", data);
+                var tbody = "";
+                if (data.list.length == 0) {
+                    tbody += '<tr><td>暂无数据</td></td></tr>'
+                } else {
+                    $.each(data.list, function (i, order) {
+                        tbody = '<tr><td><a href="../pages/examples/invoice.html">' + order.id + '</a></td>'
+                        tbody += '<td>' + order.name + '</td>'
+                        tbody += '<td><span class="label label-success">' + order.contact + '</span></td>'
+                        tbody += '<td><div class="sparkbar" data-color="#00a65a" data-height="20">' + order.state + '</div></td>'
+                        tbody += '<td><span class="label label-info"><a href="/merchart/details">编辑</a></span></td></tr>'
+                    });
+                }
+                $('#Table').find('tbody').html(tbody);
+            }
+        )
+    }
 
 
 });

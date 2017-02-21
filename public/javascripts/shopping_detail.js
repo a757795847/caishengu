@@ -22,7 +22,7 @@ $(function () {
                     "name": genera_name,
 
                     //todo 图片url
-                    "image": ""
+                    "image": image
                 }),
                 dataType:'json',
                 success:function(data){

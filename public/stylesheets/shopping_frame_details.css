@@ -192,6 +192,16 @@ div.imgBox_tu img {
 }
 
 
+div.edit-addImg-tou-tu {
+    display: none;
+}
+
+img.edit-default-img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
 
 
 

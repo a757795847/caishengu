@@ -32,19 +32,48 @@ $("#project").click(function(){
     $(".breadcrumb li a").html('<i class="fa fa-dashboard"></i>我的项目');
 
 });
-    var data =[{
-        project_name:"哈哈哈哈哈"},{
-        project_name:"呵呵呵呵呵"},{
-        project_name:"嘿嘿嘿嘿嘿"}
-
-    ]
 
 $(document).ready(function (){
 
-        $.each(data,function (i, order){
-                var tbody = '<tr><td><span class="lf">' + order.project_name + '</span> <span class="rt"><a href="">&gt</a></span> </td></tr>'
+    $.getJSON("http://" + backend_host + '/web/user/project?access_token=b16470a96ef88930e260448733550bd3',
+        function (data) {
+            console.log(data);
+            var tbody = "";
 
-                $('#Table').append(tbody);
-            }
-        )
-    });
+            $.each(data.list,function (i, order){
+                 tbody += '<tr class="myProject-jump" id="'+order.project_id+'"><td><span class="lf">' + order.project_name + '</span> <span class="rt"><a href="">&gt</a></span> </td></tr>'
+
+                }
+            );
+            $('#Table').append(tbody);
+            $(".myProject-jump").click(function () {
+                var project_id = $(this).attr("id");
+                console.info("project_id", project_id);
+                location.href = "/myproject/details" + "?id=" + project_id;
+            })
+        });
+
+    $.getJSON("http://" + backend_host + '/web/user/activity?access_token=b16470a96ef88930e260448733550bd3',
+        function (data) {
+            console.log(data);
+            var tbody = "";
+
+            $.each(data.list,function (i, order){
+                 tbody += '<tr class="myProject-jump-active" id="'+order.project_id+'"><td><span class="lf">' + order.activity_name + '</span> <span class="rt"><a id="'+order.activity_id+'" class="derive-list">导出名单</a></span> </td></tr>'
+
+                }
+            );
+            $('#Table2').append(tbody);
+            $(".derive-list").click(function () {
+                var activity_id = $(this).attr("id");
+                console.info("activity_id", activity_id);
+                location.href ="http://" + backend_host + '/web/user/activity/'+activity_id+'/output?access_token=b16470a96ef88930e260448733550bd3'
+            })
+        });
+
+    $("#turn").click(function () {
+        location.href = "/myproject/details";
+    })
+
+
+});

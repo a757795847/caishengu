@@ -1,4 +1,3 @@
-
 @main("商城订单管理", "shopping.frame") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/shopping_frame.css")">
@@ -39,7 +38,6 @@
                                                 </tbody>
 
 
-
                                             </table>
 
 
@@ -59,22 +57,102 @@
                                 </div>
                                 <div class="father">
 
-                                <div class="form-group">
-                                    <select class="form-control select2 shopping_frame_broad_heading" id="classNames ">
-                                        <option value="qb_dl">全部</option>
-                                    </select>
+                                    <div class="form-group1">
+                                        <select class="form-control select2 shopping_frame_broad_heading" id="classNames ">
+                                            *@@*<option value="qb_dl">全部</option>*@@*
+                                        </select>
+                                    </div>
+                                    <div class="form-group2">
+                                        <select class="form-control select2 shopping_frame_second_type" id="childNames">
+                                            <option value="qb_el">全部</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group3">
+                                        <select class="form-control select2" id="default">
+                                            <option value="默认">默认</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <select class="form-control select2 shopping_frame_second_type" id="childNames">
-                                        <option value="qb_el">全部</option>
-                                    </select>
+
+                                @*<div class="wrap">
+                                    <fieldset id="city_china">
+                                            <!--<legend>默认</legend>-->
+                                        <p>省份：<select class="province other">
+                                            <option>请选择</option>
+                                        </select></p>
+                                        <p>城市：<select class="city">
+                                            <option>请选择</option>
+                                        </select></p>
+                                    </fieldset>
+                                </div>*@
+                                <div class="row span8 offset2">
+                                    <form class="bs-docs-example form-horizontal">
+                                        <div class="control-group">
+                                            <label class="control-label" for="province">省份</label>
+
+                                            <div class="controls">
+                                                <select id="province">
+                                                    <option value="载入中">载入中</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="city">城市</label>
+
+                                            <div class="controls">
+                                                <select id="city">
+                                                    <option value="载入中">载入中</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                            <!--<h3>二合一下拉框:</h3>
+
+            <div class="control-group">
+                <label class="control-label" for="all">地区</label>
+
+                <div class="controls">
+                    <select id="all">
+                        <option value="载入中">载入中</option>
+                    </select>
+                </div>
+            </div>
+            <hr/>
+            <h3>预选某个属性:</h3>
+
+            <div class="control-group">
+                <label class="control-label" for="pre-province">省份</label>
+
+                <div class="controls">
+                    <select id="pre-province">
+                        <option value="载入中">载入中</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="pre-city">城市</label>
+
+                <div class="controls">
+                    <select id="pre-city">
+                        <option value="载入中">载入中</option>
+                    </select>
+                </div>
+            </div>
+            <hr/>
+            <h3>预选某个属性:</h3>
+
+            <div class="control-group">
+                <label class="control-label" for="pre-all">地区</label>
+
+                <div class="controls">
+                    <select id="pre-all">
+                        <option value="载入中">载入中</option>
+                    </select>
+                </div>
+            </div>-->
+                                    </form>
+                                    <pre class="prettyprint linenums"></pre>
                                 </div>
-                                <div class="form-group">
-                                    <select class="form-control select2" id="default">
-                                        <option value="默认">默认</option>
-                                    </select>
-                                </div>
-                            </div>
                                 <button class="btn btn-default" id="addgr">新增</button>
                                 <table class="table no-margin" id="shopping_frame_goods_table">
                                     <thead>
@@ -124,9 +202,11 @@
     </div>
 
 
-
 } {
+    <script src="@routes.Assets.at("javascripts/jquery.city.select.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/prettify.js")"></script>
     <script src="@routes.Assets.at("javascripts/shopping_frame.js")"></script>
+
 }
 
 

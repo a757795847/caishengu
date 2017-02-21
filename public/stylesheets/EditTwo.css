@@ -99,8 +99,8 @@
 #Table_details input{
     border:none;
     outline:none;
-    margin-left:20px;
-    width:150px;
+    margin-left:10px;
+    width:70%;
 
 
 }
@@ -159,4 +159,14 @@
     height: 62%;
     font-size: 10px;
     line-height: 9px;
+}
+
+a.recording {
+    cursor: pointer;
+}
+
+span.form-validation1, .form-validation2 {
+    color: red;
+    font-size: 12px;
+    display: none;
 }
