@@ -1,7 +1,4 @@
-.mRight{
-    margin-right: 76px;
-    margin-bottom: 10px;
-}
+
 .btn-huanyuan{
     width: initial;
     height: initial;
@@ -16,6 +13,7 @@ button.close{
     position: absolute;
     right: 4px;
     top: -3px;
+    display: none;
 }
 #addImgs img{
     margin-right: 20px;
@@ -26,6 +24,46 @@ button.close{
     top: -4px;
     right: 23px;
 }
+#chinese .add{
+    float: left;
+    text-align: center;
+    margin-right: 76px;
+}
 #chinese .add img {
     margin-right: 0;
+}
+audio {
+    width: 500px;
+}
+button.musicBtn{
+    right: -74px;
+    top: 5px;
+    display: inline-block;
+}
+#addImgs,#caishen .caishen {
+    margin-top: 10px;
+}
+#caishen .caishen .imgBox{
+    margin-right: 15px;
+}
+#caishen .caishen p{
+    text-align: center;
+    margin-right: 12px;
+    margin-top: 10px;
+}
+#caishen .caishen p .pushTopBtn{
+    padding: 3px 10px;
+    margin-left: 10px;
+}
+#caishen .caishen p .pushTopBtn a{
+    color: #ffffff;
+}
+#caishen{
+    margin-bottom: 10px;
+}
+#caishen .imgBox button.close {
+     right: 0px;
+ }
+#ticketName{
+    width: 40%;
 }

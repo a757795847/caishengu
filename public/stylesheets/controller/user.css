@@ -2,3 +2,142 @@
     border-top: 3px solid #00c0ef;
     padding: 12px;
 }
+#length tr td{
+    width:50%;
+    padding:7px 4%;
+
+}
+#length tr span{
+    margin-left:10px;
+
+}
+img{
+    width:40px;
+    height:50px;
+    margin-left:6%;
+    margin-left:20px;
+
+}
+
+/*#BtnClick{*/
+/*padding: 6px 24px;*/
+/*border-radius: 13px;*/
+/*margin-left: 10px;*/
+/*font-size: 0.75rem;*/
+/*line-height: 18px;*/
+/*margin-bottom: 8px;*/
+/*background-color: #55acee;*/
+/*border: none;*/
+
+/*}*/
+#basic .table , #investment .table , #shareholders .table{
+    border:1px solid #f4f4f4;
+
+}
+.table span{
+    margin-left:10px;
+
+}
+#firstTable td{
+    padding-left:4%;
+    vertical-align:text-top;
+
+}
+.lastTable{
+    width:100%;
+
+}
+.lastTable tr td{
+    width:25%;
+    hegiht:20px;
+
+
+
+
+}
+.table-responsive #reject{
+    float: right;
+    width: 11%;
+    border-radius: 30px;
+    padding: 3px 21px;
+    font-size: 12px;
+    margin-right: 3%;
+
+
+}.table-responsive #Itok{
+     float: right;
+     width: 11%;
+     border-radius: 30px;
+     padding: 3px 21px;
+     font-size: 12px;
+     margin-right: 3%;
+
+
+ }
+.Hfour{
+    margin-left:42%;
+
+}
+
+#comfirm {
+    background-color: #f4f4f4;
+    color: #444;
+    border-color: #ddd;
+    border-radius:4px;
+    display: inline-block;
+    padding: 6px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    float:left;
+}
+#clear{
+    float:right;
+    margin-right:1%;
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    border-radius: 3px;
+    padding: 6px 40px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    color: #fff;
+
+}
+#popupBigic{
+    height:30%;
+    width:30%;
+
+}
+table .zoomify.zoomed {
+    transform: scale(10.4) translate(39.527px, 13.2955px);
+}
+.zoomify.zoomed{
+    transform: scale(10.4) translate(39.527px, 13.2955px);
+
+}
+#double td{
+    padding-left:41px;
+
+}
+
+
+
+
+
+.table-responsive {
+    overflow-x: initial;
+}
+ol.breadcrumb.pull-left {
+    position: initial;
+}
+#shareholders td ,#shareholders tbody,#shareholders table,#shareholders tr{
+    display: block;
+}
+#basic tr:first-child a{
+    float: right;
+}
+#basic tr:first-child td{
+    line-height: 30px;
+}

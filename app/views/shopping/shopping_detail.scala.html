@@ -6,7 +6,7 @@
         <section class="content-header">
             <ol class="breadcrumb pull-left">
                 <li><a href="/shopping"><i class="fa fa-cart-plus"></i>商城</a></li>
-                <li><a href="#">待发货详情</a></li>
+                <li><a href="#" class="stateName"></a></li>
             </ol>
         </section>
         <section class="content">
@@ -22,7 +22,7 @@
                                     下单时间：<span id="downTime"></span>
                                 </li>
                                 <li>
-                                    下单人：<span id="downTime"></span>
+                                    下单人：<span id="downName"></span>
                                 </li>
                                 <li>
                                     <div class="table-responsive">
@@ -39,42 +39,42 @@
                                                     <th></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th>
-                                                        <span>财神饼</span>
-                                                        规格:  <span>大</span>
-                                                        颜色:  <span>金</span>
-                                                    </th>
-                                                    <th>¥<span>5</span></th>
-                                                    <th>X<span>1</span></th>
-                                                    <th>宁海</th>
-                                                    <th>已发货</th>
-                                                    <th>顺丰</th>
-                                                    <th>123456789</th>
-                                                    <th>
-                                                        <span class="label label-info"><a href="#">已退货</a></span>
-                                                        <span class="label label-info"><a href="#">详情</a></span>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        <span>财神饼</span>
-                                                        规格:  <span>大</span>
-                                                        颜色:  <span>金</span>
-                                                    </th>
-                                                    <th>¥<span>5</span></th>
-                                                    <th>X<span>1</span></th>
-                                                    <th>宁海</th>
-                                                    <th>
-                                                        <input type="checkbox">
-                                                    </th>
-                                                    <th>顺丰</th>
-                                                    <th>123456789</th>
-                                                    <th>
-                                                        <span class="label label-info"><a href="#">退货</a></span>
-                                                    </th>
-                                                </tr>
+                                            <tbody id="downGoods">
+                                                @*<tr>*@
+                                                    @*<th>*@
+                                                        @*<span>财神饼</span>*@
+                                                        @*规格:  <span>大</span>*@
+                                                        @*颜色:  <span>金</span>*@
+                                                    @*</th>*@
+                                                    @*<th>¥<span>5</span></th>*@
+                                                    @*<th>X<span>1</span></th>*@
+                                                    @*<th>宁海</th>*@
+                                                    @*<th>已发货</th>*@
+                                                    @*<th>顺丰</th>*@
+                                                    @*<th>123456789</th>*@
+                                                    @*<th>*@
+                                                        @*<span class="label label-info"><a href="#">已退货</a></span>*@
+                                                        @*<span class="label label-info"><a href="#">详情</a></span>*@
+                                                    @*</th>*@
+                                                @*</tr>*@
+                                                @*<tr>*@
+                                                    @*<th>*@
+                                                        @*<span>财神饼</span>*@
+                                                        @*规格:  <span>大</span>*@
+                                                        @*颜色:  <span>金</span>*@
+                                                    @*</th>*@
+                                                    @*<th>¥<span>5</span></th>*@
+                                                    @*<th>X<span>1</span></th>*@
+                                                    @*<th>宁海</th>*@
+                                                    @*<th>*@
+                                                        @*<input  data-spec="3" data-num="2" class="goodsState" data-id="111111" type="checkbox">*@
+                                                    @*</th>*@
+                                                    @*<th>顺丰</th>*@
+                                                    @*<th>123456789</th>*@
+                                                    @*<th>*@
+                                                        @*<span class="label label-info label-text-left"><a href="#" data-toggle="modal" data-target="#goodsRefund">退货</a></span>*@
+                                                    @*</th>*@
+                                                @*</tr>*@
                                             </tbody>
                                         </table>
                                     </div>
@@ -95,10 +95,6 @@
                                 <li>
                                     地址：
                                     <span id="address"></span>
-                                </li>
-                                <li>
-                                    邮编：
-                                    <span id="zipcode"></span>
                                 </li>
                             </ul>
                         </div>
@@ -146,10 +142,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <form role="form">
-                                    <select class="form-control">
-                                        <option>顺丰</option>
-                                        <option>申通</option>
-                                        <option>圆通</option>
+                                    <select class="form-control" id="delivery">
                                     </select>
                                     <p>请填写物流单号</p>
                                     <input type="text" class="form-control" placeholder="请填写快递单号">
@@ -161,6 +154,30 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button type="button" id="receive" class="btn btn-default" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="goodsRefund" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请填写退货理由</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="refundNews" class="btn btn-default" data-dismiss="modal">确定</button>
                 </div>
             </div>
         </div>

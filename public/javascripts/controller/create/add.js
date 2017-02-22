@@ -1,4 +1,4 @@
-var uploader1 = newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+var uploader1 = newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,1,"jpg,jpeg,gif,png");
 //var uploader2 = newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
 var images = "";
 function fileUploadCompleteCallback(key, src) {

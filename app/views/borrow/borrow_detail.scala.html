@@ -14,8 +14,8 @@
         <section class="content">
             <div class="box box-info">
                 <div class="box-header">
-                    <a class="btn btn-sm btn-default" href="/borrow">返回</a>
-                    <a id="addBorrow" class="btn btn-sm btn-default pull-right" href="#">保存</a>
+                    <a class="btn btn-sm btn-default pushTopBtn" href="/borrow">返回</a>
+                    <a id="addBorrow" class="btn btn-sm btn-default pull-right pushTopBtn" href="#">保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">
@@ -24,7 +24,7 @@
                         <div role="tabpanel" id="addLogo" class="tab-pane fade in active" aria-labelledby="demo-tab">
                             <div  id="fsUploadProgress1">
 
-                                <div class="addImg btn-sm btn btn-default" id="container1">
+                                <div class="addImg btn-sm btn btn-default" id="containerLogo">
                                     <a id="pickfiles1" href="#" >
                                         <i class="glyphicon glyphicon-plus"></i>
                                         <span>上传Logo</span>
@@ -124,15 +124,12 @@
 } {
     <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('#reservation').daterangepicker();
-        })
-    </script>
+
     <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
-
     <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/upload.js")"></script>
+
     <script src="@routes.Assets.at("javascripts/controller/borrow/detail.js")"></script>
 }

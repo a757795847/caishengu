@@ -1,4 +1,29 @@
-newUploader(9);
+newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,1,"jpg,jpeg,gif,png");
+var images = [];
+function fileUploadCompleteCallback(key, src) {
+
+    var imageBoxs = '';
+    imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+    imageBoxs += '<img src="' + src + '"></div>';
+    $('#container').hide();
+    $('#container').before(imageBoxs);
+    images.push(key);
+    console.log(images);
+
+}
+$('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+    $(this).find('button').css('display', 'block');
+
+})
+$('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+    $(this).find('button').css('display', 'none');
+})
+$('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+    e.stopPropagation();
+    images = [];
+    $(this).parent().remove();
+    $('#container').show();
+})
 $('#loveAdd').on('click',function(){
     var loveName = $('#name').val();
     var loveMoney = $('#loveMoney').val();
@@ -22,7 +47,7 @@ $('#loveAdd').on('click',function(){
             for(var i=0;i<images.length;i++){
                 imgUPload(images[i]);
             }
-            //location.href = '/love';
+            location.href = '/love';
         },
         error:function(jqXHR){
             if(jqXHR.status == 400){

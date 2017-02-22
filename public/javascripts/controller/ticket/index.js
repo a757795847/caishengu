@@ -1,91 +1,34 @@
 (function($){
     $('#ruleDate').daterangepicker();
-    $('#validTime').daterangepicker();
+    $('#validTime').datepicker({
+        autoclose: true
+    });
     // 规则
-    $.ajax({
-        type:'GET',
-        url:"http://" + backend_host + '/web/staff/coupon/rule?'+token,
-        dataType:'json',
-        success:function(data){
-            console.log(data);
-            var rule = '';
-            for(var i=0;i<data.length;i++){
-                rule += '<tr><td>'+data[i].start_date+'--'+data[i].end_date+'</td><td>'+data[i].money+'</td><td>'+data[i].coupon_name+'</td>';
-                rule += '<td>'+data[i].remark+'</td><td><span class="label label-info"><a data-id="'+data[i].rule_id+'" href="#">删除</a></span></td></tr>'
-            }
-            $('#rule tbody:eq(0)').html(rule);
-        },
-        error:function(jqXHR){
-            if(jqXHR.status == 400){
-
-            }
-            if(jqXHR.status == 401){
-                overdueToken()
-            }
-        }
-    })
-    // 优惠券
-    $.ajax({
-        type:'GET',
-        url:"http://" + backend_host + '/web/staff/coupon/collection?'+token,
-        dataType:'json',
-        success:function(data){
-            console.log(data);
-            var ticket = '',ruleTicket = '';
-            for(var i=0;i<data.length;i++){
-                ticket += '<tr><td><img src="http://' + backend_host+data[i].image+'?'+token+'" alt=""></td><td>'+data[i].name+'</td><td>'+data[i].remark+'</td>';
-                ticket += '<td></td><td><span class="label label-info"><a data-id="'+data[i].id+'" href="#">删除</a></span></td></tr>';
-                ruleTicket += '<option data-id="'+data[i].id+'">'+data[i].name+'</option>'
-            }
-            $('#ticket tbody:eq(0)').html(ticket);
-            $('#couponId').html(ruleTicket);
-        },
-        error:function(jqXHR){
-            if(jqXHR.status == 400){
-
-            }
-            if(jqXHR.status == 401){
-                overdueToken()
-            }
-        }
-    })
-
-    //投放
-    $.ajax({
-        type:'GET',
-        url:"http://" + backend_host + '/web/staff/coupon/record/issue?'+token,
-        dataType:'json',
-        success:function(data){
-            console.log(data);
-            var record = '', onThrow = '';
-            for(var i=0;i<data.length;i++){
-                record += '<tr><td>'+data[i].issue_datetime+'</td><td>'+data[i].coupon_name+'</td>';
-                record += '<td>'+data[i].user+'</td><td>'+data[i].contact_phone+'</td><td>已核销/未核销</td></tr>';
-
-            }
-            $('#record tbody:eq(0)').html(record);
-        },
-        error:function(jqXHR){
-            if(jqXHR.status == 400){
-
-            }
-            if(jqXHR.status == 401){
-                overdueToken()
-            }
-        }
-    })
-    $('#recordSearch').on('click',function(){
-        var recordText = $('#recordText').val();
+    function ruleAjax(type,datas) {
         $.ajax({
-            type:'GET',
-            url:"http://" + backend_host + '/web/staff/coupon/record/issue?'+token,
-            data:{
-                'keyword':recordText
-            },
+            type:type,
+            url:"http://" + backend_host + '/web/staff/coupon/rule?'+token,
+            contentType:'application/json',
+            data:datas,
             dataType:'json',
             success:function(data){
-                console.log(data);
+                console.log('rule',data);
+                var rule = '';
+                if(type == 'GET'){
+                    for(var i=0;i<data.list.length;i++){
+                        rule += '<tr class="'+data.list[i].rule_id+'"><td>'+data.list[i].start_date+'--'+data.list[i].end_date+'</td><td>'+data.list[i].money+'</td><td>'+data.list[i].coupon_name+'</td>';
+                        rule += '<td>'+data.list[i].remark+'</td><td><span class="label label-info"><a data-id="'+data.list[i].rule_id+'" href="#">删除</a></span></td></tr>';
+                    }
+                    $('#rule tbody:eq(0)').html(rule);
+                }
 
+                if(type == 'POST' ){
+                    datas = JSON.parse(datas);
+                    rule += '<tr class="'+datas.success_description+'"><td>'+datas.start_date+'--'+datas.end_date+'</td><td>'+datas.money+'</td><td>'+datas.ticketName+'</td>';
+                    rule += '<td>'+datas.remark+'</td><td><span class="label label-info"><a data-id="'+data.success_description+'" href="#">删除</a></span></td></tr>';
+                    $('#rule tbody:eq(0)').append(rule);
+                    empty();
+                }
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -95,18 +38,105 @@
                     overdueToken()
                 }
             }
+        });
+    }
+    ruleAjax('GET');
+
+    // 优惠券
+    function ticketListAjax() {
+        $.ajax({
+            type:'GET',
+            url:"http://" + backend_host + '/web/staff/coupon/collection?'+token,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var ticket = '',ruleTicket = '';
+                for(var i=0;i<data.list.length;i++){
+                    ticket += '<tr class="'+data.list[i].id+'"><td><img src="http://' + backend_host+data.list[i].image+'?'+token+'" alt=""></td><td>'+data.list[i].name+'</td><td>'+data.list[i].remark+'</td>';
+                    ticket += '<td></td><td><span class="label label-info"><a data-id="'+data.list[i].id+'" href="#">删除</a></span></td></tr>';
+                    ruleTicket += '<option data-remark="'+data.list[i].remark+'" class="'+data.list[i].id+'" data-id="'+data.list[i].id+'">'+data.list[i].name+'</option>';
+                }
+                $('#ticket tbody:eq(0)').html(ticket);
+                $('#couponId').html(ruleTicket);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
+            }
+        });
+    }
+    ticketListAjax()
+
+
+    //投放
+    function castAjax(datas) {
+        $.ajax({
+            type:'GET',
+            url:"http://" + backend_host + '/web/staff/coupon/record/issue?'+token,
+            data:datas,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                var record = '', onThrow = '';
+                for(var i=0;i<data.list.length;i++){
+                    record += '<tr><td>'+data.list[i].issue_datetime+'</td><td>'+data.list[i].coupon_name+'</td>';
+                    record += '<td>'+data.list[i].user+'</td><td>'+data.list[i].contact_phone+'</td><td>已核销/未核销</td></tr>';
+
+                }
+                $('#record tbody:eq(0)').html(record);
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+                if(jqXHR.status == 401){
+                    overdueToken()
+                }
+            }
+        });
+    }
+    castAjax()
+
+    $('#recordSearch').on('click',function(){
+        var recordText = $('#recordText').val();
+        castAjax({
+            'keyword':recordText
         })
-    })
+        // $.ajax({
+        //     type:'GET',
+        //     url:"http://" + backend_host + '/web/staff/coupon/record/issue?'+token,
+        //     data:{
+        //         'keyword':recordText
+        //     },
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //
+        //     },
+        //     error:function(jqXHR){
+        //         if(jqXHR.status == 400){
+        //
+        //         }
+        //         if(jqXHR.status == 401){
+        //             overdueToken()
+        //         }
+        //     }
+        // })
+    });
 
     //删除
-    function deleteAjax(dataId,url){
+    function ruleDeleteAjax(dataId,url){
         $.ajax({
             type:'DELETE',
             url:"http://" + backend_host + '/web/staff/coupon/'+url+'/'+dataId+'?'+token,
             dataType:'json',
-            success:function(data){
+            success:function(data){ 
                 console.log(data);
-
+                $('#rule').find('.'+dataId).remove();
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -120,152 +150,92 @@
     }
     $('#ticket tbody:eq(0)').on('click','a',function(){
         var dataId = $(this).attr('data-id');
-        deleteAjax(dataId,'entity');
+        ticketOperationAjax('DELETE',{},dataId);
     })
     $('#rule tbody:eq(0)').on('click','a',function(){
         var dataId = $(this).attr('data-id');
-        deleteAjax(dataId,'rule');
+        ruleDeleteAjax(dataId,'rule');
     })
     //上传图片
-    var images = '', imagetoken =[];
-    $('#pickfiles').on('click',function(){
-        imagetoken = [];
-        imagetokens();
-    })
-    function imagetokens(){
-        $.ajax({
-            type:'POST',
-            url:'http://' + backend_host + '/other/file/apply?'+token,
-            dataType:'json',
-            async:false,
-            success:function(data){
-                imagetoken.push(data.token);
-                imagetoken.push(data.file_key);
 
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
+    newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,1,"jpg,jpeg,gif,png");
 
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
-        });
+    var images = '';
+    function fileUploadCompleteCallback(key, src) {
+
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        imageBoxs += '<img src="' + src + '"></div>';
+        $('#container').before(imageBoxs);
+        images = key;
+        console.log(images);
+        $('#container').hide();
+
     }
-    imagetokens();
-    var uploader = Qiniu.uploader({
-        runtimes: 'html5,flash,html4',
-        browse_button: 'container',
-        container: 'addImgs',
-        uptoken: imagetoken[0],
-        unique_names: false,
-        multi_selection: false,
-        max_file_size:'3mb',
-        save_key: false,
-        domain: 'http://qiniu-plupload.qiniudn.com/',
-        get_new_uptoken: true,
-        auto_start: true,
-        log_level: 5,
-        filters: {
-            mime_types: [
-                {title: "Image files", extensions: "jpg,jpeg,gif,png"}
-            ]
-        },
-        init: {
-            'FilesAdded': function (up, files) {
+    $('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+        $(this).find('button').css('display', 'block');
 
-            },
-            'BeforeUpload': function (up, file) {
-
-            },
-            'UploadProgress': function (up, file) {
-
-            },
-            'UploadComplete': function () {
-
-            },
-            'FileUploaded': function (up, file, info) {
-                images = imagetoken[1];
-                var domain = up.getOption('domain');
-                var res = eval('(' + info + ')');
-                var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
-                var imageBoxs = '';
-                imageBoxs += '<div class="imgBox"><button type="button" data-index="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                imageBoxs += '<img src="'+ Src +'"></div>';
-                $('#container').hide();
-                $('#container').before(imageBoxs);
-                imagetoken = [];
-                console.log(images);
-            },
-            'Error': function (up, err, errTip) {
-
-            }
-            ,
-            'Key': function (up, file) {
-                var key = imagetoken[1];
-                return key
-            }
-        }
-    });
-    $('#fsUploadProgress').on('mousemove ','.imgBox',function(){
-        $(this).find('button').css('display','block');
     })
-    $('#fsUploadProgress').on('mouseout ','.imgBox',function(){
-        $(this).find('button').css('display','none');
+    $('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+        $(this).find('button').css('display', 'none');
     })
-    cancelImages();
-    function cancelImages(){
-        $('#fsUploadProgress').on('click ','.imgBox button',function(e){
-            e.stopPropagation();
-            var dataIndex = $(this).attr('data-index');
-            images = '';
-            $(this).parent().remove();
-            $('#container').show();
-        })
-    }
+    $('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+        e.stopPropagation();
+        images = '';
+        $(this).parent().remove();
+        $('#container').show();
+    })
 
-//   通知图片上传成功
-    function imgUPload(imgId){
-        $.ajax({
-            type:'PUT',
-            url:'http://' + backend_host + '/other/file/'+imgId+'?'+token,
-            dataType:'json',
-            async:false,
-            success:function(data){
-                console.log(data);
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
-
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
-        })
-    }
     //新增
     $('#ticketAdd').on('click',function(){
         var ticketName = $('#ticketName').val();
         var remarkVal = $('#remark').val();
+        var expireDate = $('#validTime').val();
         var datas = {
             'name':ticketName,
             'image':images,
-            'remark':remarkVal
+            'remark':remarkVal,
+            'expire_date':expireDate
         };
         datas = JSON.stringify(datas);
         // 192.168.1.100:9000
+        ticketOperationAjax('POST',datas)
+
+    })
+    function ticketOperationAjax(type,datas,id) {
+        var url = 'http://'+backend_host+'/web/staff/coupon/entity?'+token;
+
+        if(type == 'DELETE' && id){
+
+            url = 'http://'+backend_host+'/web/staff/coupon/entity/'+id+'?'+token;
+        }
         $.ajax({
-            type:'POST',
-            contentType:"application/json",
-            url:'http://'+backend_host+'/web/staff/coupon/entity?'+token,
+            type:type,
+            url:url,
             data:datas,
+            contentType:'application/json',
             dataType:'json',
             success:function(data){
-                console.log(data);
-                imgUPload(images);
-                images = '';
+                console.log(data)
+                if(type == 'POST'){
+                    imgUPload(images);
+                    images = '';
+                    var ticket = '',ruleTicket = '';
+
+                    ticket += '<tr class="'+id+'"><td><img src="http://' + backend_host+datas.expireDate+'?'+token+'" alt=""></td><td>'+datas.ticketName+'</td><td>'+datas.remarkVal+'</td>';
+                    //有问题
+                    ticket += '<td></td><td><span class="label label-info"><a data-id="'+data.success_description+'" href="#">删除</a></span></td></tr>';
+
+                    ruleTicket += '<option data-remark="'+datas.remark+'" class="'+id+'" data-id="'+data.success_description+'">'+datas.ticketName+'</option>';
+
+                    $('#ticket tbody:eq(0)').append(ticket);
+                    $('#couponId').append(ruleTicket);
+                    empty()
+                }else if(type == 'DELETE'){
+                    $('#ticket tbody:eq(0)').find('.'+id).remove();
+                    $('#couponId').find('.'+id).remove();
+                }
+
             },
             error:function(jqXHR){
                 if(jqXHR.status == 400){
@@ -276,41 +246,37 @@
                 }
             }
         })
-    })
+    }
     $('#ruleAdd').on('click',function(){
         var ruleDate = $('#ruleDate').val().split('-');
         var ruleMoney = $('#ruleMoney').val();
         var couponId = $('#couponId option:selected').attr('data-id');
+        var ticketName = $('#couponId option:selected').val();
+        var remark = $('#couponId option:selected').attr('data-remark')
         ruleDate[0] = ruleDate[0].trim().replace(/(\/)/g,'-');
         ruleDate[1] = ruleDate[1].trim().replace(/(\/)/g,'-');
         var datas = {
             'start_date':ruleDate[0],
             'end_date':ruleDate[1],
             'money':ruleMoney,
-            'coupon_id':couponId
+            'coupon_id':couponId,
+            'ticketName':ticketName,
+            'remark':remark
         };
         datas = JSON.stringify(datas);
-        console.log(datas);
-        $.ajax({
-            type:'POST',
-            contentType:"application/json",
-            url:'http://'+backend_host+'/web/staff/coupon/rule?'+token,
-            data:datas,
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-                imgUPload(images);
-                images = '';
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
-
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
-        })
+        ruleAjax('POST',datas);
     })
+    $('#ruleCancel').on('click',empty);
+    $('#ticketCancel').on('click',empty);
+    function empty() {
+        $('#fsUploadProgress').find('.imgBox').remove();
+        $('#container').show();
+        $('#ticketName').val('');
+        $('#validTime').val('');
+        $('#remark').val('');
+        $('#ruleMoney').val('');
+    }
+    
+    
     
 })(jQuery)

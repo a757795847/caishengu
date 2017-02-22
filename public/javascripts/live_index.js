@@ -7,7 +7,7 @@
         success:function(data){
             console.log(data);
             var news = '';
-            $.each(data, function (i, order) {
+            $.each(data.list, function (i, order) {
                 news += '<tr class="'+ i +'"><td>'+order.order+'</td><td>'+order.title+'</td><td><a href="#">'+order.link+'</a>';
                 news += '</td><td><span class="label label-info"><a class="delete" data-id="'+order.id+'" href="#">删除</a></span></td></tr>'
             });

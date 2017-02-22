@@ -1,44 +1,55 @@
 (function ($) {
-    function indexAjax(tabID,state,val){
-        if(arguments.length == 2){
-            var data = {
-                'apply_state': state
-            }
-        }else{
-            var data = {
-                'apply_state': state,
-                'keyword':val
-            }
-        }
+    function indexAjax(tabID,datas,pageState){
         $.ajax({
             type:'GET',
             url:'http://' + backend_host + '/web/staff/shareholder?'+token,
-            data : data,
+            data : datas,
             dataType:'json',
             success:function(data){
-                console.log(data);
-                if(state == 'success'){
+                console.log( tabID ,data);
+                // if(datas.state == 'success' || datas.state == 'apply'){
                     var shareholders = '';
-                    for (var i = 0; i < data.length; i++) {
-                        shareholders += '<tr><td>'+data[i].user_name+'</td><td><span class="label label-info">'
-                        shareholders += '<a class="lookImg" data-src="'+data[i].image+'" data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span></td>';
-                        shareholders += '<td>'+data[i].phone+'</td><td><span class="label label-info"><a href="#">查看详情</a></span>';
-                        shareholders += '<span class="label label-info"><a class="success" href="'+data[i].user_id+'">通过</a></span>';
-                        shareholders += '<span class="label label-info"><a class="reject" href="'+data[i].user_id+'" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+                    for (var i = 0; i < data.list.length; i++) {
+                        shareholders += '<tr><td>'+data.list[i].user_name+'</td>';
+                        if(datas.apply_state == 'apply'){
+                            shareholders += '<td><span class="label label-info"><a class="lookImg" data-src="'+data.list[i].image+'" data-toggle="modal" data-target=".bs-example-modal-look"  href="#">查看</a></span></td>';
+                        }
+                        shareholders += '<td>'+data.list[i].phone+'</td><td><span class="label label-info"><a href="#">查看详情</a></span>';
+                        if(datas.apply_state == 'apply'){
+                            shareholders += '<span class="label label-info"><a class="success" href="'+data.list[i].user_id+'">通过</a></span>';
+                            shareholders += '<span class="label label-info"><a class="reject" href="'+data.list[i].user_id+'" data-toggle="modal" data-target="#myModal">拒绝</a></span></td></tr>';
+                        }
                     }
-                    tabID.html(shareholders);
+                    $('#'+tabID+' tbody:eq(0)').html(shareholders);
                     $('#wait a[data-target=".bs-example-modal-look"]').on('click',function(){
                         var src = $(this).attr('data-src');
                         $('#lookImg').attr('src',src);
                     })
-                }else{
-                    var list = '';
-                    for (var i = 0; i < data.length; i++) {
-                        list += '<tr><td>'+data[i].user_name+'</td><td>'+data[i].phone+'</td><td>';
-                        list += '<span class="label label-info"><a href="#">查看详情</a></span></td></tr>';
+                    if(pageState == 1){
+                        $('#'+tabID+' .pagination .pager').remove();
+                        $('#'+tabID+' .pagination').pagination({
+                            count: data.item_total, //总数
+                            size:10, //每页数量
+                            index: 1,//当前页
+                            lrCount: 3,//当前页左右最多显示的数量
+                            lCount: 1,//最开始预留的数量
+                            rCount: 1,//最后预留的数量
+                            callback: function (options) {
+                                var index = options.index -1;
+                                indexAjax(tabID, {'status':datas.apply_state,'page_total':true,'page':index})
+                                //options.count = 300;
+                                //return options;
+                            },
+                        });
                     }
-                    tabID.html(list);
-                }
+                // }else{
+                //     var list = '';
+                //     for (var i = 0; i < data.list.length; i++) {
+                //         list += '<tr><td>'+data.list[i].user_name+'</td><td>'+data.list[i].phone+'</td><td>';
+                //         list += '<span class="label label-info"><a href="#">查看详情</a></span></td></tr>';
+                //     }
+                //     tabID.html(list);
+                // }
                 $('.textShareholder').val('');
             },
             error:function(jqXHR){
@@ -51,8 +62,8 @@
             }
         })
     }
-    indexAjax($('#wait tbody:eq(0)'),'apply');
-    indexAjax($('#list tbody:eq(0)'),'success');
+    indexAjax('wait',{'apply_state':'apply'},1);
+    indexAjax('list',{'apply_state':'success'},1);
 
     //操作 ajax
     function operationAjax(obj,operation){
@@ -98,119 +109,46 @@
     })
 
     $('.searchShareholder').on('click',function(){
-        var index = $(this).attr('data-eq')
+        var index = $(this).attr('data-eq');
         var textShareholder = $('.textShareholder').eq(index).val();
         if(textShareholder == ''){
             return;
         }
         if(index == 0){
-            indexAjax($('#wait tbody:eq(0)'),'apply',textShareholder);
+            indexAjax('wait',{'apply_state':'apply','keyword':textShareholder},1);
         }else{
-            indexAjax($('#list tbody:eq(0)'),'success',textShareholder);
+            indexAjax('list',{'apply_state':'success','keyword':textShareholder},1);
         }
     })
 
 
-    //上传文件
-    var imagetoken =[];
-    $('#pickfiles').on('click',function(){
-        imagetoken = [];
-        imagetokens();
+    newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,3,"pdf");
+
+    var png = "";
+    function fileUploadCompleteCallback(key, src) {
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox"><button type="button" data-name="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        
+        $('#container').hide();
+
+        $('#container').before(imageBoxs);
+
+        png = key;
+    }
+    $('#fsUploadProgress').on('mousemove ', '.imgBox', function () {
+        $(this).find('button').css('display', 'block');
+
     })
-    function imagetokens(){
-        $.ajax({
-            type:'POST',
-            url:'http://' + backend_host + '/other/file/apply?'+token,
-            dataType:'json',
-            async:false,
-            success:function(data){
-                imagetoken.push(data.token);
-                imagetoken.push(data.file_key);
-
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
-                    errorMessage('获取图片名称失败')
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
-        });
-    }
-    imagetokens();
-//创建上传七牛
-
-    var uploader = Qiniu.uploader({
-        runtimes: 'html5,flash,html4',
-        browse_button: 'container',
-        container: 'addImgs',
-        uptoken: imagetoken[0],
-        unique_names: false,
-        multi_selection: false,
-        max_file_size:'3mb',
-        save_key: false,
-        domain: 'http://qiniu-plupload.qiniudn.com/',
-        get_new_uptoken: true,
-        auto_start: true,
-        log_level: 5,
-        filters: {
-            mime_types: [
-                {title : "pdf files", extensions : "pdf"}
-            ]
-        },
-        init: {
-            'FilesAdded': function (up, files) {
-
-            },
-            'BeforeUpload': function (up, file) {
-
-            },
-            'UploadProgress': function (up, file) {
-
-            },
-            'UploadComplete': function () {
-
-            },
-            'FileUploaded': function (up, file, info) {
-                var domain = up.getOption('domain');
-                var res = eval('(' + info + ')');
-                var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
-                pdfUPload(imagetoken[1]);
-                
-                console.log(pdfName);
-            },
-            'Error': function (up, err, errTip) {
-
-            }
-            ,
-            'Key': function (up, file) {
-                var key = imagetoken[1];
-                return key;
-            }
-        }
-    });
-
-//   通知文件上传成功
-    function pdfUPload(pdfName){
-        $.ajax({
-            type:'PUT',
-            url:'http://' + backend_host + '/other/file/'+pdfName+'?'+token,
-            dataType:'json',
-            async:false,
-            success:function(data){
-                console.log(data);
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
-                    errorMessage('文件上传失败')
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
-        })
-    }
+    $('#fsUploadProgress').on('mouseout ', '.imgBox', function () {
+        $(this).find('button').css('display', 'none');
+    })
+    $('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
+        e.stopPropagation();
+        var dataName = $(this).attr('data-name');
+        png = '';
+        $(this).parent().remove();
+        $('#container').show();
+    })
 
     //文件
     $('#upload').on('click','.deleteFile',function(){

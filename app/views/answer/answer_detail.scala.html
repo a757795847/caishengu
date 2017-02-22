@@ -14,12 +14,21 @@
                 <a class="btn turn" href="/answer">返回</a>
                 <div class="box-body">
                     <div class="form-group">
+                        <label>签名</label>
+                        <div class="input-group" >
+                            <div class="input-group-addon">
+                                <i class="fa  fa-tag"></i>
+                            </div>
+                            <input id="qianName" type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>签号</label>
                         <div class="input-group" >
                             <div class="input-group-addon">
                                 <i class="fa  fa-tag"></i>
                             </div>
-                            <input type="text" class="form-control" >
+                            <input id="qianNumber" type="text" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -28,7 +37,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-file"></i>
                             </div>
-                            <input type="text" class="form-control" >
+                            <input id="qianPoem" type="text" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group">
@@ -37,18 +46,18 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-paperclip"></i>
                             </div>
-                            <input type="text" class="form-control" >
+                            <input id="link" type="text" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label>签文</label>
                         <div class="input-group">
-                            <textarea type="text" class="form-control" rows="6" ></textarea>
+                            <textarea id="qianExplain" type="text" class="form-control" rows="6" ></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="clear">
-                    <button type="button" class="btn btn-default pull-right"><a href="#">保存</a></button>
+                    <button type="button" id="saveBtn" class="btn btn-default pull-right"><a href="#">保存</a></button>
                 </div>
             </div>
         </section>
@@ -57,5 +66,5 @@
     </div>
 
 } {
-
+    <script src="@routes.Assets.at("javascripts/controller/answer/detail.js")"></script>
 }

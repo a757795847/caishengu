@@ -74,7 +74,7 @@ $("#news").click(function(){
     window.location.href="/administrator/details";
 });
 
-$("#jqueryPage").pagination({
+$(".sss").pagination({
     count: 20, //总数
     size:5, //每页数量
     index: 1,//当前页

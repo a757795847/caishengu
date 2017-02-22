@@ -65,7 +65,7 @@ $("#confirm").click(function(){
             $('#myModal').modal('show');
             $('#settlementTime').val(vals);
         },
-       error:function(jqXHR){
+        error:function(jqXHR){
             if(jqXHR.status == 400){
                 $('#settlement').modal('hide');
                 $('#settlement').on('hidden.bs.modal', function (e) {

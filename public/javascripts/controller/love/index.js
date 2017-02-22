@@ -7,13 +7,14 @@
             dataType:'json',
             success:function(data){
                 console.log(data);
-                var wait = '';
-                for (var i = 0; i < data.length; i++) {
-                    wait += '<tr><td>'+data[i].title+'</td><td>'+data[i].money_current+'/'+data[i].money_total+'</td>';
-                    wait += '<td><span class="label label-info"><a href="/love/detail?look&'+data[i].id+'">详情</a></span>';
-                    if(huikui){
-                        wait +='<span class="label label-info"><a href="/love/feedback?feedback&'+data[i].id+'">回馈</a></span>'
+                var wait = '',url='';
+                for (var i = 0; i < data.list.length; i++) {
+                    url = '/love/detail?look&'+data.list[i].id;
+                    if(huikui == 1){
+                        url = '/love/detail?feedback&'+data.list[i].id;
                     }
+                    wait += '<tr><td>'+data.list[i].title+'</td><td>'+data.list[i].money_current+'/'+data.list[i].money_total+'</td>';
+                    wait += '<td><span class="label label-info"><a href="'+url+'">详情</a></span>';
                     wait += '</td></tr>';
                 }
                 $(Id).html(wait);
@@ -30,6 +31,6 @@
     }
     indexList('#wait tbody','raising');
     indexList('#end tbody','raise_success');
-    indexList('#out tbody','finished');
+    indexList('#out tbody','finished',1);
 
 })(jQuery)

@@ -15,17 +15,17 @@
 
 }
 
-#BtnClick{
-    padding: 6px 24px;
-    border-radius: 13px;
-    margin-left: 10px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    margin-bottom: 8px;
-    background-color: #55acee;
-    border: none;
+    /*#BtnClick{*/
+        /*padding: 6px 24px;*/
+        /*border-radius: 13px;*/
+        /*margin-left: 10px;*/
+        /*font-size: 0.75rem;*/
+        /*line-height: 18px;*/
+        /*margin-bottom: 8px;*/
+        /*background-color: #55acee;*/
+        /*border: none;*/
 
-}
+    /*}*/
 .table{
     border:1px solid #f4f4f4;
 
@@ -119,3 +119,21 @@ table .zoomify.zoomed {
 }
 
 
+
+
+
+.table-responsive {
+    overflow-x: initial;
+}
+ol.breadcrumb.pull-left {
+    position: initial;
+}
+#shareholders td ,#shareholders tbody,#shareholders table,#shareholders tr{
+    display: block;
+}
+#basic tr:first-child button{
+    float: right;
+}
+#basic tr:first-child td{
+    line-height: 30px;
+}

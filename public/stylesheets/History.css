@@ -17,7 +17,7 @@
     visibility:hidden;
 
 }
-#btnLeft{
+.btnLeft{
     float:right;
     margin-top: 2%;
     color: #fff;
@@ -33,7 +33,7 @@
     float:right;
     margin-top: 2%;
     color: #fff;
-    width: 10%;
+    width: 7%;
     border-radius: 13px;
     font-size: 12px;
     background-color: #55acee;
@@ -41,6 +41,7 @@
     margin-right: 3%;
 
 }
+
 #welcome{
     margin-right:15px;
     height:100%;
@@ -174,4 +175,17 @@ div.merchart-history-close {
 
 div.box-body {
     margin-bottom: 10px;
+}
+
+
+
+
+section.content-header {
+    padding-bottom: 20px;
+}
+.content-header>.breadcrumb{
+    position: initial;
+}
+button.btn.btn-default.btnLeft:hover , button.btn.btn-default.btnLeft:active ,  button.btn.btn-default.btnLeft:focus{
+    background: #55acee;
 }

@@ -117,3 +117,9 @@ span.tribute-frame-detail-hint {
     margin-top: 10px;
     display: none;
 }
+.box.box-info {
+    padding-bottom: 0;
+}
+.pager {
+     bottom: 0;
+}

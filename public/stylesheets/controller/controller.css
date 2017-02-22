@@ -25,6 +25,7 @@ table tbody tr th{
 /*box*/
 .box-footer {
     border: none;
+    padding-bottom: 0;
 }
 .box {
     box-shadow: none;
@@ -179,3 +180,47 @@ table>tbody>tr>td{
     color:#fff;
 
 }
+/*page*/
+.pager{
+    margin-bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    margin-top: 0;
+    margin-right: 20px;
+    text-align: right;
+    color: #2E6AB1;
+    overflow: hidden;
+    position: relative;
+}
+.pager a{border:1px solid #ddd;color:#428bca;padding:4px 10px;text-decoration: none;}
+.pager a.hover{background-color: #F7F7F7;color:#428bca;border-color:#ddd;}
+.pager a.active{background-color: #428bca;
+    border-color: #428bca;color:#FFF;}
+.pager a.disabled{color:#C8CDD2;cursor:auto;}
+.pager a:first-child{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+}
+.pager a:last-child{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+}
+.fa.fa-dashboard {
+    margin-right: 6px;
+}
+
+.btn.btn-default.pushTopBtn{
+    padding: 3px 20px;
+    color: #fff;
+    margin-top: -5px;
+    font-size: 12px;
+    line-height: 19px;
+    background-color: #55acee;
+    border: none;
+    border: 20px;
+
+}
+

@@ -19,29 +19,12 @@ section.content-header {
 table>tbody>tr>td{
     border-bottom: 1px solid #f4f4f4;
 }
-#turn{
-    padding: 6px 24px;
-    border-radius: 13px;
-    margin-left: 10px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    margin-bottom: 8px;
-    background-color: #55acee;
-    border: none;
-    color:#fff;
-}
-#addNews{
-    float:right;
-    margin-right:12px;
-    padding: 6px 24px;
-    border-radius: 13px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    margin-bottom: 8px;
-    background-color: #55acee;
-    border: none;
-    color:#fff;
 
+#add .box-header {
+    border-bottom: 1px solid #f4f4f4;
+}
+#add .box-body {
+    width: 40%;
 }
 /*点*/
 .spot{
@@ -85,14 +68,10 @@ img{
     display: none;
 }
 
-.addImg {
-    border: 1px solid #eee;
-    display: inline-block;
-    width: 100px;
-    height: 120px;
-    line-height: 120px;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-    position: relative;
+#add #addImgs .addImg {
+    margin-top: 10px;
+    border: 1px solid #d2d6de;
+    width: auto;
+    height: auto;
+    line-height: inherit;
 }

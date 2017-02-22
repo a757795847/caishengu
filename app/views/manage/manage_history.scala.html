@@ -1,108 +1,37 @@
 @main("财务管理-历史记录", "manage.index","finance") {
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/datepicker3.css")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/History.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/controller/manage.css")">
 } {
 
-    <div class="content-wrapper row">
-        <section class="content">
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>财务管理</a></li>
-                <li class="active"><a href="#">商户详情</a></li>
-                <li class="active">历史记录</li>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/manage"><i class="fa fa-video-camera"></i>财务管理</a></li>
+                <li><a class="turn"  href="javascript:;">商户详情</a></li>
+                <li><a href="javascript:;">历史记录</a></li>
             </ol>
-
-                <!-- TABLE: LATEST ORDERS -->
-            <div class="col-md-10 col-lg-7">
-                <div class="box box-info">
-                    <div class="table-responsive">
-                        <div class="father">
-                            <a href="/Edit" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
-                            <input type="btn" class="btn btn-default" value="筛选" id="btnLeft">
-                            <input type="btn" class="btn btn-default" value="导出" id="btnRight">
-                        </div>
-                        <table class="table no-margin" id="Table">
-
-
-
-
-                        </table>
-
-
-                    </div>
-                    <div class="dropdown pull-right" >
-                        <nav>
-                            <ul class="pagination">
-
-
-                            </ul>
-                        </nav>
-                            <!-- /.box -->
-                    </div>
-
-
-
-                        <!-- /.col -->
         </section>
-        <div id="eacl">
-            <div class="box box-primary">
+        <section class="content" id="add">
+            <div class="box box-info">
                 <div class="box-header">
-                    <h3 class="box-title">日期</h3>
+                    <a href="/Edit" class="btn btn-primary btn-lg turn" role="button" id="turns">返回</a>
+                    <button class="btn btn-default btnLeft" id="btnRight">导出</button>
                 </div>
                 <div class="box-body">
-                        <!-- Date -->
-                    <div class="form-group">
-                        <label>起始时间</label>
 
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control pull-right" id="datepicker">
-                        </div>
-                            <!-- /.input group -->
-                    </div>
-                        <!-- /.form group -->
-
-                        <!-- Date range -->
-                    <div class="form-group">
-                        <label>结束时间</label>
-
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control pull-right" id="Kobe">
-                        </div>
-                            <!-- /.input group -->
-                    </div>
-                        <!-- /.form group -->
-
-                        <!-- Date and time range -->
-
+                    <table class="table no-margin" id="Table">
+                    </table>
                 </div>
-                    <!-- Date and time range -->
-
-                    <!-- /.form group -->
-
-
-
+                <div class="dropdown pull-right" >
+                    <nav>
+                        <ul class="pagination">
+                        </ul>
+                    </nav>
+                        <!-- /.box -->
+                </div>
             </div>
-            <button type="btn"class="btn btn-default">确定</button>
-            <button type="btn"class="btn btn-default" id="clear">清除</button>
-                <!-- /.box -->
-        </div>
-    </div>
+        </section>
+
     </div>
 } {
-    <script src="@routes.Assets.at("javascripts/select2.full.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.date.extensions.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.extensions.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.js")"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
-    <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
-    <script src="@routes.Assets.at("javascripts/History.js")"></script>
-
+    <script src="@routes.Assets.at("javascripts/controller/manage/history.js")"></script>
 }

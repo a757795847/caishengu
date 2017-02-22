@@ -1,5 +1,6 @@
 
 @main("财神谷介绍","introduce.index","caishengu_introduction") {
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/trends.css")">
 } {
     <div class="content-wrapper">
@@ -12,8 +13,8 @@
         <section class="content" id="add">
             <div class="box box-info">
                 <div class="box-header">
-                    <a class="btn btn-default" href="/introduce" id="turn">返回</a>
-                    <a id="addNews" class="btn btn-default pull-right" href="#" >保存</a>
+                    <a class="btn btn-default pushTopBtn" href="/introduce" id="turn">返回</a>
+                    <a id="addNews" class="btn btn-default pull-right pushTopBtn" href="#" >保存</a>
                 </div>
                     <!-- /.box-header -->
                 <div class="box-body">

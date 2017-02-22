@@ -1,284 +1,208 @@
 (function ($) {
-    var images = [], imagetoken =[];
-    var shengxiaos = {
+
+    window.shengxiaos = {
         //老鼠
-        mouse:{
-            name:'',
-            token:''
-        },
+        mouse:'',
         //牛
-        cattle:{
-            name:'',
-            token:''
-        },
+        cattle:'',
         //虎
-        tiger:{
-            name:'',
-            token:''
-        },
+        tiger:'',
         //兔
-        rabbit:{
-            name:'',
-            token:''
-        },
+        rabbit:'',
         //龙
-        dragon:{
-            name:'',
-            token:''
-        },
+        dragon:'',
         //蛇
-        snake:{
-            name:'',
-            token:''
-        },
+        snake:'',
         //马
-        horse:{
-            name:'',
-            token:''
-        },
+        horse:'',
         //羊
-        sheep:{
-            name:'',
-            token:''
-        },
+        sheep:'',
         //猴
-        monkey:{
-            name:'',
-            token:''
-        },
+        monkey:'',
         //鸡
-        chicken:{
-            name:'',
-            token:''
-        },
+        chicken:'',
         //狗
-        dog:{
-            name:'',
-            token:''
-        },
+        dog:'',
         //猪
-        pig:{
-            name:'',
-            token:''
-        }
+        pig:''
     }
     var music = '', musictoken = '';
 
     var shengxiao = ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
     var shengxiaoId = ['mouse','cattle','tiger','rabbit','dragon','snake','horse','sheep','monkey','chicken','dog','pig']
-    var chinese = '';
+    // var chinese = '';
+    // for (var i=0;i<shengxiao.length;i++){
+    //     var data = shengxiaoId[i];
+    //     chinese += '<div class="add"><div id="'+shengxiaoId[i]+'" role="tabpanel" class="tab-pane fade in active pull-left mRight" aria-labelledby="demo-tab"><div>';
+    //     chinese += '<div class="addImg" id="'+shengxiaoId[i]+'s"><a href="#" ><span>'+shengxiao[i]+'</span></a></div></div></div></div>'
+    //
+    // }
+    // $('#chinese').html(chinese);
     for (var i=0;i<shengxiao.length;i++){
-        var data = shengxiaoId[i]
-        chinese += '<div class="add"><div id="'+shengxiaoId[i]+'" role="tabpanel" class="tab-pane fade in active pull-left mRight" aria-labelledby="demo-tab"><div>';
-        chinese += '<div class="addImg" id="'+shengxiaoId[i]+'s"><a href="#" ><span>'+shengxiao[i]+'</span></a></div></div></div></div>'
-        imagetokens(data)
+        newQiniu(mouse, shengxiaoId[i]+'s', shengxiaoId[i], imagetokens().token,1,"jpg,jpeg,gif,png");
     }
-    $('#chinese').html(chinese);
 
+    function mouse(key, src,id) {
+        imageHtml(id,key,src)
+        shengxiaos[id] = key;
+        shengxiaofn(id,shengxiaos);
+    }
 
-    function imagetokens(shengxiao){
-        $.ajax({
-            type:'POST',
-            url:'http://' + backend_host + '/other/file/apply?'+token,
-            dataType:'json',
-            async:false,
-            success:function(data){
-                if(shengxiao){
-                    shengxiaos[shengxiao].name= data.file_key;
-                    shengxiaos[shengxiao].token = data.token;
+    function imageHtml(id,key,src) {
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox mRight"><button type="button" data-key="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        imageBoxs += '<img src="' + src + '"></div>';
+        $('#'+id).hide();
+        $('#'+id).before(imageBoxs);
+    }
 
-                }else {
-                    imagetoken.push(data.token);
-                    imagetoken.push(data.file_key);
-                }
-            },
-            error:function(jqXHR){
-                if(jqXHR.status == 400){
+    function shengxiaofn(id,datas) {
+        var parent = $('#'+id).parent();
+        parent.on('mousemove ', '.imgBox', function () {
+            $(this).find('button').css('display', 'block');
+        });
 
-                }
-                if(jqXHR.status == 401){
-                    overdueToken()
-                }
-            }
+        parent.on('mouseout ', '.imgBox', function () {
+            $(this).find('button').css('display', 'none');
+        });
+
+        parent.on('click ', '.imgBox button', function (e) {
+            e.stopPropagation();
+            datas[id] = '';
+            console.log(datas);
+            $(this).parent().remove();
+            $('#'+id).show();
         });
     }
-    imagetokens();
-    newUploaders(3);
-    $('#pickfiles').on('click',function(){
-        imagetoken = [];
-        imagetokens();
-    })
-    function newUploaders(imgNumber){
-        var uploader = Qiniu.uploader({
-            runtimes: 'html5,flash,html4',
-            browse_button: 'container',
-            container: 'addImgs',
-            uptoken: imagetoken[0],
-            unique_names: false,
-            multi_selection: false,
-            max_file_size:'3mb',
-            save_key: false,
-            domain: 'http://qiniu-plupload.qiniudn.com/',
-            get_new_uptoken: true,
-            auto_start: true,
-            log_level: 5,
-            filters: {
-                mime_types: [
-                    {title: "Image files", extensions: "jpg,jpeg,gif,png"}
-                ]
-            },
-            init: {
-                'FilesAdded': function (up, files) {
 
-                },
-                'BeforeUpload': function (up, file) {
 
-                },
-                'UploadProgress': function (up, file) {
+    newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,1,"jpg,jpeg,gif,png");
 
-                },
-                'UploadComplete': function () {
 
-                },
-                'FileUploaded': function (up, file, info) {
-                    if(imagetoken[1] != undefined){
-                        images.push(imagetoken[1]);
-                    }
-                    var domain = up.getOption('domain');
-                    var res = eval('(' + info + ')');
-                    var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
-                    var imageBoxs = '';
-                    imageBoxs += '<div class="imgBox"><button type="button" data-name="'+ imagetoken[1] +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                    imageBoxs += '<img src="'+ Src +'"></div>'
-                    $('#container').before(imageBoxs);
-                    if(images.length >= imgNumber){
-                        $('#pickfiles span').text('最多添加'+imgNumber+'张');
-                        $('#container').hide();
-                        return false;
-                    }
-                    console.log(images);
-                },
-                'Error': function (up, err, errTip) {
+    var statueList = [];
+    function fileUploadCompleteCallback(key, src) {
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox"><button type="button" data-key="' + key + '" class="close closeBtn" data-dismiss="alert" aria-hidden="true">×</button>';
+        imageBoxs += '<img src="' + src + '"></div>';
+        $('#container').hide();
 
-                }
-                ,
-                'Key': function (up, file) {
-                    var key = imagetoken[1];
-                    return key
-                }
-            }
+        $('#container').before(imageBoxs);
+    }
+    function caishenCloseBtn(id) {
+        $('#'+id).on('mousemove ', '.imgBox', function () {
+            $(this).find('button').css('display', 'block');
+        });
+        $('#'+id).on('mouseout ', '.imgBox', function () {
+            $(this).find('button').css('display', 'none');
         });
     }
-    // newUploader('mouse','mouses',shengxiaos.mouse.token,shengxiaos.mouse.name,'鼠')
-    // newUploader('cattle','cattles',shengxiaos.cattle.token,shengxiaos.cattle.name,'牛')
-    // newUploader('tiger','tigers',shengxiaos.tiger.token,shengxiaos.tiger.name,'虎')
-    // newUploader('rabbit','rabbits',shengxiaos.rabbit.token,shengxiaos.rabbit.name,'兔')
-    // newUploader('dragon','dragons',shengxiaos.dragon.token,shengxiaos.dragon.name,'龙')
-    // newUploader('snake','snakes',shengxiaos.snake.token,shengxiaos.snake.name,'蛇')
-    // newUploader('horse','horses',shengxiaos.horse.token,shengxiaos.horse.name,'马')
-    // newUploader('sheep','sheeps',shengxiaos.sheep.token,shengxiaos.sheep.name,'羊')
-    // newUploader('monkey','monkeys',shengxiaos.monkey.token,shengxiaos.monkey.name,'猴')
-    // newUploader('chicken','chickens',shengxiaos.chicken.token,shengxiaos.chicken.name,'鸡')
-    // newUploader('dog','dogs',shengxiaos.dog.token,shengxiaos.dog.name,'狗')
-    // newUploader('pig','pigs',shengxiaos.pig.token,shengxiaos.pig.name,'猪')
-    function newUploader(father,child,tokens,names,shengxiao){
-        var uploader = Qiniu.uploader({
-            runtimes: 'html5,flash,html4',
-            browse_button: child,
-            container: father,
-            uptoken: tokens,
-            unique_names: false,
-            multi_selection: false,
-            max_file_size:'3mb',
-            save_key: false,
-            domain: 'http://qiniu-plupload.qiniudn.com/',
-            get_new_uptoken: true,
-            auto_start: true,
-            log_level: 5,
-            filters: {
-                mime_types: [
-                    {title: "Image files", extensions: "jpg,jpeg,gif,png"}
-                ]
-            },
-            init: {
-                'FilesAdded': function (up, files) {
+    caishenCloseBtn('addcaishen');
 
-                },
-                'BeforeUpload': function (up, file) {
+    $('#addcaishen').on('click ', '.imgBox button', function (e) {
+        e.stopPropagation();
+        $(this).parent().remove();
+        $('#container').show();
+    });
+    $('#caishen').on('click ', '.imgBox button', function (e) {
+        // e.stopPropagation();
+        // var key = $(this).data('key');
+        // var val = $(this).data('name');
+        //
+        // for (var i = 0 ; i < statueList.length ; i++ ){
+        //     if(statueList[i].image_select == key && statueList[i].name == val){
+        //         statueList.splice(i,1);
+        //     }
+        // }
+        // console.log(statueList);
+        //
+        // $(this).parent().remove();
+        // $('#container').show();
+    });
+    $('#addcaishenBtn').on('click',function () {
+        var key = $('#addcaishen').find('.closeBtn').attr('data-key');
+        var src = $('#addcaishen').find('img').attr('src');
+        var val = $('#addcaishen .ticketName').val();
 
-                },
-                'UploadProgress': function (up, file) {
+        var imageBoxs = '';
+        imageBoxs += '<div class="imgBox"><button type="button" data-name="'+val+'" data-key="' + key + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        imageBoxs += '<img src="' + src + '" ><p>'+val+'</p></div>';
+        $('#caishen .caishen').append(imageBoxs);
 
-                },
-                'UploadComplete': function () {
+        statueList.push({
+            "name":val,
+            "image_select":key,
+            "image_background":key,
+            "statue_type":"A"
+        })
 
-                },
-                'FileUploaded': function (up, file, info) {
-                    if(imagetoken[1] != undefined){
-                        images.push(imagetoken[1]);
-                    }
-                    var domain = up.getOption('domain');
-                    var res = eval('(' + info + ')');
-                    var Src = 'http://' + backend_host + '/other/file/' + res.key + '?' + token;
-                    var image;
-                    image = '<div class="imgBox"><button data-name="'+shengxiao+'" type="button" data-id="'+ father +'" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                    image += '<img src="'+ Src +'"></div>';
-                    $('#'+child).hide()
-                    $('#'+father).append(image)
-                    
-                    console.log(images);
-                },
-                'Error': function (up, err, errTip) {
+        $('#ticketName').val('');
+        $('#addcaishen').find('.imgBox').remove();
+        $('#container').show();
+        console.log(statueList)
+    });
 
-                }
-                ,
-                'Key': function (up, file) {
-                    var key = names;
-                    return key
-                }
-            }
-        });
-    }
+
+
+
     //music
+    var musicKey = '';
+    newQiniu(audioFileUploadCompleteCallback, 'musics', 'music', imagetokens().token,7,'mp3');
+
+    function audioFileUploadCompleteCallback(key, src){
+        var musicBoxs = '';
+        musicBoxs += '<div class="imgBox"><button type="button" data-key="' + key + '" class="close musicBtn" data-dismiss="alert" aria-hidden="true">删除</button>';
+        musicBoxs += '<audio  controls="controls" src="' + src + '"></audio>';
+        musicKey = key ;
+        $('#music').hide();
+        $('#music').before(musicBoxs);
+    }
+
+    $('#backgroundMusic').on('click ', '.imgBox button', function (e) {
+        e.stopPropagation();
+        var key = $(this).attr('data-key');
+        musicKey = '';
+        $(this).parent().remove();
+        $('#music').show();
+    })
+
     $.ajax({
-        type:'POST',
-        url:'http://' + backend_host + '/other/file/apply?'+token,
+        type:'GET',
+        url:'http://' + backend_host + '/web/staff/gongfeng/statue/collection?'+token,
         dataType:'json',
-        async:false,
+        contentType:'application/json',
         success:function(data){
-            musictoken = data.token;
-            music = data.file_key;
-            newUploader('music',musictoken,music)
+            console.log(data);
+            var imageBoxs = '';
+            for(var i =0;i<data.statue_caisheng_list.length;i++){
+                // imageBoxs += '<div class="imgBox" ><button type="button" data-name="'+data.statue_caisheng_list[i].name+'" data-key="' + data.statue_caisheng_list[i].image_background + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<div class="imgBox" ><img src="http://' + backend_host +'/other/file/' + data.statue_caisheng_list[i].image_background +'?'+token+ '" ><p><span>'+data.statue_caisheng_list[i].name+'</span>';
+                imageBoxs += '<button type="button" class="btn btn-default pushTopBtn"><a href="#"  data-toggle="modal" data-target="#editorcaishen">编辑</a></button></p></div>';
+                statueList.push({
+                    "name":data.statue_caisheng_list[i].name,
+                    "image_select":data.statue_caisheng_list[i].image_background,
+                    "image_background":data.statue_caisheng_list[i].image_background,
+                    "statue_type":"A"
+                })
+            }
+            $('#caishen .caishen').html(imageBoxs);
+            if(data.bgm){
+                var src = 'http://' + backend_host  + data.bgm + '?' + token;
+                audioFileUploadCompleteCallback('bgm' , src);
+                musicKey = data.bgm;
+            }
+            for(var i =0;i<data.statue_animal_list.length;i++){
+                imageBoxs += '<div class="imgBox" ><button type="button" data-name="'+data.statue_animal_list[i].name+'" data-key="' + data.statue_animal_list[i].image_background + '" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                imageBoxs += '<img src="http://' + backend_host +'/other/file/' + data.statue_animal_list[i].image_background +'?'+token+ '" ><p>'+data.statue_animal_list[i].name+'</p></div>';
+            }
         },
         error:function(jqXHR){
             if(jqXHR.status == 400){
 
             }
-            if(jqXHR.status == 401){
-                overdueToken()
-            }
         }
     });
 
-    $('#chinese').on('click','.close',function () {
-        var Id = $(this).attr('data-id');
-        var shengxiaoname = $(this).attr('data-name');
-        var chinese = '';
-        var parents = $(this).parent().parent();
-        //chinese += '<div><div class="addImg" id="'+Id+'"><a href="#" ><span>'+shengxiaoname+'</span></a></div></div>';
-        $(this).parent().remove();
-        $('#'+Id+'s').show()
-        //imagetokens(Id)
-        //newUploader(Id,Id+'s',shengxiaos[Id].token,shengxiaos[Id].name,shengxiaoname)
-    })
-    $('#fsUploadProgress').on('click','.close',function () {
-        var imageName = $(this).attr('data-name');
-        $(this).parent().remove();
-        if(images.length == 3){
-            $('#container').show();
-        }
-        images.splice(images.indexOf(imageName),1)
 
-    })
+
 
 })(jQuery)

@@ -7,10 +7,10 @@
         success:function(data){
             console.log(data);
             var news = '';
-            for (var i = 0; i < data.length; i++) {
-                news += '<tr class="'+ i +'"><td>'+data[i].order+'</td><td><img src="http://' + backend_host +'/other/file/'+data[i].image+'?'+token+'"></td><td><a href="#">'+data[i].link+'</a>';
+            for (var i = 0; i < data.list.length; i++) {
+                news += '<tr class="'+ i +'"><td>'+data.list[i].order+'</td><td><img src="http://' + backend_host +'/other/file/'+data.list[i].image+'?'+token+'"></td><td><a href="#">'+data.list[i].link+'</a>';
                 news += '</td><td><span class="label label-info"></span>';
-                news += '<span class="label label-info"><a  class="delete" data-id="'+data[i].news_id+'" href="#">删除</a></span></td></tr>';
+                news += '<span class="label label-info"><a  class="delete" data-id="'+data.list[i].news_id+'" href="#">删除</a></span></td></tr>';
             }
             $('#news').html(news);
         },

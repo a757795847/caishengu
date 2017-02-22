@@ -1,5 +1,6 @@
 @main("优惠券", "ticket.index","coupon") {
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/datepicker3.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/controller.css")">
     <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/controller/ticket.css")">
 } {
@@ -22,6 +23,15 @@
                                 <!-- Font Awesome Icons -->
                             <div class="tab-pane active" id="rule">
                                 <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <div class="box-footer clearfix">
+                                                    <a href="#" class="btn btn-md btn-default  pull-right" data-toggle="modal" data-target="#modelRule">新增</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -41,13 +51,20 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="box-footer clearfix">
-                                        <a href="#" class="btn btn-md btn-default  pull-right" data-toggle="modal" data-target="#modelRule">新增</a>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="tab-pane" id="ticket">
                                 <div class="box">
+                                    <div class="box-header">
+                                        <div class="box-tools">
+                                            <div class="input-group input-group-sm">
+                                                <div class="box-footer clearfix">
+                                                    <a href="#" class="btn  btn-md btn-default  pull-right" data-toggle="modal" data-target="#modelTicket">新增</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                         <!-- /.box-header -->
                                     <div class="box-body">
                                         <div class="table-responsive">
@@ -67,9 +84,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="box-footer clearfix">
-                                        <a href="#" class="btn  btn-sm btn-default  pull-right" data-toggle="modal" data-target="#modelTicket">新增</a>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="tab-pane" id="record">
@@ -153,18 +168,18 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>备注</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-file-text-o"></i>
-                            </div>
-                            <input id="" type="text" class="form-control pull-right" >
-                        </div>
-                    </div>
+                    @*<div class="form-group">*@
+                        @*<label>备注</label>*@
+                        @*<div class="input-group">*@
+                            @*<div class="input-group-addon">*@
+                                @*<i class="fa fa-file-text-o"></i>*@
+                            @*</div>*@
+                            @*<input id="" type="text" class="form-control pull-right" >*@
+                        @*</div>*@
+                    @*</div>*@
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="ruleCancel" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button id="ruleAdd" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
                 </div>
             </div>
@@ -217,7 +232,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="ticketCancel" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button id="ticketAdd" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
                 </div>
             </div>
@@ -227,11 +242,13 @@
 } {
     <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
 
     <script src="@routes.Assets.at("javascripts/moxie.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/plupload.full.min.js")"></script>
 
     <script src="@routes.Assets.at("javascripts/qiniu.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/controller/upload.js")"></script>
     <script src="@routes.Assets.at("javascripts/controller/ticket/index.js")"></script>
 }

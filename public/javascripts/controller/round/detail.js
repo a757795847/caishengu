@@ -5,16 +5,22 @@
         $('#apply').css('display','block');
         $('#reject').on('click',function(){
             var reasonText = $('#myModalWait textarea').val();
-            stateAjax('reject',reasonText);
+            stateAjax({'state':'reject','reject_reason':reasonText});
         })
         $('#accept').on('click',function(event){
             var dataId = $(this).attr('data-id');
-            stateAjax('accept');
+            stateAjax({'state':'accept'});
         })
 
     }else if(stateUrl[0] == 'underway'){
         detailAjax(stateUrl[1]);
         $('#underway').css('display','block');
+        $('#invalid').on('click',function () {
+            classAjax('invalid');
+        });
+        $('#valid').on('click',function () {
+            classAjax('valid');
+        })
     }
 
     function detailAjax(dataId){
@@ -66,33 +72,39 @@
         })
     }
 
-    function stateAjax(state,reject_reason){
-        var data = {
-            state:state
-        };
-        if(arguments.length == 2){
-            data = {
-                'state':state,
-                'reject_reason':reject_reason
+    function stateAjax(datas){
+        $.ajax({
+            type:'PUT',
+            url:"http://" + backend_host + '/web/staff/quanzi/entity/' + stateUrl[1] +'?'+token,
+            data:datas,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                 $('#myModal textarea').val('')
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
             }
-        }
-        console.log(data);
-        console.log(stateUrl[1]);
-        // $.ajax({
-        //     type:'PUT',
-        //     url:"http://" + backend_host + '/web/staff/quanzi/entity/' + stateUrl[1] +'?'+token,
-        //     data:data,
-        //     dataType:'json',
-        //     success:function(data){
-        //         console.log(data);
-        //          $('#myModal textarea').val('')
-        //     },
-        //     error:function(jqXHR){
-        //         if(jqXHR.status == 400){
-        //
-        //         }
-        //     }
-        // })
+        })
+    }
+
+    function classAjax(valid){
+        $.ajax({
+            type:'PUT',
+            url:"http://" + backend_host + '/web/staff/quanzi/class?' + token +'&class_id='+stateUrl[1]+'&valid='+valid,
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+
+            },
+            error:function(jqXHR){
+                if(jqXHR.status == 400){
+
+                }
+            }
+        })
     }
 
 })(jQuery)

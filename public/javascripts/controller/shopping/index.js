@@ -1,36 +1,57 @@
 (function ($) {
-    function indexAjax(tabID,data,urlState) {
+    function indexAjax(tabID,datas,pageState) {
         $.ajax({
             type: 'GET',
             url: "http://" + backend_host + '/web/staff/order/goods/market/collection?'+token,
-            data: data,
+            data: datas,
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                var shopping = '', urlA = '';
-                for (var i = 0; i < data.length; i++) {
-                    // if (state == 'paid') {
-                    //     urlA = '/shopping/detail?' + data[i].order_id + '&wait';
-                    // } else if (state == 'deliver') {
-                    //     urlA = '/shopping/detail?' + data[i].order_id + '&out';
-                    // } else if (state == 'delivered') {
-                    //     urlA = '/shopping/detail?' + data[i].order_id + '&receive';
-                    // } else {
-                    //     urlA = '/shopping/detail?' + data[i].order_id + '&close';
-                    // }
-                    urlA = '/shopping/detail?' + data[i].order_id + '&' + urlState;
-                    shopping += '<tr><td>' + data[i].order_id + '</td><td>' + data[i].order_description + '</td><td>2016.09.03-12:09:21</td>';
-                    shopping += '<td>' + data[i].user_name + '</td><td>' + data[i].phone + '</td>';
-                    shopping += '<td><span class="label label-info"><a href="' + urlA + '">查看详情</a></span>';
-                    if (state == 'paid') {
-                        shopping += '<span class="label label-info"><a data-id="'+data[i].order_id+'" class="close" href="#" data-toggle="modal" data-target="#myModal">关闭</a></span>';
+                var shopping = '', urlA = '',goods_status = '';
+                for (var i = 0; i < data.list.length; i++) {
+                    // goods_status = data.list[i].order_status == '已支付'? '待发货':data.list[i].order_status;
+                    urlA = '/shopping/detail?' + data.list[i].order_id + '&' + data.list[i].order_status;
+
+                    shopping += '<tr class="'+ data.list[i].order_id +'"><th>' + data.list[i].order_id + '</th><th>' + data.list[i].content + '</th><th>' + data.list[i].order_time + '</th><th>' + data.list[i].purchaser + '</th>';
+                    shopping += '<th>' + data.list[i].phone_number + '</th><th><span class="label label-info"><a href="'+urlA+'">查看详情</a></span></th>';
+                    //或者全部
+                    if (tabID == 'wait' ||  tabID == 'all') {
+                        shopping += '<th><span class="orderStatus">' + data.list[i].order_status + '</span></th>';
+                        if(data.list[i].order_status == '已支付'){
+                            shopping += '<th><span data-id="'+ data.list[i].order_id +'" class="label closeReason label-info"><a href="#" data-toggle="modal" data-target="#myModal">关闭</a></span></th>'
+                        }
                     }
-                    shopping += '</td></tr>';
-                    if (state == 'closed') {
-                        shopping += '<td>'+ data[i].close_operator_name + '</td><td>'+ data[i].close_datetime + '</td>';
+                    if (tabID == 'closes') {
+                        shopping += '<th>'+ data.list[i].closed_people_name + '</th><th>'+ data.list[i].closed_time + '</th>';
                     }
+                    shopping += '</tr>';
                 }
-                tabID.html(shopping);
+                $('#'+tabID+' tbody:eq(0)').html(shopping);
+                $('#'+tabID).attr('data-pagetotal',data.page_total)
+
+                if(pageState == 1){
+                    $('#'+tabID+' .pagination .pager').remove();
+                    $('#'+tabID+' .pagination').pagination({
+                        count: data.item_total, //总数
+                        size:10, //每页数量
+                        index: 1,//当前页
+                        lrCount: 3,//当前页左右最多显示的数量
+                        lCount: 1,//最开始预留的数量
+                        rCount: 1,//最后预留的数量
+                        callback: function (options) {
+                            var index = options.index -1;
+                            if(datas.keyword){
+                                indexAjax(tabID, {'status':datas.status,'page_total':true,'page':index,'keyword':datas.keyword})
+                            }else{
+                                indexAjax(tabID, {'status':datas.status,'page_total':true,'page':index})
+                            }
+                            //options.count = 300;
+                            //return options;
+                        },
+                    });
+                }
+
+
             },
             error: function (jqXHR) {
                 if (jqXHR.status == 400) {
@@ -43,30 +64,27 @@
         })
     }
 
-    indexAjax($('#all tbody:eq(0)'), {'status':'paid'},'wait');
-    indexAjax($('#wait tbody:eq(0)'), {'status':'paid'},'wait');
-    indexAjax($('#out tbody:eq(0)'), {'status':'deliver'},'out');
-    indexAjax($('#receive tbody:eq(0)'), {'status':'delivered'},'receive');
-    indexAjax($('#close tbody:eq(0)'), {'status':'closed'},'close');
+
+
+    indexAjax('all', {'page_total':true,'page':0,'status':''},1);
+    indexAjax('wait', {'status':'paied','page_total':true,'page':0},1);
+    indexAjax('out', {'status':'delivering','page_total':true,'page':0},1);
+    indexAjax('receive', {'status':'delivered','page_total':true,'page':0},1);
+    indexAjax('closes', {'status':'close','page_total':true,'page':0},1);
 
 
     //关闭接口暂时没写
-    $('.close').on('click',function(){
+    $('#content').on('click','.closeReason',function(e){
         var dataId = $(this).attr('data-id');
         $('#closeNews').attr('data-id',dataId);
-    })
+    });
+
     $('#closeNews').on('click', function () {
         var reason = $('#myModal textarea').val();
         var dataId = $(this).attr('data-id');
         $.ajax({
             type: 'PUT',
-            url: "http://" + backend_host + '/web/staff/order/market?'+dataId+'&'+token,
-            data: {
-                'operation_type':'close',
-                'close_reason': reason,
-                'deliver_company':'',
-                'deliver_order_no': ''
-            },
+            url: "http://" + backend_host + '/web/staff/order/goods/market/entity?order_id='+dataId+'&close_reason='+reason+'&'+token,
             dataType: 'json',
             success:function(data){
 
@@ -79,8 +97,9 @@
                     overdueToken()
                 }
             }
-        })
-
+        });
+        $('.'+dataId).find('.orderStatus').text('已关闭')
+        $('.'+dataId).find('.closeReason').hide()
     })
     //修改时间格式
     function ajaxTimeFormat(time) {
@@ -92,16 +111,13 @@
     });
     $('#timeInterval').on('apply.daterangepicker',function (e) {
         var time = $('#timeInterval').val().toString().split(' - ');
-        indexAjax($('#all tbody:eq(0)'), {
-            'status':'delivered',
+        indexAjax('all', {
+            'status':'',
             'start_date':ajaxTimeFormat(time[0]),
-            'end_date':ajaxTimeFormat(time[1])
-        },'receive');
-        console.log({
-            'status':'delivered',
-            'start_date':ajaxTimeFormat(time[0]),
-            'end_date':ajaxTimeFormat(time[1])
-        })
+            'end_date':ajaxTimeFormat(time[1]),
+            'page_total':true
+        },1);
+
     });
 
     $('#timeInterval').on('cancel.daterangepicker',function (e) {
@@ -114,24 +130,30 @@
     });
     $('#timeMain').on('apply.daterangepicker',function (e) {
         var time = $('#timeMain').val().toString().split(' - ');
-        indexAjax($('#all tbody:eq(0)'), {
+        indexAjax('receive', {
             'status':'delivered',
             'start_date':ajaxTimeFormat(time[0]),
-            'end_date':ajaxTimeFormat(time[1])
-        },'receive');
+            'end_date':ajaxTimeFormat(time[1]),
+            'page_total':true
+        },1);
     });
     
     function search(id,status) {
         $('#'+id).find('.search').on('click',function () {
-            indexAjax($('#all tbody:eq(0)'), {
-                'status':status,
-                'keyword':$('#'+id).find('input').val()
-            },'wait');
+            if($('#'+id).find('input').val() != ''){
+                indexAjax(id, {
+                    'status':status,
+                    'keyword':$('#'+id).find('input').val(),
+                    'page_total':true
+                },1);
+            }
         })
     }
-    search('all','paid')
-    search('deliver','out')
-    search('delivered','receive')
-    search('closed','close')
-    
+    search('all')
+    search('wait','paied')
+    search('out','out')
+    search('receive','receive')
+    search('closes','close')
+
+
 })(jQuery)

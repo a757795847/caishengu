@@ -11,10 +11,19 @@ td span {
 .box {
     margin-bottom: 0;
 }
+.box-footer {
+    border: none;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
 
 /*all*/
 #all tbody tr th, #detail tbody tr th {
     font-weight: inherit;
+}
+
+span.label.label-info.labelNone{
+    display: none;
 }
 
 .header-right {
@@ -128,6 +137,7 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
 }
 .table-responsive{
     margin-bottom: 20px;
+    min-height: 100px;
 }
 .btn.btn-default.btn-sm.pull-right{
     padding: 3px 20px;
@@ -140,3 +150,14 @@ button.btn.btn-default.col-md-1.col-lg-1.pull-right {
     border: 20px;
 
 }
+#delivery{
+    margin-bottom: 10px;
+}
+#deliverCompany .form-horizontal .form-group{
+    margin-right: 0;
+     margin-left: 0;
+}
+#provinces{
+    margin-bottom: 10px;
+}
+

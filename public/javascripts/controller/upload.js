@@ -21,7 +21,7 @@ function imagetokens() {
     return result;
 }
 
-function newQiniu(completeCallback, browse_button, container, file_token) {
+function newQiniu(completeCallback, browse_button, container, file_token,maxSize,mimeTypes) {
     return Qiniu.uploader({
         runtimes: 'html5,flash,html4',
         browse_button: browse_button, //'container',
@@ -29,7 +29,7 @@ function newQiniu(completeCallback, browse_button, container, file_token) {
         uptoken: file_token,
         unique_names: false,
         multi_selection: false,
-        max_file_size: '3mb',
+        max_file_size: maxSize+'mb',
         save_key: false,
         domain: 'http://qiniu-plupload.qiniudn.com/',
         get_new_uptoken: true,
@@ -37,7 +37,10 @@ function newQiniu(completeCallback, browse_button, container, file_token) {
         log_level: 5,
         filters: {
             mime_types: [
-                {title: "Image files", extensions: "jpg,jpeg,gif,png"}
+                {title: "Image files", extensions: mimeTypes},
+                // {title: "Image files", extensions: "jpg,jpeg,gif,png"},
+                // {title : "Pdf files", extensions : "pdf"},
+                // {title : "Mp3 files", extensions : "mp3"},
             ]
         },
         init: {
@@ -61,7 +64,7 @@ function newQiniu(completeCallback, browse_button, container, file_token) {
                 //var res = eval('(' + info + ')');
 
                 var src = 'http://' + backend_host + '/other/file/' + key + '?' + token;
-                completeCallback(key, src);
+                completeCallback(key, src, container);
             },
             'Error': function (up, err, errTip) {
 

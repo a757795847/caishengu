@@ -9,7 +9,7 @@
         success:function(data){
             console.log(data);
 
-            $('#poster').attr('src','http://' + backend_host +'/'+data.poster+'?'+token);
+            $('#poster').attr('src','http://' + backend_host +data.poster+'?'+token);
             $('#startDateTime').text(data.start_datetime);
             $('#endDateTime').text(data.end_datetime);
             $('#hostAddress').text(data.host_address);
@@ -43,6 +43,7 @@
     $('#noBtn').on('click',function(){
         var reason = $('#myModalWait textarea').val();
         stateAjax('reject',reason);
+        $('#myModalWait textarea').val('');
     })
     $('#yesBtn').on('click',function(){
         stateAjax('accept');

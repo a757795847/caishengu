@@ -77,7 +77,7 @@ GET        /user/detailed                controllers.UserController.detail
 GET        /love                         controllers.LoveController.index
 GET        /love/detail                  controllers.LoveController.detailed
 GET        /love/detail/add              controllers.LoveController.detailedAdd
-GET        /love/feedback                controllers.LoveController.feedback
+#GET        /love/feedback                controllers.LoveController.feedback
 
 #trends page
 GET        /trends                       controllers.TrendsController.index

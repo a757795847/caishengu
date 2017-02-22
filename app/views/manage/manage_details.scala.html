@@ -1,145 +1,135 @@
 @main("商户详情", "manage.index","finance") {
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-jvectormap-1.2.2.css")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/datepicker3.css")">
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/daterangepicker.css")">
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/EditTwo.css")">
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/controller/manage.css")">
 } {
-    <div class="content-wrapper row">
-        <section class="content">
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>财务管理</a></li>
-                <li class="active">商户详情</li>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <ol class="breadcrumb pull-left">
+                <li><a href="/manage"><i class="fa fa-video-camera"></i>财务管理</a></li>
+                <li><a href="javascript:;">商户详情</a></li>
             </ol>
-
-                <!-- TABLE: LATEST ORDERS -->
-            <div class="col-md-10 col-lg-10">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-
-
-
-                            <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <a href="/manage" class="btn btn-primary btn-lg active" role="button" id="turn">返回</a>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2"id="shanghu">商户信息</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>商户ID:<span id="shop_id">12545454</span></td>
-                                            <td>联系人:<span id="contact_person">张三</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>联系方式:<span id="contact_phone">215465456</span></td>
-                                            <td>商店名称:<span id="shop_name">水果店</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>商户地址:<span id="shop_address">第一大道</span></td>
-                                            <td>收款账号:<span id="shop_account">1214354564</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>商户收款二维码:<span id="shop_code"></span></td>
-                                            <td>开户行:<span id="shop_banks">中国银行-杭州西城支行</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-bordered" id="two">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">收银信息</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="font-size:12px;">上次结算日期:<span id="last_settle_date">2014-12-5</span> <button type="button" class="btn btn-block btn-default"id="Btnfifa">
-                                                申请结算
-                                            </button><span style="display:none;">本次结算21412元</span></td>
-                                            <td><a href="/manage/history">查看历史记录</a></td>
-                                        </tr>
-
-                                    </tbody>
-
-                                </table>
-                            </div>
-                                <!-- /.table-responsive -->
-                        </div>
-                            <!-- /.box-body -->
-                            <!-- /.box-footer -->
-                    </div>
-                </div>
-                <div id="echo">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">日期</h3>
-                        </div>
-                        <div class="box-body">
-                                <!-- Date -->
-                            <div class="form-group">
-                                <label>起始时间</label>
-
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right" id="datepicker">
-                                </div>
-                                    <!-- /.input group -->
-                            </div>
-                                <!-- /.form group -->
-
-                                <!-- Date range -->
-                            <div class="form-group">
-                                <label>结束时间</label>
-
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right" id="Kobe">
-                                </div>
-                                    <!-- /.input group -->
-                            </div>
-                                <!-- /.form group -->
-
-                                <!-- Date and time range -->
-                            <button type="btn"class="btn btn-default" data-toggle="modal" id="confirm">确定</button>
-                            <button type="btn"class="btn btn-default" id="clear">清除</button>
-                        </div>
-                            <!-- Date and time range -->
-                            <!-- /.form group -->
-                    </div>
-
-
-                </div>
-
-                    <!-- /.box -->
-            </div>
-                <!-- /.col -->
         </section>
+        <section class="content">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                        <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <a href="/manage" class="btn btn-primary btn-lg" role="button" id="turn">返回</a>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2"id="shanghu">商户信息</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>商户ID:<span id="shop_id">12545454</span></td>
+                                        <td>联系人:<span id="contact_person">张三</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>联系方式:<span id="contact_phone">215465456</span></td>
+                                        <td>商店名称:<span id="shop_name">水果店</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>商户地址:<span id="shop_address">第一大道</span></td>
+                                        <td>收款账号:<span id="shop_account">1214354564</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>商户收款二维码:<span id="shop_code"></span></td>
+                                        <td>开户行:<span id="shop_banks">中国银行-杭州西城支行</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered" id="two">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">收银信息</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size:12px;">上次结算日期:<span id="last_settle_date">2014-12-5</span> <button data-toggle="modal" data-target="#settlement" type="button" class="btn btn-block btn-default" id="Btnfifa">
+                                            申请结算
+                                        </button><span style="display:none;">本次结算21412元</span></td>
+                                        <td><a id="history">查看历史记录</a></td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                            <!-- /.table-responsive -->
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">申请结算</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <div class="form-group">
+                            <label>申请时间</label>
+                            <div class="input-group" >
+                                <div class="input-group-addon">
+                                    <i class="fa fa-folder"></i>
+                                </div>
+                                <input id="settlementTime" type="text" class="form-control" readonly="value">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>申请金额</label>
+                            <div class="input-group" >
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input id="settlementNum" type="text" class="form-control"  readonly="value">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button id="ticketAdd" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="modal fade bs-example-modal-bottom" id="settlement" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">日期</h4>
                     </div>
                     <div class="modal-body">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                申请结算:<span>2015-4-24到2016-3-21期间</span>
-                                <p>3245元</p>
+                                <div class="col-sm-12">
+                                    <label>选择日期</label>
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                    </div>
+                                        <!-- /.input group -->
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal">确定</button>
-                        <button class="btn btn-default" data-dismiss="modal">清除</button>
+                        <button type="button" class="btn btn-default btnList" id="clear" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-default btnList" id="confirm" >确定</button>
                     </div>
                 </div>
             </div>
@@ -147,14 +137,10 @@
 
     </div>
 } {
-    <script src="@routes.Assets.at("javascripts/select2.full.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.date.extensions.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.extensions.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.inputmask.js")"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.js")"></script>
-    <script src="@routes.Assets.at("javascripts/bootstrap-datepicker.zh-CN.js")"></script>
-    <script src="@routes.Assets.at("javascripts/EditTwo.js")"></script>
+    <script src="@routes.Assets.at("javascripts/moment.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/daterangepicker.js")"></script>
+
+    <script src="@routes.Assets.at("javascripts/controller/manage/details.js")"></script>
 }
 
 
