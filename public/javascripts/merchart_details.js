@@ -45,7 +45,6 @@ $(document).ready(function () {
 });
     $("#confirm").click(function(){
         $(".example-modal").css("display","none");
-
     });
     
 $("#keep").click(function(){

@@ -19,23 +19,10 @@ $("#resetting").click(function(){
 
 });
 
-/*var url=window.location.href;
+var url=window.location.href;
 var indexOf=url.indexOf("?");
 var val=url.substr(indexOf+1);
-console.info("value", val);*/
 
-
-var val = window.location.search.slice(1);
-console.info("admin_details_type", val);
-
-
-function errorMessage(text) {
-    $('#error').text(text);
-    $('#error').css('top','0');
-    setTimeout(function () {
-        $('#error').css('top','-54px');
-    },1000)
-}
 
 $(document).ready(function () {
 
@@ -46,6 +33,32 @@ $(document).ready(function () {
         $("#remove").css("display", "inline-block");
         $.getJSON("http://" + backend_host + '/web/admin/manage/staff/' + val + '?access_token=11a75c2681eb7ee5f0d0873ac2dfa6f1',
 
+        function (data){
+            console.log(data.staff_name);
+            $("#admin_id").text(data.staff_id);
+            $("#admin_name").val(data.staff_name);
+            $("#admin_tel").val(data.staff_phone);
+            $("#statistics").attr("checked",data.statistic);
+            $("#User_related").attr("checked",data.user_related);
+            $("#Investor").attr("checked",data.investor);
+            $("#Shareholder").attr("checked",data.shareholder);
+            $("#Mall_orders").attr("checked",data.order);
+            $("#Tripute").attr("checked",data.goods_virtual);
+            $("#Financial").attr("checked",data.finance);
+            $("#Activity").attr("checked",data.activity);
+            $("#Project").attr("checked",data.project);
+            $("#Circle").attr("checked",data.quanzi);
+            $("#Caishengu").attr("checked",data.news_caishengu);
+            $("#Financing").attr("checked",data.news_financing);
+            $("#Business").attr("checked",data.news_innovation);
+            $("#goods_market").attr("checked",data.goods_market);
+            $("#goods_ticket").attr("checked",data.goods_ticket);
+            $("#finance_approve").attr("checked",data.finance_approve);
+            $("#coupon").attr("checked",data.coupon);
+            $("#donate").attr("checked",data.donate);
+            $("#caishengu_trend").attr("checked",data.caishengu_trend);
+            $("#caishengu_introduction").attr("checked",data.caishengu_introduction);
+            $("#caishengu_live").attr("checked",data.caishengu_live);
             function (data) {
                 $("#admin_id").text(data.staff_id);
                 $("#admin_name").val(data.staff_name);
