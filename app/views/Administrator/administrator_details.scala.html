@@ -74,7 +74,7 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="goods_market"></td>
-                                                <td class="mailbox-date"><span>在线商城货架管理</span></td>
+                                                <td class="mailbox-date"><span>商城货架</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="Tripute"></td>
@@ -82,7 +82,7 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="goods_ticket"></td>
-                                                <td class="mailbox-date"><span>门票管理</span></td>
+                                                <td class="mailbox-date"><span>门票管理todo</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="finance_approve"></td>
@@ -98,11 +98,11 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="coupon"></td>
-                                                <td class="mailbox-date"><span>优惠券管理</span></td>
+                                                <td class="mailbox-date"><span>优惠券</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="donate"></td>
-                                                <td class="mailbox-date"><span>爱心捐赠管理</span></td>
+                                                <td class="mailbox-date"><span>爱心捐赠</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="Project"></td>
@@ -126,22 +126,42 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="caishengu_trend"></td>
-                                                <td class="mailbox-date"><span>财神谷动态管理</span></td>
+                                                <td class="mailbox-date"><span>动态</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="caishengu_introduction"></td>
-                                                <td class="mailbox-date"><span>财神谷介绍管理</span></td>
+                                                <td class="mailbox-date"><span>介绍</span></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" id="caishengu_live"></td>
-                                                <td class="mailbox-date"><span>财神谷现场直播管理</span></td>
+                                                <td class="mailbox-date"><span>直播</span></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td><input type="checkbox" id="youfei_mobab"></td>
+                                                <td class="mailbox-date"><span>邮费模板</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="caishen_xiang"></td>
+                                                <td class="mailbox-date"><span>财神像</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="jieqian_guanli"></td>
+                                                <td class="mailbox-date"><span>解签管理</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="gongpin_huojia"></td>
+                                                <td class="mailbox-date"><span>贡品货架</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                         <!-- /.table -->
-                                    <button class="btn btn-block btn-default btn-flat" id="target">保存</button>
-
-
+                                    <div class="admin-btn">
+                                        <button class="btn btn-default btn-flat" id="target">保存</button>
+                                        <button type="button" id="remove" class="btn btn-default"  data-toggle="modal" data-target="#myModal"><a>删除</a></button>
+                                    </div>
+                                </div>
                             </div>
 
                                 <!-- /.table-responsive -->
@@ -176,6 +196,42 @@
                 <!-- /.modal-dialog -->
         </div>
             <!-- /.modal -->
+    </div>
+
+
+    <div class="modal fade bs-example-modal-close" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myClose"></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btnList" data-dismiss="modal">取消</button>
+                    <button type="button" id="closeName" class="btn btn-default btnList" data-dismiss="modal">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12 eacho">
+                                <h4>确定删除该类别?</h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clear">取消</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="comfirm">确定</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 

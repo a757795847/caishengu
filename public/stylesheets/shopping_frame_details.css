@@ -150,6 +150,10 @@ div.footer .shopping-frame-details-remove {
     display: none;
 }
 
+div.footer .shopping-frame-details-remove a{
+    color: #FFF;
+}
+
 div.shopping-frame-details-hint {
     color: #666;
     font-size: 12px;

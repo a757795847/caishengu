@@ -194,3 +194,9 @@ span.form-validation1, .form-validation2 {
     font-size: 12px;
     display: none;
 }
+
+div.qrcode {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+}

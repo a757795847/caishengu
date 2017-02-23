@@ -59,7 +59,7 @@
                     </table>
                     <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_4">请填写规格尺寸</span>
                     <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_chi_cun1">请输入数字（重量、财神币）</span>
-                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_chi_cun2">请输入正整数数字（积分、数量）</span>
+                    <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_chi_cun2">请输入整数数字（积分、数量）</span>
                     <table id="Table">
                             <tr>
                                 <td>厂商:</td>
@@ -109,7 +109,8 @@
                     <span class="shopping-frame-details-common-hint" id="shpping_frame_details_hint_7">请至少上传一张图片</span>
 
                     <div class="footer">
-                        <button class="btn btn-default black shopping-frame-details-remove" id="delete">删除</button>
+                        @*<button class="btn btn-default black shopping-frame-details-remove" id="delete">删除</button>*@
+                        <button type="button" id="delete" class="btn btn-default black btn-default shopping-frame-details-remove"  data-toggle="modal" data-target="#myModal"><a>删除</a></button>
                         <button class="btn btn-default black" id="keep">保存到仓库</button>
                     </div>
                 </div>
@@ -117,6 +118,26 @@
         </section>
 
             <!-- /.content -->
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12 eacho">
+                                <h4>确定删除该类别?</h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clear">取消</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="comfirm">确定</button>
+                </div>
+            </div>
+        </div>
     </div>
 } {
     <script src="@routes.Assets.at("javascripts/moxie.js")"></script>

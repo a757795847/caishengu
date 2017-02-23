@@ -14,15 +14,15 @@
                     <div id="caishen" class="add">
                         <p>财神像</p>
                         <div class="clear">
-                            <button type="button" class="btn btn-default btn-sm col-md-1 col-lg-1 "><a href="#"  data-toggle="modal" data-target="#addcaishen">新增财神像</a></button>
+                            <button type="button" class="btn btn-default btn-sm col-md-1 col-lg-1 "><a data-toggle="modal" data-target="#addcaishen">新增财神像</a></button>
                         </div>
                         <div class="caishen clear">
 
                         </div>
                     </div>
                     <p>十二生肖财神</p>
-                    <div id="chinese" class="clear">
-                        <div class="add clear">
+                    <div id="chinese_sheng_xiao" class="clear">
+                        @*<div class="add clear">
                             <div id="mouse" role="tabpanel" class="tab-pane fade in active pull-left mRight" aria-labelledby="demo-tab">
                                 <div>
                                     <div class="addImg" id="mouses">
@@ -141,6 +141,12 @@
                                 </div>
                             </div>
                             <p>猪</p>
+                        </div>*@
+                        <div class="clear">
+                            <button type="button" class="btn btn-default btn-sm col-md-1 col-lg-1 "><a data-toggle="modal" data-target="#addshengxiao">新增生肖像</a></button>
+                        </div>
+                        <div class="sheng-xiao-xiang clear">
+
                         </div>
                     </div>
                     <p>背景音乐</p>
@@ -176,7 +182,7 @@
                 </div>
                 <div class="modal-body" >
                     <div class="form-group">
-                        <label>财神像名字</label>
+                        <label>生肖像名字</label>
                         <div class="input-group" >
                             <div class="input-group-addon">
                                 <i class="fa fa-folder"></i>
@@ -197,10 +203,11 @@
                             </div>
                         </div>
                     </div>
+                    <span class="wealth-index-message" id="wealth_index_message">财神像名字和图片不能为空</span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="ticketCancel" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button id="addcaishenBtn" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
+                    <button id="addcaishenBtn" type="button" class="btn btn-default">新增</button>
                 </div>
             </div>
         </div>
@@ -220,14 +227,13 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-folder"></i>
                             </div>
-                            <input  type="text" class="form-control ticketName" >
+                            <input  type="text" class="form-control ticketName" id="wealth_index_caishenxiang_input" >
                         </div>
                     </div>
                     <div class="add">
-                        <div role="tabpanel" id="addImgs" class="tab-pane fade in active" aria-labelledby="demo-tab">
-                            <div  id="fsUploadProgress">
-
-                                <div class="btn btn-default" id="container">
+                        <div role="tabpanel" id="addImgs_edit" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div id="fsUploadProgress_edit">
+                                <div class="btn btn-default" id="container_edit">
                                     <a id="pickfiles" href="#" >
                                         <i class="glyphicon glyphicon-plus"></i>
                                         <span>上传图片</span>
@@ -239,7 +245,48 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="ticketCancel" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button id="addcaishenBtn" type="button" class="btn btn-default" data-dismiss="modal">新增</button>
+                    <button id="editcaishenBtn" type="button" class="btn btn-default">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="addshengxiao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span> <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增生肖像</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="form-group">
+                        <label>生肖像名字</label>
+                        <div class="input-group" >
+                            <div class="input-group-addon">
+                                <i class="fa fa-folder"></i>
+                            </div>
+                            <input  type="text" class="form-control ticketName_shengxiao" >
+                        </div>
+                    </div>
+                    <div class="add">
+                        <div role="tabpanel" id="addImgs_shengxiao_add" class="tab-pane fade in active" aria-labelledby="demo-tab">
+                            <div  id="fsUploadProgress">
+
+                                <div class="btn btn-default" id="container_shengxiao_add">
+                                    <a id="pickfiles" href="#" >
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>上传图片</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="wealth-index-message" id="wealth_index_message_sheng_xiao">财神像名字和图片不能为空</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="ticketCancel" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="addshengxiaoBtn" type="button" class="btn btn-default">新增</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 var detailUrl = window.location.search.slice(1, 2);
 console.info("detailUrl", detailUrl);
 if(detailUrl == 1 ){
-    console.info("进入编辑");
+    console.info("进入编辑1");
 
     var goods_id = window.location.search.slice(6);
     console.info("goods_id", goods_id);
@@ -13,19 +13,11 @@ if(detailUrl == 1 ){
         dataType:'json',
         success:function(data){
             console.log(data);
-            /*var imageBoxs = '',mageChange = '';
-            // for(var i=0;i<data.images.length;i++){
-            //     imageChange = data.images[i].split('/')[3];
-                imageBoxs += '<div class="imgBox"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                imageBoxs += '<img src="http://' + backend_host +data.gz_image+'?'+token+'"></div>';
-                // images = imageChange[0];
-                $('#container').hide();
-            // }*/
             var imageBoxs = '';
             imageBoxs += '<div class="imgBox"><button type="button" data-name="" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
             imageBoxs += '<img src="http://'+backend_host+''+data.gz_image+'?'+token+'"></div>';
             $('#container').hide();
-            console.log(imageBoxs   );
+            console.log(imageBoxs);
             $('#container').before(imageBoxs);
 
 
@@ -57,7 +49,7 @@ if(detailUrl == 1 ){
                 overdueToken()
             }
         }
-    })
+    });
 
     $('#saveGoods').on('click',function(){
         var title_project = $('#title_project').val();
@@ -138,7 +130,7 @@ if(detailUrl == 1 ){
                 }
             }
         })
-    })
+    });
 
     $(".tribute-frame-detail-remove").click(function () {
         $("#comfirm").click(function () {
@@ -272,41 +264,8 @@ if(detailUrl == 1 ){
 
 }
 
-/*function changeDetailAjax(url,frame){
-    var title = $('#title').val();
-    var priceCoin = $('#priceCoin').val();
-    var pricePoint = $('#pricePoint').val();
-    images = [images];
-    console.log(images);
-    $.ajax({
-        type:'PUT',
-        url:url,
-        data:{
-            'images': images,
-            'title':title,
-            'price_point': pricePoint,
-            'price_coin': priceCoin,
-            'introduction': 'sddsadas',
-            'valid':frame
-        },
-        dataType:'json',
-        success:function(data){
-            console.log(data);
-            location.href = '/tribute/frame';
-        },
-        error:function(jqXHR){
-            if(jqXHR.status == 400){
 
-            }
-            if(jqXHR.status == 401){
-                overdueToken()
-            }
-        }
-    })
-}*/
-
-
-newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token);
+newQiniu(fileUploadCompleteCallback, 'container', 'addImgs', imagetokens().token,1,"jpg,jpeg,gif,png");
 
 var image = "";
 function fileUploadCompleteCallback(key, src) {
@@ -335,7 +294,7 @@ $('#fsUploadProgress').on('click ', '.imgBox button', function (e) {
 })
 
 
-newQiniu(fileUploadCompleteCallback_shelves, 'container_shelves', 'addImgs_shelves', imagetokens().token);
+newQiniu(fileUploadCompleteCallback_shelves, 'container_shelves', 'addImgs_shelves', imagetokens().token,1,"jpg,jpeg,gif,png");
 
 var image_shelves = "";
 function fileUploadCompleteCallback_shelves(key, src) {

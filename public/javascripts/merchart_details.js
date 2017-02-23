@@ -37,7 +37,7 @@ $(document).ready(function () {
                 $("#account").val(data.account);
                 $("#money").text(data.remain);
                 $("#openbank").val("中国银行-西城分行");
-
+                jQuery('#qrcode').qrcode({width: 100,height: 100,correctLevel:0,text: data.id});
             })
     } else {
         $(".merchart-details-message").css("display", "none");

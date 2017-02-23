@@ -498,7 +498,7 @@ $(function () {
         })
     } else {
         var goodsId = window.location.search.slice(4);
-        // console.info("goodsId", goodsId);
+        console.info("goodsId", goodsId);
         $(".shopping-frame-details-remove").css("display", "inline-block");
 
 
@@ -577,7 +577,7 @@ $(function () {
                     $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
                     $("#shpping_frame_details_hint_4").css("display", "none");
                     $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
-                } else if (!/^[0-9]*[1-9][0-9]*$/.test(point) || !/^[0-9]*[1-9][0-9]*$/.test(number)) {
+                } else if (!/^(0|[1-9][0-9]*)$/.test(point) || !/^(0|[1-9][0-9]*)$/.test(number)) {
                     $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
                     $("#shpping_frame_details_hint_4").css("display", "none");
                     $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
@@ -848,7 +848,7 @@ $(function () {
                         $("#shpping_frame_details_hint_chi_cun1").css("display", "inline-block");
                         $("#shpping_frame_details_hint_4").css("display", "none");
                         $("#shpping_frame_details_hint_chi_cun2").css("display", "none");
-                    } else if (!/^[0-9]*[1-9][0-9]*$/.test(point) || !/^[0-9]*[1-9][0-9]*$/.test(number)) {
+                    } else if (!/^(0|[1-9][0-9]*)$/.test(point) || !/^(0|[1-9][0-9]*)$/.test(number)) {
                         $("#shpping_frame_details_hint_chi_cun2").css("display", "inline-block");
                         $("#shpping_frame_details_hint_4").css("display", "none");
                         $("#shpping_frame_details_hint_chi_cun1").css("display", "none");
@@ -864,7 +864,8 @@ $(function () {
                             "spec": spec,
                             "coin": parseFloat(coin),
                             "point": parseFloat(point),
-                            "number": parseFloat(number)
+                            "number": parseFloat(number),
+                            "goods_id": goodsId
                         };
                         console.info("modification_data", modification_data);
                         $.ajax({
@@ -1088,7 +1089,8 @@ $(function () {
                     $(this).parent().parent().remove();
                 });
 
-                $("#delete").click(function () {
+                $("#comfirm").click(function () {
+                    // console.info("goodsId", goodsId);
                     $.ajax({
                         type: 'DELETE',
                         contentType: 'application/json',
@@ -1109,7 +1111,7 @@ $(function () {
                         }
 
                     })
-                })
+                });
 
 
                 $("#keep").click(function () {
@@ -1146,7 +1148,7 @@ $(function () {
                         // "class_label_list": type_list_data,
                         "postage": postage,
                         "introduce_images": images_down_data
-                    }
+                    };
                     console.info("edit_data", edit_data);
 
                     $.ajax({

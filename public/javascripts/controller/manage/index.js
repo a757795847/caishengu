@@ -8,7 +8,7 @@
             contentType:'application/json',
             dataType:'json',
             success:function(data){
-                console.log(data);
+                console.log("data", data);
                 var manages = '';
                 for (var i = 0; i < data.list.length; i++) {
                     manages += '<tr><td>'+data.list[i].shop_id+'</td><td>'+data.list[i].shop_name+'</td><td>'+data.list[i].contact_person+'</td>';
